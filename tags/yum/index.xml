@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yum on Lunatine&#39;s Box</title>
-    <link>https://example.com/tags/yum/</link>
+    <link>https://lunatine.github.io/tags/yum/</link>
     <description>Recent content in yum on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lunatine</copyright>
     <lastBuildDate>Thu, 12 Jun 2014 06:06:12 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/yum/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/yum/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>yum 저장소에서 checksum error 발생</title>
-      <link>https://example.com/posts/yum-repository-checksum-error/</link>
+      <link>https://lunatine.github.io/posts/yum-repository-checksum-error/</link>
       <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
       
-      <guid>https://example.com/posts/yum-repository-checksum-error/</guid>
+      <guid>https://lunatine.github.io/posts/yum-repository-checksum-error/</guid>
       <description>yum checksum error 증상  yum 저장소를 새로 생성하였으나 해당 목록을 받아올 때 아래 메시지 발생
 Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.com/rhel/5Server/x86_64/5.10/repodata/primary.xml.gz: [Errno -3] Error performing checksum Trying other mirror.  발생 조건
  RHEL5 저장소를 RHEL6에서 생성하였을 경우   원인 및 해결방안 createrepo로 저장소를 생성 할 때 저장소 정보를 RHEL5의 Checksum은 SHA-1 기반으로 되어있는 반면에 RHEL6의 경우는 SHA-256으로 생성하기 때문에 RHEL5에서 해당 저장소를 사용하려고 하면 오류가 발생하는 것이다.</description>

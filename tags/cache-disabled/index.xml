@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cache disabled on Lunatine&#39;s Box</title>
-    <link>https://example.com/tags/cache-disabled/</link>
+    <link>https://lunatine.github.io/tags/cache-disabled/</link>
     <description>Recent content in cache disabled on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lunatine</copyright>
     <lastBuildDate>Tue, 17 Jun 2014 10:20:13 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/cache-disabled/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/cache-disabled/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Smart Array P420 캐시 비활성화 증상</title>
-      <link>https://example.com/posts/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</link>
+      <link>https://lunatine.github.io/posts/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</link>
       <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
       
-      <guid>https://example.com/posts/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</guid>
+      <guid>https://lunatine.github.io/posts/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</guid>
       <description>Smart Array Cache 비활성화 증상  본 문서는 Smart Array 컨트롤러(P420, P420i, P421 등)에서 발생하는 캐시 비활성화 증상과 해결방법에 대해서 소개하고 있습니다.
  증상  시스템의 I/O 성능이 낮음
  Smart Array 컨트롤러의 캐시가 비 활성화 되어있음 컨트롤러 상태 정보 확인 결과 Capacitor 충전상태에 문제가 있으며 임시로 비활성화 되어있음을 확인할 수 있습니다.   컨트롤러 상태 메시지

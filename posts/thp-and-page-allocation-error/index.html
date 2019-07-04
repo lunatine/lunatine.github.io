@@ -15,8 +15,8 @@ page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu 
 <meta property="og:description" content="1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
 page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&lt;ffffffff8112c207&gt;] ? __alloc_pages_nodemask&#43;0x757/0x8d0 kernel: [&lt;ffffffff81010ff6&gt;] ? dma_generic_alloc_coherent&#43;0xa6/0x160 kernel: [&lt;ffffffff8103c8f1&gt;] ? x86_swiotlb_alloc_coherent&#43;0x31/0x70 kernel: [&lt;ffffffffa002e74a&gt;] ? pci_alloc_consistent&#43;0x5a/0xc0 [mpt2sas] kernel: [&lt;ffffffffa0030155&gt;] ? _ctl_do_mpt_command&#43;0x7c5/0xcb0 [mpt2sas] kernel: [&lt;ffffffff8119abe7&gt;] ? __d_lookup&#43;0xa7/0x150 kernel: [&lt;ffffffffa0030762&gt;] ? _ctl_compat_mpt_command&#43;0x122/0x160 [mpt2sas] kernel: [&lt;ffffffff8150f026&gt;] ? mutex_lock_interruptible&#43;0x16/0x50 kernel: [&lt;ffffffffa003167b&gt;] ? _ctl_ioctl_main&#43;0x5cb/0x1070 [mpt2sas] kernel: [&lt;ffffffff81193010&gt;] ?">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://example.com/posts/thp-and-page-allocation-error/">
-        <link rel="stylesheet" href="https://example.com/dist/styles.css">
+<meta property="og:url" content="https://lunatine.github.io/posts/thp-and-page-allocation-error/">
+        <link rel="stylesheet" href="https://lunatine.github.iodist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
@@ -32,10 +32,10 @@ page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu 
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                                <a title="Lunatine&#39;s Box" href="https://lunatine.github.io">Lunatine&#39;s Box</a>
                             </h1>
                         
-                        <a class="button-square" href="https://example.com/index.xml"><i class="fa fa-rss"></i></a>
+                        <a class="button-square" href="https://lunatine.github.ioindex.xml"><i class="fa fa-rss"></i></a>
                         
                         
                         
@@ -196,7 +196,7 @@ fi
 
     <div class="share">
         
-            <a class="icon-twitter" href="https://twitter.com/share?text=Transparent%20Huge%20Pages%20%ec%99%80%20page%20allocation%20error&url=https%3a%2f%2fexample.com%2fposts%2fthp-and-page-allocation-error%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=Transparent%20Huge%20Pages%20%ec%99%80%20page%20allocation%20error&url=https%3a%2f%2flunatine.github.io%2fposts%2fthp-and-page-allocation-error%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
@@ -204,7 +204,7 @@ fi
         
 
         
-            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fposts%2fthp-and-page-allocation-error%2f"
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flunatine.github.io%2fposts%2fthp-and-page-allocation-error%2f"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
                 <span class="hidden">Facebook</span>
@@ -225,7 +225,7 @@ fi
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                        <a title="Lunatine&#39;s Box" href="https://lunatine.github.io">Lunatine&#39;s Box</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fa fa-angle-up"></i>
@@ -242,14 +242,14 @@ fi
             </div>
         </footer>
 
-        <script src="https://example.com/js/jquery-1.11.3.min.js"></script>
-        <script src="https://example.com/js/jquery.fitvids.js"></script>
+        <script src="https://lunatine.github.iojs/jquery-1.11.3.min.js"></script>
+        <script src="https://lunatine.github.iojs/jquery.fitvids.js"></script>
         
         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         
         
-        <script src="https://example.com/js/scripts.js"></script>
+        <script src="https://lunatine.github.iojs/scripts.js"></script>
     </body>
 </html>
 

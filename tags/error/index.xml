@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>error on Lunatine&#39;s Box</title>
-    <link>https://example.com/tags/error/</link>
+    <link>https://lunatine.github.io/tags/error/</link>
     <description>Recent content in error on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lunatine</copyright>
     <lastBuildDate>Tue, 19 Aug 2014 05:55:07 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/error/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/error/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux : 기호 연결의 단계가 너무 많음</title>
-      <link>https://example.com/posts/linux-too-many-levels-of-symbolic-links/</link>
+      <link>https://lunatine.github.io/posts/linux-too-many-levels-of-symbolic-links/</link>
       <pubDate>Tue, 19 Aug 2014 05:55:07 +0000</pubDate>
       
-      <guid>https://example.com/posts/linux-too-many-levels-of-symbolic-links/</guid>
+      <guid>https://lunatine.github.io/posts/linux-too-many-levels-of-symbolic-links/</guid>
       <description>무슨 의미지? Linux 시스템을 사용하다가 &amp;ldquo;기호 연결의 단계가 너무 많음&amp;rdquo;이라는 메시지를 만나게 되는 경우가 있다. 사람에 따라 다르겠지만 주변 반응으로 보아서 쉽게 의미가 파악되지 않는 것으로 보인다. 사실 ko_KR.UTF-8 로케일처럼 한글기반 언어설정이 된 시스템에서만 볼 수 있는 메시지로 영문 메시지는 아래와 같다.
 Too many levels of symbolic links
 즉, 심볼릭링크의 단계가 너무 많아서 발생하는 오류다. 대부분 이 경우는 무한반복(Self Looping)형태로 링크가 걸린 심볼릭링크 파일 때문에 발생한다. 예를 들면, 아래와 같이</description>
@@ -25,10 +25,10 @@ Too many levels of symbolic links
     
     <item>
       <title>brew error on Mac OS X 10.10 (yosemite)</title>
-      <link>https://example.com/posts/brew-error-on-mac-os-x-10-10-yosemite/</link>
+      <link>https://lunatine.github.io/posts/brew-error-on-mac-os-x-10-10-yosemite/</link>
       <pubDate>Mon, 28 Jul 2014 08:20:31 +0000</pubDate>
       
-      <guid>https://example.com/posts/brew-error-on-mac-os-x-10-10-yosemite/</guid>
+      <guid>https://lunatine.github.io/posts/brew-error-on-mac-os-x-10-10-yosemite/</guid>
       <description>brew error LunaMac:~ lunatine$ brew /usr/local/bin/brew: /usr/local/Library/brew.rb: /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby: bad interpreter: No such file or directory /usr/local/bin/brew: line 23: /usr/local/Library/brew.rb: Undefined error: 0  Mac OS X 10.10 Yoseimite가 Public Beta로 공개되어서 업데이트를 진행하였는데 brew가 제대로 동작하지 않았다. 오류메시지가 No such file or directory 인 것으로 보아 인터프리터 경로가 바뀐걸로 보인다.
 그래서 Mac OS X의 Ruby 프레임워크 경로를 찾아보니 역시나 바뀌었다.
 원인  기존 10.9 (Mavericks)에서는 Ruby 1.8 기준으로 인터프리터 경로가 설정되었으나 10.</description>
@@ -36,10 +36,10 @@ Too many levels of symbolic links
     
     <item>
       <title>RHEL/CentOS 6에서 heartbeat 오류</title>
-      <link>https://example.com/posts/epel-6-heartbeat-error/</link>
+      <link>https://lunatine.github.io/posts/epel-6-heartbeat-error/</link>
       <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
       
-      <guid>https://example.com/posts/epel-6-heartbeat-error/</guid>
+      <guid>https://lunatine.github.io/posts/epel-6-heartbeat-error/</guid>
       <description>EPEL6 - heartbeat error  본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.
  환경 및 증상  운영체제 : RHEL 6.4 이하 EPEL 패키지
  heartbeat-3.0.4-2.el6.[i386/x86_64].rpm heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm  증상
@@ -49,10 +49,10 @@ Jun 16 14:03:16 server1 heartbeat: [720]: ERROR: glib: ucast: error setting opti
     
     <item>
       <title>mount : already mounted or busy 메시지</title>
-      <link>https://example.com/posts/mount-already-mounted-or-busy-mesiji/</link>
+      <link>https://lunatine.github.io/posts/mount-already-mounted-or-busy-mesiji/</link>
       <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
       
-      <guid>https://example.com/posts/mount-already-mounted-or-busy-mesiji/</guid>
+      <guid>https://lunatine.github.io/posts/mount-already-mounted-or-busy-mesiji/</guid>
       <description>환경 및 증상 디스크 교체 및 비RAID 환경에서 아래와 같은 메시지와 함께 마운트가 되지 않는 증상 발생
 $ mount -t ext4 /dev/sdb1 /disk/2 mount : /dev/sdb1 already mounted or /disk/2 busy  원인 교체 된 디스크에 다른 곳에서 설정 된 RAID flag 정보가 남아있거나 dmraid가 RAID 멤버로 잘못 인지한 경우에 발생.
 해결 Case 1. dmraid 아래 명령을 통해서 dmraid가 해당 디스크를 RAID 구성원으로 판단하고 있는지 확인이 가능.
@@ -61,10 +61,10 @@ $ dmraid -s  dmraid 패키지를 통해 RAID를 사용하지 않는다면 해당
     
     <item>
       <title>[FAQ] libudev.so.0 라이브러리 오류</title>
-      <link>https://example.com/posts/faq-libudev-so-0-raibeureori-oryu/</link>
+      <link>https://lunatine.github.io/posts/faq-libudev-so-0-raibeureori-oryu/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:43 +0000</pubDate>
       
-      <guid>https://example.com/posts/faq-libudev-so-0-raibeureori-oryu/</guid>
+      <guid>https://lunatine.github.io/posts/faq-libudev-so-0-raibeureori-oryu/</guid>
       <description>Error while loading shared libraries (libudev.so.0)  오류메시지  error while loading shared libraries: libudev.so.0: cannot open shared object file
  환경 - Ubuntu 13.04 또는 Linux Mint 15 (64bit)  Ubuntu 저장소를 이용한 패키지 설치가 아닌 외부 패키지를 설치했을 때 이런 메시지를 종종 볼 수 있는데 오류 메시지 그대로 라이브러리를 찾지 못해서 발생하는 메시지이다. 아래 명령을 통해서 쉽게 수정 할 수 있다.
 $ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>
@@ -72,10 +72,10 @@ $ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>
     
     <item>
       <title>[FAQ] Synergy 서버 실행 오류 해결 방안</title>
-      <link>https://example.com/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
+      <link>https://lunatine.github.io/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:12 +0000</pubDate>
       
-      <guid>https://example.com/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
+      <guid>https://lunatine.github.io/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
       <description>Synergy 최근에 MBP를 마련하면서 Windows와 번갈아가면서 하는 작업이 늘게 되어서 Synergy를 사용하게 되었는데 설정을 바꿔가며 테스트 하다가 이상한 증상이 발견되어 이를 해결하는 방법을 공유 하고자 한다.
 환경 및 증상  환경 : Synergy 서버는 Windows7 64bit 버전 증상 : Synergy 서버를 종료 했다가 다시 실행하면 아래와 같은 오류 메시지가 발생하면서 실행되지 않음  ERROR: failed to initialize hook library, is synergy already running? FATAL: failed to start server: unable to open screen   해결방법 먼저, 알아두어야 할 것은 Synergy 서버프로세스가 이미 떠 있다면 종료 시키면 해결된다.</description>
     </item>

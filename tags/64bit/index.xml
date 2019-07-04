@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>64bit on Lunatine&#39;s Box</title>
-    <link>https://example.com/tags/64bit/</link>
+    <link>https://lunatine.github.io/tags/64bit/</link>
     <description>Recent content in 64bit on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lunatine</copyright>
     <lastBuildDate>Mon, 03 Mar 2014 07:07:03 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/64bit/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/64bit/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>VirtualBox RHEL5 부팅 시 행업증상 #2</title>
-      <link>https://example.com/posts/virtualbox-rhel5-64bit-boot-error-lapic/</link>
+      <link>https://lunatine.github.io/posts/virtualbox-rhel5-64bit-boot-error-lapic/</link>
       <pubDate>Mon, 03 Mar 2014 07:07:03 +0000</pubDate>
       
-      <guid>https://example.com/posts/virtualbox-rhel5-64bit-boot-error-lapic/</guid>
+      <guid>https://lunatine.github.io/posts/virtualbox-rhel5-64bit-boot-error-lapic/</guid>
       <description>본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
 nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
 환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상

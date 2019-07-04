@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>google on Lunatine&#39;s Box</title>
-    <link>https://example.com/tags/google/</link>
+    <link>https://lunatine.github.io/tags/google/</link>
     <description>Recent content in google on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lunatine</copyright>
     <lastBuildDate>Mon, 23 Jun 2014 11:12:26 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/google/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docky에서 Chrome 아이콘 문제</title>
-      <link>https://example.com/posts/chrome-icon-error-on-docky/</link>
+      <link>https://lunatine.github.io/posts/chrome-icon-error-on-docky/</link>
       <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
       
-      <guid>https://example.com/posts/chrome-icon-error-on-docky/</guid>
+      <guid>https://lunatine.github.io/posts/chrome-icon-error-on-docky/</guid>
       <description>Google Chrome 아이콘이 Docky에서 분리되는 문제  본 문서는 Google Chrome을 실행하였을 때 Docky에서 저해상도 아이콘으로 표시 될 뿐만 아니라 프로그램 메뉴에서 등록한 것과 분리되는 문제를 해결하기 위한 내용을 담고 있습니다
  증상  프로그램 메뉴에서 Google Chrome을 끌어다가 Docky에 등록하여 실행하였으나 별도 아이콘(저해상도)으로 분리되어 실행되는 경우 Google Chrome을 실행 한 상태에서 해당 아이콘을 우클릭해도 고정시키는 메뉴가 나타나지 않는 경우
   원인  기본적인 원인은 Google Chrome 사이트 (http://chrome.</description>

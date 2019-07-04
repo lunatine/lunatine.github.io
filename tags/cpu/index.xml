@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CPU on Lunatine&#39;s Box</title>
-    <link>https://example.com/tags/cpu/</link>
+    <link>https://lunatine.github.io/tags/cpu/</link>
     <description>Recent content in CPU on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Lunatine</copyright>
     <lastBuildDate>Tue, 06 Jan 2015 17:02:03 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RHEL6 - intel_idle과 C States</title>
-      <link>https://example.com/posts/rhel6-intel_idle-and-c-states/</link>
+      <link>https://lunatine.github.io/posts/rhel6-intel_idle-and-c-states/</link>
       <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
       
-      <guid>https://example.com/posts/rhel6-intel_idle-and-c-states/</guid>
+      <guid>https://lunatine.github.io/posts/rhel6-intel_idle-and-c-states/</guid>
       <description>C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
 P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수를 조절하는 정도를 정의 한 값으로 명령어 처리(Operation)상태를 기준으로 절전 및 성능 향상을 꾀하기 위한 기법이다. 과거에는 SpeedStep이라는 기술로 소개 되었기(정확히 같은 것은 아니다) 때문에 단순히 클럭주파수를 조절해서 에너지 절약을 위한 방안으로만 치부되었는데 CPU가 연산처리를 할 때의 상태를 반영하고 있다.</description>
     </item>
