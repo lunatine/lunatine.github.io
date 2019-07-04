@@ -1,137 +1,81 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Bash FAQ (Part 1)</title>
-<meta name="description" content="Describe your website">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
-<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
-<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
-<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
-
-
-  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
- 
-
-  
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-
-<link href="https://example.org/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://example.org/img/favicon.png">
-
-
-</head>
-<body>
-  <div id="all">
-      <div class="container-fluid">
-          <div class="row row-offcanvas row-offcanvas-left">
-              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
-  <div class="sidebar-content">
-    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-    
-      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
-    
-      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
-    
-    <ul class="sidebar-menu">
-      
-        <li><a href="https://example.org/portfolio/">Home</a></li>
-      
-        <li><a href="https://example.org/about/">About</a></li>
-      
-        <li><a href="https://example.org/contact/">Get in touch</a></li>
-      
-    </ul>
-    <p class="social">
-  
-  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
-    <i class="fa fa-facebook"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
-    <i class="fa fa-google-plus"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
-    <i class="fa fa-twitter"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
-    <i class="fa fa-instagram"></i>
-  </a>
-  
-  
-  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
-    <i class="fa fa-envelope"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
-    <i class="fa fa-linkedin"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
-    <i class="fa fa-stack-overflow"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
-    <i class="fa fa-github"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
-    <i class="fa fa-youtube"></i>
-  </a>
-  
-  
-  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
-    <i class="fa fa-whatsapp"></i>
-  </a>
-  
-</p>
-
-
-    <div class="copyright">
-      <p class="credit">
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bash FAQ (Part 1) &middot; Lunatine</title>
+        <meta name="description" content="본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
+[[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
+if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Bash FAQ (Part 1)">
+<meta property="og:description" content="본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
+[[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
+if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://example.com/posts/bash-faq-part-1/">
+        <link rel="stylesheet" href="https://example.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
-          &copy;2016 Your name or company
         
-        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+        
+    </head>
+    <body>
+        
 
-&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://example.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
 
-      </p>
-    </div>
-  </div>
-</div>
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
 
-              
-<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
-  <div class="small-navbar visible-xs">
-  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
-  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-</div>
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
 
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="content-column-content">
-         <h1>Bash FAQ (Part 1)</h1>
-         
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Bash FAQ (Part 1)</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    
 
 <p>본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.</p>
 
@@ -186,7 +130,7 @@ fi
 
 <p>위에서 <code>[</code>으로만 테스트한 구문은 <code>-bash: [: 10: unary operator expected</code> 같은 오류 메시지를 발생시킨다. 왜냐하면 $z는 존재하지 않는 변수이기 때문에 null로 대체 되고 <code>[ $x &gt; ]</code>는 미완성 구문이 되어서 오류가 일어나는 것이다. 하지만, <code>[[</code> 의 경우는 1차적으로 내부 구문에 대해서 번역을 시도하고 존재하지 않는 변수 $z를 0으로 처리한다. 그래서 0보다 큰 10에 대한 숫자 비교 처리가 가능하다. 또한, <code>[[</code> 키워드는 아래와 같은 차이점을 보인다.</p>
 
-<p><img src="/content/images/2016/03/bash-faq-test.png" alt="" /></p>
+<p><img src="/images/2016/03/bash-faq-test.png" alt="" /></p>
 
 <ul>
 <li>출처: <a href="http://mywiki.wooledge.org/BashFAQ/031">http://mywiki.wooledge.org/BashFAQ/031</a></li>
@@ -531,26 +475,91 @@ this is back-slash: \\
 
 <p>따라서, POSIX에 맞지도 않고 오래된 방식인 `&hellip;`보다는 <strong>$(&hellip;)</strong> 사용을 개인적으로 권장한다.</p>
 
-         
-      </div>
-    </div>
-  </div>
 </div>
 
-          </div>
-      </div>
-  </div>
-  <script src="https://example.org/js/jquery.min.js"></script>
-<script src="https://example.org/js/bootstrap.min.js"></script>
-<script src="https://example.org/js/jquery.cookie.js"> </script>
-<script src="https://example.org/js/ekko-lightbox.js"></script>
-<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
-<script src="https://example.org/js/masonry.pkgd.min.js"></script>
-<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://example.org/js/owl.carousel.min.js"></script>
-<script src="https://example.org/js/front.js"></script>
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/linux/">linux</a>, 
+            
+                <a href="/tags/bash/">bash</a>, 
+            
+                <a href="/tags/faq/">faq</a>, 
+            
+                <a href="/tags/sed/">sed</a>, 
+            
+                <a href="/tags/backtick/">backtick</a>, 
+            
+                <a href="/tags//">`</a>, 
+            
+                <a href="/tags//">[</a>, 
+            
+                <a href="/tags//">[[</a>, 
+            
+                <a href="/tags/%EB%A6%AC%EB%88%85%EC%8A%A4/">리눅스</a>
+            
+        </p>
+    
 
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Bash%20FAQ%20%28Part%201%29&url=https%3a%2f%2fexample.com%2fposts%2fbash-faq-part-1%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fposts%2fbash-faq-part-1%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-</body>
+        
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://example.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://example.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://example.com/js/scripts.js"></script>
+    </body>
 </html>
+

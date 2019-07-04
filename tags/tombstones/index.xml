@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tombstones on Creative portfolio</title>
-    <link>https://example.org/tags/tombstones/</link>
-    <description>Recent content in Tombstones on Creative portfolio</description>
+    <title>Tombstones on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/tombstones/</link>
+    <description>Recent content in Tombstones on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Sun, 22 Feb 2015 08:42:20 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/tombstones/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/tombstones/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[영화] 툼스톤</title>
-      <link>https://example.org/posts/movie-walking-among-the-tombstones/</link>
+      <link>https://example.com/posts/movie-walking-among-the-tombstones/</link>
       <pubDate>Sun, 22 Feb 2015 08:42:20 +0000</pubDate>
       
-      <guid>https://example.org/posts/movie-walking-among-the-tombstones/</guid>
+      <guid>https://example.com/posts/movie-walking-among-the-tombstones/</guid>
       <description>Taken? 영화 포스터에는 &amp;lsquo;추격 액션 스릴러&amp;rsquo;라고 되어있다. 물론 이 말이 틀린 말은 아니지만 &amp;lsquo;테이큰&amp;rsquo;을 기대하고 이 영화를 보게 된다면 실망 할 수 있을 것 같다. 개인 적으로는 스릴러에 더 초점이 맞추어져 있는 것 같으니깐.
 소개 오늘, 새 의뢰인이 찾아왔다! 과거의 실수로 인해 가족도 없이 혼자 지내는 전직 형사 맷(리암 니슨)에게 어느 날, 한 남자가 찾아왔다. 살해당한 아내의 복수해달라는 의뢰를 거절하려던 맷은 납치범이 제시한 금액의 40%를 보내자 아내의 신체 중 40%만 돌려보냈다는 잔혹한 범행 행각을 전해 듣고 의뢰를 수락하고 만다.</description>
     </item>

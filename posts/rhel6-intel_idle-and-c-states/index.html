@@ -1,137 +1,79 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>RHEL6 - intel_idle과 C States</title>
-<meta name="description" content="Describe your website">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
-<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
-<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
-<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
-
-
-  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
- 
-
-  
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-
-<link href="https://example.org/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://example.org/img/favicon.png">
-
-
-</head>
-<body>
-  <div id="all">
-      <div class="container-fluid">
-          <div class="row row-offcanvas row-offcanvas-left">
-              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
-  <div class="sidebar-content">
-    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-    
-      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
-    
-      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
-    
-    <ul class="sidebar-menu">
-      
-        <li><a href="https://example.org/portfolio/">Home</a></li>
-      
-        <li><a href="https://example.org/about/">About</a></li>
-      
-        <li><a href="https://example.org/contact/">Get in touch</a></li>
-      
-    </ul>
-    <p class="social">
-  
-  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
-    <i class="fa fa-facebook"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
-    <i class="fa fa-google-plus"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
-    <i class="fa fa-twitter"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
-    <i class="fa fa-instagram"></i>
-  </a>
-  
-  
-  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
-    <i class="fa fa-envelope"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
-    <i class="fa fa-linkedin"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
-    <i class="fa fa-stack-overflow"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
-    <i class="fa fa-github"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
-    <i class="fa fa-youtube"></i>
-  </a>
-  
-  
-  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
-    <i class="fa fa-whatsapp"></i>
-  </a>
-  
-</p>
-
-
-    <div class="copyright">
-      <p class="credit">
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>RHEL6 - intel_idle과 C States &middot; Lunatine</title>
+        <meta name="description" content="C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
+P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수를 조절하는 정도를 정의 한 값으로 명령어 처리(Operation)상태를 기준으로 절전 및 성능 향상을 꾀하기 위한 기법이다. 과거에는 SpeedStep이라는 기술로 소개 되었기(정확히 같은 것은 아니다) 때문에 단순히 클럭주파수를 조절해서 에너지 절약을 위한 방안으로만 치부되었는데 CPU가 연산처리를 할 때의 상태를 반영하고 있다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="RHEL6 - intel_idle과 C States">
+<meta property="og:description" content="C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
+P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수를 조절하는 정도를 정의 한 값으로 명령어 처리(Operation)상태를 기준으로 절전 및 성능 향상을 꾀하기 위한 기법이다. 과거에는 SpeedStep이라는 기술로 소개 되었기(정확히 같은 것은 아니다) 때문에 단순히 클럭주파수를 조절해서 에너지 절약을 위한 방안으로만 치부되었는데 CPU가 연산처리를 할 때의 상태를 반영하고 있다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://example.com/posts/rhel6-intel_idle-and-c-states/">
+        <link rel="stylesheet" href="https://example.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
-          &copy;2016 Your name or company
         
-        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+        
+    </head>
+    <body>
+        
 
-&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://example.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
 
-      </p>
-    </div>
-  </div>
-</div>
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
 
-              
-<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
-  <div class="small-navbar visible-xs">
-  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
-  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-</div>
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
 
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="content-column-content">
-         <h1>RHEL6 - intel_idle과 C States</h1>
-         
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">RHEL6 - intel_idle과 C States</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    
 
 <h1 id="c-g-s-p-states">C/G/S/P states</h1>
 
@@ -159,14 +101,14 @@
 
 <p>앞에서 언급한 상태들을 알아보기 쉽게 도식화 하면 아래와 같다.</p>
 
-<p><img src="/content/images/2015/01/powerstate.jpg" alt="powerstate.jpg" />
+<p><img src="/images/2015/01/powerstate.jpg" alt="powerstate.jpg" />
 이미지 출처: <a href="http://wccftech.com/review/intel-core-i7-4790k-haswell-refresh-devils-canyon-processor-review/">Intel Core i7-4790K Haswell Refresh “Devil’s Canyon” Processor Review</a></p>
 
 <h1 id="intel-idle">intel_idle</h1>
 
 <p>모듈 이름처럼 Idle 상태를 관리하기 위한 것으로 C-States와 관련이 있는 모듈이다. intel_idle이 사용되기 이전에는 C-States를 OS에서 관리하기 위해서 acpi_idle이란 모듈이 사용되었다. 그리고, 그 당시에 intel_idle은 EXPERIMENTAL로 커널에 포함되어 있었는데 2.6.35 버전부터로 알고 있었기 때문에 2.6.32 기반의 RHEL6에서 별로 신경쓰고 있지 않았다. (RHEL7만 신경쓰였을 뿐이지&hellip;) 그런데, <strong>스마트한 직장동료</strong>가 RHEL6에서도 intel_idle 때문에 C-States 영향을 받고 있다고 제보하였고 이를 해결하기 위한 설정방법 등을 공유하였다. 그래서 찾아보니 RHEL6.2 기술문서부터 intel_idle.max_cstate 파라미터에 대한 내용이 언급 되어있었다.</p>
 
-<p><img src="/content/images/2015/01/oops.png" alt="oops.png" /></p>
+<p><img src="/images/2015/01/oops.png" alt="oops.png" /></p>
 
 <h2 id="왜-문제가-되는-것인가">왜 문제가 되는 것인가?</h2>
 
@@ -196,17 +138,17 @@ A new kernel parameter, intel_idle.max_cstate, has been added to specify the max
 
 <ul>
 <li><p>latency-performance 적용 전
-<img src="/content/images/2015/01/cstate-c7-1.png" alt="cstate-c7.png" /></p></li>
+<img src="/images/2015/01/cstate-c7-1.png" alt="cstate-c7.png" /></p></li>
 
 <li><p>latency-performance 적용 후
-<img src="/content/images/2015/01/cstate-c1.png" alt="cstate-c1.png" /></p></li>
+<img src="/images/2015/01/cstate-c1.png" alt="cstate-c1.png" /></p></li>
 </ul>
 
 <h3 id="예외사항-1">예외사항 (1)</h3>
 
 <p>실제 장비들을 샘플링하여 테스트 해 본 결과 tuned-adm을 설정하더라도 E3/E5 계열(샌디브리지)의 CPU는 바로 적용이 되었으나 C6까지있는 네할렘 CPU들은 여전히 말을 듣지 않았다.</p>
 
-<p><img src="/content/images/2015/01/cstate-c6.png" alt="cstate-c6.png" /></p>
+<p><img src="/images/2015/01/cstate-c6.png" alt="cstate-c6.png" /></p>
 
 <p>그래서, /dev/cpu_dma_latency 장치(4바이트 값을 갖는 장치이다)에 직접 latency 값을 100으로 설정해 보았다.</p>
 
@@ -214,11 +156,11 @@ A new kernel parameter, intel_idle.max_cstate, has been added to specify the max
 $ echo -ne '\0144\000\000\000' &gt;&amp;3
 </code></pre>
 
-<p><img src="/content/images/2015/01/cstate-c3.png" alt="cstate-c3.png" /></p>
+<p><img src="/images/2015/01/cstate-c3.png" alt="cstate-c3.png" /></p>
 
 <p>그랬더니 C3 상태이하로 내려가지 않았다. 조금더 욕심을 내서 8로 설정했더니 C1상태 이하로 내려가지 않는 것을 확인 할 수 있었다.</p>
 
-<p><img src="/content/images/2015/01/cstate-c1-nehal.png" alt="cstate-c1-nehal.png" /></p>
+<p><img src="/images/2015/01/cstate-c1-nehal.png" alt="cstate-c1-nehal.png" /></p>
 
 <p>그래서 설정이 가능함에도 불구하고 왜 tuned에서 처리가 안되는지 확인해보니 cpu_dma_latency 값을 조절하는 <code>/usr/libexec/tuned/pmqos-static.py</code> 파일이 설치되지 않는 것을 확인 할 수 있었다.</p>
 
@@ -263,26 +205,91 @@ ELEVATOR_TUNE_DEVS=&quot;/sys/block/{sd,cciss,dm-,vd}*/queue/scheduler&quot;
 
 <p><strong>Thanks to</strong> Alden</p>
 
-         
-      </div>
-    </div>
-  </div>
 </div>
 
-          </div>
-      </div>
-  </div>
-  <script src="https://example.org/js/jquery.min.js"></script>
-<script src="https://example.org/js/bootstrap.min.js"></script>
-<script src="https://example.org/js/jquery.cookie.js"> </script>
-<script src="https://example.org/js/ekko-lightbox.js"></script>
-<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
-<script src="https://example.org/js/masonry.pkgd.min.js"></script>
-<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://example.org/js/owl.carousel.min.js"></script>
-<script src="https://example.org/js/front.js"></script>
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/rhel6/">RHEL6</a>, 
+            
+                <a href="/tags/centos7/">CentOS7</a>, 
+            
+                <a href="/tags/intel_idle/">intel_idle</a>, 
+            
+                <a href="/tags/c-states/">C-States</a>, 
+            
+                <a href="/tags/cpu/">CPU</a>, 
+            
+                <a href="/tags/performance/">Performance</a>, 
+            
+                <a href="/tags/tuned/">Tuned</a>, 
+            
+                <a href="/tags/rhel7/">RHEL7</a>, 
+            
+                <a href="/tags/centos6/">CentOS6</a>
+            
+        </p>
+    
 
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=RHEL6%20-%20intel_idle%ea%b3%bc%20C%20States&url=https%3a%2f%2fexample.com%2fposts%2frhel6-intel_idle-and-c-states%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fposts%2frhel6-intel_idle-and-c-states%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-</body>
+        
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://example.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://example.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://example.com/js/scripts.js"></script>
+    </body>
 </html>
+

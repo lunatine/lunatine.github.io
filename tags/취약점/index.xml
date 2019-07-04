@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>취약점 on Creative portfolio</title>
-    <link>https://example.org/tags/%EC%B7%A8%EC%95%BD%EC%A0%90/</link>
-    <description>Recent content in 취약점 on Creative portfolio</description>
+    <title>취약점 on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/%EC%B7%A8%EC%95%BD%EC%A0%90/</link>
+    <description>Recent content in 취약점 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Thu, 29 Jan 2015 19:54:32 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/%EC%B7%A8%EC%95%BD%EC%A0%90/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/%EC%B7%A8%EC%95%BD%EC%A0%90/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>glibc 취약점 GHOST (CVE-2015-0235)</title>
-      <link>https://example.org/posts/glibc-ghost-vulnerability/</link>
+      <link>https://example.com/posts/glibc-ghost-vulnerability/</link>
       <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
       
-      <guid>https://example.org/posts/glibc-ghost-vulnerability/</guid>
+      <guid>https://example.com/posts/glibc-ghost-vulnerability/</guid>
       <description>경고(?)  이 글은 GHOST에 대한 분석의 글이 아닙니다. 보안에 기웃거렸을 뿐 보안이 뭔지 모르는 저의 개인적인 소감입니다.   GHOST? heartbleed, shellshock, POODLE &amp;hellip; 작년에 이름을 떨쳤던 보안 취약점이다. 그리고 이번엔 GHOST란다. 며칠 전에 접했던 취약점인며 국내 뉴스기사도 있다. GHOST는 glibc의 취약점인데 glibc가 갖는 범용성 때문에 꽤나 심각하게 보이는 취약점이다.
 glibc를 잘 모르는 분들을 위해 추가 설명을 하자면 glibc는 GNU C라이브러리 (GNU libc)를 의미하며 C라이브러리라는 것은 C언어의 기본 중의 기본이 되는 라이브러리를 의미한다.</description>
     </item>

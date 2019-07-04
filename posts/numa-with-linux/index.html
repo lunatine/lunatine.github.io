@@ -1,137 +1,81 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>NUMA with Linux</title>
-<meta name="description" content="Describe your website">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
-<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
-<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
-<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
-
-
-  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
- 
-
-  
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-
-<link href="https://example.org/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://example.org/img/favicon.png">
-
-
-</head>
-<body>
-  <div id="all">
-      <div class="container-fluid">
-          <div class="row row-offcanvas row-offcanvas-left">
-              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
-  <div class="sidebar-content">
-    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-    
-      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
-    
-      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
-    
-    <ul class="sidebar-menu">
-      
-        <li><a href="https://example.org/portfolio/">Home</a></li>
-      
-        <li><a href="https://example.org/about/">About</a></li>
-      
-        <li><a href="https://example.org/contact/">Get in touch</a></li>
-      
-    </ul>
-    <p class="social">
-  
-  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
-    <i class="fa fa-facebook"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
-    <i class="fa fa-google-plus"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
-    <i class="fa fa-twitter"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
-    <i class="fa fa-instagram"></i>
-  </a>
-  
-  
-  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
-    <i class="fa fa-envelope"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
-    <i class="fa fa-linkedin"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
-    <i class="fa fa-stack-overflow"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
-    <i class="fa fa-github"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
-    <i class="fa fa-youtube"></i>
-  </a>
-  
-  
-  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
-    <i class="fa fa-whatsapp"></i>
-  </a>
-  
-</p>
-
-
-    <div class="copyright">
-      <p class="credit">
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>NUMA with Linux &middot; Lunatine</title>
+        <meta name="description" content="개인 위키에서 정리하던 내용을 블로그로 옮긴 것 입니다. 이 문서는 NUMA 아키텍처에 대한 간략한 소개와 Linux에서의 활용 방법에 대해서 소개하고 있습니다.
+ 1. System Topology 1-1. CMP 최근 CPU는 하나의 소켓에 여러개의 코어를 가지고 있다. 이를 보통 멀티코어라고 지칭하며 하나의 칩에 여러개의 프로세서가 올라가기 때문에 CMP(Chip-level Multi Processor)라고도 부른다. 이러한 멀티코어 CPU에 대한 메모리 관계는 아래와 같이 표현 할 수 있다.
+1-2. SMP 하지만, 멀티코어 CPU를 2개 이상 장착한 시스템의 경우에는 메모리를 2개 이상의 CPU가 접근하기 때문에 CPU와 메모리 사이를 네트워크로 묶어서 접근이 필요하며 아래와 같이 표현이 가능하다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="NUMA with Linux">
+<meta property="og:description" content="개인 위키에서 정리하던 내용을 블로그로 옮긴 것 입니다. 이 문서는 NUMA 아키텍처에 대한 간략한 소개와 Linux에서의 활용 방법에 대해서 소개하고 있습니다.
+ 1. System Topology 1-1. CMP 최근 CPU는 하나의 소켓에 여러개의 코어를 가지고 있다. 이를 보통 멀티코어라고 지칭하며 하나의 칩에 여러개의 프로세서가 올라가기 때문에 CMP(Chip-level Multi Processor)라고도 부른다. 이러한 멀티코어 CPU에 대한 메모리 관계는 아래와 같이 표현 할 수 있다.
+1-2. SMP 하지만, 멀티코어 CPU를 2개 이상 장착한 시스템의 경우에는 메모리를 2개 이상의 CPU가 접근하기 때문에 CPU와 메모리 사이를 네트워크로 묶어서 접근이 필요하며 아래와 같이 표현이 가능하다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://example.com/posts/numa-with-linux/">
+        <link rel="stylesheet" href="https://example.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
-          &copy;2016 Your name or company
         
-        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+        
+    </head>
+    <body>
+        
 
-&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://example.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
 
-      </p>
-    </div>
-  </div>
-</div>
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
 
-              
-<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
-  <div class="small-navbar visible-xs">
-  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
-  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-</div>
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
 
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="content-column-content">
-         <h1>NUMA with Linux</h1>
-         
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">NUMA with Linux</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    
 
 <blockquote>
 <p>개인 위키에서 정리하던 내용을 블로그로 옮긴 것 입니다. 이 문서는 NUMA 아키텍처에 대한 간략한 소개와 Linux에서의 활용 방법에 대해서 소개하고 있습니다.</p>
@@ -143,17 +87,17 @@
 
 <p>최근 CPU는 하나의 소켓에 여러개의 코어를 가지고 있다. 이를 보통 멀티코어라고 지칭하며 하나의 칩에 여러개의 프로세서가 올라가기 때문에 CMP(Chip-level Multi Processor)라고도 부른다. 이러한 멀티코어 CPU에 대한 메모리 관계는 아래와 같이 표현 할 수 있다.</p>
 
-<p><img src="/content/images/2016/07/cmp.png" alt="" /></p>
+<p><img src="/images/2016/07/cmp.png" alt="" /></p>
 
 <h3 id="1-2-smp">1-2. SMP</h3>
 
 <p>하지만, 멀티코어 CPU를 2개 이상 장착한 시스템의 경우에는 메모리를 2개 이상의 CPU가 접근하기 때문에 CPU와 메모리 사이를 네트워크로 묶어서 접근이 필요하며 아래와 같이 표현이 가능하다. 이를 SMP(Symmetric Multi Processor)라고 한다.</p>
 
-<p><img src="/content/images/2016/07/smp.png" alt="" /></p>
+<p><img src="/images/2016/07/smp.png" alt="" /></p>
 
 <p>이러한 메모리접근을 위한 네트워크를 과거 펜티엄(Pentium)기반 프로세서는 FSB(Front-Side Bus)라는 방식으로 제공되었고 이를 개선하기 위해서 AMD에서는 HTT(Hyper Transport Technology)를 Intel에서는 QPI(Quick Path Interconnect)라는 기술을 통해서 보다 빠른 성능을 제공하였다. 다만, HTT나 QPI 모두 연결방식에 대한 기술이지 시스템 위상(Topology)에 대한 기술이 아니다. 예를 들어 QPI의 경우에는 Point-to-Point 양방향 연결에 대해서 빠른 속도를 제공하는 기술이기 때문에 각 장치마다의 연결점을 갖게 되고 결과적으로 많은 프로세서를 갖게 되면 이를 연결하기 위한 복잡성은 커질 것이다. (아래 그림은 실제 SMP에 QPI를 적용한 그림은 아니며 QPI 연결에 대한 예시를 위해 인용한 그림이다)</p>
 
-<p><img src="/content/images/2016/07/intel-qpi2.png" alt="" /></p>
+<p><img src="/images/2016/07/intel-qpi2.png" alt="" /></p>
 
 <ul>
 <li>출처: <a href="http://www.qdpma.com/systemarchitecture/NUMA.html">http://www.qdpma.com/systemarchitecture/NUMA.html</a></li>
@@ -165,7 +109,7 @@
 
 <p>그래서, 이를 개선하기 위해 나온 형태가 NUMA(불균일 기억 장치 접근, Non-Uniform Memory Access) 이며 각 프로세서가 독립적인 로컬 메모리를 보유하고 프로세서의 상대적 위치에 따라서 메모리 접근 속도가 달라지는 방식이다. 따라서, 각 프로세서는 로컬 메모리에 접근 할 경우에 다른 프로세서에 의한 대기를 하지 않아도 되고 빠른 속도로 접근이 가능하다.</p>
 
-<p><img src="/content/images/2016/07/numa-arch.png" alt="" /></p>
+<p><img src="/images/2016/07/numa-arch.png" alt="" /></p>
 
 <ul>
 <li>출처: <a href="https///www.sqlskills.com/blogs/jonathan/understanding-non-uniform-memory-accessarchitectures-numa/">Understanding Non-Uniform Memory Access/Architectures</a></li>
@@ -177,11 +121,11 @@
 
 <p>NUMA에서는 프로세서에 메모리 컨트롤러가 장착되어서 로컬 메모리를 가지고 있지만 BIOS에서 이를 기존의 SMP처럼 사용하도록 설정하는 기능을 제공하고 있다. 흔히 BIOS 상에서 <strong>Node Interleaving</strong>이라는 설정 값으로 존재한다.</p>
 
-<p><img src="/content/images/2016/07/numa-node-interleaving.png" alt="" /></p>
+<p><img src="/images/2016/07/numa-node-interleaving.png" alt="" /></p>
 
 <p>이 기능을 활성화 한다면 시스템은 노드의 모든 메모리를 하나의 연속된 메모리처럼 매핑되고 각 메모리 페이지는 RR(Round-robin) 형태로 노드에 흩뿌려지게 된다.</p>
 
-<p><img src="/content/images/2016/07/suma.png" alt="" /></p>
+<p><img src="/images/2016/07/suma.png" alt="" /></p>
 
 <ul>
 <li>출처: <a href="http://frankdenneman.nl/2016/07/07/numa-deep-dive-part-1-uma-numa/">NUMA Deep Dive Part I</a></li>
@@ -193,7 +137,7 @@
 <li>Haswell 시스템에서 테스팅 한 값이며 단위는 ns</li>
 </ul>
 
-<p><img src="/content/images/2016/07/numa-suma-latency.png" alt="" /></p>
+<p><img src="/images/2016/07/numa-suma-latency.png" alt="" /></p>
 
 <p>시스템에서 동작하는 어플리케이션이 NUMA 아키텍처와 잘 맞지 않거나 최적화를 통한 빠른 성능보다는 균일한 응답속도와 대량의 메모리를 SMP처럼 사용하는 환경에 더 적합하다면 Node Interleaving을 활성화 하는 것도 좋은 방법이 될 수 있다.</p>
 
@@ -384,7 +328,7 @@ Total                     6391.52        12068.24        18459.76
 
 <p>numactl로 정책(policy)을 설정하고 프로그램을 실행하면 해당 프로그램의 프로세스는 numactl이 지정한 정책에 따라서 움직이게 된다. numactl의 옵션은 아래와 같다.</p>
 
-<p><img src="/content/images/2016/07/numactl-options.png" alt="" /></p>
+<p><img src="/images/2016/07/numactl-options.png" alt="" /></p>
 
 <p>간단한 프로그램을 통해서 각 옵션별로 메모리 할당 상태를 확인해 보자. 프로그램 내용은 아래와 같다.</p>
 
@@ -489,7 +433,7 @@ Total                    20480.04        20480.33        40960.37
 
 <p>이를 위해 numad라는 사용자레벨의 서비스 데몬을 활용하는 방법을 살펴보자. numad는 현재 실행중인 프로세스에 대해서 리소스 사용 현황을 살피고 CPU, Memory에 대한 affinity를 조절하는 프로그램이다. 즉, numad는  아래 그림과 같이 특정 프로세스가 동일한 노드의 CPU와 메모리를 사용 할 수 있도록 조절한다.</p>
 
-<p><img src="/content/images/2016/07/numad-conceptual.png" alt="" /></p>
+<p><img src="/images/2016/07/numad-conceptual.png" alt="" /></p>
 
 <p>출처: <a href="https///access.redhat.com/articles/1286673">RED HAT ENTERPRISE LINUX 7: OPTIMIZING MEMORY SYSTEM PERFORMANCE</a></p>
 
@@ -549,7 +493,7 @@ Total                     9333.02        31627.35        40960.37
 
 <p>numad에 적용가능한 몇 가지 옵션을 살펴보자.</p>
 
-<p><img src="/content/images/2016/07/numad-options.png" alt="" /></p>
+<p><img src="/images/2016/07/numad-options.png" alt="" /></p>
 
 <p>옵션 중에서 -K 옵션의 경우 numad가 기본적으로 프로세스가 실행되는 노드의 CPU와 메모리를 맞추려고 하기 때문에 interleave 된 메모리에 대해서 interleave 상태로 유지하도록 지정하는 옵션이다. 일반적인 상황에서는 별 문제 없지만 앞서 살펴봤던 단일 어플리케이션이 단일 노드 이상의 자원을 사용 할 경우 interleaved memory를 활용하는데 있어서 영향을 줄 수 있기 때문에 참고하자.</p>
 
@@ -617,7 +561,7 @@ kernel.numa_balancing = 1
 
 <p><a href="https///access.redhat.com/articles/1286673">RED HAT ENTERPRISE LINUX 7: OPTIMIZING MEMORY SYSTEM PERFORMANCE</a> 문서에서 제공하는 numactl, numad 그리고 Automatic NUMA Balancing의 비교 자료를 살펴보면</p>
 
-<p><img src="/content/images/2016/07/numa-performance.png" alt="" /></p>
+<p><img src="/images/2016/07/numa-performance.png" alt="" /></p>
 
 <p>노란색 라인의 커널이 제공하는 Automatic NUMA Balancing도 나쁘지 않은 결과를 보이고 있다. NUMA에 대한 관리를 전혀 하지 않거나 numad를 기본으로만 띄운 것 보다 좋다. 그리고, 엔지니어/관리자가 수동으로 설정한 하늘색 라인(numactl)이 좋은 성능을 보이는 것으로 보이는데 이에 못지 않게 numad를 -u100, -H100 옵션을 주고 실행 한 경우도 결과가 좋다. 즉, 엔지니어/관리자가 직접 개입해서 설정하는 것도 좋지만 관리의 편의성을 고려한다면 numad의 옵션을 적절히 설정해서 운영하는게 좋다고 판단 된다.</p>
 
@@ -696,7 +640,7 @@ kernel.numa_balancing = 1
 </ul></li>
 </ul>
 
-<p><img src="/content/images/2016/07/numa-interleave.png" alt="" /></p>
+<p><img src="/images/2016/07/numa-interleave.png" alt="" /></p>
 
 <p>위의 그림처럼 프로세스가 NODE0에 있는 메모리(Memory 0)을 할당받아 사용하고 스레드는 여러 노드의 CPU에서 동작 될 때 CPU1을 사용하는 스레드는 공유하는 메모리가 다른 노드에 있기 때문에 응답속도가 CPU0를 사용하는 스레드보다 느리게 된다.</p>
 
@@ -727,26 +671,85 @@ kernel.numa_balancing = 1
 <li><p><a href="http://en.community.dell.com/cfs-file/__key/telligent-evolution-components-attachments/13-4491-00-00-20-26-69-46/NUMA-for-Dell-PowerEdge-12G-Servers.pdf">NUMA Best Practices for Dell PowerEdge 12th Generation Servers</a>: PDF 파일로 Dell 서버에서의 NUMA 및 NUMA I/O에 대해서 다루고 있다.</p></li>
 </ul>
 
-         
-      </div>
-    </div>
-  </div>
 </div>
 
-          </div>
-      </div>
-  </div>
-  <script src="https://example.org/js/jquery.min.js"></script>
-<script src="https://example.org/js/bootstrap.min.js"></script>
-<script src="https://example.org/js/jquery.cookie.js"> </script>
-<script src="https://example.org/js/ekko-lightbox.js"></script>
-<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
-<script src="https://example.org/js/masonry.pkgd.min.js"></script>
-<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://example.org/js/owl.carousel.min.js"></script>
-<script src="https://example.org/js/front.js"></script>
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/linux/">linux</a>, 
+            
+                <a href="/tags/numa/">numa</a>, 
+            
+                <a href="/tags/interleaved-memory/">interleaved memory</a>, 
+            
+                <a href="/tags/interleave/">interleave</a>, 
+            
+                <a href="/tags/numctl/">numctl</a>, 
+            
+                <a href="/tags/numad/">numad</a>
+            
+        </p>
+    
 
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=NUMA%20with%20Linux&url=https%3a%2f%2fexample.com%2fposts%2fnuma-with-linux%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fposts%2fnuma-with-linux%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-</body>
+        
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://example.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://example.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://example.com/js/scripts.js"></script>
+    </body>
 </html>
+

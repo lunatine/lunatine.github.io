@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LEGO on Creative portfolio</title>
-    <link>https://example.org/tags/lego/</link>
-    <description>Recent content in LEGO on Creative portfolio</description>
+    <title>LEGO on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/lego/</link>
+    <description>Recent content in LEGO on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Sun, 22 Feb 2015 09:20:07 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/lego/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/lego/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[영화] 레고 무비</title>
-      <link>https://example.org/posts/movie-the-lego-movie-2014/</link>
+      <link>https://example.com/posts/movie-the-lego-movie-2014/</link>
       <pubDate>Sun, 22 Feb 2015 09:20:07 +0000</pubDate>
       
-      <guid>https://example.org/posts/movie-the-lego-movie-2014/</guid>
+      <guid>https://example.com/posts/movie-the-lego-movie-2014/</guid>
       <description>소개 세상의 모든 영웅들이 &#39;레고&#39;로 조립된다! 배트맨, 슈퍼맨, 원더우먼, 인어공주, 초록닌자, 1980몇년 우주인, 미켈란젤로, 미켈란젤로 닌자거북이, 2002 NBA 올스타 등등등 이들 마스터 빌더 사이에서 희망으로 선택된 평범한 미니피겨! 그의 작고 노란 손에 레고 세계의 운명이 달렸다!  (출처: 다음 영화)
 LEGO! 레고를 영화화 했단 소식에 예전부터 보려고 했는데 계속 잊어버리고 이제서야 보게 되었다. 영화는 제목부터 명확하다. &amp;lsquo;레고&amp;rsquo;.
 매뉴얼 이 영화에서는 매뉴얼적인 삶과 창의적인 삶에 대한 대립구도를 보여주고 있는데 주인공은 전형적인 매뉴얼 대로 살아가는 캐릭터이다.</description>

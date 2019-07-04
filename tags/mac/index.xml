@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mac on Creative portfolio</title>
-    <link>https://example.org/tags/mac/</link>
-    <description>Recent content in mac on Creative portfolio</description>
+    <title>mac on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/mac/</link>
+    <description>Recent content in mac on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jan 2016 08:36:42 +0000</lastBuildDate>
+    <copyright>Lunatine</copyright>
+    <lastBuildDate>Thu, 15 Jan 2015 07:34:29 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>[Mac] OneDrive 비지니스 계정 추가하기</title>
-      <link>https://example.org/posts/onedrive-for-mac-business-account/</link>
-      <pubDate>Tue, 05 Jan 2016 08:36:42 +0000</pubDate>
-      
-      <guid>https://example.org/posts/onedrive-for-mac-business-account/</guid>
-      <description>얼마전까지만 해도 One Drive 비지니스 버전의 Mac OS X Preview 버전이 제공되고 있었는데 잦은 크래시 및 여러 문제가 있었다. (개인적인 경험일 수 있음) 그러다가 최근 정식 릴리즈를 위해서 Preview 링크가 사라졌는데 현재 정식으로 서비스 중에 있는 일반 One Drive 클라이언트를 통해서 비지니스 계정을 추가하는 방법을 공유한다.
-OneDrive 다운로드 먼저, App Store에서 onedrive를 검색해서 어플리케이션을 설치한다.
-그리고, 기존에 MS OneDrive 계정 (일반계정)이 있는 경우와 없는 경우에 따라서 방법이 조금 다른데 일반 계정이 있는 경우(현재 사용 중인 경우)는 2)번 항목을 참고하고 없는 경우나 비지니스 계정만을 사용하고 싶을 때는 1)번 항목을 참고하자.</description>
-    </item>
     
     <item>
       <title>Mac OS X에서 연말정산 간소화  사이트 접속</title>
-      <link>https://example.org/posts/connect-to-tax-refund-site-on-mac/</link>
+      <link>https://example.com/posts/connect-to-tax-refund-site-on-mac/</link>
       <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
       
-      <guid>https://example.org/posts/connect-to-tax-refund-site-on-mac/</guid>
+      <guid>https://example.com/posts/connect-to-tax-refund-site-on-mac/</guid>
       <description>2016년도 업데이트 정보 연말정산 간소화 페이지를 기존 방법대로 접속해 보려고 했으나 Veraport 기반으로 접속하게 끔 변경해 버려서 접속이 불가 한 상태이다. 구 버전 Safari를 통하면 접속이 될지 모르겠으나 사이트 하나 접속하자고 이따위 짓을 해야한다면 안하는게 낫다고 본다.
 Veraport 맥 클라이언트 링크는 존재하지만 설치하고나서 페이지를 다시 접속해도 &amp;ldquo;axinfo request fail!&amp;rdquo; 메시지만 볼 수 있을 것인데 확인해보니 Access-Control-Allow-Origin 제한에 걸려서 그렇다. 쉽게 말해서 요즘 브라우저에서는 보안을 위해서 교차도메인(즉, 접속하려는 사이트와 전혀 다른 도메인) 출처를 향한 요청에 제한이 설정되어서 해당 컨텐츠를 차단해버린다.</description>
     </item>
     
     <item>
       <title>[Mac OS X] Wireshark 화면 문제</title>
-      <link>https://example.org/posts/wireshark-on-mac-os-x-display-error/</link>
+      <link>https://example.com/posts/wireshark-on-mac-os-x-display-error/</link>
       <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
       
-      <guid>https://example.org/posts/wireshark-on-mac-os-x-display-error/</guid>
+      <guid>https://example.com/posts/wireshark-on-mac-os-x-display-error/</guid>
       <description>Wireshark on Mac os X  본 문서는 Wireshark를 Mac에서 사용할 때 거의 겪을일이 없는 증상에 대해서 소개하고 있습니다
  예전부터 Mac OS X에 Wireshark를 설치하려면 X11 서버가 필요했고 폰트 모양이 이쁘지 않아 설정파일을 변경하는 등의 작업을 해야만 했다. 최근에 Wireshark를 쓸 일이 생겨서 최신버전을 다운받아 설치하니 아래 gtk 설정파일에 폰트가 &amp;ldquo;Lucida Grande&amp;rdquo;로 이쁘게 잘 들어가 있었다. (개발사에서도 이런 불만사항을 반영했나보다)
 $ vi /Applications/Wireshark.app/Contents/Resources/themes/Clearlooks-Quicksilver-OSX/gtk-2.0/pre_gtkrc [폰트 설정] gtk-font-name=&amp;quot;Lucida Grande 12&amp;quot;  그런데, 아래 화면처럼 안보이는 증상이 발생했다.</description>

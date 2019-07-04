@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>duplicate ucast on Creative portfolio</title>
-    <link>https://example.org/tags/duplicate-ucast/</link>
-    <description>Recent content in duplicate ucast on Creative portfolio</description>
+    <title>duplicate ucast on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/duplicate-ucast/</link>
+    <description>Recent content in duplicate ucast on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Mon, 16 Jun 2014 06:46:44 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/duplicate-ucast/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/duplicate-ucast/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RHEL/CentOS 6에서 heartbeat 오류</title>
-      <link>https://example.org/posts/epel-6-heartbeat-error/</link>
+      <link>https://example.com/posts/epel-6-heartbeat-error/</link>
       <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
       
-      <guid>https://example.org/posts/epel-6-heartbeat-error/</guid>
+      <guid>https://example.com/posts/epel-6-heartbeat-error/</guid>
       <description>EPEL6 - heartbeat error  본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.
  환경 및 증상  운영체제 : RHEL 6.4 이하 EPEL 패키지
  heartbeat-3.0.4-2.el6.[i386/x86_64].rpm heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm  증상

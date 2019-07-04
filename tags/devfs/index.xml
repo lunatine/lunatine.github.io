@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>devfs on Creative portfolio</title>
-    <link>https://example.org/tags/devfs/</link>
-    <description>Recent content in devfs on Creative portfolio</description>
+    <title>devfs on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/devfs/</link>
+    <description>Recent content in devfs on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Wed, 23 Dec 2015 06:11:39 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/devfs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/devfs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>devtmpfs와 udev</title>
-      <link>https://example.org/posts/devtmpfs-udev/</link>
+      <link>https://example.com/posts/devtmpfs-udev/</link>
       <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
       
-      <guid>https://example.org/posts/devtmpfs-udev/</guid>
+      <guid>https://example.com/posts/devtmpfs-udev/</guid>
       <description>본 문서는 Linux booting 문서에서 생략 된 부분이면서 현재 Linux에서 장치관리를 수행하는 udev와 devtmpfs의 상관관계에 대해서 설명하고 있습니다. 또한, devtmpfs의 의미와 역할에 대한 질문의 답변을 정리한 문서이기도 합니다.
  마지막수정: 12/22/2015 기존문서와 기술하는 말투를 달리하였으니 양해부탁드립니다.  devfs 먼저 udev가 도입되기 전에 존재 했던 devfs라는 녀석에 대해서 살펴보겠습니다. devfs는 2000년에 도입된 파일시스템으로 장치에 대한 정보를 커널에서 관리 할 수 있도록 만들어진 파일시스템 입니다. 실제 여전히 많은 UNIX 계열 시스템은 devfs를 사용하고 있습니다.</description>
     </item>

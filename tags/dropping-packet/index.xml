@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dropping packet on Creative portfolio</title>
-    <link>https://example.org/tags/dropping-packet/</link>
-    <description>Recent content in dropping packet on Creative portfolio</description>
+    <title>dropping packet on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/dropping-packet/</link>
+    <description>Recent content in dropping packet on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Thu, 12 Apr 2018 08:35:03 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/dropping-packet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/dropping-packet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>nf_conntrack과 docker</title>
-      <link>https://example.org/posts/nf_conntrackgwa-docker/</link>
+      <link>https://example.com/posts/nf_conntrackgwa-docker/</link>
       <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
       
-      <guid>https://example.org/posts/nf_conntrackgwa-docker/</guid>
+      <guid>https://example.com/posts/nf_conntrackgwa-docker/</guid>
       <description>본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
 nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다.</description>
     </item>

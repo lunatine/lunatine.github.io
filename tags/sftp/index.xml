@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sftp on Creative portfolio</title>
-    <link>https://example.org/tags/sftp/</link>
-    <description>Recent content in sftp on Creative portfolio</description>
+    <title>sftp on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/sftp/</link>
+    <description>Recent content in sftp on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 05:50:12 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/sftp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/sftp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] SFTP 접속 오류</title>
-      <link>https://example.org/posts/faq-sftp-jeobsog-oryu/</link>
+      <link>https://example.com/posts/faq-sftp-jeobsog-oryu/</link>
       <pubDate>Wed, 05 Feb 2014 05:50:12 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-sftp-jeobsog-oryu/</guid>
+      <guid>https://example.com/posts/faq-sftp-jeobsog-oryu/</guid>
       <description> 증상  received message is too long
  위와 같은 메시지 발생하며 접속이 제대로 이루어지지 않음
 원인 접속하는 사용자 계정의 쉘 환경설정 파일에 stdout으로 메시지를 출력하는 부분이 존재해서 발생 되는 문제입니다.

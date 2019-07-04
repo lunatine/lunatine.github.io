@@ -1,137 +1,79 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Linux Boot</title>
-<meta name="description" content="Describe your website">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
-<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
-<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
-<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
-
-
-  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
- 
-
-  
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-
-<link href="https://example.org/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://example.org/img/favicon.png">
-
-
-</head>
-<body>
-  <div id="all">
-      <div class="container-fluid">
-          <div class="row row-offcanvas row-offcanvas-left">
-              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
-  <div class="sidebar-content">
-    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-    
-      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
-    
-      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
-    
-    <ul class="sidebar-menu">
-      
-        <li><a href="https://example.org/portfolio/">Home</a></li>
-      
-        <li><a href="https://example.org/about/">About</a></li>
-      
-        <li><a href="https://example.org/contact/">Get in touch</a></li>
-      
-    </ul>
-    <p class="social">
-  
-  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
-    <i class="fa fa-facebook"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
-    <i class="fa fa-google-plus"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
-    <i class="fa fa-twitter"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
-    <i class="fa fa-instagram"></i>
-  </a>
-  
-  
-  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
-    <i class="fa fa-envelope"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
-    <i class="fa fa-linkedin"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
-    <i class="fa fa-stack-overflow"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
-    <i class="fa fa-github"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
-    <i class="fa fa-youtube"></i>
-  </a>
-  
-  
-  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
-    <i class="fa fa-whatsapp"></i>
-  </a>
-  
-</p>
-
-
-    <div class="copyright">
-      <p class="credit">
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Linux Boot &middot; Lunatine</title>
+        <meta name="description" content="Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
+ 본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Linux Boot">
+<meta property="og:description" content="Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
+ 본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://example.com/posts/linux-booting/">
+        <link rel="stylesheet" href="https://example.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
-          &copy;2016 Your name or company
         
-        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+        
+    </head>
+    <body>
+        
 
-&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://example.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
 
-      </p>
-    </div>
-  </div>
-</div>
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
 
-              
-<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
-  <div class="small-navbar visible-xs">
-  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
-  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-</div>
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
 
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="content-column-content">
-         <h1>Linux Boot</h1>
-         
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Linux Boot</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    
 
 <h1 id="linux-boot">Linux Boot</h1>
 
@@ -173,11 +115,11 @@
 
 <p>위에서 덤프한 MBR 파일을 hexdump로 좀 더 보기 쉽게 읽어보면 아래와 같다</p>
 
-<p><img src="/content/images/2015/12/mbr-hexdump.png" alt="" /></p>
+<p><img src="/images/2015/12/mbr-hexdump.png" alt="" /></p>
 
 <p>처음 부터 차근차근 살펴보도록 하자.</p>
 
-<p><img src="/content/images/2015/12/mbr-hexdump-1.png" alt="mbr-hexdump-1.png" /></p>
+<p><img src="/images/2015/12/mbr-hexdump-1.png" alt="mbr-hexdump-1.png" /></p>
 
 <p>처음 3개의 바이트 값은 <strong>eb 48 90</strong>인데 여기에서 <strong>eb 48</strong>은 <strong>JMP(eb) 0x48</strong>을 의미하며 현재 명령의 위치로부터 0x48만큼 점프하게 된다. 따라서, 인자 값에서 2바이트를 더한 0x48 + 0x02 = <strong>0x4a</strong> 위치로 이동하게 되며 <strong>eb 48</strong> 뒤에 따르는 90은 아무것도 하지 않는다는 의미다.</p>
 
@@ -187,7 +129,7 @@
 
 <p>이렇게 부트로더는 0x4a로 점프해서 실행하게 되는데, 사이에 있는 데이터는 스토리지 볼륨의 레이아웃에 대한 정보를 알려주는 BPB(BIOS Parameter Block)영역으로 자세한 사항은 <a href="https://en.wikipedia.org/wiki/BIOS_parameter_block">여기</a>를 참고하도록 하자.</p>
 
-<p><img src="/content/images/2015/12/mbr-hexdump-2.png" alt="mbr-hexdump-2.png" /></p>
+<p><img src="/images/2015/12/mbr-hexdump-2.png" alt="mbr-hexdump-2.png" /></p>
 
 <p>그 중에서 위 그림의 녹색영역인 <strong>0x3e</strong> 부터 12바이트 데이터는 GRUB에 대한 정보를 담고 있다. 앞에서부터 하나씩 해석하면 아래와 같다.</p>
 
@@ -200,7 +142,7 @@
 0x0048 - 00 02: 다음 스테이지의 위치 (메모리 주소가 아니다 - 0x0200 = 512)
 </code></pre>
 
-<p><img src="/content/images/2015/12/mbr-hexdump-3.png" alt="mbr-hexdump-3.png" /></p>
+<p><img src="/images/2015/12/mbr-hexdump-3.png" alt="mbr-hexdump-3.png" /></p>
 
 <p><strong>0x4a</strong>부터 시작되는 프로그램 코드는 다음 스테이지로 넘어가기위한 작업을 진행하고 문제가 발생 할 경우에는 아래의 <strong>0x0179</strong>에 위치한 문자열로 오류 메시지를 출력하게 된다. 프로그램 코드와 파티션 테이블의 위치 (<strong>0x01be</strong>)사이의 데이터는 보통 사용하지 않는데 <strong>0x01b8</strong>에서 <strong>0x01bb</strong>까지의 1WORD는 Windows에서 NT Drive 시리얼넘버로 사용한다. 그리고 <strong>0x01be</strong>부터 시작되는 파티션 엔트리는 <a href="http://lunatine.net/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/">MBR</a>문서에서 소개한 것 처럼 파티션 테이블의 정보를 담고 있다.</p>
 
@@ -229,7 +171,7 @@
 
 <p>먼저 e2fs_stage1_5 파일을 hexdump로 확인해보고 시작 데이터와 마지막 부분을 확인 해 두자.</p>
 
-<p><img src="/content/images/2015/12/stage15_hexdump-1-1.png" alt="" /></p>
+<p><img src="/images/2015/12/stage15_hexdump-1-1.png" alt="" /></p>
 
 <p><strong>52 56</strong>으로 시작 된 내용은 중간에 stage1.5 에러 텍스트와 stage2 이미지경로를 담고 있으며 0x3443까지 데이터가 있다. (13380바이트 파일이므로 0x3444 크기이다) 이제 실제 디스크에서 MBR 바로 뒤 부터 27개의 섹터를 저장해 보자</p>
 
@@ -239,7 +181,7 @@
 <li><sup>13380</sup>&frasl;<sub>512</sub> = 26.1328125 이므로 최소 27개 섹터가 필요하다</li>
 </ul>
 
-<p><img src="/content/images/2015/12/stage15_hexdump-2-1.png" alt="" /></p>
+<p><img src="/images/2015/12/stage15_hexdump-2-1.png" alt="" /></p>
 
 <p>디스크로 부터 저장한 27섹터를 열어보면 e2fs_stage1_5의 내용이 그대로 들어있는 것을 확인 할 수 있다. 그리고, 해당 파일은 0x3443에서 끝났기 때문에 위의 내용처럼 0x3444부터 00으로 섹터 끝까지 채워져 있는 것을 볼 수 있다.</p>
 
@@ -251,7 +193,7 @@
 
 <p>앞서 살펴 본 stage1, stage1.5의 과정을 도식화 하면 아래와 같다.</p>
 
-<p><img src="/content/images/2015/12/grub-mbr.png" alt="grub-mbr.png" />
+<p><img src="/images/2015/12/grub-mbr.png" alt="grub-mbr.png" />
 - 출처: <a href="https://en.wikipedia.org/wiki/GNU_GRUB">GNU GRUB</a></p>
 
 <p>위의 그림처럼 MBR에 위치한 stage1은 파일시스템 접근을 위해 stage1.5 파일을 불러들이고 stage1.5를 통해서 root 디스크의 지정된 위치로 부터 stage2 이미지를 불러들여서 GRUB 부트로더가 정상적인 모든 기능을 수행 할 수 있도록 준비를 마친다. stage2는 아래 처럼 용량이 크기 때문에 (어디까지나 MBR과 Track 0에 해당하는 63섹터 이내 기준보다) 파일시스템에 보통 위치하게 된다.</p>
@@ -278,7 +220,7 @@
 
 <p>현재의 리눅스커널은 bzImage 형태로 되어있는데 이름에서도 유추할 수 있듯이 gzip으로 압축된 바이너리 이미지이다. (zImage와 bzImage 모두 압축된 형태를 의미하며 bzImage가 더 큰 이미지로 <a href="https://en.wikipedia.org/wiki/Real_mode">리얼모드</a> 메모리 영역 밖에 커널 이미지를 둬야하는 차이가 있다) bzImage는 크게 부트섹션(bootsect), 셋업코드(bootsetup), 커널이미지(vmlinux + 전개루틴)로 구성되어 있다. 부트섹션은 512 byte 공간으로 커널 2.4까지는 플로피 디스크를 위한 부트로더가 들어있었으나 2.6부터는 에러메시지와 부트로더가 참조 할 파라미터 정도만 들어있다. (그렇기 때문에 2.4커널의 경우 플로피에 복사하면 바로 부팅이 가능했다). - <a href="https://en.wikipedia.org/wiki/Vmlinux#bzImage">참고문헌</a></p>
 
-<p><img src="/content/images/2015/12/bzimage.png" alt="" />
+<p><img src="/images/2015/12/bzimage.png" alt="" />
 - 이미지출처: <a href="https://en.wikipedia.org/wiki/Vmlinux#bzImage">위키피디아</a></p>
 
 <h3 id="memory-boot-loader">Memory - Boot loader</h3>
@@ -287,7 +229,7 @@
 
 <p>로딩 된 부트로더는 커널을 메모리에 올리고 부팅하기 위한 사전 작업을 수행하는데 먼저 부트섹션과 부트섹션에 기재 된 셋업코드 크기를 참고하여 (512 + 512*n byte)를 메모리에 세팅하게 된다. 세팅하는 메모리 위치는 <a href="Real Mode">리얼 모드</a>에서 접근 가능한 주소여야 하기 때문에 0x090000 (576KB)에 부트섹션을 세팅하고 0x90200에 셋업코드를 세팅하게 된다. 그리고 나머지 커널 이미지를 0x010000 (64KB)에 세팅하게 된다.</p>
 
-<p><img src="/content/images/2015/12/kernel-boot-1.png" alt="" /></p>
+<p><img src="/images/2015/12/kernel-boot-1.png" alt="" /></p>
 
 <p>하지만, 위와 같은 메모리 전개는 과거 커널 이미지(Image or zImage)에서 주로 사용하던 메모리 전개이며 최근 bzImage 커널 이미지의 경우는 [리얼 모드]에서 접근 가능한 위치 중 부트로더가 제공하는 제일 낮은 위치에 부트섹터와 셋업코드를 세팅하고 커널이미지는 0x100000(1MB 이후)에 세팅하여 아래와 같은 모습을 가지고 있다. 이는 큰 커널이미지를 사용 할 때도 작은 커널과 같은 부팅 정책을 사용하지만 ISA Hole 위치까지 커널이미지가 로딩되는 것을 방지하기 위해서 1MB 이후에 로딩하는 것이다.</p>
 
@@ -299,7 +241,7 @@
 </ul></li>
 </ul>
 
-<p><img src="/content/images/2015/12/kernel-boot-2.png" alt="" /></p>
+<p><img src="/images/2015/12/kernel-boot-2.png" alt="" /></p>
 
 <p>부트로더는 커널 이미지 뿐만아니라 설정파일에 <strong>initrd/initramfs</strong>가 설정되어 있다면 해당 이미지 파일 또한 메모리에 올려두며 커널에 전달 할 <strong>커맨드 라인</strong>(커널 파라미터)도 저장한다. 과거(Image/zImage)에는 커맨드 라인이 0x98000에서 0x9A000까지 저장되었기 때문에 255글자 제한이 있었지만 지금은 cmd_line_ptr 필드값을 통해서 원하는 위치에 저장이 가능하다. (셋업코드가 사용하는 힙이 끝나는 영역부터 0x0A0000 사이에 아무곳이나 가능)</p>
 
@@ -340,7 +282,7 @@
 
 <p><a href="https://en.wikipedia.org/wiki/Real_mode">리얼모드</a>와 <a href="https://en.wikipedia.org/wiki/Protected_mode">보호모드</a>에 대한 설명을 전부 하기에는 그 내용이 많다. 따라서, 간단히 설명하면 <a href="https://en.wikipedia.org/wiki/Real_mode">리얼모드</a>는 시스템 물리 메모리 주소를 바탕으로 단일 프로세스가 독점으로 접근하는 상태이며 <a href="https://en.wikipedia.org/wiki/Protected_mode">보호모드</a>는 가상 메모리 주소를 제공하고 이를 통해서 Linux와 같은 시스템 소프트웨어가 가상 메모리, 페이징, 멀티태스킹을 가능하도록 지원하는 상태라고 이해하면 된다. 80286 CPU가 나오기 전에는 <a href="https://en.wikipedia.org/wiki/Real_mode">리얼모드</a>/<a href="https://en.wikipedia.org/wiki/Protected_mode">보호모드</a>로 구분하는 것은 없었다. 80286이 하드웨어 수준의 메모리 보호를 적용하도록 디자인 되면서 기존 <sup>8086</sup>&frasl;<sub>8088</sub> CPU와의 호환성을 맞추기 위해서 <a href="다시 말해 8088/8086 호환모드">리얼모드</a>라는 개념을 도입한 것이다.</p>
 
-<p><img src="/content/images/2015/12/cr0.png" alt="cr0.png" />
+<p><img src="/images/2015/12/cr0.png" alt="cr0.png" />
 - 출처: <a href="https://en.wikipedia.org/wiki/Control_register">위키피디아</a></p>
 
 <h3 id="kernel-startup-32">kernel :: startup_32()</h3>
@@ -362,16 +304,16 @@
 
 <p>여기에서 초기화하는 Segmentation 레지스터는 아래 그림처럼 메모리 관리 방법인 세그먼트에 대한 정보를 담고 있는 레지스터를 의미한다.</p>
 
-<p><img src="/content/images/2015/12/memory-segment.gif" alt="" /></p>
+<p><img src="/images/2015/12/memory-segment.gif" alt="" /></p>
 
 <p>compressed/head.S의 startup_32()는 주로 압축해제의 역할만을 수행한다. 여기에서 eflags는 현재 프로세서의 상태를 저장하는 레지스터로 아래와 같은 정보들을 가지고 있다.</p>
 
-<p><img src="/content/images/2015/12/eflags.png" alt="eflags.png" />
+<p><img src="/images/2015/12/eflags.png" alt="eflags.png" />
 - 출처: <a href="http://www.simonganiere.ch/2012/07/27/introduction-to-x86-assembly-language-part-ii/">Introuction to x86 assembly language</a></p>
 
 <p>그리고, _edata와 _end는 아래 그림처럼 초기 3MB의 공간에서 커널 뒤에오는 초기화 되지 않은 커널 데이터 영역을 의미한다.</p>
 
-<p><img src="/content/images/2015/12/768page.png" alt="768page.png" />
+<p><img src="/images/2015/12/768page.png" alt="768page.png" />
 - 출처: Understanding the Linux Kernel</p>
 
 <p>압축해제 작업을 마치고 커널이미지의 시작지점(0x00100000)으로 이동하고 이는 다시금 arch/i386/kernel/head.S 파일에 있는 startup_32()를 실행하게 된다. 이름은 같지만 두 번째 startup_32() 함수는 <strong>첫 번째 리눅스 프로세스(PID 0)</strong>를 실행하는 환경을 구성하게 된다.</p>
@@ -406,12 +348,12 @@
 
 <p>본격적으로 커널을 실행하는 부분으로 init/main.c 안에 들어있는 C언어 함수이다. 코드에 대한 설명은 <a href="http://www.tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO/init_main.html">이 문서</a>를 참조하면 되며 내용 중에서 흐름의 이해를 돕기 위한 함수에 대해서 간단히 코멘트를 달아두었다. 또한, 최신 커널에만 있는 함수를 언급하기 위해서 kernel 4.3에 있는 init/main.c 코드를 인용하였다.</p>
 
-<p><img src="/content/images/2015/12/start-kernel-1-1.png" alt="" />
+<p><img src="/images/2015/12/start-kernel-1-1.png" alt="" />
 - 버디시스템은 메모리 할당을 위한 알고리즘으로 전체 설명은 이 문서의 범위를 벗어나므로 이 <a href="https://youtu.be/qdkxXygc3rE">영상</a>을 보도록 하자.</p>
 
-<p><img src="/content/images/2015/12/start-kernel-1-2-1.png" alt="" /></p>
+<p><img src="/images/2015/12/start-kernel-1-2-1.png" alt="" /></p>
 
-<p><img src="/content/images/2015/12/start-kernel-2.png" alt="" /></p>
+<p><img src="/images/2015/12/start-kernel-2.png" alt="" /></p>
 
 <p>마지막의 rest_init()이 수행되면 앞서 초기화 하였던 관리환경을 토대로 프로세스가 생성되게 된다.
 - kernel_thread()를 통해서 PID 1인 커널 스레드를 생성한다
@@ -570,26 +512,93 @@ udev: starting version 147
 </ul></li>
 </ul>
 
-         
-      </div>
-    </div>
-  </div>
 </div>
 
-          </div>
-      </div>
-  </div>
-  <script src="https://example.org/js/jquery.min.js"></script>
-<script src="https://example.org/js/bootstrap.min.js"></script>
-<script src="https://example.org/js/jquery.cookie.js"> </script>
-<script src="https://example.org/js/ekko-lightbox.js"></script>
-<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
-<script src="https://example.org/js/masonry.pkgd.min.js"></script>
-<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://example.org/js/owl.carousel.min.js"></script>
-<script src="https://example.org/js/front.js"></script>
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/linux/">linux</a>, 
+            
+                <a href="/tags/booting/">booting</a>, 
+            
+                <a href="/tags/kernel/">kernel</a>, 
+            
+                <a href="/tags/grub/">GRUB</a>, 
+            
+                <a href="/tags/boot-loader/">boot loader</a>, 
+            
+                <a href="/tags/start_kernel/">start_kernel</a>, 
+            
+                <a href="/tags/%EB%A6%AC%EB%88%85%EC%8A%A4/">리눅스</a>, 
+            
+                <a href="/tags/%EB%B6%80%ED%8C%85/">부팅</a>, 
+            
+                <a href="/tags/%EC%BB%A4%EB%84%90/">커널</a>, 
+            
+                <a href="/tags/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/">부트로더</a>
+            
+        </p>
+    
 
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Linux%20Boot&url=https%3a%2f%2fexample.com%2fposts%2flinux-booting%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fposts%2flinux-booting%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-</body>
+        
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://example.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://example.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://example.com/js/scripts.js"></script>
+    </body>
 </html>
+

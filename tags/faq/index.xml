@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>faq on Creative portfolio</title>
-    <link>https://example.org/tags/faq/</link>
-    <description>Recent content in faq on Creative portfolio</description>
+    <title>faq on Lunatine&#39;s Box</title>
+    <link>https://example.com/tags/faq/</link>
+    <description>Recent content in faq on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Lunatine</copyright>
     <lastBuildDate>Mon, 21 Mar 2016 07:39:59 +0000</lastBuildDate>
     
-	<atom:link href="https://example.org/tags/faq/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/tags/faq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bash FAQ (Part 1)</title>
-      <link>https://example.org/posts/bash-faq-part-1/</link>
+      <link>https://example.com/posts/bash-faq-part-1/</link>
       <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
       
-      <guid>https://example.org/posts/bash-faq-part-1/</guid>
+      <guid>https://example.com/posts/bash-faq-part-1/</guid>
       <description>본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
 [[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
 if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.</description>
@@ -24,10 +25,10 @@ if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 �
     
     <item>
       <title>megasas_register_aen[0]: already registered</title>
-      <link>https://example.org/posts/megasas_register_aen0-already-registered/</link>
+      <link>https://example.com/posts/megasas_register_aen0-already-registered/</link>
       <pubDate>Mon, 10 Feb 2014 02:24:30 +0000</pubDate>
       
-      <guid>https://example.org/posts/megasas_register_aen0-already-registered/</guid>
+      <guid>https://example.com/posts/megasas_register_aen0-already-registered/</guid>
       <description>MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
 megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
 커널 패치 내용은 아래와 같습니다.
@@ -36,10 +37,10 @@ megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝�
     
     <item>
       <title>mount : already mounted or busy 메시지</title>
-      <link>https://example.org/posts/mount-already-mounted-or-busy-mesiji/</link>
+      <link>https://example.com/posts/mount-already-mounted-or-busy-mesiji/</link>
       <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
       
-      <guid>https://example.org/posts/mount-already-mounted-or-busy-mesiji/</guid>
+      <guid>https://example.com/posts/mount-already-mounted-or-busy-mesiji/</guid>
       <description>환경 및 증상 디스크 교체 및 비RAID 환경에서 아래와 같은 메시지와 함께 마운트가 되지 않는 증상 발생
 $ mount -t ext4 /dev/sdb1 /disk/2 mount : /dev/sdb1 already mounted or /disk/2 busy  원인 교체 된 디스크에 다른 곳에서 설정 된 RAID flag 정보가 남아있거나 dmraid가 RAID 멤버로 잘못 인지한 경우에 발생.
 해결 Case 1. dmraid 아래 명령을 통해서 dmraid가 해당 디스크를 RAID 구성원으로 판단하고 있는지 확인이 가능.
@@ -48,20 +49,20 @@ $ dmraid -s  dmraid 패키지를 통해 RAID를 사용하지 않는다면 해당
     
     <item>
       <title>Linux에서 MBR 파티션 테이블 살펴보기</title>
-      <link>https://example.org/posts/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
+      <link>https://example.com/posts/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
+      <guid>https://example.com/posts/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
       <description>기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.  MBR 파티션 테이블 본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.1
 MBR이란? MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.</description>
     </item>
     
     <item>
       <title>[FAQ] libudev.so.0 라이브러리 오류</title>
-      <link>https://example.org/posts/faq-libudev-so-0-raibeureori-oryu/</link>
+      <link>https://example.com/posts/faq-libudev-so-0-raibeureori-oryu/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:43 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-libudev-so-0-raibeureori-oryu/</guid>
+      <guid>https://example.com/posts/faq-libudev-so-0-raibeureori-oryu/</guid>
       <description>Error while loading shared libraries (libudev.so.0)  오류메시지  error while loading shared libraries: libudev.so.0: cannot open shared object file
  환경 - Ubuntu 13.04 또는 Linux Mint 15 (64bit)  Ubuntu 저장소를 이용한 패키지 설치가 아닌 외부 패키지를 설치했을 때 이런 메시지를 종종 볼 수 있는데 오류 메시지 그대로 라이브러리를 찾지 못해서 발생하는 메시지이다. 아래 명령을 통해서 쉽게 수정 할 수 있다.
 $ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>
@@ -69,40 +70,40 @@ $ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>
     
     <item>
       <title>[FAQ] Upstart 사용에 대해서</title>
-      <link>https://example.org/posts/faq-upstart-sayonge-daehaeseo/</link>
+      <link>https://example.com/posts/faq-upstart-sayonge-daehaeseo/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:32 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-upstart-sayonge-daehaeseo/</guid>
+      <guid>https://example.com/posts/faq-upstart-sayonge-daehaeseo/</guid>
       <description>Upstart 기존 Unix &amp;ldquo;System V&amp;rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
 예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again.</description>
     </item>
     
     <item>
       <title>[FAQ] Cylinder 값이 초과 되었는데? (CHS vs LBA)</title>
-      <link>https://example.org/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
+      <link>https://example.com/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
+      <guid>https://example.com/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
       <description>이미 인터넷에 CHS와 LBA에 대한 내용을 다룬 훌륭한 문서가 많이 있다. 다만, 최근 Cylinder 값의 초과에 대해서 이상하게 생각하는 경우에 대한 답변을 위해 본 문서를 작성하게 되었다.
 Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하면서 디스크를 파티셔닝하는데 정렬(alignment)에 대한 이슈가 생겨났다. 기존 섹터가 512byte 단위였던 것이 4096byte(4K)로 증가하면서 디스크 접근에 있어서 성능저하를 막기 위해 파티션의 시작지점을 4K 단위로 맞춰 줄 필요가 생긴 것이다. 최신 parted에서는 aligment 옵션을 제공하지만 fdisk와 같은 툴 에서는 제공하지 않아 Bash 쉘 스크립트로 섹터 값으로 계산해서 파티셔닝 하도록 툴을 만들어 해결 했고 이를 업무에 활용하였다.</description>
     </item>
     
     <item>
       <title>[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure</title>
-      <link>https://example.org/posts/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
+      <link>https://example.com/posts/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:01 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
+      <guid>https://example.com/posts/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
       <description>유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
 따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다.</description>
     </item>
     
     <item>
       <title>[FAQ] Linux Swappiness 관련</title>
-      <link>https://example.org/posts/faq-linux-swappiness-gwanryeon/</link>
+      <link>https://example.com/posts/faq-linux-swappiness-gwanryeon/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:50 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-linux-swappiness-gwanryeon/</guid>
+      <guid>https://example.com/posts/faq-linux-swappiness-gwanryeon/</guid>
       <description>Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
  메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
  예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다.</description>
@@ -110,20 +111,20 @@ Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하�
     
     <item>
       <title>[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</title>
-      <link>https://example.org/posts/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</link>
+      <link>https://example.com/posts/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:40 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</guid>
+      <guid>https://example.com/posts/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</guid>
       <description>간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만 LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.
 Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 NTPL(Native POSIX Thread Library) 였다.</description>
     </item>
     
     <item>
       <title>[FAQ] VirtualBox에서 RHEL5 부팅 오류/멈춤 현상</title>
-      <link>https://example.org/posts/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</link>
+      <link>https://example.com/posts/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:28 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</guid>
+      <guid>https://example.com/posts/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</guid>
       <description>VirtualBox에 RHEL5 설치하기 별것 아니지만 VirtualBox에 RHEL5를 설치하다가 겪을 수 있는 증상에 대해서 간단히 공유하려한다. VirtualBox 버전에 따라 그리고 GuestOS인 RHEL의 버전에 따라 발생하는 경우가 다를 수 있지만 개인적으로 RHEL5 64bit 배포판에서 대부분 발생한 증상이다.
 증상 보통 GuestOS를 설치하기 위해서 ISO 이미지파일을 마운트하여 부팅시키는데 부팅 초반에 멈추는 증상이다. 이는 ISO 이미지로 부팅할 때 뿐만 아니라 설치 후에 부팅할 때도 발생하곤 한다.
 원인 발생하는 경우데 따라서 조금씩 다른 것으로 보이지만 결과적으로 NMI Watchdog이 CPU0에서 LOCKUP 되는 증상이 발생하면서 일어난다.</description>
@@ -131,20 +132,20 @@ Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널
     
     <item>
       <title>[FAQ] Synergy 서버 실행 오류 해결 방안</title>
-      <link>https://example.org/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
+      <link>https://example.com/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:12 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
+      <guid>https://example.com/posts/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
       <description>Synergy 최근에 MBP를 마련하면서 Windows와 번갈아가면서 하는 작업이 늘게 되어서 Synergy를 사용하게 되었는데 설정을 바꿔가며 테스트 하다가 이상한 증상이 발견되어 이를 해결하는 방법을 공유 하고자 한다.
 환경 및 증상  환경 : Synergy 서버는 Windows7 64bit 버전 증상 : Synergy 서버를 종료 했다가 다시 실행하면 아래와 같은 오류 메시지가 발생하면서 실행되지 않음  ERROR: failed to initialize hook library, is synergy already running? FATAL: failed to start server: unable to open screen   해결방법 먼저, 알아두어야 할 것은 Synergy 서버프로세스가 이미 떠 있다면 종료 시키면 해결된다.</description>
     </item>
     
     <item>
       <title>[FAQ] ht = HyperThread에 대한 오해</title>
-      <link>https://example.org/posts/faq-ht-hyperthreade-daehan-ohae/</link>
+      <link>https://example.com/posts/faq-ht-hyperthreade-daehan-ohae/</link>
       <pubDate>Wed, 05 Feb 2014 17:39:57 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-ht-hyperthreade-daehan-ohae/</guid>
+      <guid>https://example.com/posts/faq-ht-hyperthreade-daehan-ohae/</guid>
       <description>과거에 대략 정리했던 내용을 다시 포스팅하는 이유는 문서 정리차원입니다.
 일반적으로 Linux의 CPU정보 (/proc/cpuinfo)에서 ht 플래그 가 보이면 HyperThread가 지원되는 CPU로 알려져 있습니다. 따라서 해당 플래그의 존재 여부에 따라서 HyperThread가 되고 안되고를 많이 판단하는데 결과부터 이야기 한다면 적어도 지금의 CPU로는 ht 플래그로는 HyperThread 기능 여부를 정확히 판별할 수 없습니다.
 개인적으로 HyperThread 기능이 없는 CPU가 ht 플래그를 가지고 있는 것을 발견하였고 이에 대한 의문점을 해결하기 위해 커널 소스를 모두 보았으나 소스의 변화나 특이점은 없었습니다.</description>
@@ -152,10 +153,10 @@ Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널
     
     <item>
       <title>[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)</title>
-      <link>https://example.org/posts/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</link>
+      <link>https://example.com/posts/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</link>
       <pubDate>Wed, 05 Feb 2014 17:37:49 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</guid>
+      <guid>https://example.com/posts/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</guid>
       <description>자주 받는 질문 중의 하나.. &amp;lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&amp;rsquo;
 이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
 df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
@@ -165,10 +166,10 @@ df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 �
     
     <item>
       <title>[FAQ] nVidia 그래픽카드의 메모리 ECC 기능 비활성화</title>
-      <link>https://example.org/posts/faq-nvidia-graphic-disable-ecc/</link>
+      <link>https://example.com/posts/faq-nvidia-graphic-disable-ecc/</link>
       <pubDate>Wed, 05 Feb 2014 07:21:31 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-nvidia-graphic-disable-ecc/</guid>
+      <guid>https://example.com/posts/faq-nvidia-graphic-disable-ecc/</guid>
       <description> nVidia 그래픽카드의 메모리 ECC 기능을 비활성화 하게 되면 성능향상을 얻을 수 있는데 리눅스에서는 아래와 같은 방법으로 비활성화가 가능하다
  $ nvidia-smi -e 0
  0대신에 1을 입력하면 활성화하게 되며 위 값을 변경한 후에는 시스템 리부팅이 이루어져야 제대로 적용된다.
@@ -181,10 +182,10 @@ Reboot required.
     
     <item>
       <title>[FAQ] SFTP 접속 오류</title>
-      <link>https://example.org/posts/faq-sftp-jeobsog-oryu/</link>
+      <link>https://example.com/posts/faq-sftp-jeobsog-oryu/</link>
       <pubDate>Wed, 05 Feb 2014 05:50:12 +0000</pubDate>
       
-      <guid>https://example.org/posts/faq-sftp-jeobsog-oryu/</guid>
+      <guid>https://example.com/posts/faq-sftp-jeobsog-oryu/</guid>
       <description> 증상  received message is too long
  위와 같은 메시지 발생하며 접속이 제대로 이루어지지 않음
 원인 접속하는 사용자 계정의 쉘 환경설정 파일에 stdout으로 메시지를 출력하는 부분이 존재해서 발생 되는 문제입니다.

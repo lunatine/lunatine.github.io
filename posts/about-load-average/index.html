@@ -1,137 +1,83 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Load Average에 대하여</title>
-<meta name="description" content="Describe your website">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
-<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
-<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
-<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
-
-
-  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
- 
-
-  
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-
-<link href="https://example.org/css/custom.css" rel="stylesheet">
-<link rel="shortcut icon" href="https://example.org/img/favicon.png">
-
-
-</head>
-<body>
-  <div id="all">
-      <div class="container-fluid">
-          <div class="row row-offcanvas row-offcanvas-left">
-              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
-  <div class="sidebar-content">
-    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-    
-      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
-    
-      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
-    
-    <ul class="sidebar-menu">
-      
-        <li><a href="https://example.org/portfolio/">Home</a></li>
-      
-        <li><a href="https://example.org/about/">About</a></li>
-      
-        <li><a href="https://example.org/contact/">Get in touch</a></li>
-      
-    </ul>
-    <p class="social">
-  
-  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
-    <i class="fa fa-facebook"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
-    <i class="fa fa-google-plus"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
-    <i class="fa fa-twitter"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
-    <i class="fa fa-instagram"></i>
-  </a>
-  
-  
-  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
-    <i class="fa fa-envelope"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
-    <i class="fa fa-linkedin"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
-    <i class="fa fa-stack-overflow"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
-    <i class="fa fa-github"></i>
-  </a>
-  
-  
-  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
-    <i class="fa fa-youtube"></i>
-  </a>
-  
-  
-  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
-    <i class="fa fa-whatsapp"></i>
-  </a>
-  
-</p>
-
-
-    <div class="copyright">
-      <p class="credit">
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Load Average에 대하여 &middot; Lunatine</title>
+        <meta name="description" content="Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
+Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &lsquo;부하&rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
+부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Load Average에 대하여">
+<meta property="og:description" content="Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
+Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &lsquo;부하&rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
+부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://example.com/posts/about-load-average/">
+        <link rel="stylesheet" href="https://example.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
-          &copy;2016 Your name or company
         
-        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+        
+    </head>
+    <body>
+        
 
-&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://example.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
 
-      </p>
-    </div>
-  </div>
-</div>
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
 
-              
-<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
-  <div class="small-navbar visible-xs">
-  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
-  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
-</div>
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
 
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="content-column-content">
-         <h1>Load Average에 대하여</h1>
-         
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Load Average에 대하여</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+        <img class="post-featured-image" src="/images/2018/02/load-average-lane.png">
+    
+
+    
 
 <h1 id="load-average">Load Average</h1>
 
@@ -157,16 +103,16 @@
 
 <p>프로세스는 흔히 작업(Task)으로도 불리운다. 어떠한 명령을 수행하기 위한 코드와 거기에 필요한 데이터 값의 덩어리를 객체로 표현한 것이 프로세스이다. 프로세스가 시스템에서 처리되기 위해서는 CPU(Processor) 연산을 필요로 한다. 하지만, CPU는 물리적으로 한정적인 자원이기 때문에 이를 특정 프로세스가 독점하지 못하도록 OS(Linux)는 프로세스 스케줄러(Scheduler)를 통해서 조절하게 된다. 멀티(Multi)프로세서는 CPU 자원이 1개 이상일 뿐이지 근본적으로 한정적 자원이라는 점에서는 변함이 없다.</p>
 
-<p><img src="/content/images/2016/02/process-scheduling.png" alt="프로세스 스케줄러" />
+<p><img src="/images/2016/02/process-scheduling.png" alt="프로세스 스케줄러" />
 - 출처: <a href="https://www.cs.rutgers.edu/~pxk/416/notes/07-scheduling.html">cs.rutgers.edu</a></p>
 
 <p>프로세스 스케줄러는 프로세스에 대한 디스크립터(기술자 - Descriptor)를 두고 관리를 하는데 프로세스 스케줄러에 의해서 관리되는 프로세스는 디스크립터에 아래와 같은 상태 값을 갖게 된다.</p>
 
-<p><img src="/content/images/2016/02/process-status-table.png" alt="" /></p>
+<p><img src="/images/2016/02/process-status-table.png" alt="" /></p>
 
 <p>보다 더 많은 상태 값이 존재하지만 여기서는 생략하도록 한다. 커널 소스의 <code>include/linux/sched.h</code> 파일을 참조하자. 프로세스의 상태 값은 보통 아래와 같은 과정에 의해서 상태가 변경된다.</p>
 
-<p><img src="/content/images/2016/02/process-status.png" alt="프로세스 상태변화" /></p>
+<p><img src="/images/2016/02/process-status.png" alt="프로세스 상태변화" /></p>
 
 <h2 id="process-scheduler">Process Scheduler</h2>
 
@@ -180,7 +126,7 @@
 
 <p>이제 각 프로세스가 순서대로 실행 되었을 때의 상태를 살펴보자.</p>
 
-<p><img src="/content/images/2016/02/process-schedule-1.png" alt="" /></p>
+<p><img src="/images/2016/02/process-schedule-1.png" alt="" /></p>
 
 <p>스케줄러에 의해서 A,B,C 프로세스는 순서대로 큐(queue)에 준비 된다. 각 프로세스는 막 실행되었기 때문에 TASK_RUNNING 상태를 갖고 있다. (1)</p>
 
@@ -190,7 +136,7 @@
 
 <p>하지만, B는 사용자가 터미널에 아무런 입력을 하고 있지 않기에 이내 곧 TASK_INTERRUPTIBLE 상태로 바뀌고 대기하게 되며 바로 C에게 CPU 사용 차례를 넘기게 된다. (3)</p>
 
-<p><img src="/content/images/2016/02/process-schedule-2.png" alt="" /></p>
+<p><img src="/images/2016/02/process-schedule-2.png" alt="" /></p>
 
 <p>프로세스 C는 받은 데이터를 로그파일에 기록하기 위해서 파일 디스크립터에 데이터를 쓰게 된다. 이 과정에서 디스크로 부터 응답을 기다리게 되며 (실제로는 캐시 등에 의해서 바로 Write 작업에 대해 응답을 받기 때문에 대기하지는 않지만 본 예시는 이해를 돕기 위함이므로) TASK_UNINTERRUPTIBLE 상태로 바뀌게 된다. (4)</p>
 
@@ -427,7 +373,7 @@ unsigned long nr_active(void)
 
 <p>특정한 값에 대해서 평균을 내기 위해서는 일반적으로 전체를 더한 뒤에 개수로 나눈 값으로 표현한다. 하지만, 이러한 방법은 모든 값을 전부 저장하고 있어야 하기 때문에 한정적인 자원에서는 사용하기가 어렵다. 그렇기 때문에 특정 시점의 평균 값을 이전 시점의 평균 값을 참고하여 계산하는 방법을 사용하게 되는데 Linux에서는 지수이동평균(EMA: Exponetial Moving Average) 방식을 바탕으로 Load Average를 구하고 있다. 지수감소이동평균을 통해서 계산하는 수식은 아래와 같다.</p>
 
-<p><img src="/content/images/2016/02/calc-load-macro.png" alt="calc-load-macro.png" /></p>
+<p><img src="/images/2016/02/calc-load-macro.png" alt="calc-load-macro.png" /></p>
 
 <ul>
 <li>m: 리포팅을 위한 시간 (1분, 5분, 15분 등)</li>
@@ -505,7 +451,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
 <p>Load Average는 Active Task의 평균 값을 의미한다고 확인했다. 그렇다면 이 Load Average는 어떤 값일 때 정상이라고 봐야 할까? <a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">이 문서</a>에서는 Load Average를 교통량에 비유하여 쉽게 설명하고 있다.</p>
 
-<p><img src="/content/images/2016/02/load-average-lane.png" alt="" />
+<p><img src="/images/2016/02/load-average-lane.png" alt="" />
 - 출처: <a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">scoutapp</a></p>
 
 <p>1개의 차선(1 CPU 또는 Core)에 차가 문제 없이 지속적으로 지나갈 때를 1로 보고 있기 때문에 전체 시스템의 CPU(또는 Core) 개수 만큼의 Load 값에 대해서는 문제가 없다고 판단한다. 다시 말해 CPU 마다 처리를 기다리는 프로세스가 1개씩 있을 경우에는 큰 문제가 없다고 판단하는 것이다.</p>
@@ -539,26 +485,81 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
 <p>p.s: Load Average에 대해서 쉽게 써보려고 했으나 결과적으로 망했다고 생각한다.</p>
 
-         
-      </div>
-    </div>
-  </div>
 </div>
 
-          </div>
-      </div>
-  </div>
-  <script src="https://example.org/js/jquery.min.js"></script>
-<script src="https://example.org/js/bootstrap.min.js"></script>
-<script src="https://example.org/js/jquery.cookie.js"> </script>
-<script src="https://example.org/js/ekko-lightbox.js"></script>
-<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
-<script src="https://example.org/js/masonry.pkgd.min.js"></script>
-<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://example.org/js/owl.carousel.min.js"></script>
-<script src="https://example.org/js/front.js"></script>
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/linux/">linux</a>, 
+            
+                <a href="/tags/load-average/">load average</a>, 
+            
+                <a href="/tags/load/">load</a>, 
+            
+                <a href="/tags/kernel/">kernel</a>
+            
+        </p>
+    
 
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Load%20Average%ec%97%90%20%eb%8c%80%ed%95%98%ec%97%ac&url=https%3a%2f%2fexample.com%2fposts%2fabout-load-average%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fposts%2fabout-load-average%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-</body>
+        
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://example.com/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://example.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://example.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://example.com/js/scripts.js"></script>
+    </body>
 </html>
+
