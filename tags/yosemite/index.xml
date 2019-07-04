@@ -14,10 +14,10 @@
     
     <item>
       <title>brew error on Mac OS X 10.10 (yosemite)</title>
-      <link>https://lunatine.github.io/posts/brew-error-on-mac-os-x-10-10-yosemite/</link>
+      <link>https://lunatine.github.io/2014/07/28/brew-error-on-mac-os-x-10-10-yosemite/</link>
       <pubDate>Mon, 28 Jul 2014 08:20:31 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/posts/brew-error-on-mac-os-x-10-10-yosemite/</guid>
+      <guid>https://lunatine.github.io/2014/07/28/brew-error-on-mac-os-x-10-10-yosemite/</guid>
       <description>brew error LunaMac:~ lunatine$ brew /usr/local/bin/brew: /usr/local/Library/brew.rb: /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby: bad interpreter: No such file or directory /usr/local/bin/brew: line 23: /usr/local/Library/brew.rb: Undefined error: 0  Mac OS X 10.10 Yoseimite가 Public Beta로 공개되어서 업데이트를 진행하였는데 brew가 제대로 동작하지 않았다. 오류메시지가 No such file or directory 인 것으로 보아 인터프리터 경로가 바뀐걸로 보인다.
 그래서 Mac OS X의 Ruby 프레임워크 경로를 찾아보니 역시나 바뀌었다.
 원인  기존 10.9 (Mavericks)에서는 Ruby 1.8 기준으로 인터프리터 경로가 설정되었으나 10.</description>

@@ -14,10 +14,10 @@
     
     <item>
       <title>[FAQ] SFTP 접속 오류</title>
-      <link>https://lunatine.github.io/posts/faq-sftp-jeobsog-oryu/</link>
+      <link>https://lunatine.github.io/2014/02/05/faq-sftp-jeobsog-oryu/</link>
       <pubDate>Wed, 05 Feb 2014 05:50:12 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/posts/faq-sftp-jeobsog-oryu/</guid>
+      <guid>https://lunatine.github.io/2014/02/05/faq-sftp-jeobsog-oryu/</guid>
       <description> 증상  received message is too long
  위와 같은 메시지 발생하며 접속이 제대로 이루어지지 않음
 원인 접속하는 사용자 계정의 쉘 환경설정 파일에 stdout으로 메시지를 출력하는 부분이 존재해서 발생 되는 문제입니다.
