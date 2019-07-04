@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>getrlimit - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  getrlimit
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>limits.conf와 오픈파일개수(nofile) 영향</h2>
+  </header>
+  <section class="entry-content">
+   <p>nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
+해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
+nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.5.28</time>
+  </footer>
+  <a class="entry-link" href="/post/limits-conf-nofile-big-value-effect/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

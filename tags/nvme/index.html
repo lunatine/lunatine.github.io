@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>nvme - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  nvme
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>NVMe에서 iostat의 높은 %util 값 (RHEL/CentOS 7.6)</h2>
+  </header>
+  <section class="entry-content">
+   <p>안내: 이 글을 읽기 전에 [Linux iostat] 문서를 먼저 읽어주시기 바랍니다. 버전: 2019/03/22 (수정), 2019/01/28 (초안)  최근 NVMe와 같이 디스크 장치에서 병렬처리가 가능한 제품을 사용 할 때에 iostat의 지표 값이 이상하다는 이야기가 많습니다. 잘 알려진 내용으로는 Linux iostat에서 소개하고 있는 내용처럼 svctm 지표 자체가 제대로 계산되지 않아서 제 성능을 내기도 전에 100%의 Utilization 지표를 나타내는 이슈가 있습니다.
+다만, 최근 RHEL/CentOS 7.6에서 동일하거나 유사한 수준의 I/O 처리에 대해서 기존 7....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.22</time>
+  </footer>
+  <a class="entry-link" href="/post/high-iostat-util-on-nvme/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

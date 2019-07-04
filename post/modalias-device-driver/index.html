@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>modalias와 장치 드라이버 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
+Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 PCI ids에서 자세히 확인 할 수 있습니다.
+modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">modalias와 장치 드라이버</h1>
+    <div class="post-meta">Lunatine · 2015.12.23</div>
+  </header>
+  <div class="post-content">
+
+<p>본 문서는 <a href="http://lunatine.net/devtmpfs-udev">devtmpfs와 udev</a>에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.</p>
+
+<h2 id="device-driver">Device Driver</h2>
+
+<p>일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 <a href="http://pci-ids.ucw.cz/">PCI ids</a>에서 자세히 확인 할 수 있습니다.</p>
+
+<h2 id="modalias-해석">modalias 해석</h2>
+
+<p>예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.</p>
+
+<p>먼저 lspci에서 보여주는 RAID 카드의 정보는 아래와 같습니다.</p>
+
+<pre><code>$ lspci | grep -i &quot;raid bus&quot;
+03:00.0 RAID bus controller: Hewlett-Packard Company Smart Array Gen9 Controllers (rev 01)
+</code></pre>
+
+<p>해당 PCI 장치는 03:00.0에 존재하기 때문에 sysfs(/sys)에 해당 위치로 이동해 봅니다.</p>
+
+<pre><code>$ cd /sys/bus/pci/devices/0000\:03\:00.0/
+$ cat modalias
+pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00
+</code></pre>
+
+<p>해당 장치의 modalias정보를 열어보면 <code>pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00</code> 값을 확인 할 수 있는데 이 값을 좀 더 보기 편하게 나눠보면 아래와 같습니다.</p>
+
+<pre><code>pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00
+
+v 0000103C (벤더ID)
+d 00003239 (장치ID)
+sv 0000103C (서브시스템 벤더ID)
+sd 000021C0 (서브시스템 장치ID)
+bc 01 (Base Class)
+sc 04 (Sub Class)
+i 00 (프로그래밍 인터페이스)
+</code></pre>
+
+<p><a href="http://pci-ids.ucw.cz/">PCI ids</a>에서 벤더ID 103C를 검색해보면 <a href="https://pci-ids.ucw.cz/read/PC/103C">HP를 확인</a> 할 수 있으며 장치ID를 검색해보면 3239는 <a href="https://pci-ids.ucw.cz/read/PC/103c/3239">Smart Array Gen9 Controllers</a> 임을 알 수 있습니다. 여기에 서브시스템의 벤더와 장치 ID인 103C:21C0을 찾아보면 <a href="https://pci-ids.ucw.cz/read/PC/103c/3239/103c21c0">Smart Array P440ar</a> 까지 확인이 가능합니다.</p>
+
+<p>그리고 Base/Sub Class 값인 01 04에 대해서 확인해 보면 <a href="https://pci-ids.ucw.cz/read/PD/01/04">Mass Storage Controller-RAID bus controller</a>로 확인이 됩니다</p>
+
+<pre><code>103C
+↑ Hewlett-Packard
+103C:3239
+     ↑ Smart Array Gen9 Controllers
+103C:3239:103C 21C0
+          ↑ Smart Array P440ar
+01 Mass storage controller
+04 RAID bus controller
+</code></pre>
+
+<p>이러한 정보를 가지고 있는 하드웨어 장치에 대해서 커널 모듈을 로딩하기 위해서 udev에는 아래와 같은 룰이 있습니다.</p>
+
+<pre><code>DRIVER!=&quot;?*&quot;, ENV{MODALIAS}==&quot;?*&quot;, RUN{builtin}=&quot;kmod load $env{MODALIAS}&quot;
+</code></pre>
+
+<p>modalias에 매칭되는 모듈을 읽어들이도록 하는 매우 심플한 룰셋 입니다. 현재 앞에서 살펴본 RAID 카드를 위한 모듈의 modalias 정보를 보면 아래와 같습니다.</p>
+
+<p><img src="/content/images/2015/12/modinfo.png" alt="modinfo.png" /></p>
+
+<p>위에 우리가 찾아봤던 modalias값과 유사한 부분이 있는데 여기에서 <code>*</code>은 와일드카드로 모든 값에 매칭 된다는 표시입니다. 따라서, hpsa 모듈이 가진 modalias 값에 RAID 카드의 modalias가 매칭 되기 때문에 hpsa 드라이버가 로딩 되는 것 입니다. 추가로 다른 서브시스템 장치ID가 hpsa에 존재하는 것을 통해서 이 모델 뿐만 아니라 여러 RAID 카드를 지원하는 드라이버라는 것을 확인 할 수 있습니다.</p>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/modalias/">modalias</a></li>
+      
+      <li><a href="tags/modinfo/">modinfo</a></li>
+      
+      <li><a href="tags/device-driver/">device driver</a></li>
+      
+      <li><a href="tags/lspci/">lspci</a></li>
+      
+      <li><a href="tags/pci.ids/">pci.ids</a></li>
+      
+      <li><a href="tags/kernel-module/">kernel module</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

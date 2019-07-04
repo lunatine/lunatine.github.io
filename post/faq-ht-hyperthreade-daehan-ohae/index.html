@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>[FAQ] ht = HyperThread에 대한 오해 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="과거에 대략 정리했던 내용을 다시 포스팅하는 이유는 문서 정리차원입니다.
+일반적으로 Linux의 CPU정보 (/proc/cpuinfo)에서 ht 플래그 가 보이면 HyperThread가 지원되는 CPU로 알려져 있습니다. 따라서 해당 플래그의 존재 여부에 따라서 HyperThread가 되고 안되고를 많이 판단하는데 결과부터 이야기 한다면 적어도 지금의 CPU로는 ht 플래그로는 HyperThread 기능 여부를 정확히 판별할 수 없습니다.
+개인적으로 HyperThread 기능이 없는 CPU가 ht 플래그를 가지고 있는 것을 발견하였고 이에 대한 의문점을 해결하기 위해 커널 소스를 모두 보았으나 소스의 변화나 특이점은 없었습니다.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">[FAQ] ht = HyperThread에 대한 오해</h1>
+    <div class="post-meta">Lunatine · 2014.2.5</div>
+  </header>
+  <div class="post-content"><p>과거에 대략 정리했던 내용을 다시 포스팅하는 이유는 문서 정리차원입니다.</p>
+
+<p>일반적으로 Linux의 CPU정보 (/proc/cpuinfo)에서 <strong>ht 플래그 가 보이면 HyperThread가 지원</strong>되는 CPU로 알려져 있습니다. 따라서 해당 플래그의 존재 여부에 따라서 HyperThread가 되고 안되고를 많이 판단하는데 결과부터 이야기 한다면 적어도 지금의 CPU로는 ht 플래그로는 HyperThread 기능 여부를 정확히 판별할 수 없습니다.</p>
+
+<p>개인적으로 <strong>HyperThread 기능이 없는 CPU가 ht 플래그를 가지고 있는 것</strong>을 발견하였고 이에 대한 의문점을 해결하기 위해 커널 소스를 모두 보았으나 소스의 변화나 특이점은 없었습니다. 그래서 CPU 매뉴얼과 유사 자료를 찾던 중 아래와 같은 내용이 있었습니다.</p>
+
+<blockquote>
+<p>&ldquo;ht&rdquo; in &lsquo;flags&rsquo; field of /proc/cpuinfo indicate that the processor supports the Machine Specific Registers to report back HT or multi-core capability. Additional fields (listed down below) in the CPU records of /proc/cpufinfo will give more precise information about the CPU topology as seen by the operating system.</p>
+
+<p>&ldquo;physical id&rdquo; : Physical package id of the logical CPU
+&ldquo;siblings&rdquo; : Total number of logical processors (include both threads and cores) in the physical package currently in use by the OS
+&ldquo;cpu cores&rdquo; : Total number of cores in the physical package currently in use by the OS
+&ldquo;core id&rdquo; : Core id of the logical CPU</p>
+</blockquote>
+
+<p>위의 내용을 핵심만을 살펴보면, ht 플래그는 <strong>멀티스레드/멀티코어에 대한 하드웨어 레지스터를 지원하느냐</strong>에 대한 플래그 값 입니다.</p>
+
+<p>즉, 과거에는 die 하나에 1개의 코어가 올라가는게 당연하였기 때문에 ht 플래그는 곧 HyperThread를 의미했지만 요즘과 같이 die 하나에 4개의 코어 이상이 올라가는 시대에는 멀티코어에 대한 하드웨어 레지스터를 지원한다는 의미밖에 되지 않습니다.</p>
+
+<p>따라서, HyperThread의 활성화 여부를 명확히 확인하기 위해서는 /proc/cpuinfo 파일에서 보여주는 코어개수가 sibling 코어 개수와 같으면 HyperThread가 꺼진 상태이고 2배이면 켜진 상태인 것입니다.</p>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/faq/">faq</a></li>
+      
+      <li><a href="tags/linux/">linux</a></li>
+      
+      <li><a href="tags/hyperthread/">HyperThread</a></li>
+      
+      <li><a href="tags/ht/">ht</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

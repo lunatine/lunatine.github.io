@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>filesystem - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  filesystem
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>ext4 포맷 속도 개선</h2>
+  </header>
+  <section class="entry-content">
+   <p>Linux에서 ext4 파일시스템을 사용하면서 종종 겪는 이슈 중의 하나가 바로 포맷 속도 입니다. 과거에는 이러한 포맷 속도가 그렇게까지 문제가 되지 않았지만 6TB, 8TB 디스크가 보편화 되면서 이러한 큰 디스크를 포맷할 때 시간이 너무 많이 소요되는 문제가 있습니다.
+사실, 이게 딱히 문제라고 보긴 어렵지만 특정 경우에는 (포맷 작업을 순차적으로 처리하는 업무라던지 ) 많은 시간을 소모하는 포맷 작업이 부담스러울 수 있습니다. 그러다보니 ext4를 주력으로 하는 Ubuntu 같은 배포판에서도 포맷 속도가 빠른 XFS를 선호하시는 분도 보았었습니다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.1.29</time>
+  </footer>
+  <a class="entry-link" href="/post/improve-ext4-format-speed/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>RHEL6에서 Python 2.7/3.4 사용하기 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
+Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">RHEL6에서 Python 2.7/3.4 사용하기</h1>
+    <div class="post-meta">Lunatine · 2015.1.21</div>
+  </header>
+  <div class="post-content">
+
+<p>본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.</p>
+
+<h2 id="python-2-6">Python 2.6</h2>
+
+<p>RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.</p>
+
+<h2 id="제안하는-방법">제안하는 방법</h2>
+
+<ul>
+<li>OS가 기본적으로 가지고 있는 python은 그대로 둔다.
+
+<ul>
+<li>절대 덮어씌우거나 심볼릭 링크를 고치거나 하지 않는다.</li>
+<li>python은 별도로 설치하는 옵션을 이미 가지고 있다.</li>
+</ul></li>
+<li>python 2.<sup>7</sup>&frasl;<sub>3</sub>.4 환경으로 프로그램을 작성하거나 구동 할 때 virtualenv를 활용한다.</li>
+</ul>
+
+<h2 id="python-설치">Python 설치</h2>
+
+<p>자, 이제 python 2.7.<sup>9</sup>&frasl;<sub>3</sub>.4.2를 설치해 보자. (이 문서 작성기준 최신 버전)</p>
+
+<h3 id="사전준비">사전준비</h3>
+
+<ul>
+<li>빌드를 위해서 개발 관련 패키지가 모두 설치되어 있어야 한다</li>
+
+<li><p>추가로 자주 사용되는 라이브러리의 개발 패키지도 필요하다</p>
+
+<pre><code>$ yum -y groupinstall 'Development tools'
+$ yum -y install openssl-devel bzip2-devel sqlite-devel zlib-devel
+</code></pre></li>
+</ul>
+
+<h3 id="패키지-다운로드">패키지 다운로드</h3>
+
+<ul>
+<li><p>python 패키지를 다운로드 받는다</p>
+
+<ul>
+<li>xz 파일을 다루기 위해서는 &lsquo;xz-libs&rsquo;를 설치한다</li>
+
+<li><p>tgz(tar+gzip)은 보통 기본 설치에 포함된다</p>
+
+<pre><code>[xz 파일의 경우]
+# 2.7.9
+$ wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz
+$ tar Jxvf Python-2.7.9.tar.xz
+# 3.4.2
+$ https://www.python.org/ftp/python/3.4.2/Python-3.4.2.tar.xz
+$ tar Jxvf Python-3.4.2.tar.xz
+
+[tgz 파일의 경우]
+# 2.7.9
+$ wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+$ tar zxvf Python-2.7.9.tgz
+# 3.4.2
+$ wget https://www.python.org/ftp/python/3.4.2/Python-3.4.2.tgz
+$ tar zxvf Python-3.4.2.tgz
+</code></pre></li>
+</ul></li>
+
+<li><p>압축을 해제하면 디렉토리가 생생되고 해당 디렉토리에 들어가서 설정을 한다</p>
+
+<ul>
+<li>반드시 /usr/local 일 필요는 없으니 원하는 경로로 사용한다</li>
+
+<li><p>UTF-32 지원 등 부가적인 옵션은 기호에 따라 추가한다</p>
+
+<pre><code># 2.7.9
+$ cd Python-2.7.9/
+$ ./configure --prefix=/usr/local --enable-shared
+# 3.4.2
+$ cd Python-3.4.2/
+$ ./configure --prefix=/usr/local --enable-shared
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h3 id="빌드-그리고-설치">빌드 그리고 설치</h3>
+
+<ul>
+<li><p>설정 된 패키지를 빌드하고 설치한다</p>
+
+<ul>
+<li><p>반드시 <strong>altinstall</strong>로 설치한다</p>
+
+<pre><code>$ make &amp;&amp; make altinstall
+
+멀티코어 프로세스를 사용한다면 -j 옵션으로 동시작업 개수를 지정해서 컴파일 시간을 단축 할 수 있다. (아래는 4개로 지정)
+$ make -j 4 &amp;&amp; make install
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h3 id="설치-확인">설치 확인</h3>
+
+<p>설치가 완료되면 아래 경로에 python2.<sup>7</sup>&frasl;<sub>3</sub>.4 바이너리가 존재 한다</p>
+
+<pre><code>$ ls -l /usr/local/bin/python*
+lrwxrwxrwx 1 root root     7 Jan 21 13:28 /usr/local/bin/python -&gt; python2
+lrwxrwxrwx 1 root root     9 Jan 21 13:28 /usr/local/bin/python2 -&gt; python2.7
+-rwxr-xr-x 1 root root  9792 Jan 21 14:33 /usr/local/bin/python2.7
+-rwxr-xr-x 1 root root  1687 Jan 21 14:34 /usr/local/bin/python2.7-config
+lrwxrwxrwx 1 root root    16 Jan 21 13:28 /usr/local/bin/python2-config -&gt; python2.7-config
+-rwxr-xr-x 2 root root 12650 Jan 21 14:40 /usr/local/bin/python3.4
+-rwxr-xr-x 2 root root 12650 Jan 21 14:40 /usr/local/bin/python3.4m
+-rwxr-xr-x 1 root root  3011 Jan 21 14:40 /usr/local/bin/python3.4m-config
+lrwxrwxrwx 1 root root    14 Jan 21 13:28 /usr/local/bin/python-config -&gt; python2-config
+
+</code></pre>
+
+<p>Shared Library로 설치했기 때문에 /etc/ld.so.conf.d/에 아래와 같은 설정을 추가해 주고 적용한다</p>
+
+<pre><code>$ cat /etc/ld.so.conf.d/python.conf
+/usr/local/lib
+$ ldconfig -v | grep libpython
+	libpython2.7.so.1.0 -&gt; libpython2.7.so.1.0
+	libpython3.so -&gt; libpython3.so
+	libpython3.4m.so.1.0 -&gt; libpython3.4m.so.1.0
+	libpython2.6.so.1.0 -&gt; libpython2.6.so.1.0
+</code></pre>
+
+<hr />
+
+<h3 id="만약에">만약에&hellip;</h3>
+
+<p><strong>Q.</strong> python 명령으로 python2.7이 실행되도록 하고 싶습니다.</p>
+
+<p><strong>A.</strong> python2.7을 python으로 실행하기 위해서는 /usr/local/bin(또는 설치한 경로의 bin 디렉토리)을 PATH의 <strong>맨 앞에</strong> 추가해 주면 된다. 하지만 임의로 PATH를 고치는 것 보단 가급적이면 python2.7로 사용하는 습관이 좋다고 생각한다. 이유는 이 다음 절에서 설명하겠다. (특히 /usr/bin/python에 수정을 가하거나 링크 거는 것은 권장하지 않는다)</p>
+
+<pre><code>$ export PATH=&quot;/usr/local/bin:$PATH&quot;
+쉘에서 직접 실행하거나 .bashrc에 포함 시킨다
+</code></pre>
+
+<p>위에서 설정한 PATH 우선 순위에 따라서 python만 실행해도 python 2.7.9 버전이 실행된다.</p>
+
+<pre><code>$ python
+Python 2.7.9 (default, Jan 21 2015, 13:27:03)
+[GCC 4.4.6 20120305 (Red Hat 4.4.6-4)] on linux2
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre>
+
+<hr />
+
+<h3 id="유의사항-이렇게-하지-말자">유의사항 (이렇게 하지 말자)</h3>
+
+<p>설치하고나서 PATH를 고치기 보다는 /usr/bin/python을 새로 설치한 python 바이너리로 심볼릭링크를 걸어서 (또는 덮어씌워서) 사용하는 경우가 많은데 이렇게 하면 RHEL/CentOS에 있는 yum을 비롯한 많은 OS 기본 python으로 실행되는 프로그램이 python 2.7.9에서 package를 찾기 때문에 오류가 발생한다. 아래는 대표적인 경우 중 하나인 yum의 오류 상황이다.</p>
+
+<p>만약 /usr/bin/python을 /usr/local/bin/python (2.7.9)으로 대체하거나 링크를 걸었다면</p>
+
+<pre><code>$ ls -l /usr/bin/python
+lrwxrwxrwx 1 root root 7 Jan 21 13:28 /usr/bin/python -&gt; /usr/local/bin/python
+
+$ head -n 3 /usr/bin/yum
+#!/usr/bin/python
+import sys
+try:
+</code></pre>
+
+<p>yum 프로그램은 /usr/bin/python을 찾기 때문에 아래와 같은 에러가 발생한다.</p>
+
+<pre><code>$ yum
+There was a problem importing one of the Python modules
+required to run yum. The error leading to this problem was:
+
+   No module named yum
+
+Please install a package which provides this module, or
+verify that the module is installed correctly.
+
+It's possible that the above module doesn't match the
+current version of Python, which is:
+2.7.9 (default, Jan 21 2015, 13:27:03)
+[GCC 4.4.6 20120305 (Red Hat 4.4.6-4)]
+
+If you cannot solve this problem yourself, please go to
+the yum faq at:
+  http://yum.baseurl.org/wiki/Faq
+
+</code></pre>
+
+<hr />
+
+<h2 id="사용하기">사용하기</h2>
+
+<p>앞서 설치한 python 2.7.<sup>9</sup>&frasl;<sub>3</sub>.4.2 버전을 실행하는데 문제는 없지만 python 환경에서 개발 할 때 라이브러리 관리의 편의성을 위해서 추가적인 작업을 해주도록 한다.</p>
+
+<h3 id="setuptools-pip">setuptools &amp; pip</h3>
+
+<p>라이브러리를 설치하거나 패키징할 때 유용한 setuptools와 pip를 설치하도록 한다. 2.7.9 기준이며 3.4.2의 경우에는 기본 패키지에 번들로 들어 있다. 별도로 설치하고자 할 경우에는 실행 파일을 python3.4로 실행해주면 된다.</p>
+
+<pre><code># https 접속이기 때문에 certificate 체크를 건너뛰는 옵션을 줬다
+$ wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-12.0.4.tar.gz
+
+# 압축을 풀고 python2.7로 설치를 한다
+$ tar zxvf setuptools-12.0.4.tar.gz
+$ cd setuptools-12.0.4
+$ python2.7 setup.py install
+
+# pip 다운로드
+$ wget --no-check-certificate https://pypi.python.org/packages/source/p/pip/pip-6.0.6.tar.gz
+
+# setuptools와 마찬가지로 설치
+$ tar zxvf pip-6.0.6.tar.gz
+$ cd pip-6.0.6
+$ python2.7 setup.py install
+
+# /usr/local/bin에 pip가 추가되어있다. 기존에 OS python에서 사용하던 pip가 있다면 pip2.7로 실행하는 편이 명확하고 좋다.
+
+</code></pre>
+
+<h3 id="virtualenv">virtualenv</h3>
+
+<p>독립적인 python 개발 및 구동 환경을 갖기 위해서는 virtualenv를 설치해서 사용하는 것을 추천하기 때문에 virtualenv도 설치한다. 앞서 pip를 설치 했기 때문에 pip로 간단하게 설치하도록 한다</p>
+
+<pre><code>$ pip2.7 install virtualenv
+</code></pre>
+
+<p>python3.4에는 virtualenv가 pyvenv로 내장되어 있다.</p>
+
+<h3 id="virtualenv-환경구축">virtualenv 환경구축</h3>
+
+<p>virtualenv까지 설치했기 때문에 내가 원하는 python버전에 따라서 환경을 구축하고 필요한 패키지들을 설치하는 형태로 사용하면 된다.</p>
+
+<p>virtualenv를 사용하면 좋은 점이 개발/테스트/작업 등을 수행 할 때 설치하는 패키지가 시스템에 설치 된 패키지에 영향을 주지 않으며 일반 사용자가 얼마든지 원하는 패키지를 추가 할 수 있고 복잡한(?) PYTHONPATH를 고려하지 않아도 된다.</p>
+
+<p>참고로, virtualenv로 생성한 환경의 bin 디렉토리를 보면 pip, easy_install이 기본으로 포함된다.</p>
+
+<pre><code># p27env는 예를 든 값이다. 원하는 이름을 사용하면 된다.
+$ virtualenv-2.7 p27env
+New python executable in p27env/bin/python2.7
+Also creating executable in p27env/bin/python
+Installing setuptools, pip...done.
+# p34env는 예를 든 값이다. 원하는 이름을 사용하면 된다.
+$ pyvenv-3.4 p34env
+
+# 기본 python 버전 확인
+$ python --version
+Python 2.6.6
+
+# p27env 환경 적용
+$ . p27env/bin/activate
+(p27env)$ python --version
+Python 2.7.9
+
+# p34env 환경 적용 (기존 환경을 먼저 비활성화 한다)
+$ deactivate
+$ . p34env/bin/activate
+(p34env)$ python --version
+Python 3.4.2
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/linux/">linux</a></li>
+      
+      <li><a href="tags/rhel6/">RHEL6</a></li>
+      
+      <li><a href="tags/centos6/">CentOS6</a></li>
+      
+      <li><a href="tags/rhel/">RHEL</a></li>
+      
+      <li><a href="tags/centos/">CentOS</a></li>
+      
+      <li><a href="tags/python2.7/">Python2.7</a></li>
+      
+      <li><a href="tags/python3.4/">Python3.4</a></li>
+      
+      <li><a href="tags/virtualenv/">virtualenv</a></li>
+      
+      <li><a href="tags/pip/">pip</a></li>
+      
+      <li><a href="tags/altinstall/">altinstall</a></li>
+      
+      <li><a href="tags/python/">python</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FBWC on Lunatine&#39;s Box</title>
+    <link>/categories/fbwc/</link>
+    <description>Recent content in FBWC on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jun 2014 10:20:13 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/fbwc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Smart Array P420 캐시 비활성화 증상</title>
+      <link>/post/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/post/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</guid>
+      <description>Smart Array Cache 비활성화 증상  본 문서는 Smart Array 컨트롤러(P420, P420i, P421 등)에서 발생하는 캐시 비활성화 증상과 해결방법에 대해서 소개하고 있습니다.
+ 증상  시스템의 I/O 성능이 낮음
+ Smart Array 컨트롤러의 캐시가 비 활성화 되어있음 컨트롤러 상태 정보 확인 결과 Capacitor 충전상태에 문제가 있으며 임시로 비활성화 되어있음을 확인할 수 있습니다.   컨트롤러 상태 메시지
+ Cache Status: Temporarily Disabled Cache Status Details: Cache disabled; capacitor charge is low  상기 예시의 컨트롤러는 별도의 배터리유닛을 사용하지 않는 FBWC 임에도 불구하고 충전 오류 메시지가 발생하고 있음.</description>
+    </item>
+    
+  </channel>
+</rss>

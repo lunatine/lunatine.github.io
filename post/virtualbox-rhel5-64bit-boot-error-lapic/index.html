@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>VirtualBox RHEL5 부팅 시 행업증상 #2 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
+nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
+환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상
+NET: registered protocol family 2   해결방법 방법1  가상머신의 설정 값을 변경하는 방법  시스템 &gt; 마더보드 &gt; IO APIC 사용하기를 체크하는 방법   방법2 (추천)  부팅시 커널 파라미터에 nolapic를 추가한다 CD-ROM/USB 부팅 시에 부트 프롬프트에서 아래와 같이 입력">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">VirtualBox RHEL5 부팅 시 행업증상 #2</h1>
+    <div class="post-meta">Lunatine · 2014.3.3</div>
+  </header>
+  <div class="post-content">
+
+<p>본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.</p>
+
+<p>nmi_watchdog에 의한 부팅 불가 증상은 <a href="http://lunatine.net/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/">이 문서</a>를 참고하시기 바랍니다.</p>
+
+<h2 id="환경">환경</h2>
+
+<ul>
+<li>VirtualBox 4.2.16</li>
+<li>RHEL5 64bit</li>
+</ul>
+
+<h2 id="증상">증상</h2>
+
+<ul>
+<li><p>부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상</p>
+
+<pre><code>NET: registered protocol family 2
+</code></pre></li>
+</ul>
+
+<h2 id="해결방법">해결방법</h2>
+
+<h3 id="방법1">방법1</h3>
+
+<ul>
+<li>가상머신의 설정 값을 변경하는 방법
+
+<ul>
+<li>시스템 &gt; 마더보드 &gt; IO APIC 사용하기를 체크하는 방법</li>
+</ul></li>
+</ul>
+
+<p><img src="/content/images/2014/Mar/TestBox_64bit__6_176____l__l___574.png" alt="" /></p>
+
+<h3 id="방법2-추천">방법2 (추천)</h3>
+
+<ul>
+<li>부팅시 커널 파라미터에 nolapic를 추가한다</li>
+
+<li><p>CD-ROM/USB 부팅 시에 부트 프롬프트에서 아래와 같이 입력</p>
+
+<pre><code>Boot: linux nolapic
+</code></pre></li>
+
+<li><p>nolapic는 LAPIC를 비활성 하는 옵션이며 이에 대한 내용은 <a href="http://osdev.berlios.de/pic.html#local_apic">이 문서</a>를 참고하면 된다.</p></li>
+</ul>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/virtualbox/">virtualbox</a></li>
+      
+      <li><a href="tags/64bit/">64bit</a></li>
+      
+      <li><a href="tags/x86_64/">x86_64</a></li>
+      
+      <li><a href="tags/net-registered-protocol-family-2/">NET: registered protocol family 2</a></li>
+      
+      <li><a href="tags/rhel5/">rhel5</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

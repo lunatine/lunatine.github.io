@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Posts - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  Posts
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>yum 저장소에서 checksum error 발생</h2>
+  </header>
+  <section class="entry-content">
+   <p>yum checksum error 증상  yum 저장소를 새로 생성하였으나 해당 목록을 받아올 때 아래 메시지 발생
+Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.com/rhel/5Server/x86_64/5.10/repodata/primary.xml.gz: [Errno -3] Error performing checksum Trying other mirror.  발생 조건
+ RHEL5 저장소를 RHEL6에서 생성하였을 경우   원인 및 해결방안 createrepo로 저장소를 생성 할 때 저장소 정보를 RHEL5의 Checksum은 SHA-1 기반으로 되어있는 반면에 RHEL6의 경우는 SHA-256으로 생성하기 때문에 RHEL5에서 해당 저장소를 사용하려고 하면 오류가 발생하는 것이다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.6.12</time>
+  </footer>
+  <a class="entry-link" href="/post/yum-repository-checksum-error/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>VirtualBox RHEL5 부팅 시 행업증상 #2</h2>
+  </header>
+  <section class="entry-content">
+   <p>본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
+nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
+환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상
+NET: registered protocol family 2   해결방법 방법1  가상머신의 설정 값을 변경하는 방법  시스템 &gt; 마더보드 &gt; IO APIC 사용하기를 체크하는 방법   방법2 (추천)  부팅시 커널 파라미터에 nolapic를 추가한다 CD-ROM/USB 부팅 시에 부트 프롬프트에서 아래와 같이 입력...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.3.3</time>
+  </footer>
+  <a class="entry-link" href="/post/virtualbox-rhel5-64bit-boot-error-lapic/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>megasas_register_aen[0]: already registered</h2>
+  </header>
+  <section class="entry-content">
+   <p>MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
+megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
+커널 패치 내용은 아래와 같습니다.
+--- kernel-2.6.18-194.17.4/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 20:53:39.000000000 &#43;0530 &#43;&#43;&#43; kernel-2.6.18-194.26.1/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 21:23:56.000000000 &#43;0530 @@ -2992,6 &#43;3681,8 @@ megasas_register_aen(struct megasas_inst * Previously issued event registration includes * current request....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.2.10</time>
+  </footer>
+  <a class="entry-link" href="/post/megasas_register_aen0-already-registered/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>[FAQ] VirtualBox에서 RHEL5 부팅 오류/멈춤 현상</h2>
+  </header>
+  <section class="entry-content">
+   <p>VirtualBox에 RHEL5 설치하기 별것 아니지만 VirtualBox에 RHEL5를 설치하다가 겪을 수 있는 증상에 대해서 간단히 공유하려한다. VirtualBox 버전에 따라 그리고 GuestOS인 RHEL의 버전에 따라 발생하는 경우가 다를 수 있지만 개인적으로 RHEL5 64bit 배포판에서 대부분 발생한 증상이다.
+증상 보통 GuestOS를 설치하기 위해서 ISO 이미지파일을 마운트하여 부팅시키는데 부팅 초반에 멈추는 증상이다. 이는 ISO 이미지로 부팅할 때 뿐만 아니라 설치 후에 부팅할 때도 발생하곤 한다.
+원인 발생하는 경우데 따라서 조금씩 다른 것으로 보이지만 결과적으로 NMI Watchdog이 CPU0에서 LOCKUP 되는 증상이 발생하면서 일어난다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.2.5</time>
+  </footer>
+  <a class="entry-link" href="/post/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

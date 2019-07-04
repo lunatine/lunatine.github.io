@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>THP - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  THP
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Transparent Huge Pages 와 page allocation error</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
+page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&lt;ffffffff8112c207&gt;] ? __alloc_pages_nodemask&#43;0x757/0x8d0 kernel: [&lt;ffffffff81010ff6&gt;] ? dma_generic_alloc_coherent&#43;0xa6/0x160 kernel: [&lt;ffffffff8103c8f1&gt;] ? x86_swiotlb_alloc_coherent&#43;0x31/0x70 kernel: [&lt;ffffffffa002e74a&gt;] ? pci_alloc_consistent&#43;0x5a/0xc0 [mpt2sas] kernel: [&lt;ffffffffa0030155&gt;] ? _ctl_do_mpt_command&#43;0x7c5/0xcb0 [mpt2sas] kernel: [&lt;ffffffff8119abe7&gt;] ? __d_lookup&#43;0xa7/0x150 kernel: [&lt;ffffffffa0030762&gt;] ? _ctl_compat_mpt_command&#43;0x122/0x160 [mpt2sas] kernel: [&lt;ffffffff8150f026&gt;] ? mutex_lock_interruptible&#43;0x16/0x50 kernel: [&lt;ffffffffa003167b&gt;] ? _ctl_ioctl_main&#43;0x5cb/0x1070 [mpt2sas] kernel: [&lt;ffffffff81193010&gt;] ?...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.10.29</time>
+  </footer>
+  <a class="entry-link" href="/post/thp-and-page-allocation-error/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

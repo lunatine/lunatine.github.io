@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>kernel - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  kernel
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>비 정상적인 Swap 수치</h2>
+  </header>
+  <section class="entry-content">
+   <p>증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
+$ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/&#43; buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.1.29</time>
+  </footer>
+  <a class="entry-link" href="/post/abnormal-swap-values/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Load Average에 대하여</h2>
+  </header>
+  <section class="entry-content">
+   <p>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
+Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 ‘부하’로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
+부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2016.2.19</time>
+  </footer>
+  <a class="entry-link" href="/post/about-load-average/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Linux Boot</h2>
+  </header>
+  <section class="entry-content">
+   <p>Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
+ 본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2015.12.18</time>
+  </footer>
+  <a class="entry-link" href="/post/linux-booting/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Transparent Huge Pages 와 page allocation error</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
+page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&lt;ffffffff8112c207&gt;] ? __alloc_pages_nodemask&#43;0x757/0x8d0 kernel: [&lt;ffffffff81010ff6&gt;] ? dma_generic_alloc_coherent&#43;0xa6/0x160 kernel: [&lt;ffffffff8103c8f1&gt;] ? x86_swiotlb_alloc_coherent&#43;0x31/0x70 kernel: [&lt;ffffffffa002e74a&gt;] ? pci_alloc_consistent&#43;0x5a/0xc0 [mpt2sas] kernel: [&lt;ffffffffa0030155&gt;] ? _ctl_do_mpt_command&#43;0x7c5/0xcb0 [mpt2sas] kernel: [&lt;ffffffff8119abe7&gt;] ? __d_lookup&#43;0xa7/0x150 kernel: [&lt;ffffffffa0030762&gt;] ? _ctl_compat_mpt_command&#43;0x122/0x160 [mpt2sas] kernel: [&lt;ffffffff8150f026&gt;] ? mutex_lock_interruptible&#43;0x16/0x50 kernel: [&lt;ffffffffa003167b&gt;] ? _ctl_ioctl_main&#43;0x5cb/0x1070 [mpt2sas] kernel: [&lt;ffffffff81193010&gt;] ?...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.10.29</time>
+  </footer>
+  <a class="entry-link" href="/post/thp-and-page-allocation-error/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure</h2>
+  </header>
+  <section class="entry-content">
+   <p>유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
+따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.2.5</time>
+  </footer>
+  <a class="entry-link" href="/post/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/"></a>
+</article>
+
+
+
+
+<footer class="page-footer">
+  <nav class="pagination">
+    
+    
+    <a class="next" href="/tags/kernel/page/2/">Next Page →</a>
+    
+  </nav>
+</footer>
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

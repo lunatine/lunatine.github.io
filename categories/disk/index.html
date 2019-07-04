@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Posts - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  Posts
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>[FAQ] Cylinder 값이 초과 되었는데? (CHS vs LBA)</h2>
+  </header>
+  <section class="entry-content">
+   <p>이미 인터넷에 CHS와 LBA에 대한 내용을 다룬 훌륭한 문서가 많이 있다. 다만, 최근 Cylinder 값의 초과에 대해서 이상하게 생각하는 경우에 대한 답변을 위해 본 문서를 작성하게 되었다.
+Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하면서 디스크를 파티셔닝하는데 정렬(alignment)에 대한 이슈가 생겨났다. 기존 섹터가 512byte 단위였던 것이 4096byte(4K)로 증가하면서 디스크 접근에 있어서 성능저하를 막기 위해 파티션의 시작지점을 4K 단위로 맞춰 줄 필요가 생긴 것이다. 최신 parted에서는 aligment 옵션을 제공하지만 fdisk와 같은 툴 에서는 제공하지 않아 Bash 쉘 스크립트로 섹터 값으로 계산해서 파티셔닝 하도록 툴을 만들어 해결 했고 이를 업무에 활용하였다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.2.5</time>
+  </footer>
+  <a class="entry-link" href="/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

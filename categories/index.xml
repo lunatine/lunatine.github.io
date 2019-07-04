@@ -2,13 +2,2246 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Lunatine&#39;s Box</title>
-    <link>https://github.daumkakao.com/pages/lunatine-c/public/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
     
-	<atom:link href="https://github.daumkakao.com/pages/lunatine-c/public/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>/categories/</link>
+      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
+      
+      <guid>/categories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS</title>
+      <link>/categories/centos/</link>
+      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
+      
+      <guid>/categories/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RHEL</title>
+      <link>/categories/rhel/</link>
+      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
+      
+      <guid>/categories/rhel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iostat</title>
+      <link>/categories/iostat/</link>
+      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
+      
+      <guid>/categories/iostat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvme</title>
+      <link>/categories/nvme/</link>
+      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
+      
+      <guid>/categories/nvme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utilization</title>
+      <link>/categories/utilization/</link>
+      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
+      
+      <guid>/categories/utilization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>/categories/ubuntu/</link>
+      <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
+      
+      <guid>/categories/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>initramfs</title>
+      <link>/categories/initramfs/</link>
+      <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
+      
+      <guid>/categories/initramfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swap</title>
+      <link>/categories/swap/</link>
+      <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
+      
+      <guid>/categories/swap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sysetmd</title>
+      <link>/categories/sysetmd/</link>
+      <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
+      
+      <guid>/categories/sysetmd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS6</title>
+      <link>/categories/centos6/</link>
+      <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
+      
+      <guid>/categories/centos6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>/categories/kernel/</link>
+      <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
+      
+      <guid>/categories/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ext4</title>
+      <link>/categories/ext4/</link>
+      <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
+      
+      <guid>/categories/ext4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filesystem</title>
+      <link>/categories/filesystem/</link>
+      <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
+      
+      <guid>/categories/filesystem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>format</title>
+      <link>/categories/format/</link>
+      <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
+      
+      <guid>/categories/format/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LC_CTYPE</title>
+      <link>/categories/lc_ctype/</link>
+      <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
+      
+      <guid>/categories/lc_ctype/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iTerm</title>
+      <link>/categories/iterm/</link>
+      <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
+      
+      <guid>/categories/iterm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>/categories/macos/</link>
+      <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
+      
+      <guid>/categories/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>/categories/ssh/</link>
+      <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
+      
+      <guid>/categories/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh_config</title>
+      <link>/categories/ssh_config/</link>
+      <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
+      
+      <guid>/categories/ssh_config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>/categories/docker/</link>
+      <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
+      
+      <guid>/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dropping packet</title>
+      <link>/categories/dropping-packet/</link>
+      <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
+      
+      <guid>/categories/dropping-packet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nf_conntrack</title>
+      <link>/categories/nf_conntrack/</link>
+      <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
+      
+      <guid>/categories/nf_conntrack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Qt</title>
+      <link>/categories/qt/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/qt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>crash</title>
+      <link>/categories/crash/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/crash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>karabiner</title>
+      <link>/categories/karabiner/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/karabiner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac os x</title>
+      <link>/categories/mac-os-x/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/mac-os-x/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualbox</title>
+      <link>/categories/virtualbox/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/virtualbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>맥</title>
+      <link>/categories/%EB%A7%A5/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/%EB%A7%A5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>버추얼박스</title>
+      <link>/categories/%EB%B2%84%EC%B6%94%EC%96%BC%EB%B0%95%EC%8A%A4/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/%EB%B2%84%EC%B6%94%EC%96%BC%EB%B0%95%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>종료</title>
+      <link>/categories/%EC%A2%85%EB%A3%8C/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/%EC%A2%85%EB%A3%8C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>환경설정</title>
+      <link>/categories/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
+      
+      <guid>/categories/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>interleave</title>
+      <link>/categories/interleave/</link>
+      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
+      
+      <guid>/categories/interleave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>interleaved memory</title>
+      <link>/categories/interleaved-memory/</link>
+      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
+      
+      <guid>/categories/interleaved-memory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numa</title>
+      <link>/categories/numa/</link>
+      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
+      
+      <guid>/categories/numa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numad</title>
+      <link>/categories/numad/</link>
+      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
+      
+      <guid>/categories/numad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numctl</title>
+      <link>/categories/numctl/</link>
+      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
+      
+      <guid>/categories/numctl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backtick</title>
+      <link>/categories/backtick/</link>
+      <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
+      
+      <guid>/categories/backtick/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>/categories/bash/</link>
+      <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
+      
+      <guid>/categories/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>faq</title>
+      <link>/categories/faq/</link>
+      <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
+      
+      <guid>/categories/faq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sed</title>
+      <link>/categories/sed/</link>
+      <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
+      
+      <guid>/categories/sed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>리눅스</title>
+      <link>/categories/%EB%A6%AC%EB%88%85%EC%8A%A4/</link>
+      <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
+      
+      <guid>/categories/%EB%A6%AC%EB%88%85%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>load</title>
+      <link>/categories/load/</link>
+      <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
+      
+      <guid>/categories/load/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>load average</title>
+      <link>/categories/load-average/</link>
+      <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
+      
+      <guid>/categories/load-average/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notice</title>
+      <link>/categories/notice/</link>
+      <pubDate>Thu, 14 Jan 2016 06:06:10 +0000</pubDate>
+      
+      <guid>/categories/notice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>공지</title>
+      <link>/categories/%EA%B3%B5%EC%A7%80/</link>
+      <pubDate>Thu, 14 Jan 2016 06:06:10 +0000</pubDate>
+      
+      <guid>/categories/%EA%B3%B5%EC%A7%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>공지사항</title>
+      <link>/categories/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</link>
+      <pubDate>Thu, 14 Jan 2016 06:06:10 +0000</pubDate>
+      
+      <guid>/categories/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>device driver</title>
+      <link>/categories/device-driver/</link>
+      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
+      
+      <guid>/categories/device-driver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel module</title>
+      <link>/categories/kernel-module/</link>
+      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
+      
+      <guid>/categories/kernel-module/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lspci</title>
+      <link>/categories/lspci/</link>
+      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
+      
+      <guid>/categories/lspci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modalias</title>
+      <link>/categories/modalias/</link>
+      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
+      
+      <guid>/categories/modalias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modinfo</title>
+      <link>/categories/modinfo/</link>
+      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
+      
+      <guid>/categories/modinfo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pci.ids</title>
+      <link>/categories/pci.ids/</link>
+      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
+      
+      <guid>/categories/pci.ids/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devfs</title>
+      <link>/categories/devfs/</link>
+      <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
+      
+      <guid>/categories/devfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devtmpfs</title>
+      <link>/categories/devtmpfs/</link>
+      <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
+      
+      <guid>/categories/devtmpfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sysfs</title>
+      <link>/categories/sysfs/</link>
+      <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
+      
+      <guid>/categories/sysfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>udev</title>
+      <link>/categories/udev/</link>
+      <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
+      
+      <guid>/categories/udev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GRUB</title>
+      <link>/categories/grub/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/grub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boot loader</title>
+      <link>/categories/boot-loader/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/boot-loader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>booting</title>
+      <link>/categories/booting/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/booting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>start_kernel</title>
+      <link>/categories/start_kernel/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/start_kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>부트로더</title>
+      <link>/categories/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>부팅</title>
+      <link>/categories/%EB%B6%80%ED%8C%85/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/%EB%B6%80%ED%8C%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>커널</title>
+      <link>/categories/%EC%BB%A4%EB%84%90/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/categories/%EC%BB%A4%EB%84%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/categories/git/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>/categories/github/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http proxy</title>
+      <link>/categories/http-proxy/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/http-proxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>key</title>
+      <link>/categories/key/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/key/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nc</title>
+      <link>/categories/nc/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/nc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netcat</title>
+      <link>/categories/netcat/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/netcat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxy</title>
+      <link>/categories/proxy/</link>
+      <pubDate>Wed, 12 Aug 2015 05:29:18 +0000</pubDate>
+      
+      <guid>/categories/proxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>10.11</title>
+      <link>/categories/10.11/</link>
+      <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
+      
+      <guid>/categories/10.11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Certification</title>
+      <link>/categories/certification/</link>
+      <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
+      
+      <guid>/categories/certification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>el capitan</title>
+      <link>/categories/el-capitan/</link>
+      <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
+      
+      <guid>/categories/el-capitan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>junos pulse</title>
+      <link>/categories/junos-pulse/</link>
+      <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
+      
+      <guid>/categories/junos-pulse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>인증서</title>
+      <link>/categories/%EC%9D%B8%EC%A6%9D%EC%84%9C/</link>
+      <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
+      
+      <guid>/categories/%EC%9D%B8%EC%A6%9D%EC%84%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brace expansion</title>
+      <link>/categories/brace-expansion/</link>
+      <pubDate>Wed, 22 Jul 2015 06:16:00 +0000</pubDate>
+      
+      <guid>/categories/brace-expansion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seq</title>
+      <link>/categories/seq/</link>
+      <pubDate>Wed, 22 Jul 2015 06:16:00 +0000</pubDate>
+      
+      <guid>/categories/seq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tip</title>
+      <link>/categories/tip/</link>
+      <pubDate>Wed, 22 Jul 2015 06:16:00 +0000</pubDate>
+      
+      <guid>/categories/tip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gro</title>
+      <link>/categories/gro/</link>
+      <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
+      
+      <guid>/categories/gro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ldirectord</title>
+      <link>/categories/ldirectord/</link>
+      <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
+      
+      <guid>/categories/ldirectord/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lvs</title>
+      <link>/categories/lvs/</link>
+      <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
+      
+      <guid>/categories/lvs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slow</title>
+      <link>/categories/slow/</link>
+      <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
+      
+      <guid>/categories/slow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>movie</title>
+      <link>/categories/movie/</link>
+      <pubDate>Sun, 05 Jul 2015 08:26:42 +0000</pubDate>
+      
+      <guid>/categories/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nightcrawler</title>
+      <link>/categories/nightcrawler/</link>
+      <pubDate>Sun, 05 Jul 2015 08:26:42 +0000</pubDate>
+      
+      <guid>/categories/nightcrawler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>영화</title>
+      <link>/categories/%EC%98%81%ED%99%94/</link>
+      <pubDate>Sun, 05 Jul 2015 08:26:42 +0000</pubDate>
+      
+      <guid>/categories/%EC%98%81%ED%99%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>자극</title>
+      <link>/categories/%EC%9E%90%EA%B7%B9/</link>
+      <pubDate>Sun, 05 Jul 2015 08:26:42 +0000</pubDate>
+      
+      <guid>/categories/%EC%9E%90%EA%B7%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>특종</title>
+      <link>/categories/%ED%8A%B9%EC%A2%85/</link>
+      <pubDate>Sun, 05 Jul 2015 08:26:42 +0000</pubDate>
+      
+      <guid>/categories/%ED%8A%B9%EC%A2%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plain</title>
+      <link>/categories/plain/</link>
+      <pubDate>Sat, 07 Mar 2015 19:58:32 +0000</pubDate>
+      
+      <guid>/categories/plain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stleam</title>
+      <link>/categories/stleam/</link>
+      <pubDate>Sat, 07 Mar 2015 19:58:32 +0000</pubDate>
+      
+      <guid>/categories/stleam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>카카오톡</title>
+      <link>/categories/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</link>
+      <pubDate>Sat, 07 Mar 2015 19:58:32 +0000</pubDate>
+      
+      <guid>/categories/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>테마</title>
+      <link>/categories/%ED%85%8C%EB%A7%88/</link>
+      <pubDate>Sat, 07 Mar 2015 19:58:32 +0000</pubDate>
+      
+      <guid>/categories/%ED%85%8C%EB%A7%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slow video</title>
+      <link>/categories/slow-video/</link>
+      <pubDate>Sun, 22 Feb 2015 09:41:56 +0000</pubDate>
+      
+      <guid>/categories/slow-video/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>김영탁</title>
+      <link>/categories/%EA%B9%80%EC%98%81%ED%83%81/</link>
+      <pubDate>Sun, 22 Feb 2015 09:41:56 +0000</pubDate>
+      
+      <guid>/categories/%EA%B9%80%EC%98%81%ED%83%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>남상미</title>
+      <link>/categories/%EB%82%A8%EC%83%81%EB%AF%B8/</link>
+      <pubDate>Sun, 22 Feb 2015 09:41:56 +0000</pubDate>
+      
+      <guid>/categories/%EB%82%A8%EC%83%81%EB%AF%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>슬로우비디오</title>
+      <link>/categories/%EC%8A%AC%EB%A1%9C%EC%9A%B0%EB%B9%84%EB%94%94%EC%98%A4/</link>
+      <pubDate>Sun, 22 Feb 2015 09:41:56 +0000</pubDate>
+      
+      <guid>/categories/%EC%8A%AC%EB%A1%9C%EC%9A%B0%EB%B9%84%EB%94%94%EC%98%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>차태현</title>
+      <link>/categories/%EC%B0%A8%ED%83%9C%ED%98%84/</link>
+      <pubDate>Sun, 22 Feb 2015 09:41:56 +0000</pubDate>
+      
+      <guid>/categories/%EC%B0%A8%ED%83%9C%ED%98%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LEGO</title>
+      <link>/categories/lego/</link>
+      <pubDate>Sun, 22 Feb 2015 09:20:07 +0000</pubDate>
+      
+      <guid>/categories/lego/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The lego movie</title>
+      <link>/categories/the-lego-movie/</link>
+      <pubDate>Sun, 22 Feb 2015 09:20:07 +0000</pubDate>
+      
+      <guid>/categories/the-lego-movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gone girl</title>
+      <link>/categories/gone-girl/</link>
+      <pubDate>Sun, 22 Feb 2015 09:07:47 +0000</pubDate>
+      
+      <guid>/categories/gone-girl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>나를 찾아줘</title>
+      <link>/categories/%EB%82%98%EB%A5%BC-%EC%B0%BE%EC%95%84%EC%A4%98/</link>
+      <pubDate>Sun, 22 Feb 2015 09:07:47 +0000</pubDate>
+      
+      <guid>/categories/%EB%82%98%EB%A5%BC-%EC%B0%BE%EC%95%84%EC%A4%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>데이빗 핀처</title>
+      <link>/categories/%EB%8D%B0%EC%9D%B4%EB%B9%97-%ED%95%80%EC%B2%98/</link>
+      <pubDate>Sun, 22 Feb 2015 09:07:47 +0000</pubDate>
+      
+      <guid>/categories/%EB%8D%B0%EC%9D%B4%EB%B9%97-%ED%95%80%EC%B2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>양동근</title>
+      <link>/categories/%EC%96%91%EB%8F%99%EA%B7%BC/</link>
+      <pubDate>Sun, 22 Feb 2015 08:54:09 +0000</pubDate>
+      
+      <guid>/categories/%EC%96%91%EB%8F%99%EA%B7%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>응징자</title>
+      <link>/categories/%EC%9D%91%EC%A7%95%EC%9E%90/</link>
+      <pubDate>Sun, 22 Feb 2015 08:54:09 +0000</pubDate>
+      
+      <guid>/categories/%EC%9D%91%EC%A7%95%EC%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>주상욱</title>
+      <link>/categories/%EC%A3%BC%EC%83%81%EC%9A%B1/</link>
+      <pubDate>Sun, 22 Feb 2015 08:54:09 +0000</pubDate>
+      
+      <guid>/categories/%EC%A3%BC%EC%83%81%EC%9A%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tombstones</title>
+      <link>/categories/tombstones/</link>
+      <pubDate>Sun, 22 Feb 2015 08:42:20 +0000</pubDate>
+      
+      <guid>/categories/tombstones/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>리암닐슨</title>
+      <link>/categories/%EB%A6%AC%EC%95%94%EB%8B%90%EC%8A%A8/</link>
+      <pubDate>Sun, 22 Feb 2015 08:42:20 +0000</pubDate>
+      
+      <guid>/categories/%EB%A6%AC%EC%95%94%EB%8B%90%EC%8A%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PCIe</title>
+      <link>/categories/pcie/</link>
+      <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
+      
+      <guid>/categories/pcie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bnx2x</title>
+      <link>/categories/bnx2x/</link>
+      <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
+      
+      <guid>/categories/bnx2x/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hotplug</title>
+      <link>/categories/hotplug/</link>
+      <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
+      
+      <guid>/categories/hotplug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>/categories/network/</link>
+      <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
+      
+      <guid>/categories/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>onboot=no</title>
+      <link>/categories/onbootno/</link>
+      <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
+      
+      <guid>/categories/onbootno/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2015-0235</title>
+      <link>/categories/cve-2015-0235/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/categories/cve-2015-0235/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ghost</title>
+      <link>/categories/ghost/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/categories/ghost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>glibc</title>
+      <link>/categories/glibc/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/categories/glibc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnerability</title>
+      <link>/categories/vulnerability/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/categories/vulnerability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>보안</title>
+      <link>/categories/%EB%B3%B4%EC%95%88/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/categories/%EB%B3%B4%EC%95%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>취약점</title>
+      <link>/categories/%EC%B7%A8%EC%95%BD%EC%A0%90/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/categories/%EC%B7%A8%EC%95%BD%EC%A0%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Robo-G</title>
+      <link>/categories/robo-g/</link>
+      <pubDate>Wed, 21 Jan 2015 14:12:33 +0000</pubDate>
+      
+      <guid>/categories/robo-g/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>로봇G</title>
+      <link>/categories/%EB%A1%9C%EB%B4%87g/</link>
+      <pubDate>Wed, 21 Jan 2015 14:12:33 +0000</pubDate>
+      
+      <guid>/categories/%EB%A1%9C%EB%B4%87g/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>야구치 시노부</title>
+      <link>/categories/%EC%95%BC%EA%B5%AC%EC%B9%98-%EC%8B%9C%EB%85%B8%EB%B6%80/</link>
+      <pubDate>Wed, 21 Jan 2015 14:12:33 +0000</pubDate>
+      
+      <guid>/categories/%EC%95%BC%EA%B5%AC%EC%B9%98-%EC%8B%9C%EB%85%B8%EB%B6%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>요시타카 유리코</title>
+      <link>/categories/%EC%9A%94%EC%8B%9C%ED%83%80%EC%B9%B4-%EC%9C%A0%EB%A6%AC%EC%BD%94/</link>
+      <pubDate>Wed, 21 Jan 2015 14:12:33 +0000</pubDate>
+      
+      <guid>/categories/%EC%9A%94%EC%8B%9C%ED%83%80%EC%B9%B4-%EC%9C%A0%EB%A6%AC%EC%BD%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>American Ganster</title>
+      <link>/categories/american-ganster/</link>
+      <pubDate>Wed, 21 Jan 2015 13:39:42 +0000</pubDate>
+      
+      <guid>/categories/american-ganster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>아메리칸 갱스터</title>
+      <link>/categories/%EC%95%84%EB%A9%94%EB%A6%AC%EC%B9%B8-%EA%B0%B1%EC%8A%A4%ED%84%B0/</link>
+      <pubDate>Wed, 21 Jan 2015 13:39:42 +0000</pubDate>
+      
+      <guid>/categories/%EC%95%84%EB%A9%94%EB%A6%AC%EC%B9%B8-%EA%B0%B1%EC%8A%A4%ED%84%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python2.7</title>
+      <link>/categories/python2.7/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/python2.7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python3.4</title>
+      <link>/categories/python3.4/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/python3.4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RHEL6</title>
+      <link>/categories/rhel6/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/rhel6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>altinstall</title>
+      <link>/categories/altinstall/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/altinstall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pip</title>
+      <link>/categories/pip/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/pip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/categories/python/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualenv</title>
+      <link>/categories/virtualenv/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/categories/virtualenv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>intruders</title>
+      <link>/categories/intruders/</link>
+      <pubDate>Tue, 20 Jan 2015 15:03:30 +0000</pubDate>
+      
+      <guid>/categories/intruders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>조난자들</title>
+      <link>/categories/%EC%A1%B0%EB%82%9C%EC%9E%90%EB%93%A4/</link>
+      <pubDate>Tue, 20 Jan 2015 15:03:30 +0000</pubDate>
+      
+      <guid>/categories/%EC%A1%B0%EB%82%9C%EC%9E%90%EB%93%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>화이</title>
+      <link>/categories/%ED%99%94%EC%9D%B4/</link>
+      <pubDate>Tue, 20 Jan 2015 14:53:36 +0000</pubDate>
+      
+      <guid>/categories/%ED%99%94%EC%9D%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2016</title>
+      <link>/categories/2016/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2016 연말정산</title>
+      <link>/categories/2016-%EC%97%B0%EB%A7%90%EC%A0%95%EC%82%B0/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/2016-%EC%97%B0%EB%A7%90%EC%A0%95%EC%82%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>/categories/mac/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>veraport</title>
+      <link>/categories/veraport/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/veraport/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>간소화</title>
+      <link>/categories/%EA%B0%84%EC%86%8C%ED%99%94/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/%EA%B0%84%EC%86%8C%ED%99%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>공인인증서</title>
+      <link>/categories/%EA%B3%B5%EC%9D%B8%EC%9D%B8%EC%A6%9D%EC%84%9C/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/%EA%B3%B5%EC%9D%B8%EC%9D%B8%EC%A6%9D%EC%84%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>국세청</title>
+      <link>/categories/%EA%B5%AD%EC%84%B8%EC%B2%AD/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/%EA%B5%AD%EC%84%B8%EC%B2%AD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>연말정산</title>
+      <link>/categories/%EC%97%B0%EB%A7%90%EC%A0%95%EC%82%B0/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/categories/%EC%97%B0%EB%A7%90%EC%A0%95%EC%82%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C-States</title>
+      <link>/categories/c-states/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/c-states/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CPU</title>
+      <link>/categories/cpu/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/cpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS7</title>
+      <link>/categories/centos7/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/centos7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Performance</title>
+      <link>/categories/performance/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RHEL7</title>
+      <link>/categories/rhel7/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/rhel7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tuned</title>
+      <link>/categories/tuned/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/tuned/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>intel_idle</title>
+      <link>/categories/intel_idle/</link>
+      <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
+      
+      <guid>/categories/intel_idle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>THP</title>
+      <link>/categories/thp/</link>
+      <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
+      
+      <guid>/categories/thp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>page allocation failure</title>
+      <link>/categories/page-allocation-failure/</link>
+      <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
+      
+      <guid>/categories/page-allocation-failure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>transparent hugepages</title>
+      <link>/categories/transparent-hugepages/</link>
+      <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
+      
+      <guid>/categories/transparent-hugepages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>init</title>
+      <link>/categories/init/</link>
+      <pubDate>Tue, 21 Oct 2014 14:15:46 +0000</pubDate>
+      
+      <guid>/categories/init/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>systemd</title>
+      <link>/categories/systemd/</link>
+      <pubDate>Tue, 21 Oct 2014 14:15:46 +0000</pubDate>
+      
+      <guid>/categories/systemd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>error</title>
+      <link>/categories/error/</link>
+      <pubDate>Tue, 19 Aug 2014 05:55:07 +0000</pubDate>
+      
+      <guid>/categories/error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>symbolic link</title>
+      <link>/categories/symbolic-link/</link>
+      <pubDate>Tue, 19 Aug 2014 05:55:07 +0000</pubDate>
+      
+      <guid>/categories/symbolic-link/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>기호 연결의 단계가 너무 많음</title>
+      <link>/categories/%EA%B8%B0%ED%98%B8-%EC%97%B0%EA%B2%B0%EC%9D%98-%EB%8B%A8%EA%B3%84%EA%B0%80-%EB%84%88%EB%AC%B4-%EB%A7%8E%EC%9D%8C/</link>
+      <pubDate>Tue, 19 Aug 2014 05:55:07 +0000</pubDate>
+      
+      <guid>/categories/%EA%B8%B0%ED%98%B8-%EC%97%B0%EA%B2%B0%EC%9D%98-%EB%8B%A8%EA%B3%84%EA%B0%80-%EB%84%88%EB%AC%B4-%EB%A7%8E%EC%9D%8C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>root</title>
+      <link>/categories/root/</link>
+      <pubDate>Tue, 12 Aug 2014 05:04:35 +0000</pubDate>
+      
+      <guid>/categories/root/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sudo</title>
+      <link>/categories/sudo/</link>
+      <pubDate>Tue, 12 Aug 2014 05:04:35 +0000</pubDate>
+      
+      <guid>/categories/sudo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vi</title>
+      <link>/categories/vi/</link>
+      <pubDate>Tue, 12 Aug 2014 05:04:35 +0000</pubDate>
+      
+      <guid>/categories/vi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>/categories/vim/</link>
+      <pubDate>Tue, 12 Aug 2014 05:04:35 +0000</pubDate>
+      
+      <guid>/categories/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>write</title>
+      <link>/categories/write/</link>
+      <pubDate>Tue, 12 Aug 2014 05:04:35 +0000</pubDate>
+      
+      <guid>/categories/write/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>10.10</title>
+      <link>/categories/10.10/</link>
+      <pubDate>Mon, 28 Jul 2014 08:20:31 +0000</pubDate>
+      
+      <guid>/categories/10.10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brew</title>
+      <link>/categories/brew/</link>
+      <pubDate>Mon, 28 Jul 2014 08:20:31 +0000</pubDate>
+      
+      <guid>/categories/brew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yosemite</title>
+      <link>/categories/yosemite/</link>
+      <pubDate>Mon, 28 Jul 2014 08:20:31 +0000</pubDate>
+      
+      <guid>/categories/yosemite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Display</title>
+      <link>/categories/display/</link>
+      <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
+      
+      <guid>/categories/display/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>X11</title>
+      <link>/categories/x11/</link>
+      <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
+      
+      <guid>/categories/x11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XQuartz</title>
+      <link>/categories/xquartz/</link>
+      <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
+      
+      <guid>/categories/xquartz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>font</title>
+      <link>/categories/font/</link>
+      <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
+      
+      <guid>/categories/font/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wireshark</title>
+      <link>/categories/wireshark/</link>
+      <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
+      
+      <guid>/categories/wireshark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>화면</title>
+      <link>/categories/%ED%99%94%EB%A9%B4/</link>
+      <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
+      
+      <guid>/categories/%ED%99%94%EB%A9%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chrome</title>
+      <link>/categories/chrome/</link>
+      <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
+      
+      <guid>/categories/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docky</title>
+      <link>/categories/docky/</link>
+      <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
+      
+      <guid>/categories/docky/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>/categories/google/</link>
+      <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
+      
+      <guid>/categories/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google-chrome-stable</title>
+      <link>/categories/google-chrome-stable/</link>
+      <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
+      
+      <guid>/categories/google-chrome-stable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>icon</title>
+      <link>/categories/icon/</link>
+      <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
+      
+      <guid>/categories/icon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pin</title>
+      <link>/categories/pin/</link>
+      <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
+      
+      <guid>/categories/pin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FBWC</title>
+      <link>/categories/fbwc/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/categories/fbwc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>P420</title>
+      <link>/categories/p420/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/categories/p420/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>P421</title>
+      <link>/categories/p421/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/categories/p421/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SmartArray</title>
+      <link>/categories/smartarray/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/categories/smartarray/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache disabled</title>
+      <link>/categories/cache-disabled/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/categories/cache-disabled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firmware</title>
+      <link>/categories/firmware/</link>
+      <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
+      
+      <guid>/categories/firmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>duplicate ucast</title>
+      <link>/categories/duplicate-ucast/</link>
+      <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
+      
+      <guid>/categories/duplicate-ucast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>epel</title>
+      <link>/categories/epel/</link>
+      <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
+      
+      <guid>/categories/epel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heartbeat</title>
+      <link>/categories/heartbeat/</link>
+      <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
+      
+      <guid>/categories/heartbeat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>checksum error</title>
+      <link>/categories/checksum-error/</link>
+      <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
+      
+      <guid>/categories/checksum-error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rhel5</title>
+      <link>/categories/rhel5/</link>
+      <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
+      
+      <guid>/categories/rhel5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sha-256</title>
+      <link>/categories/sha-256/</link>
+      <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
+      
+      <guid>/categories/sha-256/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yum</title>
+      <link>/categories/yum/</link>
+      <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
+      
+      <guid>/categories/yum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RLIMIT_NOFILE</title>
+      <link>/categories/rlimit_nofile/</link>
+      <pubDate>Wed, 28 May 2014 06:50:58 +0000</pubDate>
+      
+      <guid>/categories/rlimit_nofile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>getrlimit</title>
+      <link>/categories/getrlimit/</link>
+      <pubDate>Wed, 28 May 2014 06:50:58 +0000</pubDate>
+      
+      <guid>/categories/getrlimit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>limits.conf</title>
+      <link>/categories/limits.conf/</link>
+      <pubDate>Wed, 28 May 2014 06:50:58 +0000</pubDate>
+      
+      <guid>/categories/limits.conf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nofile</title>
+      <link>/categories/nofile/</link>
+      <pubDate>Wed, 28 May 2014 06:50:58 +0000</pubDate>
+      
+      <guid>/categories/nofile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java6</title>
+      <link>/categories/java6/</link>
+      <pubDate>Mon, 21 Apr 2014 08:57:57 +0000</pubDate>
+      
+      <guid>/categories/java6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jre6</title>
+      <link>/categories/jre6/</link>
+      <pubDate>Mon, 21 Apr 2014 08:57:57 +0000</pubDate>
+      
+      <guid>/categories/jre6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mavericks</title>
+      <link>/categories/mavericks/</link>
+      <pubDate>Mon, 21 Apr 2014 08:57:57 +0000</pubDate>
+      
+      <guid>/categories/mavericks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>8bit</title>
+      <link>/categories/8bit/</link>
+      <pubDate>Tue, 25 Mar 2014 15:55:30 +0000</pubDate>
+      
+      <guid>/categories/8bit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>binary</title>
+      <link>/categories/binary/</link>
+      <pubDate>Tue, 25 Mar 2014 15:55:30 +0000</pubDate>
+      
+      <guid>/categories/binary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>telnet</title>
+      <link>/categories/telnet/</link>
+      <pubDate>Tue, 25 Mar 2014 15:55:30 +0000</pubDate>
+      
+      <guid>/categories/telnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>한글</title>
+      <link>/categories/%ED%95%9C%EA%B8%80/</link>
+      <pubDate>Tue, 25 Mar 2014 15:55:30 +0000</pubDate>
+      
+      <guid>/categories/%ED%95%9C%EA%B8%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>접속오류</title>
+      <link>/categories/%EC%A0%91%EC%86%8D%EC%98%A4%EB%A5%98/</link>
+      <pubDate>Tue, 25 Mar 2014 15:40:43 +0000</pubDate>
+      
+      <guid>/categories/%EC%A0%91%EC%86%8D%EC%98%A4%EB%A5%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>64bit</title>
+      <link>/categories/64bit/</link>
+      <pubDate>Mon, 03 Mar 2014 07:07:03 +0000</pubDate>
+      
+      <guid>/categories/64bit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NET: registered protocol family 2</title>
+      <link>/categories/net-registered-protocol-family-2/</link>
+      <pubDate>Mon, 03 Mar 2014 07:07:03 +0000</pubDate>
+      
+      <guid>/categories/net-registered-protocol-family-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>x86_64</title>
+      <link>/categories/x86_64/</link>
+      <pubDate>Mon, 03 Mar 2014 07:07:03 +0000</pubDate>
+      
+      <guid>/categories/x86_64/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AKG</title>
+      <link>/categories/akg/</link>
+      <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
+      
+      <guid>/categories/akg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K619</title>
+      <link>/categories/k619/</link>
+      <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
+      
+      <guid>/categories/k619/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Q460</title>
+      <link>/categories/q460/</link>
+      <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
+      
+      <guid>/categories/q460/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>거치대</title>
+      <link>/categories/%EA%B1%B0%EC%B9%98%EB%8C%80/</link>
+      <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
+      
+      <guid>/categories/%EA%B1%B0%EC%B9%98%EB%8C%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>컬러팝</title>
+      <link>/categories/%EC%BB%AC%EB%9F%AC%ED%8C%9D/</link>
+      <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
+      
+      <guid>/categories/%EC%BB%AC%EB%9F%AC%ED%8C%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>헤드폰</title>
+      <link>/categories/%ED%97%A4%EB%93%9C%ED%8F%B0/</link>
+      <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
+      
+      <guid>/categories/%ED%97%A4%EB%93%9C%ED%8F%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dlna</title>
+      <link>/categories/dlna/</link>
+      <pubDate>Fri, 14 Feb 2014 17:48:24 +0000</pubDate>
+      
+      <guid>/categories/dlna/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serviio</title>
+      <link>/categories/serviio/</link>
+      <pubDate>Fri, 14 Feb 2014 17:48:24 +0000</pubDate>
+      
+      <guid>/categories/serviio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>srt</title>
+      <link>/categories/srt/</link>
+      <pubDate>Fri, 14 Feb 2014 17:48:24 +0000</pubDate>
+      
+      <guid>/categories/srt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tv</title>
+      <link>/categories/tv/</link>
+      <pubDate>Fri, 14 Feb 2014 17:48:24 +0000</pubDate>
+      
+      <guid>/categories/tv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>한글자막</title>
+      <link>/categories/%ED%95%9C%EA%B8%80%EC%9E%90%EB%A7%89/</link>
+      <pubDate>Fri, 14 Feb 2014 17:48:24 +0000</pubDate>
+      
+      <guid>/categories/%ED%95%9C%EA%B8%80%EC%9E%90%EB%A7%89/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>megasas_register_aen</title>
+      <link>/categories/megasas_register_aen/</link>
+      <pubDate>Mon, 10 Feb 2014 02:24:30 +0000</pubDate>
+      
+      <guid>/categories/megasas_register_aen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>already mounted</title>
+      <link>/categories/already-mounted/</link>
+      <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
+      
+      <guid>/categories/already-mounted/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dmraid</title>
+      <link>/categories/dmraid/</link>
+      <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
+      
+      <guid>/categories/dmraid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dmsetup</title>
+      <link>/categories/dmsetup/</link>
+      <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
+      
+      <guid>/categories/dmsetup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mount</title>
+      <link>/categories/mount/</link>
+      <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
+      
+      <guid>/categories/mount/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gpt</title>
+      <link>/categories/gpt/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
+      
+      <guid>/categories/gpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mbr</title>
+      <link>/categories/mbr/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
+      
+      <guid>/categories/mbr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>partition</title>
+      <link>/categories/partition/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
+      
+      <guid>/categories/partition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>libudev.so.0</title>
+      <link>/categories/libudev.so.0/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:43 +0000</pubDate>
+      
+      <guid>/categories/libudev.so.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>upstart</title>
+      <link>/categories/upstart/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:32 +0000</pubDate>
+      
+      <guid>/categories/upstart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LOL</title>
+      <link>/categories/lol/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:22 +0000</pubDate>
+      
+      <guid>/categories/lol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>game</title>
+      <link>/categories/game/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:22 +0000</pubDate>
+      
+      <guid>/categories/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chs</title>
+      <link>/categories/chs/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
+      
+      <guid>/categories/chs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disk</title>
+      <link>/categories/disk/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
+      
+      <guid>/categories/disk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lba</title>
+      <link>/categories/lba/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
+      
+      <guid>/categories/lba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vfs_cache_pressure</title>
+      <link>/categories/vfs_cache_pressure/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:01 +0000</pubDate>
+      
+      <guid>/categories/vfs_cache_pressure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swappiness</title>
+      <link>/categories/swappiness/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:50 +0000</pubDate>
+      
+      <guid>/categories/swappiness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LD_ASSUME_KERNEL</title>
+      <link>/categories/ld_assume_kernel/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:40 +0000</pubDate>
+      
+      <guid>/categories/ld_assume_kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>synergy</title>
+      <link>/categories/synergy/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:12 +0000</pubDate>
+      
+      <guid>/categories/synergy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HyperThread</title>
+      <link>/categories/hyperthread/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:57 +0000</pubDate>
+      
+      <guid>/categories/hyperthread/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ht</title>
+      <link>/categories/ht/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:57 +0000</pubDate>
+      
+      <guid>/categories/ht/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tuning</title>
+      <link>/categories/tuning/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:43 +0000</pubDate>
+      
+      <guid>/categories/tuning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nic order</title>
+      <link>/categories/nic-order/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:30 +0000</pubDate>
+      
+      <guid>/categories/nic-order/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>잡담</title>
+      <link>/categories/%EC%9E%A1%EB%8B%B4/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:18 +0000</pubDate>
+      
+      <guid>/categories/%EC%9E%A1%EB%8B%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>df</title>
+      <link>/categories/df/</link>
+      <pubDate>Wed, 05 Feb 2014 17:37:49 +0000</pubDate>
+      
+      <guid>/categories/df/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>du</title>
+      <link>/categories/du/</link>
+      <pubDate>Wed, 05 Feb 2014 17:37:49 +0000</pubDate>
+      
+      <guid>/categories/du/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ecc</title>
+      <link>/categories/ecc/</link>
+      <pubDate>Wed, 05 Feb 2014 07:21:31 +0000</pubDate>
+      
+      <guid>/categories/ecc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvidia</title>
+      <link>/categories/nvidia/</link>
+      <pubDate>Wed, 05 Feb 2014 07:21:31 +0000</pubDate>
+      
+      <guid>/categories/nvidia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sftp</title>
+      <link>/categories/sftp/</link>
+      <pubDate>Wed, 05 Feb 2014 05:50:12 +0000</pubDate>
+      
+      <guid>/categories/sftp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>/categories/blog/</link>
+      <pubDate>Wed, 05 Feb 2014 05:33:11 +0000</pubDate>
+      
+      <guid>/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Playground</title>
+      <link>/categories/playground/</link>
+      <pubDate>Wed, 05 Feb 2014 05:33:11 +0000</pubDate>
+      
+      <guid>/categories/playground/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

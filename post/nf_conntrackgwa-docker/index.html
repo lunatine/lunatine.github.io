@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>nf_conntrack과 docker - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
+nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">nf_conntrack과 docker</h1>
+    <div class="post-meta">Lunatine · 2018.4.12</div>
+  </header>
+  <div class="post-content">
+
+<p>본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.</p>
+
+<pre><code>nf_conntrack: table full, dropping packet.
+</code></pre>
+
+<h2 id="1-nf-conntrack">1. nf_conntrack</h2>
+
+<p>nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. <strong>특히, 아래와 같은 경우에 사용자 모르게 활성화</strong> 되어서 사용되는 경우가 있습니다.</p>
+
+<ul>
+<li>iptables -t nat -L 같은 NAT 테이블 확인 명령을 한번이라도 수행한 경우</li>
+<li>docker와 같이 iptables의 NAT 기능이 필요한 어플리케이션을 사용 할 경우</li>
+</ul>
+
+<p>단순히, 해당 모듈이 활성화 된다고해서 문제가 되지는 않지만 접속량이 많은 네트워크 서비스를 제공하는 경우에는 nf_conntrack을 기본 값으로 사용할 경우 연결을 기록하는 테이블의 크기를 기본 값인 65536를 사용하기 때문에 문제가 발생 할 수 있습니다.</p>
+
+<p>따라서, 해당 값을 서버의 환경에 맞추어 충분히 늘려주는게 좋으며 적절한 값에 대해서 아래에 소개하도록 하겠습니다.</p>
+
+<h2 id="2-설정-값-살펴보기">2. 설정 값 살펴보기</h2>
+
+<p>커널 버전 2.6 이전에는 ip_conntrack을 사용하였기 때문에 커널 파라미터 값이 다릅니다. 본 문서에서는 nf_conntrack에 대해서만 다룹니다.</p>
+
+<pre><code>예시)
+
+[커널 2.6 이전]
+net.ipv4.netfilter.ip_conntrack_count
+net.ipv4.netfilter.ip_conntrack_max
+
+[커널 2.6 이후]
+net.netfilter.nf_conntrack_count
+net.netfilter.nf_conntrack_max
+</code></pre>
+
+<h3 id="2-1-nf-conntrack-max">2-1. nf_conntrack_max</h3>
+
+<p>nf_conntrack_max는 nf_conntrack 모듈이 기록 할 최대 연결 개수를 지정하는 파라미터 입니다. 기본 값은 65536이며 적당히 크게 잡아줘도 무방하지만 단순히 값을 크게 잡는 것이 능사가 아니기 때문에 이에 대해서 살펴보도록 하겠습니다.</p>
+
+<p>먼저 Conntrack Hash Table이 어떻게 구현되어있는지 살펴보면 아래 그림과 같습니다.</p>
+
+<p><img src="/content/images/2018/04/conntrack_hash_table.png" alt="conntrack_hash_table" /></p>
+
+<p>해시 테이블의 각 구성요소는 bucket이라는 녀석으로 구성되어 있으며 bucket은 내부적으로 연결 리스트로 구현 되어 있습니다. 아시다시피 해시 테이블은 O(1)의 효율을 보여주지만 연결 리스트의 경우 O(n)의 효율을 보여주기 때문에 연결 리스트를 최소화 하고 해시테이블의 크기를 키우는게 가장 좋아 보입니다.</p>
+
+<p>하지만, 해시테이블을 크게 갖는 다는 것은 그만큼 정적으로 많은 메모리를 할당해서 사용해야하는 부담이 존재합니다. 예를 들어 2097152개의 연결을 처리하기 위해 nf_conntrack_max 값을 2097152으로 지정하고 해시 테이블도 동일한 크기로 잡게 된다면 단순히 해시 테이블을 구성하는데 아래와 같은 메모리 자원을 사용하게 됩니다.</p>
+
+<ul>
+<li>연결을 기록하는 각 엔트리의 크기는 308byte 라고 합니다.</li>
+<li>2097152(해시크기) * 308(byte) / 1048576(1MiB) = 616 MB</li>
+<li>즉, 600MB가 넘는 크기를 해시테이블 구성에만 낭비하게 됩니다.</li>
+</ul>
+
+<p>따라서, 단순히 해시테이블 크기 자체를 크게하기 보다는 연결 리스트를 적절히 활용하여 성능과 공간의 균형을 맞추는게 좋습니다. 커널 문서에서는 아래와 같이 nf_conntrack_max 값을 정의하고 있습니다. (ip_conntrack 시절에는 8배 였습니다)</p>
+
+<pre><code>nf_conntrack_max - INTEGER
+    Size of connection tracking table.  Default value is
+    nf_conntrack_buckets value * 4.
+</code></pre>
+
+<p>여기에서 nf_conntrack_buckets는 bucket들의 개수이며 다시 말해 해시테이블의 크기를 의미합니다. 커널 문서에서는 해시테이블 크기의 4배로 max 값을 지정하는 걸 기본으로 하고 있기 때문에 각 해시테이블의 bucket은 4개의 노드를 갖는 연결 리스트로 구성됩니다. 따라서, 앞서 살펴본 2097152개의 연결을 처리하는 경우로 살펴 본다면 616MB의 크기는 154MB로 줄어들게 됩니다.</p>
+
+<h3 id="2-2-과거에는">2-2. 과거에는&hellip;.</h3>
+
+<p>참고로, 과거 ip_conntrack 시절에는 CONNTRACK_MAX 값에 대한 기본 값을 결정하는 요소에는 시스템 아키텍처도 변수로 작용했었습니다. CONNTRACK_MAX를 수식으로 표현하면 아래와 같은데 이에 대한 자세한 내용은 <a href="https://wiki.khnet.info/index.php/Conntrack_tuning">이곳</a>을 참고하시면 됩니다.</p>
+
+<pre><code>nf_conntrack_max
+    = 메모리크기(바이트) / 16384 / (아키텍처 비트 / 32)
+</code></pre>
+
+<p>또한, 과거에는 CONNTRACK_MAX를 해시테이블 크기의 8배로 사용했기 때문에 보통 CONNTRACK_MAX 값을 결정하고 이를 8로 나누어서 해시테이블 크기를 지정했으나 최근에는 4배로 사용하기 때문에 4로 나누어서 계산하면 됩니다.</p>
+
+<h3 id="2-3-nf-conntrack-buckets">2-3. nf_conntrack_buckets</h3>
+
+<p>아시다시피 네트워크 관련 커널 파라미터 설정에는 정답이란 것은 없습니다. 다만, 앞서 살펴본대로 무작정 nf_conntrack_max를 키우기만 하면 연결 리스트에 대한 부하가 높아지기 때문에 nf_conntrack_buckets 값도 같이 조절을 해 주어야 합니다.</p>
+
+<p>커널 문서에서는 아래와 같이 소개하고 있습니다.</p>
+
+<pre><code>nf_conntrack_buckets - INTEGER
+    Size of hash table. If not specified as parameter during module
+    loading, the default size is calculated by dividing total memory
+    by 16384 to determine the number of buckets but the hash table will
+    never have fewer than 32 and limited to 16384 buckets. For systems
+    with more than 4GB of memory it will be 65536 buckets.
+    This sysctl is only writeable in the initial net namespace.
+</code></pre>
+
+<p>4GB 메모리에는 65536이 적합하지만 별도로 해시 크기를 지정해서 모듈을 올리지 않는다면 16384 값으로 정해지게 됩니다. 따라서, 이 상황에서 nf_conntrack_max를 계속 키우게 되면 연결 리스트 길이만 계속 길어지기 때문에 바람직하지 않습니다.</p>
+
+<p>최근 시스템들은 많은 메모리를 가지고 있기 때문에 65536개 이상의 연결을 충분히 처리할 수 있으며 해시 크기에 대한 모듈 파라미터를 지정해서 수동으로 로딩하지 않고 docker나 iptables에 의해서 자동으로 로딩 되므로 이 값을 변경해 주어야 하는데 한 번 모듈이 올라가게 되면 sysctl을 이용해서 커널 파라미터 값을 변경 할 수 없으며 sysfs를 통해서만 변경이 가능합니다.</p>
+
+<pre><code>[예시]
+$ echo 65536 &gt; /sys/module/nf_conntrack/parameters/hashsize
+</code></pre>
+
+<h3 id="2-4-적절한-값을-찾아서">2-4. 적절한 값을 찾아서&hellip;</h3>
+
+<p>요즘 시스템은 메모리가 넉넉하기 때문에 65536의 배수로 적당히 지정하고 거기에 맞추어 해시 크기를 지정하는 것도 방법입니다.</p>
+
+<p>또는, 과거 ip_conntrack 시절에 계산하던 방법을 차용하면 아래와 같이 계산해 볼 수도 있습니다.</p>
+
+<pre><code>[예시]
+- 64bit 기반 8GB 메모리를 가진 서버
+
+nf_conntrack_max
+    = 메모리크기 / 16384 / (아키텍처비트 / 32)
+    = (8 * 1073741824) / 16384 / (64/32)
+    = 262144
+nf_conntrack_buckets
+    = nf_conntrack_max / 4
+    = 65536
+</code></pre>
+
+<h3 id="2-5-추가-설정">2-5. 추가 설정</h3>
+
+<p>nf_conntrack_max, nf_conntrack_buckets 외에도 네트워크 서비스를 위해서 몇 가지 중요한 설정 값이 있습니다.</p>
+
+<p>먼저 nf_conntrack_generic_timeout이 있는데 Layer 4 기반 타임아웃 설정 값으로 기본 값은 600초로 되어있습니다. 이 값이 너무 길기 때문에 이를 적절히 (예를 들면 120) 낮춰주는게 좋습니다.</p>
+
+<p>그리고, 활성화 된 연결에 대한 타임아웃 파라미터로 nf_conntrack_tcp_timeout_established이 있으며 기본 값은 무려 432000초(5일) 입니다. 이 값 또한 적당히 낮춰 주는게 좋습니다.</p>
+
+<h2 id="3-추천하는-설정">3. 추천하는 설정</h2>
+
+<p>예를들어 32GB의 메모리를 갖고 있는 64bit 시스템에 대해서는 아래와 같이 설정 값을 추천 할 수 있습니다. 다만, 앞서 설명 드렸던 것 처럼 nf_conntrack_max는 <strong>필요에 따라 임의로 적정 값을 직접 지정</strong>해도 무방합니다. 특히, 연결 양이 많지 않은 네트워크 서비스 시스템에서는 기본 값으로도 충분 할 경우가 많습니다.</p>
+
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>계산</th>
+<th>값</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>nf_conntrack_max</td>
+<td>32 * 1073741824 / 16384 / 2</td>
+<td>1048576</td>
+</tr>
+
+<tr>
+<td>nf_conntrack_buckets</td>
+<td>nf_conntrack_max / 4</td>
+<td>262144</td>
+</tr>
+
+<tr>
+<td>nf_conntrack_generic_timeout</td>
+<td></td>
+<td>120</td>
+</tr>
+
+<tr>
+<td>nf_conntrack_tcp_timeout_established</td>
+<td></td>
+<td>54000</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="3-1-설정-스크립트">3-1. 설정 스크립트</h3>
+
+<p>위에서 언급한 4가지 항목 설정을 위한 쉘 스크립트를 공유 드립니다. (nf_conntrack/nf_conntrack_ipv4 모듈이 활성화 되어있지 않다면 동작하지 않습니다)</p>
+
+<pre><code>#!/bin/bash
+#
+# nf-setup.sh: nf_conntrack configurator
+#
+# by lunatine
+#
+_arch=1
+_max=0
+_bucket=0
+_gto=120
+_tcp=54000
+
+help() {
+    cat &lt;&lt; EOF
+  $ nf-setup.sh [OPTIONS ...]
+
+  Options:
+    -m|--max   : nf_conntrack_max (default: memsize / 16384 / arch bit)
+    -b|--bucket: nf_conntrack_buckets (default: nf_conntrack_max / 4)
+    -g|--gto   : nf_conntrack_generic_timeout (default: 120)
+    -t|--tcp   : nf_conntrack_tcp_timeout_established (default: 54000)
+    -h|--help  : help message
+EOF
+}
+
+# get arguments
+while [[ -n $1 ]]
+do
+    case &quot;$1&quot; in
+        # nf_conntrack_max
+        -m|--max) _max=$1; shift 2;;
+        -b|--bucket) _bucket=$1; shift 2;;
+        -g|--gto) _gto=$1; shift 2;;
+        -t|--tcp) _tcp=$1; shift 2;;
+        -h|--help) help; exit 0;;
+    esac
+done
+
+if [ &quot;$(id -u)&quot; -ne 0 ]; then
+    echo &quot;[Error] root privilege required ...&quot;
+    exit 1
+else
+    for modname in nf_conntrack nf_conntrack_ipv4
+    do
+        if [ &quot;$(lsmod | grep -c $modname)&quot; -eq 0 ]; then
+            echo &quot;[Error] No $modname module found&quot;
+            exit 1
+        fi
+    done
+fi
+
+# when nf_conntrack_max omitted
+if [ &quot;$_max&quot; -eq 0 ]; then
+    memtotal=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+    [ &quot;$(uname -m)&quot; == &quot;x86_64&quot; ] &amp;&amp; _arch=2
+    _max=$(( memtotal * 1024 / 16384 / _arch ))
+fi
+
+# when nf_conntrack_buckets omitted
+if [ &quot;$_bucket&quot; -eq 0 ]; then
+    _bucket=$(( _max / 4 ))
+fi
+
+# asking for apply
+CONF_VALUES=&quot;
+[Applying]
+---------------------------------------------------
+  nf_connectrack_max                  : $_max
+  nf_conntrack_generic_timeout        : $_gto
+  nf_conntrack_tcp_timeout_established: $_tcp
+  nf_conntrack hash size              : $_bucket
+---------------------------------------------------
+  are you sure? (Cancel: Ctrl+C) &quot;
+read -p &quot;$CONF_VALUES&quot; ans
+
+# apply configurations
+sed -i &quot;/^net.netfilter.nf_conntrack_max/d&quot; /etc/sysctl.conf
+sed -i &quot;/^net.netfilter.nf_conntrack_buckets/d&quot; /etc/sysctl.conf
+sed -i &quot;/^net.netfilter.nf_conntrack_generic_timeout/d&quot; /etc/sysctl.conf
+sed -i &quot;/^net.netfilter.nf_conntrack_tcp_timeout_established/d&quot; /etc/sysctl.conf
+{
+    echo &quot;net.netfilter.nf_conntrack_max = $_max&quot;
+    echo &quot;net.netfilter.nf_conntrack_generic_timeout = $_gto&quot;
+    echo &quot;net.netfilter.nf_conntrack_tcp_timeout_established = $_tcp&quot;
+} &gt;&gt; /etc/sysctl.conf
+echo $_bucket &gt; /sys/module/nf_conntrack/parameters/hashsize
+
+# Result
+cat &lt;&lt; EOF
+[Result]
+---------------------------------------------------
+  max                    : $(sysctl net.netfilter.nf_conntrack_max)
+  hash size (buckets)    : $(sysctl net.netfilter.nf_conntrack_buckets)
+  generic_timeout        : $(sysctl net.netfilter.nf_conntrack_generic_timeout)
+  tcp_timeout_established: $(sysctl net.netfilter.nf_conntrack_tcp_timeout_established)
+---------------------------------------------------
+EOF
+
+exit 0
+</code></pre>
+
+<h2 id="참고문서">참고문서</h2>
+
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/networking/nf_conntrack-sysctl.txt">nf_conntrack_sysctl 커널 문서</a></li>
+</ul>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/docker/">docker</a></li>
+      
+      <li><a href="tags/nf_conntrack/">nf_conntrack</a></li>
+      
+      <li><a href="tags/dropping-packet/">dropping packet</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ecc on Lunatine&#39;s Box</title>
+    <link>/tags/ecc/</link>
+    <description>Recent content in ecc on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Feb 2014 07:21:31 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/ecc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[FAQ] nVidia 그래픽카드의 메모리 ECC 기능 비활성화</title>
+      <link>/post/faq-nvidia-graphic-disable-ecc/</link>
+      <pubDate>Wed, 05 Feb 2014 07:21:31 +0000</pubDate>
+      
+      <guid>/post/faq-nvidia-graphic-disable-ecc/</guid>
+      <description> nVidia 그래픽카드의 메모리 ECC 기능을 비활성화 하게 되면 성능향상을 얻을 수 있는데 리눅스에서는 아래와 같은 방법으로 비활성화가 가능하다
+ $ nvidia-smi -e 0
+ 0대신에 1을 입력하면 활성화하게 되며 위 값을 변경한 후에는 시스템 리부팅이 이루어져야 제대로 적용된다.
+실행예시  root@tbox ~]# nvidia-smi -e 0
+Disabled ECC support for GPU 0:6:0.
+Disabled ECC support for GPU 0:14:0.
+Reboot required.
+ </description>
+    </item>
+    
+  </channel>
+</rss>

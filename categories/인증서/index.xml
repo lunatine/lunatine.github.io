@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>인증서 on Lunatine&#39;s Box</title>
+    <link>/categories/%EC%9D%B8%EC%A6%9D%EC%84%9C/</link>
+    <description>Recent content in 인증서 on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2015 08:16:11 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/%EC%9D%B8%EC%A6%9D%EC%84%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Mac] Junos Pulse를 El Capitan에서 사용하기</title>
+      <link>/post/junos-pulse-on-el-capitan/</link>
+      <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
+      
+      <guid>/post/junos-pulse-on-el-capitan/</guid>
+      <description>Mac OS X El Capitan Mac OS X 10.11 (El Capitan)도 벌써 PB3(Public Beta 3)까지 나왔다. PB3 정도면 큰 문제는 없겠거니 싶어서 사용하는 노트북을 업그레이드 했는데 VPN 접속에 있어서 문제가 발생했다.
+Junos Pulse 전 세계적으로 많이 사용되는 Juniper 장비의 VPN 클라이언트 프로그램이다. 내가 일하는 환경에서도 이 프로그램으로 VPN을 사용하는데 이번에 El Capitan으로 업그레이드 이후에 아래와 같은 화면을 마주하게 되었다.
+접속 정보에 대한 모든 프로파일이 비활성화가 되었는데 수동으로 설정 값을 추가하려해도 계속 오류만 발생하는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>Mac OS X에서 연말정산 간소화  사이트 접속</title>
+      <link>/post/connect-to-tax-refund-site-on-mac/</link>
+      <pubDate>Thu, 15 Jan 2015 07:34:29 +0000</pubDate>
+      
+      <guid>/post/connect-to-tax-refund-site-on-mac/</guid>
+      <description>2016년도 업데이트 정보 연말정산 간소화 페이지를 기존 방법대로 접속해 보려고 했으나 Veraport 기반으로 접속하게 끔 변경해 버려서 접속이 불가 한 상태이다. 구 버전 Safari를 통하면 접속이 될지 모르겠으나 사이트 하나 접속하자고 이따위 짓을 해야한다면 안하는게 낫다고 본다.
+Veraport 맥 클라이언트 링크는 존재하지만 설치하고나서 페이지를 다시 접속해도 &amp;ldquo;axinfo request fail!&amp;rdquo; 메시지만 볼 수 있을 것인데 확인해보니 Access-Control-Allow-Origin 제한에 걸려서 그렇다. 쉽게 말해서 요즘 브라우저에서는 보안을 위해서 교차도메인(즉, 접속하려는 사이트와 전혀 다른 도메인) 출처를 향한 요청에 제한이 설정되어서 해당 컨텐츠를 차단해버린다.</description>
+    </item>
+    
+  </channel>
+</rss>

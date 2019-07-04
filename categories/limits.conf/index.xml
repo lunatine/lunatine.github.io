@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>limits.conf on Lunatine&#39;s Box</title>
+    <link>/categories/limits.conf/</link>
+    <description>Recent content in limits.conf on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 May 2014 06:50:58 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/limits.conf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>limits.conf와 오픈파일개수(nofile) 영향</title>
+      <link>/post/limits-conf-nofile-big-value-effect/</link>
+      <pubDate>Wed, 28 May 2014 06:50:58 +0000</pubDate>
+      
+      <guid>/post/limits-conf-nofile-big-value-effect/</guid>
+      <description>nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
+해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
+nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다.</description>
+    </item>
+    
+  </channel>
+</rss>

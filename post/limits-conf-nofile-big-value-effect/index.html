@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>limits.conf와 오픈파일개수(nofile) 영향 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
+해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
+nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">limits.conf와 오픈파일개수(nofile) 영향</h1>
+    <div class="post-meta">Lunatine · 2014.5.28</div>
+  </header>
+  <div class="post-content">
+
+<h1 id="nofile">nofile</h1>
+
+<p>Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.</p>
+
+<p>해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.</p>
+
+<pre><code>nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수
+nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수
+</code></pre>
+
+<p>최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다. 본 문서에서는 이러한 값을 크게 잡았을 경우에 발생 할 수 있는 케이스에 대해서 설명한다.</p>
+
+<h1 id="case-서버가-느려졌다">Case : 서버가 느려졌다</h1>
+
+<p>HBase를 사용하는 서버시스템에서 많은 파일(데이터)을 처리하기 위해서 nofile을 매우 높은 값으로 수정한 서버가 있었다. 해당 서버의 경우는 10000000 정도의 값을 설정하였는데 이 서버에서 특이한 증상이 발견 되었다.</p>
+
+<p>우선 limits.conf 설정파일을 보면 아래와 같다.</p>
+
+<pre><code>*			soft	nofile	10000000
+*			hard	nofile	10000000
+</code></pre>
+
+<p>문제는 위 설정파일을 적용한 서버에서 pexpect를 이용해 작성한 자동화 스크립트를 사용하면 1~2초의 실행 지연이 발생하는 증상이 생겨났다. 원인을 찾기위해 해당 스크립트를 단순히 ls 명령만 실행하는 것으로 변경해도 지연증상은 발생하고 있었다.</p>
+
+<p>원인을 찾기 위해서 해당 스크립트를 실행할 때 생성되는 모든 프로세스에 대해 strace로 추적해보았더니 아래와 같은 인상적인 부분을 발견할 수 있었다.</p>
+
+<pre><code>close(3)                                = -1 EBADF (Bad file descriptor)
+close(4)                                = -1 EBADF (Bad file descriptor)
+close(5)                                = -1 EBADF (Bad file descriptor)
+... 생략 ...
+close(75821)                            = -1 EBADF (Bad file descriptor)
+close(75822)                            = -1 EBADF (Bad file descriptor)
+... 생략 ...
+</code></pre>
+
+<p>해당 메시지를 보자마자 &ldquo;아차&rdquo;하는 생각이 들어서 pexpect가 명령을 실행 할 때 사용하는 spawn 메소드의 동작형태를 확인해 봤다. 역시나, 명령을 실행할 때 생성하는 프로세스를 daemon화해서 실행하고 있었다. 이것이 문제였다.</p>
+
+<h2 id="daemon">Daemon</h2>
+
+<p>C언어로 Daemon 프로그램을 작성할 때 보통 아래 단계를 거쳐서 작성하도록 배우곤한다. (물론 구현하는 사람에 따라서 Double fork를 하기도 하고 조금은 다르지만 아래 부분은 대체로 적용한다)</p>
+
+<ul>
+<li>부모로부터 프로세스 분리 (fork)</li>
+<li>새로운 SID 설정 (setsid)</li>
+<li>파일 마스크값 설정 (umask)</li>
+<li>작업 디렉토리 설정 (chdir)</li>
+<li>파일디스크립터 정리 (close - getrlimit(RLIMIT_NOFILE))</li>
+<li>시그널처리 (signal)</li>
+</ul>
+
+<p>참고로, 전통적인 유닉스의 경우 _NOFILE을 이용해서 파일 디스크립터를 닫는 걸로 보통 설명하곤한다.</p>
+
+<p>실제 내부구현에서 차이가 조금씩은 있겠지만 대체로 Daemon처럼 Background에서 조용히 실행되도록 하는 경우에는 위의 내용을 적용하게 되는데 문제는 파일디스크립터 정리 부분에 있다.</p>
+
+<p>즉, limits.conf에 설정한 nofile이 10000000이기 때문에 getrlimit(RLIMIT_NOFILE)을 통해서 얻는 rlim_cur, rlim_max 값이 10000000이 되는 것이며 이를 루프를 통해서 명시적으로 close()하게 된다.</p>
+
+<p>이를 단순히 비교해 보고자 보통 많이 설정하는 nofile 값 8192일 때와 10000000일 때 디스크립터를 close()하는 부분을 C로 작성하여 소요되는 시간을 비교하면 아래와 같다.</p>
+
+<p><img src="/content/images/2014/May/20140528_01.png" alt="8192_10000000" /></p>
+
+<p>즉, nofile 값이 너무 크기 때문에 daemon 형태로 동작하는 프로세스는 명시적으로 파일 디스크립터를 닫는 작업에 드는 시간이 길어서 느린 것 처럼 느껴지는 것이다.</p>
+
+<h2 id="추천방안">추천방안</h2>
+
+<p>사실 해당서버에 저렇게까지 큰 값을 설정 할 필요는 없었다. 제한에 걸려서 문제가 생기지 않길 바라기 때문에 해당 값을 크게 잡아둔 것일 뿐이었다. 따라서, 적당한 값으로 변경하는 것이 가장 추천하는 방안이다.</p>
+
+<p>보통 많은 데이터와 소켓 통신을 하는 서버의 경우도 65535 또는 131072 정도면 큰 문제 없이 사용 할 수 있다.</p>
+
+<p>또한, 서버에서 모든 프로세스가 위와 같은 큰 리소스제한을 갖고 사용될 필요가 없기 때문에 더 높은 리소스 제한이 필요한 프로세스가 속한 도메인(사용자, 그룹)을 명시적으로 지정해서 설정하는 것을 권장한다.</p>
+
+<pre><code>예) appuser 계정으로 서비스를 운영할 경우
+appuser			soft	nofile	131072
+appuser			hard	nofile	131072
+</code></pre>
+
+<h2 id="여담">여담</h2>
+
+<p>사실 파일 디스크립터가 닫히는 과정을 알고는 있지만 limits.conf 설정 값 때문에 단순한 스크립트 실행이 체감할 정도로 지연이 발생할거라고는 생각지 못했다. 역시 경험은 중요하다.</p>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/limits.conf/">limits.conf</a></li>
+      
+      <li><a href="tags/nofile/">nofile</a></li>
+      
+      <li><a href="tags/rlimit_nofile/">RLIMIT_NOFILE</a></li>
+      
+      <li><a href="tags/getrlimit/">getrlimit</a></li>
+      
+      <li><a href="tags/slow/">slow</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

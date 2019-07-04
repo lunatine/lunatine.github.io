@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Ubuntu에서 Swap 파티션 비활성화 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.
+사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.
+이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.
+initramfs 수정 및 업데이트 보통 아래 위치에 설정파일이 존재하며 swap 파티션의 UUID 값이 설정되어있습니다.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Ubuntu에서 Swap 파티션 비활성화</h1>
+    <div class="post-meta">Lunatine · 2019.1.29</div>
+  </header>
+  <div class="post-content">
+
+<p>일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.</p>
+
+<p>사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.</p>
+
+<p>이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.</p>
+
+<h2 id="initramfs-수정-및-업데이트">initramfs 수정 및 업데이트</h2>
+
+<p>보통 아래 위치에 설정파일이 존재하며 swap 파티션의 UUID 값이 설정되어있습니다.</p>
+
+<pre><code>[/etc/initramfs-tools/conf.d/resume]
+RESUME=UUID=f67867df-3f62-4045-9d07-7aa2adab3523
+
+</code></pre>
+
+<p>따라서, swap을 영구적으로 비활성화 하고자 한다면 위 설정파일 내용을 주석처리하거나 삭제하고 아래 명령으로 initramfs를 새로 생성해 주어야 합니다.</p>
+
+<pre><code>$ sudo update-grub
+$ sudo update-initramfs -u
+
+</code></pre>
+
+<h2 id="systemd-swap-unit-비활성화">systemd swap unit 비활성화</h2>
+
+<p>또한, <strong>systemd</strong> 환경에서 동작하는 경우에는 Swap 파티션이 swap unit으로 등록되어 관리되기 때문에 위의 설정을 하고나서 재부팅을 하더라도 Swap이 활성화 되는 경우가 있습니다.</p>
+
+<p>이러한 경우에는 아래와 같이 등록 된 swap unit(보통 dev-파티션이름.swap)을 찾아서 <strong>mask</strong>해서 비활성화 해 줍니다.</p>
+
+<pre><code>$ sudo systemctl list-unit-files --type swap
+UNIT FILE     STATE
+dev-sda3.swap loaded
+
+1 unit files listed.
+
+$ sudo systemctl mask dev-sda3.swap
+Created symlink from /var/run/systemd/generator.late/swap.target.wants/dev-sda3.swap to /dev/null.
+
+</code></pre>
+
+<h2 id="기타">기타</h2>
+
+<p>initramfs 설정 및 파일을 업데이트하고 systemd 설정을 해주는 과정이 불편하다면 간단하게 해당 파티션을 swap으로 인식되지 않게 일반 파일시스템으로 포맷하거나 삭제하면 됩니다.</p>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/ubuntu/">Ubuntu</a></li>
+      
+      <li><a href="tags/swap/">swap</a></li>
+      
+      <li><a href="tags/sysetmd/">sysetmd</a></li>
+      
+      <li><a href="tags/initramfs/">initramfs</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

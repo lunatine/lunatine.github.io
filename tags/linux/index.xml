@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Lunatine&#39;s Box</title>
+    <link>/tags/linux/</link>
+    <description>Recent content in linux on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Jan 2019 08:26:19 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ext4 포맷 속도 개선</title>
+      <link>/post/improve-ext4-format-speed/</link>
+      <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
+      
+      <guid>/post/improve-ext4-format-speed/</guid>
+      <description>Linux에서 ext4 파일시스템을 사용하면서 종종 겪는 이슈 중의 하나가 바로 포맷 속도 입니다. 과거에는 이러한 포맷 속도가 그렇게까지 문제가 되지 않았지만 6TB, 8TB 디스크가 보편화 되면서 이러한 큰 디스크를 포맷할 때 시간이 너무 많이 소요되는 문제가 있습니다.
+사실, 이게 딱히 문제라고 보긴 어렵지만 특정 경우에는 (포맷 작업을 순차적으로 처리하는 업무라던지 ) 많은 시간을 소모하는 포맷 작업이 부담스러울 수 있습니다. 그러다보니 ext4를 주력으로 하는 Ubuntu 같은 배포판에서도 포맷 속도가 빠른 XFS를 선호하시는 분도 보았었습니다.</description>
+    </item>
+    
+    <item>
+      <title>NUMA with Linux</title>
+      <link>/post/numa-with-linux/</link>
+      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
+      
+      <guid>/post/numa-with-linux/</guid>
+      <description>개인 위키에서 정리하던 내용을 블로그로 옮긴 것 입니다. 이 문서는 NUMA 아키텍처에 대한 간략한 소개와 Linux에서의 활용 방법에 대해서 소개하고 있습니다.
+ 1. System Topology 1-1. CMP 최근 CPU는 하나의 소켓에 여러개의 코어를 가지고 있다. 이를 보통 멀티코어라고 지칭하며 하나의 칩에 여러개의 프로세서가 올라가기 때문에 CMP(Chip-level Multi Processor)라고도 부른다. 이러한 멀티코어 CPU에 대한 메모리 관계는 아래와 같이 표현 할 수 있다.
+1-2. SMP 하지만, 멀티코어 CPU를 2개 이상 장착한 시스템의 경우에는 메모리를 2개 이상의 CPU가 접근하기 때문에 CPU와 메모리 사이를 네트워크로 묶어서 접근이 필요하며 아래와 같이 표현이 가능하다.</description>
+    </item>
+    
+    <item>
+      <title>Bash FAQ (Part 1)</title>
+      <link>/post/bash-faq-part-1/</link>
+      <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
+      
+      <guid>/post/bash-faq-part-1/</guid>
+      <description>본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
+[[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
+if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.</description>
+    </item>
+    
+    <item>
+      <title>Load Average에 대하여</title>
+      <link>/post/about-load-average/</link>
+      <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
+      
+      <guid>/post/about-load-average/</guid>
+      <description>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
+Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &amp;lsquo;부하&amp;rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
+부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>devtmpfs와 udev</title>
+      <link>/post/devtmpfs-udev/</link>
+      <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
+      
+      <guid>/post/devtmpfs-udev/</guid>
+      <description>본 문서는 Linux booting 문서에서 생략 된 부분이면서 현재 Linux에서 장치관리를 수행하는 udev와 devtmpfs의 상관관계에 대해서 설명하고 있습니다. 또한, devtmpfs의 의미와 역할에 대한 질문의 답변을 정리한 문서이기도 합니다.
+ 마지막수정: 12/22/2015 기존문서와 기술하는 말투를 달리하였으니 양해부탁드립니다.  devfs 먼저 udev가 도입되기 전에 존재 했던 devfs라는 녀석에 대해서 살펴보겠습니다. devfs는 2000년에 도입된 파일시스템으로 장치에 대한 정보를 커널에서 관리 할 수 있도록 만들어진 파일시스템 입니다. 실제 여전히 많은 UNIX 계열 시스템은 devfs를 사용하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Linux Boot</title>
+      <link>/post/linux-booting/</link>
+      <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
+      
+      <guid>/post/linux-booting/</guid>
+      <description>Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
+ 본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다.</description>
+    </item>
+    
+    <item>
+      <title>[TIP] Bash - 반복 출력</title>
+      <link>/post/tip-bash-brace-expansion/</link>
+      <pubDate>Wed, 22 Jul 2015 06:16:00 +0000</pubDate>
+      
+      <guid>/post/tip-bash-brace-expansion/</guid>
+      <description>Shell Bash 환경에서 작업을 하다보면 연속 된 숫자 값을 이용하는 경우가 종종 있다. 특정 단어에 연속 된 숫자를 붙이거나 연속 된 숫자 값의 개수만큼 Loop를 실행(반복)하거나 하는 작업들이 대표적이다. 오랜 기간 Unix/Linux를 사용해 왔던 분들이라면 보통 아래와 같은 형태로 사용 하는 것을 종종 볼 수 있다.
+$ echo `seq 1 10` 1 2 3 4 5 6 7 8 9 10 $ for x in `seq 1 10` &amp;gt; do &amp;gt; echo -n &amp;quot;$x &amp;quot; &amp;gt; done 1 2 3 4 5 6 7 8 9 10$  사실 seq (sequence)는 별도의 실행 파일이기 때문에 bash와 직접적인 관련은 없다.</description>
+    </item>
+    
+    <item>
+      <title>ONBOOT=no 옵션 적용이 안되는 증상</title>
+      <link>/post/onboot-no-options-does-not-work/</link>
+      <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
+      
+      <guid>/post/onboot-no-options-does-not-work/</guid>
+      <description>RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
+시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
+DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
+  증상 eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임.</description>
+    </item>
+    
+    <item>
+      <title>glibc 취약점 GHOST (CVE-2015-0235)</title>
+      <link>/post/glibc-ghost-vulnerability/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>/post/glibc-ghost-vulnerability/</guid>
+      <description>경고(?)  이 글은 GHOST에 대한 분석의 글이 아닙니다. 보안에 기웃거렸을 뿐 보안이 뭔지 모르는 저의 개인적인 소감입니다.   GHOST? heartbleed, shellshock, POODLE &amp;hellip; 작년에 이름을 떨쳤던 보안 취약점이다. 그리고 이번엔 GHOST란다. 며칠 전에 접했던 취약점인며 국내 뉴스기사도 있다. GHOST는 glibc의 취약점인데 glibc가 갖는 범용성 때문에 꽤나 심각하게 보이는 취약점이다.
+glibc를 잘 모르는 분들을 위해 추가 설명을 하자면 glibc는 GNU C라이브러리 (GNU libc)를 의미하며 C라이브러리라는 것은 C언어의 기본 중의 기본이 되는 라이브러리를 의미한다.</description>
+    </item>
+    
+    <item>
+      <title>RHEL6에서 Python 2.7/3.4 사용하기</title>
+      <link>/post/python27-34-on-rhel-centos/</link>
+      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
+      
+      <guid>/post/python27-34-on-rhel-centos/</guid>
+      <description>본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
+Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.</description>
+    </item>
+    
+    <item>
+      <title>Linux : 기호 연결의 단계가 너무 많음</title>
+      <link>/post/linux-too-many-levels-of-symbolic-links/</link>
+      <pubDate>Tue, 19 Aug 2014 05:55:07 +0000</pubDate>
+      
+      <guid>/post/linux-too-many-levels-of-symbolic-links/</guid>
+      <description>무슨 의미지? Linux 시스템을 사용하다가 &amp;ldquo;기호 연결의 단계가 너무 많음&amp;rdquo;이라는 메시지를 만나게 되는 경우가 있다. 사람에 따라 다르겠지만 주변 반응으로 보아서 쉽게 의미가 파악되지 않는 것으로 보인다. 사실 ko_KR.UTF-8 로케일처럼 한글기반 언어설정이 된 시스템에서만 볼 수 있는 메시지로 영문 메시지는 아래와 같다.
+Too many levels of symbolic links
+즉, 심볼릭링크의 단계가 너무 많아서 발생하는 오류다. 대부분 이 경우는 무한반복(Self Looping)형태로 링크가 걸린 심볼릭링크 파일 때문에 발생한다. 예를 들면, 아래와 같이</description>
+    </item>
+    
+    <item>
+      <title>megasas_register_aen[0]: already registered</title>
+      <link>/post/megasas_register_aen0-already-registered/</link>
+      <pubDate>Mon, 10 Feb 2014 02:24:30 +0000</pubDate>
+      
+      <guid>/post/megasas_register_aen0-already-registered/</guid>
+      <description>MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
+megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
+커널 패치 내용은 아래와 같습니다.
+--- kernel-2.6.18-194.17.4/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 20:53:39.000000000 +0530 +++ kernel-2.6.18-194.26.1/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 21:23:56.000000000 +0530 @@ -2992,6 +3681,8 @@ megasas_register_aen(struct megasas_inst * Previously issued event registration includes * current request.</description>
+    </item>
+    
+    <item>
+      <title>mount : already mounted or busy 메시지</title>
+      <link>/post/mount-already-mounted-or-busy-mesiji/</link>
+      <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
+      
+      <guid>/post/mount-already-mounted-or-busy-mesiji/</guid>
+      <description>환경 및 증상 디스크 교체 및 비RAID 환경에서 아래와 같은 메시지와 함께 마운트가 되지 않는 증상 발생
+$ mount -t ext4 /dev/sdb1 /disk/2 mount : /dev/sdb1 already mounted or /disk/2 busy  원인 교체 된 디스크에 다른 곳에서 설정 된 RAID flag 정보가 남아있거나 dmraid가 RAID 멤버로 잘못 인지한 경우에 발생.
+해결 Case 1. dmraid 아래 명령을 통해서 dmraid가 해당 디스크를 RAID 구성원으로 판단하고 있는지 확인이 가능.
+$ dmraid -s  dmraid 패키지를 통해 RAID를 사용하지 않는다면 해당 패키지를 삭제하고 재부팅 하는 방법이 있지만 mkinitrd와 의존성을 같는 경우가 있기 때문에 현 시스템에 RAID를 사용하지 않는 다면(혹은 H/W RAID 컨트롤러로만 볼륨을 관리한다면) 아래 명령을 통해서 설정을 삭제할 수 있음.</description>
+    </item>
+    
+    <item>
+      <title>Linux에서 MBR 파티션 테이블 살펴보기</title>
+      <link>/post/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
+      
+      <guid>/post/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
+      <description>기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.  MBR 파티션 테이블 본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.1
+MBR이란? MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] libudev.so.0 라이브러리 오류</title>
+      <link>/post/faq-libudev-so-0-raibeureori-oryu/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:43 +0000</pubDate>
+      
+      <guid>/post/faq-libudev-so-0-raibeureori-oryu/</guid>
+      <description>Error while loading shared libraries (libudev.so.0)  오류메시지  error while loading shared libraries: libudev.so.0: cannot open shared object file
+ 환경 - Ubuntu 13.04 또는 Linux Mint 15 (64bit)  Ubuntu 저장소를 이용한 패키지 설치가 아닌 외부 패키지를 설치했을 때 이런 메시지를 종종 볼 수 있는데 오류 메시지 그대로 라이브러리를 찾지 못해서 발생하는 메시지이다. 아래 명령을 통해서 쉽게 수정 할 수 있다.
+$ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Upstart 사용에 대해서</title>
+      <link>/post/faq-upstart-sayonge-daehaeseo/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:32 +0000</pubDate>
+      
+      <guid>/post/faq-upstart-sayonge-daehaeseo/</guid>
+      <description>Upstart 기존 Unix &amp;ldquo;System V&amp;rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
+예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Cylinder 값이 초과 되었는데? (CHS vs LBA)</title>
+      <link>/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
+      
+      <guid>/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
+      <description>이미 인터넷에 CHS와 LBA에 대한 내용을 다룬 훌륭한 문서가 많이 있다. 다만, 최근 Cylinder 값의 초과에 대해서 이상하게 생각하는 경우에 대한 답변을 위해 본 문서를 작성하게 되었다.
+Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하면서 디스크를 파티셔닝하는데 정렬(alignment)에 대한 이슈가 생겨났다. 기존 섹터가 512byte 단위였던 것이 4096byte(4K)로 증가하면서 디스크 접근에 있어서 성능저하를 막기 위해 파티션의 시작지점을 4K 단위로 맞춰 줄 필요가 생긴 것이다. 최신 parted에서는 aligment 옵션을 제공하지만 fdisk와 같은 툴 에서는 제공하지 않아 Bash 쉘 스크립트로 섹터 값으로 계산해서 파티셔닝 하도록 툴을 만들어 해결 했고 이를 업무에 활용하였다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure</title>
+      <link>/post/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
+      <pubDate>Wed, 05 Feb 2014 17:41:01 +0000</pubDate>
+      
+      <guid>/post/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
+      <description>유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
+따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Linux Swappiness 관련</title>
+      <link>/post/faq-linux-swappiness-gwanryeon/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:50 +0000</pubDate>
+      
+      <guid>/post/faq-linux-swappiness-gwanryeon/</guid>
+      <description>Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
+ 메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
+ 예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</title>
+      <link>/post/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:40 +0000</pubDate>
+      
+      <guid>/post/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</guid>
+      <description>간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만 LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.
+Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 NTPL(Native POSIX Thread Library) 였다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Synergy 서버 실행 오류 해결 방안</title>
+      <link>/post/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:12 +0000</pubDate>
+      
+      <guid>/post/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
+      <description>Synergy 최근에 MBP를 마련하면서 Windows와 번갈아가면서 하는 작업이 늘게 되어서 Synergy를 사용하게 되었는데 설정을 바꿔가며 테스트 하다가 이상한 증상이 발견되어 이를 해결하는 방법을 공유 하고자 한다.
+환경 및 증상  환경 : Synergy 서버는 Windows7 64bit 버전 증상 : Synergy 서버를 종료 했다가 다시 실행하면 아래와 같은 오류 메시지가 발생하면서 실행되지 않음  ERROR: failed to initialize hook library, is synergy already running? FATAL: failed to start server: unable to open screen   해결방법 먼저, 알아두어야 할 것은 Synergy 서버프로세스가 이미 떠 있다면 종료 시키면 해결된다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] ht = HyperThread에 대한 오해</title>
+      <link>/post/faq-ht-hyperthreade-daehan-ohae/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:57 +0000</pubDate>
+      
+      <guid>/post/faq-ht-hyperthreade-daehan-ohae/</guid>
+      <description>과거에 대략 정리했던 내용을 다시 포스팅하는 이유는 문서 정리차원입니다.
+일반적으로 Linux의 CPU정보 (/proc/cpuinfo)에서 ht 플래그 가 보이면 HyperThread가 지원되는 CPU로 알려져 있습니다. 따라서 해당 플래그의 존재 여부에 따라서 HyperThread가 되고 안되고를 많이 판단하는데 결과부터 이야기 한다면 적어도 지금의 CPU로는 ht 플래그로는 HyperThread 기능 여부를 정확히 판별할 수 없습니다.
+개인적으로 HyperThread 기능이 없는 CPU가 ht 플래그를 가지고 있는 것을 발견하였고 이에 대한 의문점을 해결하기 위해 커널 소스를 모두 보았으나 소스의 변화나 특이점은 없었습니다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)</title>
+      <link>/post/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</link>
+      <pubDate>Wed, 05 Feb 2014 17:37:49 +0000</pubDate>
+      
+      <guid>/post/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</guid>
+      <description>자주 받는 질문 중의 하나.. &amp;lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&amp;rsquo;
+이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
+df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
+그런데 왜 다른건데?
+현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] SFTP 접속 오류</title>
+      <link>/post/faq-sftp-jeobsog-oryu/</link>
+      <pubDate>Wed, 05 Feb 2014 05:50:12 +0000</pubDate>
+      
+      <guid>/post/faq-sftp-jeobsog-oryu/</guid>
+      <description> 증상  received message is too long
+ 위와 같은 메시지 발생하며 접속이 제대로 이루어지지 않음
+원인 접속하는 사용자 계정의 쉘 환경설정 파일에 stdout으로 메시지를 출력하는 부분이 존재해서 발생 되는 문제입니다.
+해결 접속하려는 사용자 계정의 .bashrc 와 .bash_profile에서 화면에 메시지를 출력하는 구문을 제거합니다. 간편하게 아래와 같은 명령으로 각 환경설정 파일의 실행 결과를 확인하시고 제거하시면 됩니다.
+ $ . .bashrc
+$ . .bash_profile
+ </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>ONBOOT=no 옵션 적용이 안되는 증상 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
+시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
+DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
+  증상 eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">ONBOOT=no 옵션 적용이 안되는 증상</h1>
+    <div class="post-meta">Lunatine · 2015.2.11</div>
+  </header>
+  <div class="post-content">
+
+<p>RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.</p>
+
+<h2 id="시스템-환경">시스템 환경</h2>
+
+<ul>
+<li>OS: RHEL 6 64bit</li>
+<li>NIC: Broadcom Corporation NetXtreme II BCM57810 10G</li>
+<li>Driver: bnx2x 1.78.80</li>
+
+<li><p>설정파일</p>
+
+<pre><code>DEVICE=eth1
+BOOTPROTO=static
+ONBOOT=no
+</code></pre></li>
+
+<li><p>기타: NetworkManager를 사용하지 않음</p></li>
+</ul>
+
+<h2 id="증상">증상</h2>
+
+<p>eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임.</p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p>설정파일 옵션 중에 HOTPLUG라는 옵션이 있다. 레드햇 매뉴얼에 따르면</p>
+
+<pre><code>HOTPLUG=answer
+  where answer is one of the following:
+    yes — This device should be activated when it is hot-plugged (this is the default option).
+    no — This device should not be activated when it is hot-plugged.
+
+The HOTPLUG=no option can be used to prevent a channel bonding interface from being activated when a bonding kernel module is loaded.
+</code></pre>
+
+<p>hot-plug로 인식될 때 장비를 활성화 할지 여부를 지정하는 옵션이다. 여러 환경에서 재현 테스트를 해보면 좋겠지만 여의치 않아서 몇 가지 테스트만 해 본 결과 PCIe NIC 카드 때문으로 보인다.</p>
+
+<p>즉, 시스템 환경의 BCM57810 NIC카드는 서버의 메인보드에 달린 NIC이 아니라 별도의 10G NIC을 장착하였기 때문에 부팅 때 bnx2x 드라이버 모듈이 로딩 되면서 해당 NIC을 hot-plug 장치로 처리하는 것으로 보인다.</p>
+
+<h2 id="결론">결론</h2>
+
+<p>아무튼, 설정파일에 해당 네트워크 인터페이스가 부팅 때 활성화 되지 않기를 원한다면 ONBOOT와 HOTPLUG 옵션 모두 설정해 주는 것이 좋다.</p>
+
+<pre><code>DEVICE=eth1
+BOOTPROTO=static
+HOTPLUG=no
+ONBOOT=no
+</code></pre>
+
+<h4 id="끝">끝</h4>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/linux/">linux</a></li>
+      
+      <li><a href="tags/rhel/">RHEL</a></li>
+      
+      <li><a href="tags/pcie/">PCIe</a></li>
+      
+      <li><a href="tags/bnx2x/">bnx2x</a></li>
+      
+      <li><a href="tags/hotplug/">hotplug</a></li>
+      
+      <li><a href="tags/onbootno/">onboot=no</a></li>
+      
+      <li><a href="tags/network/">network</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

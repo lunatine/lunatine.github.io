@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>[FAQ] Upstart 사용에 대해서 - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="Upstart 기존 Unix &ldquo;System V&rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
+예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again.">
+    <meta name="author" content="Lunatine">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">[FAQ] Upstart 사용에 대해서</h1>
+    <div class="post-meta">Lunatine · 2014.2.5</div>
+  </header>
+  <div class="post-content">
+
+<h1 id="upstart">Upstart</h1>
+
+<p>기존 Unix &ldquo;System V&rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다
+또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.</p>
+
+<h1 id="예제로-알아보는-job-설정">예제로 알아보는 job 설정</h1>
+
+<ul>
+<li>기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다</li>
+<li>상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다</li>
+</ul>
+
+<h2 id="예제-tty1-설정-파일">예제 : tty1 설정 파일</h2>
+
+<pre>
+# tty1 - getty
+#
+# This service maintains a getty on tty1 from the point the system is
+# started until it is shut down again.
+
+start on stopped rc RUNLEVEL=[2345] and (
+            not-container or
+            container CONTAINER=lxc or
+            container CONTAINER=lxc-libvirt)
+
+stop on runlevel [!2345]
+
+respawn
+exec /sbin/getty -8 38400 tty1
+</pre>
+JOB 파일의 문법은 직관적 형태를 띄고 있습니다.
+
+### start on / stop on
+먼저 start on, stop on에 대해서 살펴보면 뒤에 지시되는 이벤트에 대해서 각각 시작, 정지를 하도록 지정하는 내용입니다. upstart는 관리자가 직접 시작/종료 처리를 해 줄 수도 있지만 JOB 파일에 지정한 이벤트에 따라서 자동으로 시작/종료가 가능합니다.
+start on/stop on 뒤에는 보통 아래와 같은 이벤트 지시지가 따라 붙습니다
+<pre>
+start on startup
+start on runlevel [23]
+start on stopped rcS
+start on started tty1
+</pre>
+
+<ul>
+<li>startup : 시스템이 부팅할 때를 의미합니다 (보통 start on과 같이 쓰임)</li>
+<li>runlevel : 뒤에 지정 된 런레벨을 의미합니다. 만약 [!23] 으로 설정되었다면 2,3 런레벨을 제외한 나머지 경우를 의미합니다. 런레벨은 0~6,S가 올 수 있습니다.</li>
+<li>stopped : 뒤에 지정 된 JOB이 종료 되었을 때를 의미합니다.</li>
+<li>started : 뒤에 지정 된 JOB이 시작 되었을 때를 의미합니다.</li>
+<li>shutdown : 시스템 종료할 때를 의미합니다. (보통 stop on과 같이 쓰임)</li>
+</ul>
+
+<h3 id="respawn">respawn</h3>
+
+<p>이 지시자가 있으면 해당 프로세스가 죽었을 경우 (또는 crash 되었을 경우) 자동으로 프로세스를 다시 실행시켜 줍니다.</p>
+
+<h3 id="exec">exec</h3>
+
+<p>실제 서비스가 시작될 때 실행하는 내용을 담고 있습니다. 위 예제에서는 /sbin/getty를 실행하도록 되어있습니다.</p>
+
+<p>이 외에도 많은 설정 방법이 존재하는데 <a href="http://upstart.ubuntu.com/cookbook/">Upstart Cookbook</a>을 참고하시면 됩니다.</p>
+
+<h2 id="upstart-명령">Upstart 명령</h2>
+
+<p>Upstart 명령은 아래와 같습니다. init system을 대체하기 때문에 init과 동일한 이름의 명령도 존재 합니다.</p>
+
+<h4 id="서비스-제어-service-명령으로도-바꿔서-사용할-수-있습니다">서비스 제어 (service 명령으로도 바꿔서 사용할 수 있습니다)</h4>
+
+<ul>
+<li>initctl - service 명령의 대체 명령으로 사용이 가능합니다. 보통 initctl [JOB이름] [명령] 형태로 사용합니다</li>
+<li>start - 서비스 시작</li>
+<li>stop - 서비스 종료</li>
+<li>reload - SIGHUP 시그널을 전송합니다.</li>
+<li>restart - JOB설정파일을 읽지 않고 서비스를 재시작 합니다</li>
+<li>status - 서비스 상태 확인</li>
+<li>예제
+<pre>
+$ initctl console stop
+
+<dl>
+<dd>initctl을 통해서 console JOB을 종료한다
+$ stop console</dd>
+<dd>console JOB을 종료한다
+$ start serial</dd>
+<dd>serial JOB을 실행한다
+</pre></dd>
+</dl></li>
+</ul>
+
+<h4 id="리부팅-시스템-종료">리부팅 / 시스템 종료</h4>
+
+<ul>
+<li>halt - 시스템을 종료 후 전원을 OFF합니다</li>
+<li>poweroff - halt와 동일합니다.</li>
+<li>reboot - 시스템을 재부팅합니다.</li>
+<li>shutdown - 시스템을 종료합니다.</li>
+</ul>
+
+<h4 id="그-외의-명령-직접-실행-할-일은-없음">그 외의 명령 (직접 실행 할 일은 없음)</h4>
+
+<ul>
+<li>init - Upstart 프로세스 관리 데몬</li>
+<li>runlevel - 기존 runlevel 호환성을 위한 명령</li>
+<li>telinit - 기존 runlevel 호환성을 위한 명령</li>
+<li>upstart-udev-bridge - Upstart와 Udev간의 연계를 위한 명령</li>
+</ul>
+
+<h2 id="그-외">그 외</h2>
+
+<ul>
+<li>initctl list 명령으로 현재 upstart로 관리되는 프로세스의 상태를 모두 확인 할 수 있습니다.</li>
+<li>환경변수로 지정 된 값에 대해서 수동으로 시작/종료 할 경우에는 명령 뒤에 옵션으로 지정할 수 있습니다
+<pre>
+예시) initctl serial stop 을 실행했을 경우
+$ initctl serial stop
+stop: Unknown parameter: DEV</li>
+</ul>
+
+<p>수동으로 실행 할 경우에는 DEV 변수 값이 필요하기 때문에 아래와 같이 실행합니다.
+$ initctl serial stop DEV=ttyS0
+</pre></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li>upstart homepage : <a href="http://upstart.ubuntu.com/">http://upstart.ubuntu.com/</a></li>
+</ul>
+</div>
+  <footer class="post-footer">
+    
+    <ul class="post-tags">
+      
+      <li><a href="tags/faq/">faq</a></li>
+      
+      <li><a href="tags/linux/">linux</a></li>
+      
+      <li><a href="tags/upstart/">upstart</a></li>
+      
+      <li><a href="tags/rhel6/">RHEL6</a></li>
+      
+      <li><a href="tags/ubuntu/">Ubuntu</a></li>
+      
+    </ul>
+    
+  </footer>
+  
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'lunatine';
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+

@@ -10,15 +10,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href="https://github.daumkakao.com/pages/lunatine-c/public/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://github.daumkakao.com/pages/lunatine-c/public/css/style.css" rel="stylesheet">
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://github.daumkakao.com/pages/lunatine-c/public/img/apple-touch-icon.png">
-    <link rel="icon" href="https://github.daumkakao.com/pages/lunatine-c/public/img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
     
     <meta name="generator" content="Hugo 0.55.6" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://github.daumkakao.com/pages/lunatine-c/public/index.xml" title="Lunatine&#39;s Box">
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
     
     
     
@@ -27,7 +27,7 @@
     <header class="header">
       <div class="wrap">
         
-        <h1 class="logo"><a href="https://github.daumkakao.com/pages/lunatine-c/public">Lunatine&#39;s Box</a></h1>
+        <h1 class="logo"><a href="">Lunatine&#39;s Box</a></h1>
         
         
         <button class="menu-toggle" type="button"></button>
@@ -39,11 +39,11 @@
       <ul class="menu">
         
         <li>
-          <a href="/pages/lunatine-c/public/about">About</a>
+          <a href="/about">About</a>
         </li>
         
         <li>
-          <a href="/pages/lunatine-c/public/showcase">Showcase</a>
+          <a href="/showcase">Showcase</a>
         </li>
         
       </ul>
@@ -60,33 +60,101 @@
 
 <article class="first-entry">
   <header class="entry-header">
-    <h2>Test</h2>
+    <h2>NVMe에서 iostat의 높은 %util 값 (RHEL/CentOS 7.6)</h2>
+  </header>
+  <section class="entry-content">
+   <p>안내: 이 글을 읽기 전에 [Linux iostat] 문서를 먼저 읽어주시기 바랍니다. 버전: 2019/03/22 (수정), 2019/01/28 (초안)  최근 NVMe와 같이 디스크 장치에서 병렬처리가 가능한 제품을 사용 할 때에 iostat의 지표 값이 이상하다는 이야기가 많습니다. 잘 알려진 내용으로는 Linux iostat에서 소개하고 있는 내용처럼 svctm 지표 자체가 제대로 계산되지 않아서 제 성능을 내기도 전에 100%의 Utilization 지표를 나타내는 이슈가 있습니다.
+다만, 최근 RHEL/CentOS 7.6에서 동일하거나 유사한 수준의 I/O 처리에 대해서 기존 7....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.22</time>
+  </footer>
+  <a class="entry-link" href="/post/high-iostat-util-on-nvme/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Ubuntu에서 Swap 파티션 비활성화</h2>
+  </header>
+  <section class="entry-content">
+   <p>일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.
+사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.
+이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.
+initramfs 수정 및 업데이트 보통 아래 위치에 설정파일이 존재하며 swap 파티션의 UUID 값이 설정되어있습니다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.1.29</time>
+  </footer>
+  <a class="entry-link" href="/post/disable-swap-partition-on-ubuntu/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>비 정상적인 Swap 수치</h2>
+  </header>
+  <section class="entry-content">
+   <p>증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
+$ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/&#43; buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.1.29</time>
+  </footer>
+  <a class="entry-link" href="/post/abnormal-swap-values/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>ext4 포맷 속도 개선</h2>
   </header>
   <section class="entry-content">
    <p>Linux에서 ext4 파일시스템을 사용하면서 종종 겪는 이슈 중의 하나가 바로 포맷 속도 입니다. 과거에는 이러한 포맷 속도가 그렇게까지 문제가 되지 않았지만 6TB, 8TB 디스크가 보편화 되면서 이러한 큰 디스크를 포맷할 때 시간이 너무 많이 소요되는 문제가 있습니다.
 사실, 이게 딱히 문제라고 보긴 어렵지만 특정 경우에는 (포맷 작업을 순차적으로 처리하는 업무라던지 ) 많은 시간을 소모하는 포맷 작업이 부담스러울 수 있습니다. 그러다보니 ext4를 주력으로 하는 Ubuntu 같은 배포판에서도 포맷 속도가 빠른 XFS를 선호하시는 분도 보았었습니다....</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.7.3</time>
+    <time>2019.1.29</time>
   </footer>
-  <a class="entry-link" href="https://github.daumkakao.com/pages/lunatine-c/public/2019/07/03/test/"></a>
+  <a class="entry-link" href="/post/improve-ext4-format-speed/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>[macOS] iTerm에서 ssh 접속 시 LC_CTYPE 오류</h2>
+  </header>
+  <section class="entry-content">
+   <p>macOS에서 iTerm으로 ssh 접속을 할 때 아래와 같은 오류 메시지가 발생하는 경우가 있다.
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory  이는 LANG 환경변수의 전달에 의한 것으로 보통 /etc/ssh/ssh_config의 설정 값 때문에 발생한다. 따라서 아래와 같이 ssh_config 파일에서 SendEnv LANG 항목을 주석처리 해주면 된다.
+$ sudo vi /etc/ssh/ssh_config  ... 상략 ... Host * # SendEnv LANG LC_* &lt;- 이 부분을 #으로 주석처리  ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2018.7.17</time>
+  </footer>
+  <a class="entry-link" href="/post/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/"></a>
 </article>
 
 
 
 
+<footer class="page-footer">
+  <nav class="pagination">
+    
+    
+    <a class="next" href="/page/2/">Next Page →</a>
+    
+  </nav>
+</footer>
+
 
 </main>
 <footer class="footer">
-  <span>&copy; 2019 <a href="https://github.daumkakao.com/pages/lunatine-c/public">Lunatine&#39;s Box</a></span>
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
   <span>&middot;</span>
   <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
   <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
-<script src="https://github.daumkakao.com/pages/lunatine-c/public/js/instantclick.min.js" data-no-instant></script>
+<script src="js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>
-<script src="https://github.daumkakao.com/pages/lunatine-c/public/js/highlight.min.js" data-no-instant></script>
+<script src="js/highlight.min.js" data-no-instant></script>
 <script data-no-instant>
   let body;
   function menuToggleListener() {

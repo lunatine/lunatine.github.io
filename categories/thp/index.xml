@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>THP on Lunatine&#39;s Box</title>
+    <link>/categories/thp/</link>
+    <description>Recent content in THP on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Oct 2014 09:36:11 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/thp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Transparent Huge Pages 와 page allocation error</title>
+      <link>/post/thp-and-page-allocation-error/</link>
+      <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
+      
+      <guid>/post/thp-and-page-allocation-error/</guid>
+      <description>1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
+page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&amp;lt;ffffffff8112c207&amp;gt;] ? __alloc_pages_nodemask+0x757/0x8d0 kernel: [&amp;lt;ffffffff81010ff6&amp;gt;] ? dma_generic_alloc_coherent+0xa6/0x160 kernel: [&amp;lt;ffffffff8103c8f1&amp;gt;] ? x86_swiotlb_alloc_coherent+0x31/0x70 kernel: [&amp;lt;ffffffffa002e74a&amp;gt;] ? pci_alloc_consistent+0x5a/0xc0 [mpt2sas] kernel: [&amp;lt;ffffffffa0030155&amp;gt;] ? _ctl_do_mpt_command+0x7c5/0xcb0 [mpt2sas] kernel: [&amp;lt;ffffffff8119abe7&amp;gt;] ? __d_lookup+0xa7/0x150 kernel: [&amp;lt;ffffffffa0030762&amp;gt;] ? _ctl_compat_mpt_command+0x122/0x160 [mpt2sas] kernel: [&amp;lt;ffffffff8150f026&amp;gt;] ? mutex_lock_interruptible+0x16/0x50 kernel: [&amp;lt;ffffffffa003167b&amp;gt;] ? _ctl_ioctl_main+0x5cb/0x1070 [mpt2sas] kernel: [&amp;lt;ffffffff81193010&amp;gt;] ?</description>
+    </item>
+    
+  </channel>
+</rss>

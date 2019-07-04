@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swappiness on Lunatine&#39;s Box</title>
+    <link>/tags/swappiness/</link>
+    <description>Recent content in swappiness on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Feb 2014 17:40:50 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/swappiness/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[FAQ] Linux Swappiness 관련</title>
+      <link>/post/faq-linux-swappiness-gwanryeon/</link>
+      <pubDate>Wed, 05 Feb 2014 17:40:50 +0000</pubDate>
+      
+      <guid>/post/faq-linux-swappiness-gwanryeon/</guid>
+      <description>Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
+ 메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
+ 예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

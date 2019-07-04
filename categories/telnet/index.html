@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Posts - Lunatine&#39;s Box</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="css/github-gist.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" href="img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="index.xml" title="Lunatine&#39;s Box">
+    
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="">Lunatine&#39;s Box</a></p>
+        
+        
+        <button class="menu-toggle" type="button"></button>
+        
+      </div>
+    </header>
+    
+    <nav class="nav">
+      <ul class="menu">
+        
+        <li>
+          <a href="/about">About</a>
+        </li>
+        
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    <main class="main">
+
+
+
+<header class="page-header">
+  <h1>
+  Posts
+  </h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>FAQ : Telnet 한글입력 문제</h2>
+  </header>
+  <section class="entry-content">
+   <p>Telnet 한글입력 문제 Telnet을 이용해 서버에 접속하여 한글을 입력 할 경우 한 글이 제대로 입력되지 않고 깨지거나 이스케이프 문자로 인식되어 처리 되는 (사용자 입장에서는 갑자기 이상한 메시지와 함께 telnet&gt; 프롬프트가 떠버리는) 증상이 보이는 경우가 있다.
+이 경우에는 서버의 언어 설정이 ko_KR.UTF-8과 같이 되어있더라도 입력이 제대로 안 되는데 접속 할 때 아래와 같이 접속을 해보도록 하자.
+$ telnet -8 서버옵션  -8 옵션은 8bit 모드(바이너리 모드라고도 함)로 데이터를 전송하도록 지시하는 것으로 telnet 자체가 기본적으로 7bit로 표현가능한 ASCII 코드에 기반하여 문자를 전송하도록 고안 되었기 때문에 별도의 옵션으로 존재한다....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.3.25</time>
+  </footer>
+  <a class="entry-link" href="/post/faq-telnet-hangeulibryeog-munje/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>FAQ : Telnet 접속 안 되는 증상</h2>
+  </header>
+  <section class="entry-content">
+   <p>Telnet 접속 실패 관련 본 문서에서는 Telnet을 이용한 접속을 시도 할 때 안되는 상황 별로 해결 방법을 소개합니다. 자주 받는 질문 위주로 기록 되었습니다.
+Case 1: Telnet 접속 시 바로 거절 당함 (tcp wrapper) 별것 아닌 내용이지만 tcp wrapper에 적절 한 설정을 하지 않아서 접속을 거부 당하는 경우가 있다. /etc/hosts.allow 파일에 아래와 같은 설정이 되어있는지 확인해 보자.
+in.telnetd : 접속허용IP주소 또는 대역 예) in.telnetd : 192.168.2.7, 192.168.3.  Case 2: telnet....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2014.3.25</time>
+  </footer>
+  <a class="entry-link" href="/post/faq-telnet-connection-failed/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="">Lunatine&#39;s Box</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  let body;
+  function menuToggleListener() {
+    body.classList.toggle('blur');
+  }
+  function setMenuToggleListener() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menuToggle) return;
+    body = document.querySelector('body');
+    menuToggle.addEventListener('click', menuToggleListener);
+  }
+
+  hljs.initHighlightingOnLoad();
+  setMenuToggleListener();
+
+  InstantClick.on('change', function () {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuToggleListener();
+  });
+</script>
+</body>
+</html>
+
