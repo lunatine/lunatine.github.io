@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du) &middot; Lunatine</title>
+        <meta name="description" content="자주 받는 질문 중의 하나.. &lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&rsquo;
+이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
+df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
+그런데 왜 다른건데?
+현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)">
+<meta property="og:description" content="자주 받는 질문 중의 하나.. &lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&rsquo;
+이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
+df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
+그런데 왜 다른건데?
+현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lunatine.github.io/2014/02/05/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/">
+        <link rel="stylesheet" href="https://lunatine.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://lunatine.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2014-02-05" itemprop="datePublished">Wed, Feb 5, 2014</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="http://lunatine.net" itemprop="url" rel="author">Lunatine</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 1 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>자주 받는 질문 중의 하나.. &lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&rsquo;</p>
+
+<p>이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.</p>
+
+<p>df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.</p>
+
+<p><strong>그런데 왜 다른건데?</strong></p>
+
+<p>현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다. 즉, 파일시스템에 deleted 상태정보로 유지되고 있는 것이다. 그렇기 때문에 df 명령으로 확인하게 되면 deleted 파일이 차지하는 용량까지 더해져서 du 명령과는 차이를 나타낼 수가 있다. 특히, MySQL에서 큰 데이터베이스를 날렸을 경우에는 그 차이가 크게 느껴질 수 있다.</p>
+
+<p><strong>확인하는 방법은?</strong></p>
+
+<p>lsof라는 명령이 있다. 이 명령을 통해서 &lsquo;deleted&rsquo; 상태에 있는 파일을 확인할 수 있으니 각각의 파일 정보에서 해당 PID를 찾아서 그 프로세스를 리셋하거나 종료하면 df에서 잠식당한 공간을 확보할 수 있다.</p>
+
+<p><code>lsof | grep deleted</code></p>
+
+<p>실제로는 사용하지 않아서 그냥 내버려 둬도 되지 않느냐라고 볼 수 있지만.. 파일시스템 상태정보와 관련이 있기 때문에 실제 사용량이 많지 않아도 df에서 100%로 보이면 여유공간이 없다고 파일 생성이 되 질 않는다.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/faq/">faq</a>, 
+            
+                <a href="/tags/linux/">linux</a>, 
+            
+                <a href="/tags/df/">df</a>, 
+            
+                <a href="/tags/du/">du</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=%5bFAQ%5d%20Linux%20%eb%94%94%ec%8a%a4%ed%81%ac%20%ec%82%ac%ec%9a%a9%eb%9f%89%ec%9d%98%20%ec%b0%a8%ec%9d%b4%20%28df%20%eb%aa%85%eb%a0%b9%ea%b3%bc%20du%29&url=https%3a%2f%2flunatine.github.io%2f2014%2f02%2f05%2ffaq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flunatine.github.io%2f2014%2f02%2f05%2ffaq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://lunatine.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://lunatine.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://lunatine.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

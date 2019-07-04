@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Transparent Huge Pages 와 page allocation error &middot; Lunatine</title>
+        <meta name="description" content="1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
+page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&lt;ffffffff8112c207&gt;] ? __alloc_pages_nodemask&#43;0x757/0x8d0 kernel: [&lt;ffffffff81010ff6&gt;] ? dma_generic_alloc_coherent&#43;0xa6/0x160 kernel: [&lt;ffffffff8103c8f1&gt;] ? x86_swiotlb_alloc_coherent&#43;0x31/0x70 kernel: [&lt;ffffffffa002e74a&gt;] ? pci_alloc_consistent&#43;0x5a/0xc0 [mpt2sas] kernel: [&lt;ffffffffa0030155&gt;] ? _ctl_do_mpt_command&#43;0x7c5/0xcb0 [mpt2sas] kernel: [&lt;ffffffff8119abe7&gt;] ? __d_lookup&#43;0xa7/0x150 kernel: [&lt;ffffffffa0030762&gt;] ? _ctl_compat_mpt_command&#43;0x122/0x160 [mpt2sas] kernel: [&lt;ffffffff8150f026&gt;] ? mutex_lock_interruptible&#43;0x16/0x50 kernel: [&lt;ffffffffa003167b&gt;] ? _ctl_ioctl_main&#43;0x5cb/0x1070 [mpt2sas] kernel: [&lt;ffffffff81193010&gt;] ?">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Transparent Huge Pages 와 page allocation error">
+<meta property="og:description" content="1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
+page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&lt;ffffffff8112c207&gt;] ? __alloc_pages_nodemask&#43;0x757/0x8d0 kernel: [&lt;ffffffff81010ff6&gt;] ? dma_generic_alloc_coherent&#43;0xa6/0x160 kernel: [&lt;ffffffff8103c8f1&gt;] ? x86_swiotlb_alloc_coherent&#43;0x31/0x70 kernel: [&lt;ffffffffa002e74a&gt;] ? pci_alloc_consistent&#43;0x5a/0xc0 [mpt2sas] kernel: [&lt;ffffffffa0030155&gt;] ? _ctl_do_mpt_command&#43;0x7c5/0xcb0 [mpt2sas] kernel: [&lt;ffffffff8119abe7&gt;] ? __d_lookup&#43;0xa7/0x150 kernel: [&lt;ffffffffa0030762&gt;] ? _ctl_compat_mpt_command&#43;0x122/0x160 [mpt2sas] kernel: [&lt;ffffffff8150f026&gt;] ? mutex_lock_interruptible&#43;0x16/0x50 kernel: [&lt;ffffffffa003167b&gt;] ? _ctl_ioctl_main&#43;0x5cb/0x1070 [mpt2sas] kernel: [&lt;ffffffff81193010&gt;] ?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lunatine.github.io/2014/10/29/thp-and-page-allocation-error/">
+        <link rel="stylesheet" href="https://lunatine.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://lunatine.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Transparent Huge Pages 와 page allocation error</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2014-10-29" itemprop="datePublished">Wed, Oct 29, 2014</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="http://lunatine.net" itemprop="url" rel="author">Lunatine</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 3 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<h1 id="1-page-allocation-error">1. Page allocation Error</h1>
+
+<p>RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.</p>
+
+<pre><code>page allocation failure. order:4, mode:0x8020
+kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1
+kernel: Call Trace:
+kernel: [&lt;ffffffff8112c207&gt;] ? __alloc_pages_nodemask+0x757/0x8d0
+kernel: [&lt;ffffffff81010ff6&gt;] ? dma_generic_alloc_coherent+0xa6/0x160
+kernel: [&lt;ffffffff8103c8f1&gt;] ? x86_swiotlb_alloc_coherent+0x31/0x70
+kernel: [&lt;ffffffffa002e74a&gt;] ? pci_alloc_consistent+0x5a/0xc0 [mpt2sas]
+kernel: [&lt;ffffffffa0030155&gt;] ? _ctl_do_mpt_command+0x7c5/0xcb0 [mpt2sas]
+kernel: [&lt;ffffffff8119abe7&gt;] ? __d_lookup+0xa7/0x150
+kernel: [&lt;ffffffffa0030762&gt;] ? _ctl_compat_mpt_command+0x122/0x160 [mpt2sas]
+kernel: [&lt;ffffffff8150f026&gt;] ? mutex_lock_interruptible+0x16/0x50
+kernel: [&lt;ffffffffa003167b&gt;] ? _ctl_ioctl_main+0x5cb/0x1070 [mpt2sas]
+kernel: [&lt;ffffffff81193010&gt;] ? do_filp_open+0x7d0/0xdd0
+kernel: [&lt;ffffffff8104757c&gt;] ? __do_page_fault+0x1ec/0x480
+kernel: [&lt;ffffffffa0032133&gt;] ? _ctl_ioctl_compat+0x13/0x20 [mpt2sas]
+kernel: [&lt;ffffffff811d6bbd&gt;] ? compat_sys_ioctl+0xed/0x510
+kernel: [&lt;ffffffff8104dc73&gt;] ? ia32_sysret+0x0/0x5
+</code></pre>
+
+<p>특히 위의 메시지 형태 중에서 swapper에서 발생시키는 메시지의 경우 <a href="https://bugzilla.redhat.com/show_bug.cgi?id=761442">Bug 761442</a>에서 언급 된 것 처럼 zone_reclaim_mode를 설정해서 해결하는 방안이 있었다.</p>
+
+<p>하지만, swapper가 아닌 일반 프로세스에서도 (특히, IO작업이 많거나 네트워크 처리량이 많은 서버) page allocation error가 발생하는 경우가 RHEL6.4/CentOS6.4 이하에서 많이 발견 되었다.</p>
+
+<p>이를 해결하기 위해 커널 패치 이력을 살펴보았다. 이력 중에 관련성이 있어보이는 몇개의 Bug Fix 내용은 접근 권한이 없어서 상세히 못 봤지만 유추되는 내용을 통해서 해결 할 수가 있었다.</p>
+
+<p>본 문서에서는 THP(Transparent Hugepages)와 Page alloation failure 메시지 해결 방안 2가지를 안내한다.</p>
+
+<ul>
+<li>대상: RHEL6.4/CentOS6.4 이하의 환경</li>
+</ul>
+
+<h1 id="2-transparent-huage-pages">2. Transparent Huage Pages</h1>
+
+<p>Linux는 메모리에 대한 관리를 Pages 블록을 통해서 하는 사실은 익히 알려진 내용이다. 그리고 기본 페이지는 4096바이트(4K)로 고정되어있다. 1GB의 메모리는 256,000개의 page로 구성되어있는 것이다. 이러한 페이지는 전체 메모리 크기가 늘어남에 따라 관리테이블(TLB)도 커지게 되는데 이를 해결하기 위해서는 <strong>페이지의 크기를 확대</strong>하는 방법이 있다. 이를, <strong>Huge Pages</strong>라 지칭하며 보통 Oracle과 같은 DB서버에서 활용하곤 했다.</p>
+
+<p>Huge Pages는 기본 크기가 2MB를 많이 사용하는데 2MB 단위로 페이지를 사용하게 되면 1GB 메모리는 512개의 페이지로 관리 할 수 있다. 요즘처럼 서버에 수십에서 수백GB의 메모리를 탑제하는 환경에서는 Huge Pages가 관리/성능적인 측면에서 유리한 것이 맞다.</p>
+
+<p>다만, 이러한 Huge Pages의 경우 부팅시에 커널에 파라미터를 지정해서 관리해야하는 번거로움이 있기 때문에 이를 자동으로 관리하는 방안으로 Transparent Huge Pages(THP)가 등장하게 되었다. THP를 사용하게 되면 페이지의 생성, 관리, 사용에 대한 모든 부분을 자동으로 관리하게 되며 어플리케이션에서 대용량의 메모리를 요구하게 되면 알아서 2MB (현재 2MB 단위로 제공된다) 크기의 페이지로 할당해준다.</p>
+
+<p>THP는 커널 2.6.38에 등장하였다. (<a href="http://lwn.net/Articles/423584/">LWN문서</a>) 그리고 RHEL 계열의 경우 2.6.32커널을 Base로 하면서도 THP 기능을 추가하여 릴리즈했고 무엇보다 THP를 <strong>기본으로 활성</strong>화 되도록 하였다. 문제는 성능 향상을 목적으로 한 THP가 오히려 성능을 저하하는 경우가 자주 발견되고 있다. 대표적으로 Oracle, JVM, Hadoop 등이 있으며 Google에 THP에 대해 검색해보면 많은 불만이 보일 것이다.</p>
+
+<p>실제로 본 문서에서 언급한 page allocation failure의 메시지도 THP에 의해서 유동적으로 관리되던 Huge Page의 버그성 동작으로 인해 발생하는 것으로 보이며 THP 관련 된 작업을 통해서 해당 오류 메시지를 제거하였다.</p>
+
+<h1 id="3-해결방안">3. 해결방안</h1>
+
+<p>page allocation failure 메시지를 제거하기 위한 방법은 크게 2가지이다.</p>
+
+<h2 id="1-thp-비활성화">1) THP 비활성화</h2>
+
+<p>첫 번째 방법은 THP를 Disable 시키는 것이다. 별도의 바이너리 패치작업 없이 Disable 설정 후에 리부팅만 진행하면 된다. 리부팅을 안해도 되는 경우도 있지만 이미 AnonHugePages가 많이 사용되고 있는 시스템 (cat /proc/meminfo로 확인해보자)에서는 리부팅을 해야 효과가 있다.</p>
+
+<h3 id="sys-파일시스템-설정으로-비활성화">/sys 파일시스템 설정으로 비활성화</h3>
+
+<p>아래 파일의 설정 값을 변경하여 비활성화 할 수 있다.</p>
+
+<pre><code>echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled
+echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag
+</code></pre>
+
+<p>위 방법은 리부팅 후에도 적용해줘야 하기 때문에 보통 /etc/rc.d/rc.local 파일에 아래와 같이 추가해 줘서 적용한다.</p>
+
+<pre><code># Disable THP
+if [[ -f &quot;/sys/kernel/mm/transparent_hugepage/enabled&quot; ]]; then
+    echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled
+fi
+if [[ -f &quot;/sys/kernel/mm/transparent_hugepage/defrag&quot; ]]; then
+    echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag
+fi
+</code></pre>
+
+<h3 id="커널-파라미터로-비활성화">커널 파라미터로 비활성화</h3>
+
+<p>부트로더에 직접 커널 파라미터를 지정하여 비활성화 할 수 있다. grub.conf 파일의 부트 옵션에 아래의 내용을 추가해주면 된다.</p>
+
+<pre><code>transparent_hugepage=never
+</code></pre>
+
+<h2 id="2-rhel6-5-centos6-5-커널로-패치">2) RHEL6.5/CentOS6.5 커널로 패치</h2>
+
+<p>두 번째 방법은 커널을 패치하는 방법이다. 6.4에서 6.5릴리즈 커널로 변경 될 때 메모리 관리 쪽에 많은 패치가 이루어졌는데 그로 인해 THP에 의한 page allocation failure가 사라진 것을 커널 패치와 한 달 이상의 모니터링을 통해서 확인하였다.</p>
+
+<p>커널 패치는 RHEL6/CentOS6 6.5릴리즈 기준 커널인 <strong>2.6.32-431.el6</strong> 이상으로 설치하면 된다. 만약 6.5릴리즈에 대한 저장소가 설정 되어있다면 간단히 yum으로 패치가 가능하다.</p>
+
+<pre><code>$ yum install kernel
+</code></pre>
+
+<h1 id="4-어떤-방법이-좋은가">4. 어떤 방법이 좋은가?</h1>
+
+<p>page allocation failure 메시지를 없애기 위한 방법으로 크게 2가지가 있지만 (sysfs vs kernel) 어떤 방법을 적용해야 좋을지에 대해선 정답은 없다. 현재 운영하고 있는 시스템의 관리 방법에 가장 적합한 방법을 선택하기를  바란다.</p>
+
+<p><strong>끝</strong></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/kernel/">kernel</a>, 
+            
+                <a href="/tags/rhel6/">RHEL6</a>, 
+            
+                <a href="/tags/centos6/">CentOS6</a>, 
+            
+                <a href="/tags/thp/">THP</a>, 
+            
+                <a href="/tags/transparent-hugepages/">transparent hugepages</a>, 
+            
+                <a href="/tags/page-allocation-failure/">page allocation failure</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Transparent%20Huge%20Pages%20%ec%99%80%20page%20allocation%20error&url=https%3a%2f%2flunatine.github.io%2f2014%2f10%2f29%2fthp-and-page-allocation-error%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flunatine.github.io%2f2014%2f10%2f29%2fthp-and-page-allocation-error%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://lunatine.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://lunatine.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://lunatine.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

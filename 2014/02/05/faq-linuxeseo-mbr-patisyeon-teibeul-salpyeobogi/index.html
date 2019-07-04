@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Linux에서 MBR 파티션 테이블 살펴보기 &middot; Lunatine</title>
+        <meta name="description" content="기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.  MBR 파티션 테이블 본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.1
+MBR이란? MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Linux에서 MBR 파티션 테이블 살펴보기">
+<meta property="og:description" content="기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.  MBR 파티션 테이블 본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.1
+MBR이란? MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lunatine.github.io/2014/02/05/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/">
+        <link rel="stylesheet" href="https://lunatine.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://lunatine.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Linux에서 MBR 파티션 테이블 살펴보기</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2014-02-05" itemprop="datePublished">Wed, Feb 5, 2014</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="http://lunatine.net" itemprop="url" rel="author">Lunatine</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 4 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<ul>
+<li>기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.</li>
+</ul>
+
+<h1 id="mbr-파티션-테이블">MBR 파티션 테이블</h1>
+
+<p>본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
+
+<h2 id="mbr이란">MBR이란?</h2>
+
+<p>MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.</p>
+
+<ul>
+<li>위키피디아 <a href="http://en.wikipedia.org/wiki/Master_boot_record">MBR</a> 문서</li>
+</ul>
+
+<h2 id="mbr-구조">MBR 구조</h2>
+
+<p><img src="http://i.technet.microsoft.com/dynimg/IC367604.jpg" alt="MBR Structure" /></p>
+
+<ul>
+<li>표1. (출처 : Microsoft Technet)</li>
+</ul>
+
+<p>MBR은 위와 같은 구조로 되어있습니다. 부팅을 위한 코드 공간이 446Byte. 프라이머리 파티션 테이블을 위한 공간이 64Byte 그리고 MBR 시그니쳐 값으로 2Byte (0xAA55)를 사용합니다. 본 문서에서는 프라이머리 파티션 테이블 부분을 살펴보도록 하겠습니다.</p>
+
+<h2 id="mbr-primary-partition-table">MBR Primary Partition Table</h2>
+
+<p><img src="http://i.imgur.com/9ZG9HQo.png" alt="Imgur" /></p>
+
+<ul>
+<li>표2. (출처: <a href="http://ko.wikipedia.org/wiki/%EB%A7%88%EC%8A%A4%ED%84%B0_%EB%B6%80%ED%8A%B8_%EB%A0%88%EC%BD%94%EB%93%9C">위키피디아</a>)</li>
+</ul>
+
+<p>64Byte의 MBR 파티션 테이블 구조는 위와 같은 16Byte 레코드 4개로 이루어져 있습니다. 각 레코드에는 파티션의 상태 정보와 종류, C/H/S 기반의 시작/끝 주소, LBA 기반의 섹터 시작 주소와 파티션 크기 정보가 담겨져 있습니다. 요즘에는 CHS 기반으로 접근하지 않기 때문에 실질적으로 <strong>첫 번째 LBA주소와 파티션 크기</strong>를 통해서 파티션 테이블 레이아웃을 표현 합니다.</p>
+
+<p>먼저 디스크의 파티션 테이블을 살펴보면 아래와 같습니다. 섹터단위로 보기 위해서 <strong>-lu</strong> 옵션을 주었습니다. 아래 파티션 테이블은 첫 번째 파티션이 <a href="abbr:Advanced Format">AF</a> 디스크를 위해서 2048 섹터부터 시작하도록 파티셔닝 되어있습니다.</p>
+
+<pre><code>$ fdisk -lu /dev/sda
+
+Disk /dev/sda: 256.1 GB, 256060514304 bytes
+255 heads, 63 sectors/track, 31130 cylinders, total 500118192 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000f1ef8
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048   199999487    99998720   83  Linux
+/dev/sda2       199999488   500118191   150059352   83  Linux
+</code></pre>
+
+<p>앞서 살펴본 MBR 파티션 테이블에서는 Start에 해당하는 LBA주소 2048과 그 크기인 199997440이 저장되어있고 이를 통해서 End 위치<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> 를 표기하게 됩니다.</p>
+
+<p>자, 이제 MBR 파티션 테이블을 열어서 실제로 저장이 되어있는지 확인해 보도록 하겠습니다.</p>
+
+<h3 id="mbr-파티션-테이블-열어보기">MBR 파티션 테이블 열어보기</h3>
+
+<p>먼저 MBR은 0번 섹터에 저장 되기 때문에 아래 커맨드를 통해서 MBR을 통째로 덤프 받도록 합니다. (본 예제에서는 /dev/sda가 OS 디스크 입니다) 1섹터는 512byte 이기 때문에 512byte 1개를 파일로 내려 받습니다.</p>
+
+<pre><code>$ dd if=/dev/sda of=mbr.dump bs=512 count=1
+</code></pre>
+
+<p>이제 이 파일에서 파티션 테이블에 해당하는 뒤쪽 66byte만 확인하면 아래와 같습니다.</p>
+
+<ul>
+<li><p>사실 MBR을 따로 받았기 때문에 -n 66 옵션은 생략해도 무방합니다. 그리고 MBR을 저장하지 않고 직접 디스크에서 덤프하는 방법도 있습니다. 본 예제에서는 덤프받은 파일을 가지고 설명합니다.</p>
+
+<pre><code>$ hexdump -s 446 -n 66 mbr.dump
+00001be 2080 0021 fe83 ffff 0800 0000 b800 0beb
+00001ce 6400 a104 e983 9a7f c000 0beb 72b0 11e3
+00001de 0000 0000 0000 0000 0000 0000 0000 0000
+*
+00001fe aa55
+0000200
+</code></pre></li>
+</ul>
+
+<p>마지막에 앞서 살펴본 MBR의 시그니쳐인 0xAA55의 값인 <strong>aa55</strong>가 보입니다.</p>
+
+<p>이렇게 보면 읽기 어렵기 때문에 MBR 파티션테이블의 레코드가 16Byte 이므로 16Byte씩 끊어서 보기좋게 표시해 보도록 하겠습니다.</p>
+
+<pre><code>$ hexdump -s 446 -e '8/1 &quot;0x%02x &quot; &quot;\t&quot; 2/4 &quot;%0d &quot;\n&quot;' mbr.dump
+0x80 0x20 0x21 0x00 0x83 0xfe 0xff 0xff 2048 199997440
+0x00 0x64 0x04 0xa1 0x83 0xe9 0x7f 0x9a 199999488 300118704
+0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0 0
+*
+0x55 0xaa 0x   0x   0x   0x   0x   0x
+</code></pre>
+
+<p>먼저, 표2.의 파티션테이블의 레코드 명세에 따라서 8Byte는 1Byte 씩 Hex로 표기하도록 하였고 나머지 8Byte는 4Byte씩 숫자로 표기하도록 하였습니다. 그 결과 첫 번째 줄의 마지막 두 컬럼에 fdisk로 확인했던 첫 번째 파티션의 시작 주소인 2048과 그 크기를 확인 할 수 있습니다. 마찬가지로 총 2개의 파티션 테이블을 가지고 있기 때문에 두 번째 줄에서도 두 번째 파티션의 시작 주소와 크기를 확인할 수 있습니다.</p>
+
+<p>이제 Hex로 표기한 8Byte를 살펴보도록 하겠습니다. 첫 번째 줄을 살펴보면 표2.의 명세대로 첫 번째 Byte는 파티션의 상태를 의미합니다. 첫 번째 줄의 0x80을 통해서 부트 파티션임을 확인 할 수 있으며 이는 fdisk에서 &ldquo;*&rdquo; 로 표기 된 부트 플래그를 의미하는 걸 알 수 있습니다.</p>
+
+<p>그 뒤의 3Byte(0x20 0x21 0x00)는 C/H/S 값을 의미하며 다음 1Byte 0x83은 파티션의 종류를 의미합니다. 낯익은 숫자인데 이 숫자는 fdisk에서 파티션 타입을 지정할 때 사용하는 값과 정확히 일치합니다.</p>
+
+<p><img src="http://i.imgur.com/YI5E4bY.png" alt="Imgur" /></p>
+
+<p>그리고 나머지 3Byte (0xfe 0xff 0xff)는 종료 지점을 나타내는 CHS 값 입니다.</p>
+
+<p>다시, 시작지점 C/H/S를 나타내는 앞의 3Byte 값을 CHS to LBA 변환 식에 대입해 보면</p>
+
+<pre><code>LBA = ( ( CYLINDER * heads per cylinder + HEAD ) * sectors per track ) + SECTOR – 1
+LBA = ( ( 0x00 * 255 + 0x20 ) * 63) + 0x21 -1
+ = 2048
+</code></pre>
+
+<p>위와 같이 시작 지점을 나타내는 LBA 주소 값을 얻을 수 있습니다. 실제로 요즘에는 사용되지 않는(다만 OS에서 지원해주고 있는) C/H/S 값은 LBA를 통해 역으로 계산 된 것이기 때문에 참고로만 보시면 됩니다.</p>
+
+<p>이렇게 실제 디스크의 첫 번째 섹터에 있는 MBR을 열어보고 시스템 툴에서 보여주는 값이 어떻게 저장되어 있는지 확인해 보았습니다.</p>
+
+<h2 id="보너스">보너스</h2>
+
+<ul>
+<li>MBR은 0번 섹터에 기록되기 때문에 [GPT] 는 1번 섹터부터 기록 됩니다.</li>
+<li>MBR이 담긴 섹터의 앞쪽 446Byte는 부트코드가 담겨있는데 이곳에 GRUB 부트로더가 들어있습니다. ($ hexdump -C -n446 mbr.dump로 확인해 보세요)</li>
+<li>MBR의 파티션 테이블 레코드에서 파티션 크기를 나타내는 값이 4Byte이기 때문에 2^32인 2TB까지만 사용이 가능합니다. 즉, MBR로 단일 파티션이 2TB이상 사용하지 못하는 이유입니다</li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">이 문서는 MBR에 대한 질문을 받아서 설명해 줬던 내용을 정리한 것입니다.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">2048 + 199997440 - 1 (2048부터 시작하기 때문)
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/faq/">faq</a>, 
+            
+                <a href="/tags/linux/">linux</a>, 
+            
+                <a href="/tags/partition/">partition</a>, 
+            
+                <a href="/tags/mbr/">mbr</a>, 
+            
+                <a href="/tags/gpt/">gpt</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Linux%ec%97%90%ec%84%9c%20MBR%20%ed%8c%8c%ed%8b%b0%ec%85%98%20%ed%85%8c%ec%9d%b4%eb%b8%94%20%ec%82%b4%ed%8e%b4%eb%b3%b4%ea%b8%b0&url=https%3a%2f%2flunatine.github.io%2f2014%2f02%2f05%2ffaq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flunatine.github.io%2f2014%2f02%2f05%2ffaq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://lunatine.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://lunatine.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://lunatine.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

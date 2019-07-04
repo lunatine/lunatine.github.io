@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>VirtualBox RHEL5 부팅 시 행업증상 #2 &middot; Lunatine</title>
+        <meta name="description" content="본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
+nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
+환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상
+NET: registered protocol family 2   해결방법 방법1  가상머신의 설정 값을 변경하는 방법  시스템 &gt; 마더보드 &gt; IO APIC 사용하기를 체크하는 방법   방법2 (추천)  부팅시 커널 파라미터에 nolapic를 추가한다 CD-ROM/USB 부팅 시에 부트 프롬프트에서 아래와 같이 입력">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.55.6" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="VirtualBox RHEL5 부팅 시 행업증상 #2">
+<meta property="og:description" content="본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
+nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
+환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상
+NET: registered protocol family 2   해결방법 방법1  가상머신의 설정 값을 변경하는 방법  시스템 &gt; 마더보드 &gt; IO APIC 사용하기를 체크하는 방법   방법2 (추천)  부팅시 커널 파라미터에 nolapic를 추가한다 CD-ROM/USB 부팅 시에 부트 프롬프트에서 아래와 같이 입력">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lunatine.github.io/2014/03/03/virtualbox-rhel5-64bit-boot-error-lapic/">
+        <link rel="stylesheet" href="https://lunatine.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://lunatine.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/posts">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">VirtualBox RHEL5 부팅 시 행업증상 #2</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2014-03-03" itemprop="datePublished">Mon, Mar 3, 2014</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="http://lunatine.net" itemprop="url" rel="author">Lunatine</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 1 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.</p>
+
+<p>nmi_watchdog에 의한 부팅 불가 증상은 <a href="http://lunatine.net/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/">이 문서</a>를 참고하시기 바랍니다.</p>
+
+<h2 id="환경">환경</h2>
+
+<ul>
+<li>VirtualBox 4.2.16</li>
+<li>RHEL5 64bit</li>
+</ul>
+
+<h2 id="증상">증상</h2>
+
+<ul>
+<li><p>부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상</p>
+
+<pre><code>NET: registered protocol family 2
+</code></pre></li>
+</ul>
+
+<h2 id="해결방법">해결방법</h2>
+
+<h3 id="방법1">방법1</h3>
+
+<ul>
+<li>가상머신의 설정 값을 변경하는 방법
+
+<ul>
+<li>시스템 &gt; 마더보드 &gt; IO APIC 사용하기를 체크하는 방법</li>
+</ul></li>
+</ul>
+
+<p><img src="/images/2014/Mar/TestBox_64bit__6_176____l__l___574.png" alt="" /></p>
+
+<h3 id="방법2-추천">방법2 (추천)</h3>
+
+<ul>
+<li>부팅시 커널 파라미터에 nolapic를 추가한다</li>
+
+<li><p>CD-ROM/USB 부팅 시에 부트 프롬프트에서 아래와 같이 입력</p>
+
+<pre><code>Boot: linux nolapic
+</code></pre></li>
+
+<li><p>nolapic는 LAPIC를 비활성 하는 옵션이며 이에 대한 내용은 <a href="http://osdev.berlios.de/pic.html#local_apic">이 문서</a>를 참고하면 된다.</p></li>
+</ul>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/virtualbox/">virtualbox</a>, 
+            
+                <a href="/tags/64bit/">64bit</a>, 
+            
+                <a href="/tags/x86_64/">x86_64</a>, 
+            
+                <a href="/tags/net-registered-protocol-family-2/">NET: registered protocol family 2</a>, 
+            
+                <a href="/tags/rhel5/">rhel5</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=VirtualBox%20RHEL5%20%eb%b6%80%ed%8c%85%20%ec%8b%9c%20%ed%96%89%ec%97%85%ec%a6%9d%ec%83%81%20%232&url=https%3a%2f%2flunatine.github.io%2f2014%2f03%2f03%2fvirtualbox-rhel5-64bit-boot-error-lapic%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flunatine.github.io%2f2014%2f03%2f03%2fvirtualbox-rhel5-64bit-boot-error-lapic%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Lunatine&#39;s Box" href="https://lunatine.github.io/">Lunatine&#39;s Box</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://lunatine.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://lunatine.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://lunatine.github.io/js/scripts.js"></script>
+    </body>
+</html>
+
