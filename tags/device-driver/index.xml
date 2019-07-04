@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>device driver on Lunatine&#39;s Box</title>
-    <link>/tags/device-driver/</link>
-    <description>Recent content in device driver on Lunatine&#39;s Box</description>
+    <title>device driver on Creative portfolio</title>
+    <link>https://example.org/tags/device-driver/</link>
+    <description>Recent content in device driver on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 23 Dec 2015 06:13:19 +0000</lastBuildDate>
     
-	<atom:link href="/tags/device-driver/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/tags/device-driver/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>modalias와 장치 드라이버</title>
-      <link>/post/modalias-device-driver/</link>
+      <link>https://example.org/posts/modalias-device-driver/</link>
       <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
       
-      <guid>/post/modalias-device-driver/</guid>
+      <guid>https://example.org/posts/modalias-device-driver/</guid>
       <description>본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
 Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 PCI ids에서 자세히 확인 할 수 있습니다.
 modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.</description>

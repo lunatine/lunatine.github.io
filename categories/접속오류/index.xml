@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>접속오류 on Lunatine&#39;s Box</title>
-    <link>/categories/%EC%A0%91%EC%86%8D%EC%98%A4%EB%A5%98/</link>
-    <description>Recent content in 접속오류 on Lunatine&#39;s Box</description>
+    <title>접속오류 on Creative portfolio</title>
+    <link>https://example.org/categories/%EC%A0%91%EC%86%8D%EC%98%A4%EB%A5%98/</link>
+    <description>Recent content in 접속오류 on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Mar 2014 15:40:43 +0000</lastBuildDate>
     
-	<atom:link href="/categories/%EC%A0%91%EC%86%8D%EC%98%A4%EB%A5%98/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/categories/%EC%A0%91%EC%86%8D%EC%98%A4%EB%A5%98/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>FAQ : Telnet 접속 안 되는 증상</title>
-      <link>/post/faq-telnet-connection-failed/</link>
+      <link>https://example.org/posts/faq-telnet-connection-failed/</link>
       <pubDate>Tue, 25 Mar 2014 15:40:43 +0000</pubDate>
       
-      <guid>/post/faq-telnet-connection-failed/</guid>
+      <guid>https://example.org/posts/faq-telnet-connection-failed/</guid>
       <description>Telnet 접속 실패 관련 본 문서에서는 Telnet을 이용한 접속을 시도 할 때 안되는 상황 별로 해결 방법을 소개합니다. 자주 받는 질문 위주로 기록 되었습니다.
 Case 1: Telnet 접속 시 바로 거절 당함 (tcp wrapper) 별것 아닌 내용이지만 tcp wrapper에 적절 한 설정을 하지 않아서 접속을 거부 당하는 경우가 있다. /etc/hosts.allow 파일에 아래와 같은 설정이 되어있는지 확인해 보자.
 in.telnetd : 접속허용IP주소 또는 대역 예) in.telnetd : 192.168.2.7, 192.168.3.  Case 2: telnet.</description>

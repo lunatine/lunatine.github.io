@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>RHEL/CentOS 6에서 heartbeat 오류</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
+<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
+
+
+  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://example.org/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://example.org/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
+    
+      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
+    
+      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://example.org/portfolio/">Home</a></li>
+      
+        <li><a href="https://example.org/about/">About</a></li>
+      
+        <li><a href="https://example.org/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
+    <i class="fa fa-facebook"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
+    <i class="fa fa-google-plus"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
+    <i class="fa fa-instagram"></i>
+  </a>
+  
+  
+  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
+    <i class="fa fa-whatsapp"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Your name or company
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>RHEL/CentOS 6에서 heartbeat 오류</h1>
+         
+
+<h1 id="epel6-heartbeat-error">EPEL6 - heartbeat error</h1>
+
+<blockquote>
+<p>본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.</p>
+</blockquote>
+
+<h2 id="환경-및-증상">환경 및 증상</h2>
+
+<ul>
+<li>운영체제 : RHEL 6.4 이하</li>
+
+<li><p>EPEL 패키지</p>
+
+<ul>
+<li>heartbeat-3.0.4-2.el6.[i386/x86_64].rpm</li>
+<li>heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm</li>
+</ul></li>
+
+<li><p>증상</p>
+
+<ul>
+<li><p>heartbeat 설치 후 실행 할 때 아래와 같은 오류 메시지 발생</p>
+
+<pre><code>Jun 16 14:03:16 server1 heartbeat: [720]: ERROR: glib: ucast: error setting option SO_REUSEPORT(w): Protocol not available
+Jun 16 14:03:16 server1 heartbeat: [720]: ERROR: make_io_childpair: cannot open ucast eth0
+Jun 16 14:03:17 server1 heartbeat: [726]: CRIT: Emergency Shutdown: Master Control process died.
+Jun 16 14:03:17 server1 heartbeat: [726]: CRIT: Killing pid 720 with SIGTERM
+Jun 16 14:03:17 server1 heartbeat: [726]: CRIT: Emergency Shutdown(MCP dead): Killing ourselves.
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h2 id="원인-및-해결방법">원인 및 해결방법</h2>
+
+<p>duplicate ucast 패치와 관련이 있지만 실질적인 원인은 EPEL 저장소의 패키징 관리 방침과 관련이 있다. EPEL의 경우 별도의 RHEL/CentOS 업데이트 릴리즈 별로 관리되고 있지 않으며 최신 버전에 맞추어져 패키징이 되어있기 때문에 최신 릴리즈 버전 (20140616 기준 6.5)을 사용하지 않을 경우에는 EPEL 패키지와 맞지 않을 수 있다.</p>
+
+<p>EPEL에서 제공하는 heartbeat-3.0.4-2 패키지를 사용하기 위해서는 RHEL/CentOS 6.5 패키지의 커널인 2.6.32-431.el6 커널로 업그레이드를 해주어야만 정상적으로 사용이 가능하다. 사실 별도의 소스를 가져다 빌드하는 방법도 있지만 cluster-glue 및 의존성 라이브러리 맞추는 작업이 더 복잡하기 때문에 별다른 이슈가 없는 한 커널 업데이트 방법을 권장한다.</p>
+
+<ul>
+<li>요약
+
+<ul>
+<li>EPEL 6에서 제공하는 heartbeat-3.0.4-2는 커널 2.6.32-431을 기준으로 패키징 되어있다</li>
+<li>커널 버전을 2.6.32-431 이상으로 업데이트 한다</li>
+</ul></li>
+
+<li><p>해결방법</p>
+
+<ul>
+<li><p>REHEL/CentOS 6.5 저장소가 yum에 설정되어있다고 가정하고 아래 명령을 통해서 업데이트 진행</p>
+
+<pre><code>$ yum -y upgrade kernel kernel-devel kernel-headers
+</code></pre></li>
+
+<li><p>커널 업그레이드가 완료되면 grub.conf에 기본 커널 파라미터가 추가 되므로 필요에 따라서 삭제하면 된다.</p></li>
+</ul></li>
+</ul>
+
+<h2 id="관련문서">관련문서</h2>
+
+<ul>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1028127">Redhat Bugzilla</a></li>
+</ul>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://example.org/js/jquery.min.js"></script>
+<script src="https://example.org/js/bootstrap.min.js"></script>
+<script src="https://example.org/js/jquery.cookie.js"> </script>
+<script src="https://example.org/js/ekko-lightbox.js"></script>
+<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
+<script src="https://example.org/js/masonry.pkgd.min.js"></script>
+<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://example.org/js/owl.carousel.min.js"></script>
+<script src="https://example.org/js/front.js"></script>
+
+
+
+</body>
+</html>

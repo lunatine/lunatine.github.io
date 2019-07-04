@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>slow on Lunatine&#39;s Box</title>
-    <link>/tags/slow/</link>
-    <description>Recent content in slow on Lunatine&#39;s Box</description>
+    <title>slow on Creative portfolio</title>
+    <link>https://example.org/tags/slow/</link>
+    <description>Recent content in slow on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jul 2015 11:06:29 +0000</lastBuildDate>
     
-	<atom:link href="/tags/slow/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/tags/slow/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] ldirectord의 성능이 안나오는 증상</title>
-      <link>/post/faq-ldirectord-performance-issue/</link>
+      <link>https://example.org/posts/faq-ldirectord-performance-issue/</link>
       <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
       
-      <guid>/post/faq-ldirectord-performance-issue/</guid>
+      <guid>https://example.org/posts/faq-ldirectord-performance-issue/</guid>
       <description>요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
 주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
 환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다.</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>limits.conf와 오픈파일개수(nofile) 영향</title>
-      <link>/post/limits-conf-nofile-big-value-effect/</link>
+      <link>https://example.org/posts/limits-conf-nofile-big-value-effect/</link>
       <pubDate>Wed, 28 May 2014 06:50:58 +0000</pubDate>
       
-      <guid>/post/limits-conf-nofile-big-value-effect/</guid>
+      <guid>https://example.org/posts/limits-conf-nofile-big-value-effect/</guid>
       <description>nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
 해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
 nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다.</description>

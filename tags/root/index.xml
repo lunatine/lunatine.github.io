@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>root on Lunatine&#39;s Box</title>
-    <link>/tags/root/</link>
-    <description>Recent content in root on Lunatine&#39;s Box</description>
+    <title>root on Creative portfolio</title>
+    <link>https://example.org/tags/root/</link>
+    <description>Recent content in root on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Aug 2014 05:04:35 +0000</lastBuildDate>
     
-	<atom:link href="/tags/root/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/tags/root/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[TIP] vi 편집기에서 root권한 파일저장</title>
-      <link>/post/tip-vi-write-with-root-privilege/</link>
+      <link>https://example.org/posts/tip-vi-write-with-root-privilege/</link>
       <pubDate>Tue, 12 Aug 2014 05:04:35 +0000</pubDate>
       
-      <guid>/post/tip-vi-write-with-root-privilege/</guid>
+      <guid>https://example.org/posts/tip-vi-write-with-root-privilege/</guid>
       <description>깜박잊고 일반유저 권한으로 파일을 열었다 vi편집기(Linux에서는 보통 vim)를 이용해서 편집하는 작업을 하다보면 가끔 겪는 일이있는데 root 권한으로 설정 된 파일을 실수로 일반유저 상태에서 열심히 수정하는 경우이다. 이럴 때면 :q! 명령으로 종료하고 다시 root권한으로 파일을 열어 수정작업을 하는 번거로움이 발생하는데 이를 만회하는 방법을 소개하고자 합니다.
 vi 편집기의 명령모드 이용 일반유저 권한에서 vi편집기로 수정하고 아래 명령을 실행하면 sudo를 이용해서 root권한을 획득하여 변경사항을 반영시킬 수가 있다.
 :w !sudo tee %  여기에서 %는 현재 파일명을 의미하며 tee 명령을 통해서 현재 수정된 내용을 stdin으로 전달하여 파일로 기록 할 수 있는 것이다.</description>

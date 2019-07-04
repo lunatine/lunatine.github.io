@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>컬러팝 on Lunatine&#39;s Box</title>
-    <link>/categories/%EC%BB%AC%EB%9F%AC%ED%8C%9D/</link>
-    <description>Recent content in 컬러팝 on Lunatine&#39;s Box</description>
+    <title>컬러팝 on Creative portfolio</title>
+    <link>https://example.org/categories/%EC%BB%AC%EB%9F%AC%ED%8C%9D/</link>
+    <description>Recent content in 컬러팝 on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Feb 2014 13:58:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/%EC%BB%AC%EB%9F%AC%ED%8C%9D/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/categories/%EC%BB%AC%EB%9F%AC%ED%8C%9D/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AKG K619 헤드폰</title>
-      <link>/post/akg-k619-headphone/</link>
+      <link>https://example.org/posts/akg-k619-headphone/</link>
       <pubDate>Tue, 18 Feb 2014 13:58:00 +0000</pubDate>
       
-      <guid>/post/akg-k619-headphone/</guid>
+      <guid>https://example.org/posts/akg-k619-headphone/</guid>
       <description>기존에 사용하던 AKG의 Q460 헤드폰이 고장나는 바람에 (2년 보증인데 26개월만에 고장)이를 대체 할 헤드폰을 찾게 되었다. (관련글 : Q460 사용후기)
 역시나 이번에도 AKG의 제품을 찾기 시작했는데 퀸시(Quicy)라인업에 새로운 모델은 없었다. 그러다가, DJ 라인업에서 K619를 발견하였고 Q460과 비슷한 가격대(좀 더 싸다)와 컬러풀 한 디자인을 가진 이녀석을 구매하게 되었다.
 그리고, 도착한 K619

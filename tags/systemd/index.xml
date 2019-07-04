@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>systemd on Lunatine&#39;s Box</title>
-    <link>/tags/systemd/</link>
-    <description>Recent content in systemd on Lunatine&#39;s Box</description>
+    <title>systemd on Creative portfolio</title>
+    <link>https://example.org/tags/systemd/</link>
+    <description>Recent content in systemd on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Oct 2014 14:15:46 +0000</lastBuildDate>
     
-	<atom:link href="/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>systemd 살펴보기</title>
-      <link>/post/about-systemd/</link>
+      <link>https://example.org/posts/about-systemd/</link>
       <pubDate>Tue, 21 Oct 2014 14:15:46 +0000</pubDate>
       
-      <guid>/post/about-systemd/</guid>
+      <guid>https://example.org/posts/about-systemd/</guid>
       <description>systemd 살펴보기 우선, systemd가 이렇게 급 부상하게 될 줄은 솔직히 몰랐다. 워낙 많은 오픈소스 프로젝트들이 나오고 있기 때문에 그 중 하나 정도로만 생각했는데 어느 순간 Fedora에 적용이 되더니 당연한 수순대로 RHEL7에 도입이 되었다. 아직 Debian/Ubuntu 계열은 기본으로 채택되지 않았지만 조만간 릴리즈되는 버전에서 새로운 PID 1으로 자리잡게 될 것 같다.
 이러한 분위기에 맞추어 systemd가 무엇이고 이에 대해서 간단히 짚어 볼 필요가 있을 듯 하여 간단히 소개해 본다. (늘 그렇듯이 상세한 내용은 공식홈페이지의 문서를 참고하는 것이 좋다)</description>
     </item>

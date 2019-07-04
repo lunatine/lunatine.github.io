@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
+<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
+
+
+  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://example.org/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://example.org/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
+    
+      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
+    
+      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://example.org/portfolio/">Home</a></li>
+      
+        <li><a href="https://example.org/about/">About</a></li>
+      
+        <li><a href="https://example.org/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
+    <i class="fa fa-facebook"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
+    <i class="fa fa-google-plus"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
+    <i class="fa fa-instagram"></i>
+  </a>
+  
+  
+  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
+    <i class="fa fa-whatsapp"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Your name or company
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</h1>
+         
+
+<p>간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만  LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.</p>
+
+<h1 id="linux-커널의-threads-구조-변천사">Linux 커널의 Threads 구조 변천사</h1>
+
+<p>LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library">NTPL</a>(Native POSIX Thread Library) 였다.결과적으로 NGPT는 사라지고 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library">NTPL</a>이 Redhat 9이 릴리즈 되면서 소개가 되었다. 하지만, 문제는 여기에서 발생한다.</p>
+
+<p>과거 자체적인 구조의 Threads 라이브러리를 가지고 있던 Linux를 개선하기위해 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library">NTPL</a>이 소개되었지만 기존 소프트웨어와 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library">NTPL</a>이 호환되지 않는 문제점이 발생하였다. 따라서, Redhat 9이 릴리즈 될 무렵에 3가지 구조의 Threads 라이브러리를 제공하게 되었는데</p>
+
+<ul>
+<li>/lib/tls/libpthread.so (Kernel 2.4.20 NPTL)</li>
+<li>/lib/i686/libpthread.so (Kernel 2.4.1의 비교적 최신 LinuxThreads - 32bit 기준)</li>
+<li>/lib/libpthread.so (Kernel 2.2.5의 오래된 LinuxThreads)</li>
+</ul>
+
+<p>이렇게 3가지의 라이브러리를 제공한 것은 기존의 어플리케이션과 호환성을 위한 것이다. 대부분의 어플리케이션은 <a href="http://en.wikipedia.org/wiki/Dynamic_Shared_Object">DSO</a>(Dynamic Shared Object) 형태로 링커를 통해서 라이브러리를 호출하는 구조이기 때문에 여러 종류의 라이브러리를 제공하는 구조를 취할 수 밖에 없었다.</p>
+
+<h1 id="ld-assume-kernel-변수의-의미">LD_ASSUME_KERNEL 변수의 의미</h1>
+
+<p>어플리케이션이 실행될 때 Dynamic Linker에 의해서 Shared Library를 링크하고 불러들이게 되는데 앞서 이야기한 대로 3가지 구조의 라이브러리가 존재하기 때문에 각 어플리케이션에 적합한 라이브러리를 링크할 필요성이 발생하였다.</p>
+
+<p>※ 일반적으로 별도의 라이브러리를 링크하기 위해서는 LD_LIBRARY_PATH와 같은 변수를 사용한다. 앞서 이야기한 libpthread의 3가지 타입은 특수한 경우이다.</p>
+
+<p>※ Dynamic Library 파일에는 해당 파일이 구동되기 위한 최소한의 OS ABI 버전 정보를 담고 있는데 (.note.ABI-tag로 불리우는 ELF note 섹션) 특정 라이브러리에 대해서 아래와 같은 명령으로 확인해 볼 수 있다. (아래는 RHEL5에서 실행한 결과)</p>
+
+<pre><code>$ eu-readelf -n /lib/libc-2.5.so
+Note section [ 1] '.note.ABI-tag' of 32 bytes at offset 0x174:
+  Owner          Data size  Type
+  GNU                   16  VERSION
+    OS: Linux, ABI: 2.6.9
+</code></pre>
+
+<p>3가지 구조의 라이브러리를 찾아가기 위해서 LD_ASSUME_KERNEL 이란 변수가 사용되게 되었고 이 변수를 해당 라이브러리의 ABI 버전으로 지정하여 적합한 라이브러리를 찾아가도록 지정하는 것이다.</p>
+
+<h1 id="ld-assume-kernel의-필요성">LD_ASSUME_KERNEL의 필요성?</h1>
+
+<p>결론적으로 이야기하면 현재의 Linux에서는 보통의 경우 해당 변수가 필요하지 않다. (현재는 GNU C 라이브러리에 NTPL이 완전히 통합되어 있다) 이러한 변수가 필요한 어플리케이션(최신버전의 Oracle에 대해서는 잘 모르기 때문에 확답하긴 어렵지만 적어도 9i 시절의 Oracle의 경우는 해당 변수가 필요하였다) 을 사용해야하는 경우가 아닌이상 필요없는 변수이다.</p>
+
+<p>만약, 필요성이 없음에서 설정되어서 문제를 일으킨다면 간단히 주석처리해버리자. 보통 .bash_profile, .cshrc과 같은 환경설정 파일에 등록되어있을 것이다.</p>
+
+<p>요즘 Linux에서 LD_ASSUME_KERNEL을 사용하면 어떻게 되는지 궁금한 분들은 아래와 같은 명령을 실행해보면 된다.</p>
+
+<pre><code>$ LD_ASSUME_KERNEL=2.4.20 ls
+</code></pre>
+
+<h1 id="마무리">마무리..</h1>
+
+<p>어찌보면 추억의 변수명이다. (요즘도 화두가 되는지는 모르겠다) 잊고 있던 변수명인데 오라클을 설치 중에 기본 명령도 안먹는 증상이 발생한다는 문의를 받고 확인하던 중에 발견하고 이 기회에 간단히 정리해 보았다.</p>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://example.org/js/jquery.min.js"></script>
+<script src="https://example.org/js/bootstrap.min.js"></script>
+<script src="https://example.org/js/jquery.cookie.js"> </script>
+<script src="https://example.org/js/ekko-lightbox.js"></script>
+<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
+<script src="https://example.org/js/masonry.pkgd.min.js"></script>
+<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://example.org/js/owl.carousel.min.js"></script>
+<script src="https://example.org/js/front.js"></script>
+
+
+
+</body>
+</html>

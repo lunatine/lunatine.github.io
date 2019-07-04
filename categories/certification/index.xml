@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Certification on Lunatine&#39;s Box</title>
-    <link>/categories/certification/</link>
-    <description>Recent content in Certification on Lunatine&#39;s Box</description>
+    <title>Certification on Creative portfolio</title>
+    <link>https://example.org/categories/certification/</link>
+    <description>Recent content in Certification on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 Jul 2015 08:16:11 +0000</lastBuildDate>
     
-	<atom:link href="/categories/certification/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/categories/certification/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[Mac] Junos Pulse를 El Capitan에서 사용하기</title>
-      <link>/post/junos-pulse-on-el-capitan/</link>
+      <link>https://example.org/posts/junos-pulse-on-el-capitan/</link>
       <pubDate>Fri, 31 Jul 2015 08:16:11 +0000</pubDate>
       
-      <guid>/post/junos-pulse-on-el-capitan/</guid>
+      <guid>https://example.org/posts/junos-pulse-on-el-capitan/</guid>
       <description>Mac OS X El Capitan Mac OS X 10.11 (El Capitan)도 벌써 PB3(Public Beta 3)까지 나왔다. PB3 정도면 큰 문제는 없겠거니 싶어서 사용하는 노트북을 업그레이드 했는데 VPN 접속에 있어서 문제가 발생했다.
 Junos Pulse 전 세계적으로 많이 사용되는 Juniper 장비의 VPN 클라이언트 프로그램이다. 내가 일하는 환경에서도 이 프로그램으로 VPN을 사용하는데 이번에 El Capitan으로 업그레이드 이후에 아래와 같은 화면을 마주하게 되었다.
 접속 정보에 대한 모든 프로파일이 비활성화가 되었는데 수동으로 설정 값을 추가하려해도 계속 오류만 발생하는 것이다.</description>

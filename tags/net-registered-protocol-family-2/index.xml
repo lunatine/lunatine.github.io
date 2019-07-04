@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NET: registered protocol family 2 on Lunatine&#39;s Box</title>
-    <link>/tags/net-registered-protocol-family-2/</link>
-    <description>Recent content in NET: registered protocol family 2 on Lunatine&#39;s Box</description>
+    <title>NET: registered protocol family 2 on Creative portfolio</title>
+    <link>https://example.org/tags/net-registered-protocol-family-2/</link>
+    <description>Recent content in NET: registered protocol family 2 on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Mar 2014 07:07:03 +0000</lastBuildDate>
     
-	<atom:link href="/tags/net-registered-protocol-family-2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/tags/net-registered-protocol-family-2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>VirtualBox RHEL5 부팅 시 행업증상 #2</title>
-      <link>/post/virtualbox-rhel5-64bit-boot-error-lapic/</link>
+      <link>https://example.org/posts/virtualbox-rhel5-64bit-boot-error-lapic/</link>
       <pubDate>Mon, 03 Mar 2014 07:07:03 +0000</pubDate>
       
-      <guid>/post/virtualbox-rhel5-64bit-boot-error-lapic/</guid>
+      <guid>https://example.org/posts/virtualbox-rhel5-64bit-boot-error-lapic/</guid>
       <description>본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
 nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
 환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chs on Lunatine&#39;s Box</title>
-    <link>/categories/chs/</link>
-    <description>Recent content in chs on Lunatine&#39;s Box</description>
+    <title>chs on Creative portfolio</title>
+    <link>https://example.org/categories/chs/</link>
+    <description>Recent content in chs on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Feb 2014 17:41:12 +0000</lastBuildDate>
     
-	<atom:link href="/categories/chs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/categories/chs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] Cylinder 값이 초과 되었는데? (CHS vs LBA)</title>
-      <link>/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
+      <link>https://example.org/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
       
-      <guid>/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
+      <guid>https://example.org/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
       <description>이미 인터넷에 CHS와 LBA에 대한 내용을 다룬 훌륭한 문서가 많이 있다. 다만, 최근 Cylinder 값의 초과에 대해서 이상하게 생각하는 경우에 대한 답변을 위해 본 문서를 작성하게 되었다.
 Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하면서 디스크를 파티셔닝하는데 정렬(alignment)에 대한 이슈가 생겨났다. 기존 섹터가 512byte 단위였던 것이 4096byte(4K)로 증가하면서 디스크 접근에 있어서 성능저하를 막기 위해 파티션의 시작지점을 4K 단위로 맞춰 줄 필요가 생긴 것이다. 최신 parted에서는 aligment 옵션을 제공하지만 fdisk와 같은 툴 에서는 제공하지 않아 Bash 쉘 스크립트로 섹터 값으로 계산해서 파티셔닝 하도록 툴을 만들어 해결 했고 이를 업무에 활용하였다.</description>
     </item>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>modalias와 장치 드라이버</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://example.org/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://example.org/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://example.org/css/owl.carousel.css">
+<link rel="stylesheet" href="https://example.org/css/owl.theme.css">
+
+
+  <link href="https://example.org/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://example.org/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://example.org/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
+    
+      <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience.</p>
+    
+      <p class="sidebar-p">Originally from Toronto, currently based in London.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://example.org/portfolio/">Home</a></li>
+      
+        <li><a href="https://example.org/about/">About</a></li>
+      
+        <li><a href="https://example.org/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  <a href="full%20page%20or%20profile%20url%20in%20facebook" data-animate-hover="pulse" class="external facebook">
+    <i class="fa fa-facebook"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20googleplus" data-animate-hover="pulse" class="external gplus">
+    <i class="fa fa-google-plus"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20twitter" data-animate-hover="pulse" class="external twitter">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20instagram" title="" class="external instagram">
+    <i class="fa fa-instagram"></i>
+  </a>
+  
+  
+  <a href="mailto:email@example.com" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20linkedin" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20stackoverflow" data-animate-hover="pulse" class="external">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20github" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  <a href="full%20profile%20url%20in%20youtube" data-animate-hover="pulse" class="external">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  <a href="wa.me%20service%20link" data-animate-hover="pulse" class="external">
+    <i class="fa fa-whatsapp"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Your name or company
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://example.org/">Creative portfolio</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>modalias와 장치 드라이버</h1>
+         
+
+<p>본 문서는 <a href="http://lunatine.net/devtmpfs-udev">devtmpfs와 udev</a>에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.</p>
+
+<h2 id="device-driver">Device Driver</h2>
+
+<p>일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 <a href="http://pci-ids.ucw.cz/">PCI ids</a>에서 자세히 확인 할 수 있습니다.</p>
+
+<h2 id="modalias-해석">modalias 해석</h2>
+
+<p>예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.</p>
+
+<p>먼저 lspci에서 보여주는 RAID 카드의 정보는 아래와 같습니다.</p>
+
+<pre><code>$ lspci | grep -i &quot;raid bus&quot;
+03:00.0 RAID bus controller: Hewlett-Packard Company Smart Array Gen9 Controllers (rev 01)
+</code></pre>
+
+<p>해당 PCI 장치는 03:00.0에 존재하기 때문에 sysfs(/sys)에 해당 위치로 이동해 봅니다.</p>
+
+<pre><code>$ cd /sys/bus/pci/devices/0000\:03\:00.0/
+$ cat modalias
+pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00
+</code></pre>
+
+<p>해당 장치의 modalias정보를 열어보면 <code>pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00</code> 값을 확인 할 수 있는데 이 값을 좀 더 보기 편하게 나눠보면 아래와 같습니다.</p>
+
+<pre><code>pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00
+
+v 0000103C (벤더ID)
+d 00003239 (장치ID)
+sv 0000103C (서브시스템 벤더ID)
+sd 000021C0 (서브시스템 장치ID)
+bc 01 (Base Class)
+sc 04 (Sub Class)
+i 00 (프로그래밍 인터페이스)
+</code></pre>
+
+<p><a href="http://pci-ids.ucw.cz/">PCI ids</a>에서 벤더ID 103C를 검색해보면 <a href="https://pci-ids.ucw.cz/read/PC/103C">HP를 확인</a> 할 수 있으며 장치ID를 검색해보면 3239는 <a href="https://pci-ids.ucw.cz/read/PC/103c/3239">Smart Array Gen9 Controllers</a> 임을 알 수 있습니다. 여기에 서브시스템의 벤더와 장치 ID인 103C:21C0을 찾아보면 <a href="https://pci-ids.ucw.cz/read/PC/103c/3239/103c21c0">Smart Array P440ar</a> 까지 확인이 가능합니다.</p>
+
+<p>그리고 Base/Sub Class 값인 01 04에 대해서 확인해 보면 <a href="https://pci-ids.ucw.cz/read/PD/01/04">Mass Storage Controller-RAID bus controller</a>로 확인이 됩니다</p>
+
+<pre><code>103C
+↑ Hewlett-Packard
+103C:3239
+     ↑ Smart Array Gen9 Controllers
+103C:3239:103C 21C0
+          ↑ Smart Array P440ar
+01 Mass storage controller
+04 RAID bus controller
+</code></pre>
+
+<p>이러한 정보를 가지고 있는 하드웨어 장치에 대해서 커널 모듈을 로딩하기 위해서 udev에는 아래와 같은 룰이 있습니다.</p>
+
+<pre><code>DRIVER!=&quot;?*&quot;, ENV{MODALIAS}==&quot;?*&quot;, RUN{builtin}=&quot;kmod load $env{MODALIAS}&quot;
+</code></pre>
+
+<p>modalias에 매칭되는 모듈을 읽어들이도록 하는 매우 심플한 룰셋 입니다. 현재 앞에서 살펴본 RAID 카드를 위한 모듈의 modalias 정보를 보면 아래와 같습니다.</p>
+
+<p><img src="/content/images/2015/12/modinfo.png" alt="modinfo.png" /></p>
+
+<p>위에 우리가 찾아봤던 modalias값과 유사한 부분이 있는데 여기에서 <code>*</code>은 와일드카드로 모든 값에 매칭 된다는 표시입니다. 따라서, hpsa 모듈이 가진 modalias 값에 RAID 카드의 modalias가 매칭 되기 때문에 hpsa 드라이버가 로딩 되는 것 입니다. 추가로 다른 서브시스템 장치ID가 hpsa에 존재하는 것을 통해서 이 모델 뿐만 아니라 여러 RAID 카드를 지원하는 드라이버라는 것을 확인 할 수 있습니다.</p>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://example.org/js/jquery.min.js"></script>
+<script src="https://example.org/js/bootstrap.min.js"></script>
+<script src="https://example.org/js/jquery.cookie.js"> </script>
+<script src="https://example.org/js/ekko-lightbox.js"></script>
+<script src="https://example.org/js/jquery.scrollTo.min.js"></script>
+<script src="https://example.org/js/masonry.pkgd.min.js"></script>
+<script src="https://example.org/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://example.org/js/owl.carousel.min.js"></script>
+<script src="https://example.org/js/front.js"></script>
+
+
+
+</body>
+</html>

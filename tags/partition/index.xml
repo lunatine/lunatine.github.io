@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>partition on Lunatine&#39;s Box</title>
-    <link>/tags/partition/</link>
-    <description>Recent content in partition on Lunatine&#39;s Box</description>
+    <title>partition on Creative portfolio</title>
+    <link>https://example.org/tags/partition/</link>
+    <description>Recent content in partition on Creative portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Feb 2014 17:41:55 +0000</lastBuildDate>
     
-	<atom:link href="/tags/partition/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.org/tags/partition/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux에서 MBR 파티션 테이블 살펴보기</title>
-      <link>/post/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
+      <link>https://example.org/posts/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
       
-      <guid>/post/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
+      <guid>https://example.org/posts/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
       <description>기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.  MBR 파티션 테이블 본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.1
 MBR이란? MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.</description>
     </item>
     
     <item>
       <title>[FAQ] Cylinder 값이 초과 되었는데? (CHS vs LBA)</title>
-      <link>/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
+      <link>https://example.org/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:12 +0000</pubDate>
       
-      <guid>/post/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
+      <guid>https://example.org/posts/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
       <description>이미 인터넷에 CHS와 LBA에 대한 내용을 다룬 훌륭한 문서가 많이 있다. 다만, 최근 Cylinder 값의 초과에 대해서 이상하게 생각하는 경우에 대한 답변을 위해 본 문서를 작성하게 되었다.
 Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하면서 디스크를 파티셔닝하는데 정렬(alignment)에 대한 이슈가 생겨났다. 기존 섹터가 512byte 단위였던 것이 4096byte(4K)로 증가하면서 디스크 접근에 있어서 성능저하를 막기 위해 파티션의 시작지점을 4K 단위로 맞춰 줄 필요가 생긴 것이다. 최신 parted에서는 aligment 옵션을 제공하지만 fdisk와 같은 툴 에서는 제공하지 않아 Bash 쉘 스크립트로 섹터 값으로 계산해서 파티셔닝 하도록 툴을 만들어 해결 했고 이를 업무에 활용하였다.</description>
     </item>
