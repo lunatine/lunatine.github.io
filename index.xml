@@ -585,6 +585,16 @@ $ dmraid -s  dmraid 패키지를 통해 RAID를 사용하지 않는다면 해당
     </item>
     
     <item>
+      <title>[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure</title>
+      <link>https://lunatine.github.io/2014/02/06/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
+      <pubDate>Thu, 06 Feb 2014 17:41:01 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2014/02/06/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
+      <description>유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
+따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다.</description>
+    </item>
+    
+    <item>
       <title>Linux에서 MBR 파티션 테이블 살펴보기</title>
       <link>https://lunatine.github.io/2014/02/05/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
@@ -633,16 +643,6 @@ $ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>
       <guid>https://lunatine.github.io/2014/02/05/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</guid>
       <description>이미 인터넷에 CHS와 LBA에 대한 내용을 다룬 훌륭한 문서가 많이 있다. 다만, 최근 Cylinder 값의 초과에 대해서 이상하게 생각하는 경우에 대한 답변을 위해 본 문서를 작성하게 되었다.
 Advanced Format과 alignment 최근 Advanced Format(AF) 디스크가 등장하면서 디스크를 파티셔닝하는데 정렬(alignment)에 대한 이슈가 생겨났다. 기존 섹터가 512byte 단위였던 것이 4096byte(4K)로 증가하면서 디스크 접근에 있어서 성능저하를 막기 위해 파티션의 시작지점을 4K 단위로 맞춰 줄 필요가 생긴 것이다. 최신 parted에서는 aligment 옵션을 제공하지만 fdisk와 같은 툴 에서는 제공하지 않아 Bash 쉘 스크립트로 섹터 값으로 계산해서 파티셔닝 하도록 툴을 만들어 해결 했고 이를 업무에 활용하였다.</description>
-    </item>
-    
-    <item>
-      <title>[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure</title>
-      <link>https://lunatine.github.io/2014/02/05/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
-      <pubDate>Wed, 05 Feb 2014 17:41:01 +0000</pubDate>
-      
-      <guid>https://lunatine.github.io/2014/02/05/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
-      <description>유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
-따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다.</description>
     </item>
     
     <item>
