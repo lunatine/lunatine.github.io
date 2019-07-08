@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Lunatine&#39;s Box</title>
+    <title>blog on Lunatine&#39;s Box</title>
     <link>/categories/blog/</link>
-    <description>Recent content in Blog on Lunatine&#39;s Box</description>
+    <description>Recent content in blog on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 05:33:11 +0000</lastBuildDate>
@@ -17,9 +17,12 @@
       <pubDate>Wed, 05 Feb 2014 05:33:11 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>또 이사? 한국형 블로그 서비스가 제공하는 기능과 형태가 부담스럽고 Markdown 지원 때문에 텀블러로 옮겼는데 실질적으로 텀블러는 소셜네트워크에 적합한 플랫폼이다 보니 안쓰는 기능들이 너무 많이 있었다.
-그러다가, 저렴하게 호스팅을 해서 Wordpress 같은 것을 구축할지 고민을 했으나 결론적으로 거창한 블로그 사이트를 운영하는 것도 아니고 심심풀이 형태로 이런저런 글들을 남기는 편이다 보니 가벼운 플랫폼을 하나 선택해서 문서를 옮기기로 했다.
-다만, 새롭게 선택한 플랫폼은 아직 확장 Markdown을 지원하지 않고 신생 플랫폼이다보니 문서를 옮기면서 당분간은 병행해서 사용 할 예정이다.</description>
+      <description>2019-07-07
+홈페이지 이전 대부분의 문서를 Markdown으로 작성하기 때문에 2014년에 호스팅 서버를 구해서 Ghost blog으로 글을 작성하기 시작했다.
+하지만, Ghost blog가 점점 좋아지면서 에디터에 WYSWYG이 강화되었고 결국 순수하게 Markdown만 사용하는 개인적인 입장에서는 불편해진 부분이 있어서 정적인 페이지를 렌더링해서 운영하기로 결심하게 되었다.
+5년만에 또 이사를 하게 되었지만 내용이나 접근성 면에서 달라진 부분은 없다.
+2014-02-05
+또 이사? 한국형 블로그 서비스가 제공하는 기능과 형태가 부담스럽고 Markdown 지원 때문에 텀블러로 옮겼는데 실질적으로 텀블러는 소셜네트워크에 적합한 플랫폼이다 보니 안쓰는 기능들이 너무 많이 있었다.</description>
     </item>
     
   </channel>
