@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jre6 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/jre6/</link>
+    <link>https://lunatine.github.io/tags/jre6/</link>
     <description>Recent content in jre6 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 21 Apr 2014 08:57:57 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/jre6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/jre6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mavericks에서 JAVA6 사용하기</title>
-      <link>https://lunatine.net/2014/04/mevericks-java6-enable/</link>
+      <link>https://lunatine.github.io/2014/04/mevericks-java6-enable/</link>
       <pubDate>Mon, 21 Apr 2014 08:57:57 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/04/mevericks-java6-enable/</guid>
+      <guid>https://lunatine.github.io/2014/04/mevericks-java6-enable/</guid>
       <description>Java 6 for Mac os X Mavericks 업무를 하다보면 웹 기반 어플리케이션을 사용 할 때가 간혹 있는데 해당 어플리케이션이 더이상 기술지원이 안되거나 여러 이유로 인해 JAVA 7과 호환되지 않는 경우가 꽤 많다. 이런 경우에 현재 사용중인 Mavericks에서 JAVA 6를 활성화 하는 방법을 간단히 정리 해보면 아래와 같다.
 Java 6 설치 먼저, 애플에서 Lion을 위해서 제공했던 Java 6를 설치한다.
  다운로드  몇 가지 테스트결과 이 버전 이전 버전을 사용하면 호환성 문제로 설치가 되지 않았다.</description>

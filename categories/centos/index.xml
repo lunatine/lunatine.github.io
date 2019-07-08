@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>centos on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/categories/centos/</link>
+    <link>https://lunatine.github.io/categories/centos/</link>
     <description>Recent content in centos on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 29 Jan 2019 08:29:40 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/categories/centos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/categories/centos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>비 정상적인 Swap 수치</title>
-      <link>https://lunatine.net/2019/01/abnormal-swap-values/</link>
+      <link>https://lunatine.github.io/2019/01/abnormal-swap-values/</link>
       <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/01/abnormal-swap-values/</guid>
+      <guid>https://lunatine.github.io/2019/01/abnormal-swap-values/</guid>
       <description>증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
 $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/+ buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다.</description>
     </item>
     
     <item>
       <title>[FAQ] ldirectord의 성능이 안나오는 증상</title>
-      <link>https://lunatine.net/2015/07/faq-ldirectord-performance-issue/</link>
+      <link>https://lunatine.github.io/2015/07/faq-ldirectord-performance-issue/</link>
       <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
       
-      <guid>https://lunatine.net/2015/07/faq-ldirectord-performance-issue/</guid>
+      <guid>https://lunatine.github.io/2015/07/faq-ldirectord-performance-issue/</guid>
       <description>요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
 주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
 환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다.</description>
@@ -34,30 +34,30 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
     
     <item>
       <title>RHEL6에서 Python 2.7/3.4 사용하기</title>
-      <link>https://lunatine.net/2015/01/python27-34-on-rhel-centos/</link>
+      <link>https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/</link>
       <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
       
-      <guid>https://lunatine.net/2015/01/python27-34-on-rhel-centos/</guid>
+      <guid>https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/</guid>
       <description>본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
 Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.</description>
     </item>
     
     <item>
       <title>Transparent Huge Pages 와 page allocation error</title>
-      <link>https://lunatine.net/2014/10/thp-and-page-allocation-error/</link>
+      <link>https://lunatine.github.io/2014/10/thp-and-page-allocation-error/</link>
       <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/10/thp-and-page-allocation-error/</guid>
+      <guid>https://lunatine.github.io/2014/10/thp-and-page-allocation-error/</guid>
       <description>1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
 page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&amp;lt;ffffffff8112c207&amp;gt;] ? __alloc_pages_nodemask+0x757/0x8d0 kernel: [&amp;lt;ffffffff81010ff6&amp;gt;] ? dma_generic_alloc_coherent+0xa6/0x160 kernel: [&amp;lt;ffffffff8103c8f1&amp;gt;] ? x86_swiotlb_alloc_coherent+0x31/0x70 kernel: [&amp;lt;ffffffffa002e74a&amp;gt;] ? pci_alloc_consistent+0x5a/0xc0 [mpt2sas] kernel: [&amp;lt;ffffffffa0030155&amp;gt;] ? _ctl_do_mpt_command+0x7c5/0xcb0 [mpt2sas] kernel: [&amp;lt;ffffffff8119abe7&amp;gt;] ? __d_lookup+0xa7/0x150 kernel: [&amp;lt;ffffffffa0030762&amp;gt;] ? _ctl_compat_mpt_command+0x122/0x160 [mpt2sas] kernel: [&amp;lt;ffffffff8150f026&amp;gt;] ? mutex_lock_interruptible+0x16/0x50 kernel: [&amp;lt;ffffffffa003167b&amp;gt;] ? _ctl_ioctl_main+0x5cb/0x1070 [mpt2sas] kernel: [&amp;lt;ffffffff81193010&amp;gt;] ?</description>
     </item>
     
     <item>
       <title>RHEL/CentOS 6에서 heartbeat 오류</title>
-      <link>https://lunatine.net/2014/06/epel-6-heartbeat-error/</link>
+      <link>https://lunatine.github.io/2014/06/epel-6-heartbeat-error/</link>
       <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/06/epel-6-heartbeat-error/</guid>
+      <guid>https://lunatine.github.io/2014/06/epel-6-heartbeat-error/</guid>
       <description>EPEL6 - heartbeat error  본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.
  환경 및 증상  운영체제 : RHEL 6.4 이하 EPEL 패키지
  heartbeat-3.0.4-2.el6.[i386/x86_64].rpm heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm  증상
@@ -67,10 +67,10 @@ Jun 16 14:03:16 server1 heartbeat: [720]: ERROR: glib: ucast: error setting opti
     
     <item>
       <title>yum 저장소에서 checksum error 발생</title>
-      <link>https://lunatine.net/2014/06/yum-repository-checksum-error/</link>
+      <link>https://lunatine.github.io/2014/06/yum-repository-checksum-error/</link>
       <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/06/yum-repository-checksum-error/</guid>
+      <guid>https://lunatine.github.io/2014/06/yum-repository-checksum-error/</guid>
       <description>yum checksum error 증상  yum 저장소를 새로 생성하였으나 해당 목록을 받아올 때 아래 메시지 발생
 Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.com/rhel/5Server/x86_64/5.10/repodata/primary.xml.gz: [Errno -3] Error performing checksum Trying other mirror.  발생 조건
  RHEL5 저장소를 RHEL6에서 생성하였을 경우   원인 및 해결방안 createrepo로 저장소를 생성 할 때 저장소 정보를 RHEL5의 Checksum은 SHA-1 기반으로 되어있는 반면에 RHEL6의 경우는 SHA-256으로 생성하기 때문에 RHEL5에서 해당 저장소를 사용하려고 하면 오류가 발생하는 것이다.</description>
@@ -78,20 +78,20 @@ Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.co
     
     <item>
       <title>[FAQ] Upstart 사용에 대해서</title>
-      <link>https://lunatine.net/2014/02/faq-upstart-sayonge-daehaeseo/</link>
+      <link>https://lunatine.github.io/2014/02/faq-upstart-sayonge-daehaeseo/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:32 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-upstart-sayonge-daehaeseo/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-upstart-sayonge-daehaeseo/</guid>
       <description>Upstart 기존 Unix &amp;ldquo;System V&amp;rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
 예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again.</description>
     </item>
     
     <item>
       <title>[FAQ] NIC의 순서가 부팅 때마다 바뀌는 증상</title>
-      <link>https://lunatine.net/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
+      <link>https://lunatine.github.io/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
       <pubDate>Wed, 05 Feb 2014 17:39:30 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
       <description>이미 여러 인터넷 커뮤니티에서 알려진대로 RHEL 기준으로 RHEL5 부터 서버를 리부팅 할 때 마다 네트워크 카드의 순서가 뒤 바뀌는 증상이 발생하곤 한다.
 예를 들어 PCI 장치번호로 00:08.0이 eth0 였고 00:09.0가 eth1이었는데 리부팅을 하고 보니 eth0가 eth1으로 잡히고 eth1이 eth2로 잡히는 증상 또는 서로 바뀌는 증상들이 발생하는 것이다.
 이것에 대한 해결 방법은 여러가지가 존재하는데 하나씩 살펴보면

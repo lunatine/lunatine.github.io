@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>megasas_register_aen on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/megasas_register_aen/</link>
+    <link>https://lunatine.github.io/tags/megasas_register_aen/</link>
     <description>Recent content in megasas_register_aen on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 10 Feb 2014 02:24:30 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/megasas_register_aen/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/megasas_register_aen/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>megasas_register_aen[0]: already registered</title>
-      <link>https://lunatine.net/2014/02/megasas_register_aen0-already-registered/</link>
+      <link>https://lunatine.github.io/2014/02/megasas_register_aen0-already-registered/</link>
       <pubDate>Mon, 10 Feb 2014 02:24:30 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/megasas_register_aen0-already-registered/</guid>
+      <guid>https://lunatine.github.io/2014/02/megasas_register_aen0-already-registered/</guid>
       <description>MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
 megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
 커널 패치 내용은 아래와 같습니다.

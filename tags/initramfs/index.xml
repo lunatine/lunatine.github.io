@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>initramfs on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/initramfs/</link>
+    <link>https://lunatine.github.io/tags/initramfs/</link>
     <description>Recent content in initramfs on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 29 Jan 2019 08:31:25 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/initramfs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/initramfs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ubuntu에서 Swap 파티션 비활성화</title>
-      <link>https://lunatine.net/2019/01/disable-swap-partition-on-ubuntu/</link>
+      <link>https://lunatine.github.io/2019/01/disable-swap-partition-on-ubuntu/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/01/disable-swap-partition-on-ubuntu/</guid>
+      <guid>https://lunatine.github.io/2019/01/disable-swap-partition-on-ubuntu/</guid>
       <description>일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.
 사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.
 이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.

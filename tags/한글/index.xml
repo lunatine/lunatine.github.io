@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>한글 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/%ED%95%9C%EA%B8%80/</link>
+    <link>https://lunatine.github.io/tags/%ED%95%9C%EA%B8%80/</link>
     <description>Recent content in 한글 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 25 Mar 2014 15:55:30 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/%ED%95%9C%EA%B8%80/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/%ED%95%9C%EA%B8%80/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>FAQ : Telnet 한글입력 문제</title>
-      <link>https://lunatine.net/2014/03/faq-telnet-hangeulibryeog-munje/</link>
+      <link>https://lunatine.github.io/2014/03/faq-telnet-hangeulibryeog-munje/</link>
       <pubDate>Tue, 25 Mar 2014 15:55:30 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/03/faq-telnet-hangeulibryeog-munje/</guid>
+      <guid>https://lunatine.github.io/2014/03/faq-telnet-hangeulibryeog-munje/</guid>
       <description>Telnet 한글입력 문제 Telnet을 이용해 서버에 접속하여 한글을 입력 할 경우 한 글이 제대로 입력되지 않고 깨지거나 이스케이프 문자로 인식되어 처리 되는 (사용자 입장에서는 갑자기 이상한 메시지와 함께 telnet&amp;gt; 프롬프트가 떠버리는) 증상이 보이는 경우가 있다.
 이 경우에는 서버의 언어 설정이 ko_KR.UTF-8과 같이 되어있더라도 입력이 제대로 안 되는데 접속 할 때 아래와 같이 접속을 해보도록 하자.
 $ telnet -8 서버옵션  -8 옵션은 8bit 모드(바이너리 모드라고도 함)로 데이터를 전송하도록 지시하는 것으로 telnet 자체가 기본적으로 7bit로 표현가능한 ASCII 코드에 기반하여 문자를 전송하도록 고안 되었기 때문에 별도의 옵션으로 존재한다.</description>

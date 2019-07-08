@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/categories/</link>
+    <link>https://lunatine.github.io/categories/</link>
     <description>Recent content in Categories on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hardware</title>
-      <link>https://lunatine.net/categories/hardware/</link>
+      <link>https://lunatine.github.io/categories/hardware/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/hardware/</guid>
+      <guid>https://lunatine.github.io/categories/hardware/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://lunatine.net/categories/linux/</link>
+      <link>https://lunatine.github.io/categories/linux/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/linux/</guid>
+      <guid>https://lunatine.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ubuntu</title>
-      <link>https://lunatine.net/categories/ubuntu/</link>
+      <link>https://lunatine.github.io/categories/ubuntu/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/ubuntu/</guid>
+      <guid>https://lunatine.github.io/categories/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>centos</title>
-      <link>https://lunatine.net/categories/centos/</link>
+      <link>https://lunatine.github.io/categories/centos/</link>
       <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/centos/</guid>
+      <guid>https://lunatine.github.io/categories/centos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>filesystem</title>
-      <link>https://lunatine.net/categories/filesystem/</link>
+      <link>https://lunatine.github.io/categories/filesystem/</link>
       <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/filesystem/</guid>
+      <guid>https://lunatine.github.io/categories/filesystem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>macos</title>
-      <link>https://lunatine.net/categories/macos/</link>
+      <link>https://lunatine.github.io/categories/macos/</link>
       <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/macos/</guid>
+      <guid>https://lunatine.github.io/categories/macos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://lunatine.net/categories/docker/</link>
+      <link>https://lunatine.github.io/categories/docker/</link>
       <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/docker/</guid>
+      <guid>https://lunatine.github.io/categories/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>network</title>
-      <link>https://lunatine.net/categories/network/</link>
+      <link>https://lunatine.github.io/categories/network/</link>
       <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/network/</guid>
+      <guid>https://lunatine.github.io/categories/network/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtualbox</title>
-      <link>https://lunatine.net/categories/virtualbox/</link>
+      <link>https://lunatine.github.io/categories/virtualbox/</link>
       <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/virtualbox/</guid>
+      <guid>https://lunatine.github.io/categories/virtualbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>numa</title>
-      <link>https://lunatine.net/categories/numa/</link>
+      <link>https://lunatine.github.io/categories/numa/</link>
       <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
       
-      <guid>https://lunatine.net/categories/numa/</guid>
+      <guid>https://lunatine.github.io/categories/numa/</guid>
       <description></description>
     </item>
     

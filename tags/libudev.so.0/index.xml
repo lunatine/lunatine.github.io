@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>libudev.so.0 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/libudev.so.0/</link>
+    <link>https://lunatine.github.io/tags/libudev.so.0/</link>
     <description>Recent content in libudev.so.0 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 17:41:43 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/libudev.so.0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/libudev.so.0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] libudev.so.0 라이브러리 오류</title>
-      <link>https://lunatine.net/2014/02/faq-libudev-so-0-raibeureori-oryu/</link>
+      <link>https://lunatine.github.io/2014/02/faq-libudev-so-0-raibeureori-oryu/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:43 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-libudev-so-0-raibeureori-oryu/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-libudev-so-0-raibeureori-oryu/</guid>
       <description>Error while loading shared libraries (libudev.so.0)  오류메시지  error while loading shared libraries: libudev.so.0: cannot open shared object file
  환경 - Ubuntu 13.04 또는 Linux Mint 15 (64bit)  Ubuntu 저장소를 이용한 패키지 설치가 아닌 외부 패키지를 설치했을 때 이런 메시지를 종종 볼 수 있는데 오류 메시지 그대로 라이브러리를 찾지 못해서 발생하는 메시지이다. 아래 명령을 통해서 쉽게 수정 할 수 있다.
 $ cd /lib/x86_64-linux-gnu $ sudo ln -s libudev.</description>

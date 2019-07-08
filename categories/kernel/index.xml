@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kernel on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/categories/kernel/</link>
+    <link>https://lunatine.github.io/categories/kernel/</link>
     <description>Recent content in kernel on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 19 Feb 2016 07:13:33 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Load Average에 대하여</title>
-      <link>https://lunatine.net/2016/02/about-load-average/</link>
+      <link>https://lunatine.github.io/2016/02/about-load-average/</link>
       <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
       
-      <guid>https://lunatine.net/2016/02/about-load-average/</guid>
+      <guid>https://lunatine.github.io/2016/02/about-load-average/</guid>
       <description>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
 Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &amp;lsquo;부하&amp;rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.</description>
@@ -24,50 +24,50 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
     
     <item>
       <title>Linux Boot</title>
-      <link>https://lunatine.net/2015/12/linux-booting/</link>
+      <link>https://lunatine.github.io/2015/12/linux-booting/</link>
       <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
       
-      <guid>https://lunatine.net/2015/12/linux-booting/</guid>
+      <guid>https://lunatine.github.io/2015/12/linux-booting/</guid>
       <description>Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
  본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다.</description>
     </item>
     
     <item>
       <title>RHEL6 - intel_idle과 C States</title>
-      <link>https://lunatine.net/2015/01/rhel6-intel_idle-and-c-states/</link>
+      <link>https://lunatine.github.io/2015/01/rhel6-intel_idle-and-c-states/</link>
       <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
       
-      <guid>https://lunatine.net/2015/01/rhel6-intel_idle-and-c-states/</guid>
+      <guid>https://lunatine.github.io/2015/01/rhel6-intel_idle-and-c-states/</guid>
       <description>C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
 P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수를 조절하는 정도를 정의 한 값으로 명령어 처리(Operation)상태를 기준으로 절전 및 성능 향상을 꾀하기 위한 기법이다. 과거에는 SpeedStep이라는 기술로 소개 되었기(정확히 같은 것은 아니다) 때문에 단순히 클럭주파수를 조절해서 에너지 절약을 위한 방안으로만 치부되었는데 CPU가 연산처리를 할 때의 상태를 반영하고 있다.</description>
     </item>
     
     <item>
       <title>Transparent Huge Pages 와 page allocation error</title>
-      <link>https://lunatine.net/2014/10/thp-and-page-allocation-error/</link>
+      <link>https://lunatine.github.io/2014/10/thp-and-page-allocation-error/</link>
       <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/10/thp-and-page-allocation-error/</guid>
+      <guid>https://lunatine.github.io/2014/10/thp-and-page-allocation-error/</guid>
       <description>1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
 page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&amp;lt;ffffffff8112c207&amp;gt;] ? __alloc_pages_nodemask+0x757/0x8d0 kernel: [&amp;lt;ffffffff81010ff6&amp;gt;] ? dma_generic_alloc_coherent+0xa6/0x160 kernel: [&amp;lt;ffffffff8103c8f1&amp;gt;] ? x86_swiotlb_alloc_coherent+0x31/0x70 kernel: [&amp;lt;ffffffffa002e74a&amp;gt;] ? pci_alloc_consistent+0x5a/0xc0 [mpt2sas] kernel: [&amp;lt;ffffffffa0030155&amp;gt;] ? _ctl_do_mpt_command+0x7c5/0xcb0 [mpt2sas] kernel: [&amp;lt;ffffffff8119abe7&amp;gt;] ? __d_lookup+0xa7/0x150 kernel: [&amp;lt;ffffffffa0030762&amp;gt;] ? _ctl_compat_mpt_command+0x122/0x160 [mpt2sas] kernel: [&amp;lt;ffffffff8150f026&amp;gt;] ? mutex_lock_interruptible+0x16/0x50 kernel: [&amp;lt;ffffffffa003167b&amp;gt;] ? _ctl_ioctl_main+0x5cb/0x1070 [mpt2sas] kernel: [&amp;lt;ffffffff81193010&amp;gt;] ?</description>
     </item>
     
     <item>
       <title>[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure</title>
-      <link>https://lunatine.net/2014/02/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
+      <link>https://lunatine.github.io/2014/02/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</link>
       <pubDate>Thu, 06 Feb 2014 17:41:01 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</guid>
       <description>유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
 따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다.</description>
     </item>
     
     <item>
       <title>[FAQ] Linux Swappiness 관련</title>
-      <link>https://lunatine.net/2014/02/faq-linux-swappiness-gwanryeon/</link>
+      <link>https://lunatine.github.io/2014/02/faq-linux-swappiness-gwanryeon/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:50 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-linux-swappiness-gwanryeon/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-linux-swappiness-gwanryeon/</guid>
       <description>Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
  메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
  예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다.</description>
@@ -75,10 +75,10 @@ page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu 
     
     <item>
       <title>[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</title>
-      <link>https://lunatine.net/2014/02/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</link>
+      <link>https://lunatine.github.io/2014/02/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:40 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</guid>
       <description>간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만 LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.
 Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 NTPL(Native POSIX Thread Library) 였다.</description>
     </item>

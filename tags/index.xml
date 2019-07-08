@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/</link>
+    <link>https://lunatine.github.io/tags/</link>
     <description>Recent content in Tags on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CentOS</title>
-      <link>https://lunatine.net/tags/centos/</link>
+      <link>https://lunatine.github.io/tags/centos/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/centos/</guid>
+      <guid>https://lunatine.github.io/tags/centos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RHEL</title>
-      <link>https://lunatine.net/tags/rhel/</link>
+      <link>https://lunatine.github.io/tags/rhel/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/rhel/</guid>
+      <guid>https://lunatine.github.io/tags/rhel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>iostat</title>
-      <link>https://lunatine.net/tags/iostat/</link>
+      <link>https://lunatine.github.io/tags/iostat/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/iostat/</guid>
+      <guid>https://lunatine.github.io/tags/iostat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nvme</title>
-      <link>https://lunatine.net/tags/nvme/</link>
+      <link>https://lunatine.github.io/tags/nvme/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/nvme/</guid>
+      <guid>https://lunatine.github.io/tags/nvme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>utilization</title>
-      <link>https://lunatine.net/tags/utilization/</link>
+      <link>https://lunatine.github.io/tags/utilization/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/utilization/</guid>
+      <guid>https://lunatine.github.io/tags/utilization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>https://lunatine.net/tags/ubuntu/</link>
+      <link>https://lunatine.github.io/tags/ubuntu/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/ubuntu/</guid>
+      <guid>https://lunatine.github.io/tags/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>initramfs</title>
-      <link>https://lunatine.net/tags/initramfs/</link>
+      <link>https://lunatine.github.io/tags/initramfs/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/initramfs/</guid>
+      <guid>https://lunatine.github.io/tags/initramfs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>swap</title>
-      <link>https://lunatine.net/tags/swap/</link>
+      <link>https://lunatine.github.io/tags/swap/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/swap/</guid>
+      <guid>https://lunatine.github.io/tags/swap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sysetmd</title>
-      <link>https://lunatine.net/tags/sysetmd/</link>
+      <link>https://lunatine.github.io/tags/sysetmd/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/sysetmd/</guid>
+      <guid>https://lunatine.github.io/tags/sysetmd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CentOS6</title>
-      <link>https://lunatine.net/tags/centos6/</link>
+      <link>https://lunatine.github.io/tags/centos6/</link>
       <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
       
-      <guid>https://lunatine.net/tags/centos6/</guid>
+      <guid>https://lunatine.github.io/tags/centos6/</guid>
       <description></description>
     </item>
     

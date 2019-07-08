@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/</link>
+    <link>https://lunatine.github.io/</link>
     <description>Recent content on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NVMe에서 iostat의 높은 %util 값 (RHEL/CentOS 7.6)</title>
-      <link>https://lunatine.net/2019/03/high-iostat-util-on-nvme/</link>
+      <link>https://lunatine.github.io/2019/03/high-iostat-util-on-nvme/</link>
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/03/high-iostat-util-on-nvme/</guid>
+      <guid>https://lunatine.github.io/2019/03/high-iostat-util-on-nvme/</guid>
       <description>안내: 이 글을 읽기 전에 [Linux iostat] 문서를 먼저 읽어주시기 바랍니다. 버전: 2019/03/22 (수정), 2019/01/28 (초안)  최근 NVMe와 같이 디스크 장치에서 병렬처리가 가능한 제품을 사용 할 때에 iostat의 지표 값이 이상하다는 이야기가 많습니다. 잘 알려진 내용으로는 Linux iostat에서 소개하고 있는 내용처럼 svctm 지표 자체가 제대로 계산되지 않아서 제 성능을 내기도 전에 100%의 Utilization 지표를 나타내는 이슈가 있습니다.
 다만, 최근 RHEL/CentOS 7.6에서 동일하거나 유사한 수준의 I/O 처리에 대해서 기존 7.</description>
     </item>
     
     <item>
       <title>Ubuntu에서 Swap 파티션 비활성화</title>
-      <link>https://lunatine.net/2019/01/disable-swap-partition-on-ubuntu/</link>
+      <link>https://lunatine.github.io/2019/01/disable-swap-partition-on-ubuntu/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/01/disable-swap-partition-on-ubuntu/</guid>
+      <guid>https://lunatine.github.io/2019/01/disable-swap-partition-on-ubuntu/</guid>
       <description>일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.
 사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.
 이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.
@@ -35,30 +35,30 @@ initramfs 수정 및 업데이트 보통 아래 위치에 설정파일이 존재
     
     <item>
       <title>비 정상적인 Swap 수치</title>
-      <link>https://lunatine.net/2019/01/abnormal-swap-values/</link>
+      <link>https://lunatine.github.io/2019/01/abnormal-swap-values/</link>
       <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/01/abnormal-swap-values/</guid>
+      <guid>https://lunatine.github.io/2019/01/abnormal-swap-values/</guid>
       <description>증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
 $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/+ buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다.</description>
     </item>
     
     <item>
       <title>ext4 포맷 속도 개선</title>
-      <link>https://lunatine.net/2019/01/improve-ext4-format-speed/</link>
+      <link>https://lunatine.github.io/2019/01/improve-ext4-format-speed/</link>
       <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/01/improve-ext4-format-speed/</guid>
+      <guid>https://lunatine.github.io/2019/01/improve-ext4-format-speed/</guid>
       <description>Linux에서 ext4 파일시스템을 사용하면서 종종 겪는 이슈 중의 하나가 바로 포맷 속도 입니다. 과거에는 이러한 포맷 속도가 그렇게까지 문제가 되지 않았지만 6TB, 8TB 디스크가 보편화 되면서 이러한 큰 디스크를 포맷할 때 시간이 너무 많이 소요되는 문제가 있습니다.
 사실, 이게 딱히 문제라고 보긴 어렵지만 특정 경우에는 (포맷 작업을 순차적으로 처리하는 업무라던지 ) 많은 시간을 소모하는 포맷 작업이 부담스러울 수 있습니다. 그러다보니 ext4를 주력으로 하는 Ubuntu 같은 배포판에서도 포맷 속도가 빠른 XFS를 선호하시는 분도 보았었습니다.</description>
     </item>
     
     <item>
       <title>[macOS] iTerm에서 ssh 접속 시 LC_CTYPE 오류</title>
-      <link>https://lunatine.net/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</link>
+      <link>https://lunatine.github.io/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</link>
       <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
       
-      <guid>https://lunatine.net/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</guid>
+      <guid>https://lunatine.github.io/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</guid>
       <description>macOS에서 iTerm으로 ssh 접속을 할 때 아래와 같은 오류 메시지가 발생하는 경우가 있다.
 -bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory  이는 LANG 환경변수의 전달에 의한 것으로 보통 /etc/ssh/ssh_config의 설정 값 때문에 발생한다. 따라서 아래와 같이 ssh_config 파일에서 SendEnv LANG 항목을 주석처리 해주면 된다.
 $ sudo vi /etc/ssh/ssh_config  ... 상략 ... Host * # SendEnv LANG LC_* &amp;lt;- 이 부분을 #으로 주석처리  </description>
@@ -66,30 +66,30 @@ $ sudo vi /etc/ssh/ssh_config  ... 상략 ... Host * # SendEnv LANG LC_* &amp;lt
     
     <item>
       <title>nf_conntrack과 docker</title>
-      <link>https://lunatine.net/2018/04/nf_conntrackgwa-docker/</link>
+      <link>https://lunatine.github.io/2018/04/nf_conntrackgwa-docker/</link>
       <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
       
-      <guid>https://lunatine.net/2018/04/nf_conntrackgwa-docker/</guid>
+      <guid>https://lunatine.github.io/2018/04/nf_conntrackgwa-docker/</guid>
       <description>본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
 nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다.</description>
     </item>
     
     <item>
       <title>Virtualbox 환경설정 실행 시 종료 될 때</title>
-      <link>https://lunatine.net/2016/08/virtualbox-crash-on-mac-os-x/</link>
+      <link>https://lunatine.github.io/2016/08/virtualbox-crash-on-mac-os-x/</link>
       <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
       
-      <guid>https://lunatine.net/2016/08/virtualbox-crash-on-mac-os-x/</guid>
+      <guid>https://lunatine.github.io/2016/08/virtualbox-crash-on-mac-os-x/</guid>
       <description> Mac OS X에서 Virtualbox의 환경설정을 실행하면 어플리케이션이 종료되는 이슈에 대해서 소개합니다.
 2016&amp;frasl;10 - 추가 정보  MacOS Sierra에서는 https://github.com/tekezo/Karabiner-Elements를 설치해서 사용하면 됩니다.  환경 및 증상  Mac OS X Virtualbox 5.1 이상 환경설정 메뉴에 진입 (또는 단축키 Command+,)   원인  Qt와 관련하여 Karabiner 앱과 충돌을 일으키는 것 (관련링크) 베타버전에서는 이슈가 해결 된 것으로 보임  해결방법  Karabiner에서 해결 된 버전을 정식으로 릴리즈 할 때 까지 기다리는 방법 Karabiner를 베타버전으로 업데이트하는 방법  &amp;ldquo;환경설정&amp;gt;보안 및 개인정보보호&amp;rdquo;에 들어가서 &amp;ldquo;개인 정보 보호&amp;rdquo; 탭의 &amp;ldquo;손쉬운 사용&amp;rdquo; 항목에서 Karabiner_AXNotifier 사용을 해제  </description>
     </item>
     
     <item>
       <title>NUMA with Linux</title>
-      <link>https://lunatine.net/2016/07/numa-with-linux/</link>
+      <link>https://lunatine.github.io/2016/07/numa-with-linux/</link>
       <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
       
-      <guid>https://lunatine.net/2016/07/numa-with-linux/</guid>
+      <guid>https://lunatine.github.io/2016/07/numa-with-linux/</guid>
       <description>개인 위키에서 정리하던 내용을 블로그로 옮긴 것 입니다. 이 문서는 NUMA 아키텍처에 대한 간략한 소개와 Linux에서의 활용 방법에 대해서 소개하고 있습니다.
  1. System Topology 1-1. CMP 최근 CPU는 하나의 소켓에 여러개의 코어를 가지고 있다. 이를 보통 멀티코어라고 지칭하며 하나의 칩에 여러개의 프로세서가 올라가기 때문에 CMP(Chip-level Multi Processor)라고도 부른다. 이러한 멀티코어 CPU에 대한 메모리 관계는 아래와 같이 표현 할 수 있다.
 1-2. SMP 하지만, 멀티코어 CPU를 2개 이상 장착한 시스템의 경우에는 메모리를 2개 이상의 CPU가 접근하기 때문에 CPU와 메모리 사이를 네트워크로 묶어서 접근이 필요하며 아래와 같이 표현이 가능하다.</description>
@@ -97,10 +97,10 @@ nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_c
     
     <item>
       <title>Bash FAQ (Part 1)</title>
-      <link>https://lunatine.net/2016/03/bash-faq-part-1/</link>
+      <link>https://lunatine.github.io/2016/03/bash-faq-part-1/</link>
       <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
       
-      <guid>https://lunatine.net/2016/03/bash-faq-part-1/</guid>
+      <guid>https://lunatine.github.io/2016/03/bash-faq-part-1/</guid>
       <description>본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
 [[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
 if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.</description>
@@ -108,10 +108,10 @@ if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 �
     
     <item>
       <title>Load Average에 대하여</title>
-      <link>https://lunatine.net/2016/02/about-load-average/</link>
+      <link>https://lunatine.github.io/2016/02/about-load-average/</link>
       <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
       
-      <guid>https://lunatine.net/2016/02/about-load-average/</guid>
+      <guid>https://lunatine.github.io/2016/02/about-load-average/</guid>
       <description>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
 Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &amp;lsquo;부하&amp;rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.</description>

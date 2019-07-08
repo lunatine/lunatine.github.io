@@ -11,7 +11,7 @@
 이러한 분위기에 맞추어 systemd가 무엇이고 이에 대해서 간단히 짚어 볼 필요가 있을 듯 하여 간단히 소개해 본다. (늘 그렇듯이 상세한 내용은 공식홈페이지의 문서를 참고하는 것이 좋다)" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.net/2014/10/about-systemd/" />
+<link rel="canonical" href="https://lunatine.github.io/2014/10/about-systemd/" />
 
 
 <title>
@@ -27,20 +27,20 @@
 
 
 
-<link rel="stylesheet" href="https://lunatine.net/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.net/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.net/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.net/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.net/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.net/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.net/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.net/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="systemd 살펴보기">
 <meta itemprop="description" content="systemd 살펴보기 우선, systemd가 이렇게 급 부상하게 될 줄은 솔직히 몰랐다. 워낙 많은 오픈소스 프로젝트들이 나오고 있기 때문에 그 중 하나 정도로만 생각했는데 어느 순간 Fedora에 적용이 되더니 당연한 수순대로 RHEL7에 도입이 되었다. 아직 Debian/Ubuntu 계열은 기본으로 채택되지 않았지만 조만간 릴리즈되는 버전에서 새로운 PID 1으로 자리잡게 될 것 같다.
@@ -55,7 +55,7 @@
 
 <meta itemprop="keywords" content="RHEL7,systemd,init," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.net/"/>
+<meta name="twitter:image" content="https://lunatine.github.io/"/>
 
 <meta name="twitter:title" content="systemd 살펴보기"/>
 <meta name="twitter:description" content="systemd 살펴보기 우선, systemd가 이렇게 급 부상하게 될 줄은 솔직히 몰랐다. 워낙 많은 오픈소스 프로젝트들이 나오고 있기 때문에 그 중 하나 정도로만 생각했는데 어느 순간 Fedora에 적용이 되더니 당연한 수순대로 RHEL7에 도입이 되었다. 아직 Debian/Ubuntu 계열은 기본으로 채택되지 않았지만 조만간 릴리즈되는 버전에서 새로운 PID 1으로 자리잡게 될 것 같다.
@@ -80,7 +80,7 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.net/" style="text-decoration: none;">
+        <a href="https://lunatine.github.io/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -94,7 +94,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.net/posts/">Posts</a></li><li><a href="https://lunatine.net/categories/">Categories</a></li><li><a href="https://lunatine.net/tags/">Tags</a></li><li><a href="https://lunatine.net/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
     </ul>
 </nav>
 
@@ -130,7 +130,7 @@
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.net/2014/10/about-systemd/">systemd 살펴보기</a></h1>
+            <h1 class="post-title"><a href="https://lunatine.github.io/2014/10/about-systemd/">systemd 살펴보기</a></h1>
 
             
 
@@ -721,7 +721,7 @@ root@rhel7's password:
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.net/tags/rhel7">RHEL7</a></span><span class="tag"><a href="https://lunatine.net/tags/systemd">systemd</a></span><span class="tag"><a href="https://lunatine.net/tags/init">init</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/rhel7">RHEL7</a></span><span class="tag"><a href="https://lunatine.github.io/tags/systemd">systemd</a></span><span class="tag"><a href="https://lunatine.github.io/tags/init">init</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2633 Words</p>
@@ -739,7 +739,7 @@ root@rhel7's password:
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.net/2014/10/thp-and-page-allocation-error/">
+                            <a href="https://lunatine.github.io/2014/10/thp-and-page-allocation-error/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">Transparent Huge Pages 와 page allocation error</span>
                             </a>
@@ -748,7 +748,7 @@ root@rhel7's password:
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.net/2014/08/linux-too-many-levels-of-symbolic-links/">
+                            <a href="https://lunatine.github.io/2014/08/linux-too-many-levels-of-symbolic-links/">
                                 <span class="button__text">Linux : 기호 연결의 단계가 너무 많음</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -790,10 +790,10 @@ root@rhel7's password:
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.net/">Lunatine</a></span>
+                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -817,7 +817,7 @@ root@rhel7's password:
 
 
 
-<script type="text/javascript" src="https://lunatine.net/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

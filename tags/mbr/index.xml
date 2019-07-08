@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mbr on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/mbr/</link>
+    <link>https://lunatine.github.io/tags/mbr/</link>
     <description>Recent content in mbr on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 17:41:55 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/mbr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/mbr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux에서 MBR 파티션 테이블 살펴보기</title>
-      <link>https://lunatine.net/2014/02/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
+      <link>https://lunatine.github.io/2014/02/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:55 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/02/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
+      <guid>https://lunatine.github.io/2014/02/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</guid>
       <description>기존 Tumblr의 글을 옮겨온 것이기 때문에 Markdown 확장문법 유무로 인한 차이가 있습니다.  MBR 파티션 테이블 본 문서는 리눅스 시스템에서 MBR 파티션 테이블의 구조를 확인하는 방법에 대해서 설명하고 있습니다.1
 MBR이란? MBR은 Master Boot Record의 약자로 부팅을 하기 위한 정보를 담고 있으며 일반적으로 0번 섹터에 저장 되어 있습니다. MBR이 여전히 많이 쓰이고 있지만 오래 된 기술이다보니 그 크기는 1개 섹터 크기 (512Byte)로 되어있어 제약사항이 많습니다. 상세한 정보는 위키피디아 문서를 참고하시면 됩니다.</description>
     </item>

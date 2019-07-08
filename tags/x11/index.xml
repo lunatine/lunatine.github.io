@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>X11 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/x11/</link>
+    <link>https://lunatine.github.io/tags/x11/</link>
     <description>Recent content in X11 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 09 Jul 2014 09:00:52 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/x11/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/x11/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[Mac OS X] Wireshark 화면 문제</title>
-      <link>https://lunatine.net/2014/07/wireshark-on-mac-os-x-display-error/</link>
+      <link>https://lunatine.github.io/2014/07/wireshark-on-mac-os-x-display-error/</link>
       <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/07/wireshark-on-mac-os-x-display-error/</guid>
+      <guid>https://lunatine.github.io/2014/07/wireshark-on-mac-os-x-display-error/</guid>
       <description>Wireshark on Mac os X  본 문서는 Wireshark를 Mac에서 사용할 때 거의 겪을일이 없는 증상에 대해서 소개하고 있습니다
  예전부터 Mac OS X에 Wireshark를 설치하려면 X11 서버가 필요했고 폰트 모양이 이쁘지 않아 설정파일을 변경하는 등의 작업을 해야만 했다. 최근에 Wireshark를 쓸 일이 생겨서 최신버전을 다운받아 설치하니 아래 gtk 설정파일에 폰트가 &amp;ldquo;Lucida Grande&amp;rdquo;로 이쁘게 잘 들어가 있었다. (개발사에서도 이런 불만사항을 반영했나보다)
 $ vi /Applications/Wireshark.app/Contents/Resources/themes/Clearlooks-Quicksilver-OSX/gtk-2.0/pre_gtkrc [폰트 설정] gtk-font-name=&amp;quot;Lucida Grande 12&amp;quot;  그런데, 아래 화면처럼 안보이는 증상이 발생했다.</description>

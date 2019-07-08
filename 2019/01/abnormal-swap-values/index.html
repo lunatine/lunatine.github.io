@@ -11,7 +11,7 @@
 $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/&#43; buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.net/2019/01/abnormal-swap-values/" />
+<link rel="canonical" href="https://lunatine.github.io/2019/01/abnormal-swap-values/" />
 
 
 <title>
@@ -27,20 +27,20 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
 
 
 
-<link rel="stylesheet" href="https://lunatine.net/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.net/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.net/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.net/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.net/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.net/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.net/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.net/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="비 정상적인 Swap 수치">
 <meta itemprop="description" content="증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
@@ -55,7 +55,7 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
 
 <meta itemprop="keywords" content="CentOS,CentOS6,swap,kernel," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.net/"/>
+<meta name="twitter:image" content="https://lunatine.github.io/"/>
 
 <meta name="twitter:title" content="비 정상적인 Swap 수치"/>
 <meta name="twitter:description" content="증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
@@ -80,7 +80,7 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.net/" style="text-decoration: none;">
+        <a href="https://lunatine.github.io/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -94,7 +94,7 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.net/posts/">Posts</a></li><li><a href="https://lunatine.net/categories/">Categories</a></li><li><a href="https://lunatine.net/tags/">Tags</a></li><li><a href="https://lunatine.net/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
     </ul>
 </nav>
 
@@ -130,7 +130,7 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.net/2019/01/abnormal-swap-values/">비 정상적인 Swap 수치</a></h1>
+            <h1 class="post-title"><a href="https://lunatine.github.io/2019/01/abnormal-swap-values/">비 정상적인 Swap 수치</a></h1>
 
             
 
@@ -177,7 +177,7 @@ SwapFree:       77770336 kB
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.net/tags/centos">CentOS</a></span><span class="tag"><a href="https://lunatine.net/tags/centos6">CentOS6</a></span><span class="tag"><a href="https://lunatine.net/tags/swap">swap</a></span><span class="tag"><a href="https://lunatine.net/tags/kernel">kernel</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/centos">CentOS</a></span><span class="tag"><a href="https://lunatine.github.io/tags/centos6">CentOS6</a></span><span class="tag"><a href="https://lunatine.github.io/tags/swap">swap</a></span><span class="tag"><a href="https://lunatine.github.io/tags/kernel">kernel</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>102 Words</p>
@@ -195,7 +195,7 @@ SwapFree:       77770336 kB
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.net/2019/01/disable-swap-partition-on-ubuntu/">
+                            <a href="https://lunatine.github.io/2019/01/disable-swap-partition-on-ubuntu/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">Ubuntu에서 Swap 파티션 비활성화</span>
                             </a>
@@ -204,7 +204,7 @@ SwapFree:       77770336 kB
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.net/2019/01/improve-ext4-format-speed/">
+                            <a href="https://lunatine.github.io/2019/01/improve-ext4-format-speed/">
                                 <span class="button__text">ext4 포맷 속도 개선</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -246,10 +246,10 @@ SwapFree:       77770336 kB
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.net/">Lunatine</a></span>
+                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -273,7 +273,7 @@ SwapFree:       77770336 kB
 
 
 
-<script type="text/javascript" src="https://lunatine.net/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

@@ -12,7 +12,7 @@ Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모�
 modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.net/2015/12/modalias-device-driver/" />
+<link rel="canonical" href="https://lunatine.github.io/2015/12/modalias-device-driver/" />
 
 
 <title>
@@ -28,20 +28,20 @@ modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문�
 
 
 
-<link rel="stylesheet" href="https://lunatine.net/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.net/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.net/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.net/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.net/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.net/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.net/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.net/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="modalias와 장치 드라이버">
 <meta itemprop="description" content="본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
@@ -57,7 +57,7 @@ modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문�
 
 <meta itemprop="keywords" content="modalias,modinfo,device driver,lspci,pci.ids,kernel module," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.net/"/>
+<meta name="twitter:image" content="https://lunatine.github.io/"/>
 
 <meta name="twitter:title" content="modalias와 장치 드라이버"/>
 <meta name="twitter:description" content="본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
@@ -82,7 +82,7 @@ modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문�
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.net/" style="text-decoration: none;">
+        <a href="https://lunatine.github.io/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -96,7 +96,7 @@ modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문�
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.net/posts/">Posts</a></li><li><a href="https://lunatine.net/categories/">Categories</a></li><li><a href="https://lunatine.net/tags/">Tags</a></li><li><a href="https://lunatine.net/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
     </ul>
 </nav>
 
@@ -132,7 +132,7 @@ modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문�
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.net/2015/12/modalias-device-driver/">modalias와 장치 드라이버</a></h1>
+            <h1 class="post-title"><a href="https://lunatine.github.io/2015/12/modalias-device-driver/">modalias와 장치 드라이버</a></h1>
 
             
 
@@ -196,7 +196,7 @@ i 00 (프로그래밍 인터페이스)
 
 <p>modalias에 매칭되는 모듈을 읽어들이도록 하는 매우 심플한 룰셋 입니다. 현재 앞에서 살펴본 RAID 카드를 위한 모듈의 modalias 정보를 보면 아래와 같습니다.</p>
 
-<p><img src="https://lunatine.net/images/2015/12/modinfo.png" alt="modinfo.png" /></p>
+<p><img src="https://lunatine.github.io/images/2015/12/modinfo.png" alt="modinfo.png" /></p>
 
 <p>위에 우리가 찾아봤던 modalias값과 유사한 부분이 있는데 여기에서 <code>*</code>은 와일드카드로 모든 값에 매칭 된다는 표시입니다. 따라서, hpsa 모듈이 가진 modalias 값에 RAID 카드의 modalias가 매칭 되기 때문에 hpsa 드라이버가 로딩 되는 것 입니다. 추가로 다른 서브시스템 장치ID가 hpsa에 존재하는 것을 통해서 이 모델 뿐만 아니라 여러 RAID 카드를 지원하는 드라이버라는 것을 확인 할 수 있습니다.</p>
 
@@ -207,7 +207,7 @@ i 00 (프로그래밍 인터페이스)
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.net/tags/modalias">modalias</a></span><span class="tag"><a href="https://lunatine.net/tags/modinfo">modinfo</a></span><span class="tag"><a href="https://lunatine.net/tags/device-driver">device driver</a></span><span class="tag"><a href="https://lunatine.net/tags/lspci">lspci</a></span><span class="tag"><a href="https://lunatine.net/tags/pci.ids">pci.ids</a></span><span class="tag"><a href="https://lunatine.net/tags/kernel-module">kernel module</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/modalias">modalias</a></span><span class="tag"><a href="https://lunatine.github.io/tags/modinfo">modinfo</a></span><span class="tag"><a href="https://lunatine.github.io/tags/device-driver">device driver</a></span><span class="tag"><a href="https://lunatine.github.io/tags/lspci">lspci</a></span><span class="tag"><a href="https://lunatine.github.io/tags/pci.ids">pci.ids</a></span><span class="tag"><a href="https://lunatine.github.io/tags/kernel-module">kernel module</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>346 Words</p>
@@ -225,7 +225,7 @@ i 00 (프로그래밍 인터페이스)
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.net/2016/02/about-load-average/">
+                            <a href="https://lunatine.github.io/2016/02/about-load-average/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">Load Average에 대하여</span>
                             </a>
@@ -234,7 +234,7 @@ i 00 (프로그래밍 인터페이스)
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.net/2015/12/devtmpfs-udev/">
+                            <a href="https://lunatine.github.io/2015/12/devtmpfs-udev/">
                                 <span class="button__text">devtmpfs와 udev</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -276,10 +276,10 @@ i 00 (프로그래밍 인터페이스)
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.net/">Lunatine</a></span>
+                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -303,7 +303,7 @@ i 00 (프로그래밍 인터페이스)
 
 
 
-<script type="text/javascript" src="https://lunatine.net/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

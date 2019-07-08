@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CentOS6 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.net/tags/centos6/</link>
+    <link>https://lunatine.github.io/tags/centos6/</link>
     <description>Recent content in CentOS6 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 29 Jan 2019 08:29:40 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.net/tags/centos6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.github.io/tags/centos6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>비 정상적인 Swap 수치</title>
-      <link>https://lunatine.net/2019/01/abnormal-swap-values/</link>
+      <link>https://lunatine.github.io/2019/01/abnormal-swap-values/</link>
       <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
       
-      <guid>https://lunatine.net/2019/01/abnormal-swap-values/</guid>
+      <guid>https://lunatine.github.io/2019/01/abnormal-swap-values/</guid>
       <description>증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
 $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/+ buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다.</description>
     </item>
     
     <item>
       <title>RHEL6에서 Python 2.7/3.4 사용하기</title>
-      <link>https://lunatine.net/2015/01/python27-34-on-rhel-centos/</link>
+      <link>https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/</link>
       <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
       
-      <guid>https://lunatine.net/2015/01/python27-34-on-rhel-centos/</guid>
+      <guid>https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/</guid>
       <description>본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
 Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.</description>
     </item>
     
     <item>
       <title>RHEL6 - intel_idle과 C States</title>
-      <link>https://lunatine.net/2015/01/rhel6-intel_idle-and-c-states/</link>
+      <link>https://lunatine.github.io/2015/01/rhel6-intel_idle-and-c-states/</link>
       <pubDate>Tue, 06 Jan 2015 17:02:03 +0000</pubDate>
       
-      <guid>https://lunatine.net/2015/01/rhel6-intel_idle-and-c-states/</guid>
+      <guid>https://lunatine.github.io/2015/01/rhel6-intel_idle-and-c-states/</guid>
       <description>C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
 P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수를 조절하는 정도를 정의 한 값으로 명령어 처리(Operation)상태를 기준으로 절전 및 성능 향상을 꾀하기 위한 기법이다. 과거에는 SpeedStep이라는 기술로 소개 되었기(정확히 같은 것은 아니다) 때문에 단순히 클럭주파수를 조절해서 에너지 절약을 위한 방안으로만 치부되었는데 CPU가 연산처리를 할 때의 상태를 반영하고 있다.</description>
     </item>
     
     <item>
       <title>Transparent Huge Pages 와 page allocation error</title>
-      <link>https://lunatine.net/2014/10/thp-and-page-allocation-error/</link>
+      <link>https://lunatine.github.io/2014/10/thp-and-page-allocation-error/</link>
       <pubDate>Wed, 29 Oct 2014 09:36:11 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/10/thp-and-page-allocation-error/</guid>
+      <guid>https://lunatine.github.io/2014/10/thp-and-page-allocation-error/</guid>
       <description>1. Page allocation Error RHEL6/Centos6를 사용하다보면 아래와 같은 메시지를 마주 할 때가 있다.
 page allocation failure. order:4, mode:0x8020 kernel: Pid: 7036, comm: sas2ircu Not tainted 2.6.32-358.6.2.el6.x86_64 #1 kernel: Call Trace: kernel: [&amp;lt;ffffffff8112c207&amp;gt;] ? __alloc_pages_nodemask+0x757/0x8d0 kernel: [&amp;lt;ffffffff81010ff6&amp;gt;] ? dma_generic_alloc_coherent+0xa6/0x160 kernel: [&amp;lt;ffffffff8103c8f1&amp;gt;] ? x86_swiotlb_alloc_coherent+0x31/0x70 kernel: [&amp;lt;ffffffffa002e74a&amp;gt;] ? pci_alloc_consistent+0x5a/0xc0 [mpt2sas] kernel: [&amp;lt;ffffffffa0030155&amp;gt;] ? _ctl_do_mpt_command+0x7c5/0xcb0 [mpt2sas] kernel: [&amp;lt;ffffffff8119abe7&amp;gt;] ? __d_lookup+0xa7/0x150 kernel: [&amp;lt;ffffffffa0030762&amp;gt;] ? _ctl_compat_mpt_command+0x122/0x160 [mpt2sas] kernel: [&amp;lt;ffffffff8150f026&amp;gt;] ? mutex_lock_interruptible+0x16/0x50 kernel: [&amp;lt;ffffffffa003167b&amp;gt;] ? _ctl_ioctl_main+0x5cb/0x1070 [mpt2sas] kernel: [&amp;lt;ffffffff81193010&amp;gt;] ?</description>
     </item>
     
     <item>
       <title>RHEL/CentOS 6에서 heartbeat 오류</title>
-      <link>https://lunatine.net/2014/06/epel-6-heartbeat-error/</link>
+      <link>https://lunatine.github.io/2014/06/epel-6-heartbeat-error/</link>
       <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
       
-      <guid>https://lunatine.net/2014/06/epel-6-heartbeat-error/</guid>
+      <guid>https://lunatine.github.io/2014/06/epel-6-heartbeat-error/</guid>
       <description>EPEL6 - heartbeat error  본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.
  환경 및 증상  운영체제 : RHEL 6.4 이하 EPEL 패키지
  heartbeat-3.0.4-2.el6.[i386/x86_64].rpm heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm  증상
