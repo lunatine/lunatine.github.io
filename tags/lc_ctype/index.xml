@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LC_CTYPE on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/lc_ctype/</link>
+    <link>/tags/lc_ctype/</link>
     <description>Recent content in LC_CTYPE on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 17 Jul 2018 04:19:05 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/lc_ctype/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/lc_ctype/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[macOS] iTerm에서 ssh 접속 시 LC_CTYPE 오류</title>
-      <link>https://lunatine.github.io/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</link>
+      <link>/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</link>
       <pubDate>Tue, 17 Jul 2018 04:19:05 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</guid>
+      <guid>/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</guid>
       <description>macOS에서 iTerm으로 ssh 접속을 할 때 아래와 같은 오류 메시지가 발생하는 경우가 있다.
 -bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory  이는 LANG 환경변수의 전달에 의한 것으로 보통 /etc/ssh/ssh_config의 설정 값 때문에 발생한다. 따라서 아래와 같이 ssh_config 파일에서 SendEnv LANG 항목을 주석처리 해주면 된다.
 $ sudo vi /etc/ssh/ssh_config  ... 상략 ... Host * # SendEnv LANG LC_* &amp;lt;- 이 부분을 #으로 주석처리  </description>

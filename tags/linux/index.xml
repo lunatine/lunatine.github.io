@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/linux/</link>
+    <link>/tags/linux/</link>
     <description>Recent content in linux on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 29 Jan 2019 08:26:19 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ext4 포맷 속도 개선</title>
-      <link>https://lunatine.github.io/2019/01/improve-ext4-format-speed/</link>
+      <link>/2019/01/improve-ext4-format-speed/</link>
       <pubDate>Tue, 29 Jan 2019 08:26:19 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2019/01/improve-ext4-format-speed/</guid>
+      <guid>/2019/01/improve-ext4-format-speed/</guid>
       <description>Linux에서 ext4 파일시스템을 사용하면서 종종 겪는 이슈 중의 하나가 바로 포맷 속도 입니다. 과거에는 이러한 포맷 속도가 그렇게까지 문제가 되지 않았지만 6TB, 8TB 디스크가 보편화 되면서 이러한 큰 디스크를 포맷할 때 시간이 너무 많이 소요되는 문제가 있습니다.
 사실, 이게 딱히 문제라고 보긴 어렵지만 특정 경우에는 (포맷 작업을 순차적으로 처리하는 업무라던지 ) 많은 시간을 소모하는 포맷 작업이 부담스러울 수 있습니다. 그러다보니 ext4를 주력으로 하는 Ubuntu 같은 배포판에서도 포맷 속도가 빠른 XFS를 선호하시는 분도 보았었습니다.</description>
     </item>
     
     <item>
       <title>NUMA with Linux</title>
-      <link>https://lunatine.github.io/2016/07/numa-with-linux/</link>
+      <link>/2016/07/numa-with-linux/</link>
       <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2016/07/numa-with-linux/</guid>
+      <guid>/2016/07/numa-with-linux/</guid>
       <description>개인 위키에서 정리하던 내용을 블로그로 옮긴 것 입니다. 이 문서는 NUMA 아키텍처에 대한 간략한 소개와 Linux에서의 활용 방법에 대해서 소개하고 있습니다.
  1. System Topology 1-1. CMP 최근 CPU는 하나의 소켓에 여러개의 코어를 가지고 있다. 이를 보통 멀티코어라고 지칭하며 하나의 칩에 여러개의 프로세서가 올라가기 때문에 CMP(Chip-level Multi Processor)라고도 부른다. 이러한 멀티코어 CPU에 대한 메모리 관계는 아래와 같이 표현 할 수 있다.
 1-2. SMP 하지만, 멀티코어 CPU를 2개 이상 장착한 시스템의 경우에는 메모리를 2개 이상의 CPU가 접근하기 때문에 CPU와 메모리 사이를 네트워크로 묶어서 접근이 필요하며 아래와 같이 표현이 가능하다.</description>
@@ -34,10 +34,10 @@
     
     <item>
       <title>Bash FAQ (Part 1)</title>
-      <link>https://lunatine.github.io/2016/03/bash-faq-part-1/</link>
+      <link>/2016/03/bash-faq-part-1/</link>
       <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2016/03/bash-faq-part-1/</guid>
+      <guid>/2016/03/bash-faq-part-1/</guid>
       <description>본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
 [[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
 if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.</description>
@@ -45,10 +45,10 @@ if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 �
     
     <item>
       <title>Load Average에 대하여</title>
-      <link>https://lunatine.github.io/2016/02/about-load-average/</link>
+      <link>/2016/02/about-load-average/</link>
       <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2016/02/about-load-average/</guid>
+      <guid>/2016/02/about-load-average/</guid>
       <description>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
 Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &amp;lsquo;부하&amp;rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.</description>
@@ -56,40 +56,40 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
     
     <item>
       <title>devtmpfs와 udev</title>
-      <link>https://lunatine.github.io/2015/12/devtmpfs-udev/</link>
+      <link>/2015/12/devtmpfs-udev/</link>
       <pubDate>Wed, 23 Dec 2015 06:11:39 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/12/devtmpfs-udev/</guid>
+      <guid>/2015/12/devtmpfs-udev/</guid>
       <description>본 문서는 Linux booting 문서에서 생략 된 부분이면서 현재 Linux에서 장치관리를 수행하는 udev와 devtmpfs의 상관관계에 대해서 설명하고 있습니다. 또한, devtmpfs의 의미와 역할에 대한 질문의 답변을 정리한 문서이기도 합니다.
  마지막수정: 12/22/2015 기존문서와 기술하는 말투를 달리하였으니 양해부탁드립니다.  devfs 먼저 udev가 도입되기 전에 존재 했던 devfs라는 녀석에 대해서 살펴보겠습니다. devfs는 2000년에 도입된 파일시스템으로 장치에 대한 정보를 커널에서 관리 할 수 있도록 만들어진 파일시스템 입니다. 실제 여전히 많은 UNIX 계열 시스템은 devfs를 사용하고 있습니다.</description>
     </item>
     
     <item>
       <title>Linux Boot</title>
-      <link>https://lunatine.github.io/2015/12/linux-booting/</link>
+      <link>/2015/12/linux-booting/</link>
       <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/12/linux-booting/</guid>
+      <guid>/2015/12/linux-booting/</guid>
       <description>Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
  본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다.</description>
     </item>
     
     <item>
       <title>[TIP] Bash - 반복 출력</title>
-      <link>https://lunatine.github.io/2015/07/tip-bash-brace-expansion/</link>
+      <link>/2015/07/tip-bash-brace-expansion/</link>
       <pubDate>Wed, 22 Jul 2015 06:16:00 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/07/tip-bash-brace-expansion/</guid>
+      <guid>/2015/07/tip-bash-brace-expansion/</guid>
       <description>Shell Bash 환경에서 작업을 하다보면 연속 된 숫자 값을 이용하는 경우가 종종 있다. 특정 단어에 연속 된 숫자를 붙이거나 연속 된 숫자 값의 개수만큼 Loop를 실행(반복)하거나 하는 작업들이 대표적이다. 오랜 기간 Unix/Linux를 사용해 왔던 분들이라면 보통 아래와 같은 형태로 사용 하는 것을 종종 볼 수 있다.
 $ echo `seq 1 10` 1 2 3 4 5 6 7 8 9 10 $ for x in `seq 1 10` &amp;gt; do &amp;gt; echo -n &amp;quot;$x &amp;quot; &amp;gt; done 1 2 3 4 5 6 7 8 9 10$  사실 seq (sequence)는 별도의 실행 파일이기 때문에 bash와 직접적인 관련은 없다.</description>
     </item>
     
     <item>
       <title>ONBOOT=no 옵션 적용이 안되는 증상</title>
-      <link>https://lunatine.github.io/2015/02/onboot-no-options-does-not-work/</link>
+      <link>/2015/02/onboot-no-options-does-not-work/</link>
       <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/02/onboot-no-options-does-not-work/</guid>
+      <guid>/2015/02/onboot-no-options-does-not-work/</guid>
       <description>RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
 시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
 DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
@@ -98,20 +98,20 @@ DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 �
     
     <item>
       <title>glibc 취약점 GHOST (CVE-2015-0235)</title>
-      <link>https://lunatine.github.io/2015/01/glibc-ghost-vulnerability/</link>
+      <link>/2015/01/glibc-ghost-vulnerability/</link>
       <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/01/glibc-ghost-vulnerability/</guid>
+      <guid>/2015/01/glibc-ghost-vulnerability/</guid>
       <description>경고(?)  이 글은 GHOST에 대한 분석의 글이 아닙니다. 보안에 기웃거렸을 뿐 보안이 뭔지 모르는 저의 개인적인 소감입니다.   GHOST? heartbleed, shellshock, POODLE &amp;hellip; 작년에 이름을 떨쳤던 보안 취약점이다. 그리고 이번엔 GHOST란다. 며칠 전에 접했던 취약점인며 국내 뉴스기사도 있다. GHOST는 glibc의 취약점인데 glibc가 갖는 범용성 때문에 꽤나 심각하게 보이는 취약점이다.
 glibc를 잘 모르는 분들을 위해 추가 설명을 하자면 glibc는 GNU C라이브러리 (GNU libc)를 의미하며 C라이브러리라는 것은 C언어의 기본 중의 기본이 되는 라이브러리를 의미한다.</description>
     </item>
     
     <item>
       <title>RHEL6에서 Python 2.7/3.4 사용하기</title>
-      <link>https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/</link>
+      <link>/2015/01/python27-34-on-rhel-centos/</link>
       <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/</guid>
+      <guid>/2015/01/python27-34-on-rhel-centos/</guid>
       <description>본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
 Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.</description>
     </item>

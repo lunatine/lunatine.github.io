@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>df on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/df/</link>
+    <link>/tags/df/</link>
     <description>Recent content in df on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 17:37:49 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/df/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/df/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)</title>
-      <link>https://lunatine.github.io/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</link>
+      <link>/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</link>
       <pubDate>Wed, 05 Feb 2014 17:37:49 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</guid>
+      <guid>/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</guid>
       <description>자주 받는 질문 중의 하나.. &amp;lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&amp;rsquo;
 이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
 df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.

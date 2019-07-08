@@ -11,7 +11,7 @@
  마지막수정: 12/22/2015 기존문서와 기술하는 말투를 달리하였으니 양해부탁드립니다.  devfs 먼저 udev가 도입되기 전에 존재 했던 devfs라는 녀석에 대해서 살펴보겠습니다. devfs는 2000년에 도입된 파일시스템으로 장치에 대한 정보를 커널에서 관리 할 수 있도록 만들어진 파일시스템 입니다. 실제 여전히 많은 UNIX 계열 시스템은 devfs를 사용하고 있습니다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.github.io/2015/12/devtmpfs-udev/" />
+<link rel="canonical" href="/2015/12/devtmpfs-udev/" />
 
 
 <title>
@@ -27,20 +27,20 @@
 
 
 
-<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="devtmpfs와 udev">
 <meta itemprop="description" content="본 문서는 Linux booting 문서에서 생략 된 부분이면서 현재 Linux에서 장치관리를 수행하는 udev와 devtmpfs의 상관관계에 대해서 설명하고 있습니다. 또한, devtmpfs의 의미와 역할에 대한 질문의 답변을 정리한 문서이기도 합니다.
@@ -55,7 +55,7 @@
 
 <meta itemprop="keywords" content="devfs,devtmpfs,udev,sysfs,리눅스,linux," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.github.io/"/>
+<meta name="twitter:image" content=""/>
 
 <meta name="twitter:title" content="devtmpfs와 udev"/>
 <meta name="twitter:description" content="본 문서는 Linux booting 문서에서 생략 된 부분이면서 현재 Linux에서 장치관리를 수행하는 udev와 devtmpfs의 상관관계에 대해서 설명하고 있습니다. 또한, devtmpfs의 의미와 역할에 대한 질문의 답변을 정리한 문서이기도 합니다.
@@ -79,7 +79,7 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -93,7 +93,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="posts/">Posts</a></li><li><a href="categories/">Categories</a></li><li><a href="tags/">Tags</a></li><li><a href="about/">About</a></li>
     </ul>
 </nav>
 
@@ -129,7 +129,7 @@
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.github.io/2015/12/devtmpfs-udev/">devtmpfs와 udev</a></h1>
+            <h1 class="post-title"><a href="/2015/12/devtmpfs-udev/">devtmpfs와 udev</a></h1>
 
             
 
@@ -175,7 +175,7 @@ map auto_home on /home (autofs, automounted, nobrowse)
 
 <p>이렇게 하면 Linux가 부팅 할 때 실제 디스크장치의 rootfs(/)로 스위칭 작업을 수행하기 전에 메모리에 올라가 rootfs로 사용 중인 initrd/initramfs를 통해서 udev가 실행됩니다. 이렇게 하면 init 전에 장치 노드를 설정 할 수가 있습니다. 아래는 CentOS 6 에서 캡처한 udev 실행 전후의 부트 메시지 입니다.</p>
 
-<p><img src="https://lunatine.github.io/images/2015/12/udev-dmesg.png" alt="udev-dmesg.png" /></p>
+<p><img src="/images/2015/12/udev-dmesg.png" alt="udev-dmesg.png" /></p>
 
 <p>사용자 모드에서 동작하는 udev는 어떻게 하드웨어 정보를 확인하고 장치 노드를 등록 하는지에 대한 의문이 들 수 있는데 이는 sysfs 라는 파일시스템을 통해서 해결 하고 있습니다.</p>
 
@@ -183,7 +183,7 @@ map auto_home on /home (autofs, automounted, nobrowse)
 
 <p>Linux 2.5 커널 트리에서 등장해서 2.6 안정버전에 등장한 가상 파일시스템인 sysfs는 사용자 모드에서 현재 커널이 가지고 있는 서브시스템(subsystem)과 하드웨어 정보를 보여주는 파일시스템 입니다. 이 파일시스템은 kobject(kernel object)의 정보를 바탕으로 하여 데이터 구조와 속성 정보를 제공합니다. 주로 커널이 인지한 하드웨어 정보를 구조적으로 투영해주고 있으며 이 정보를 바탕으로 udev는 장치 노드를 설정 할 때 어떻게 설정해야하는지를 알게됩니다.</p>
 
-<p>사실 sysfs가 보여주는 하드웨어 정보는 <a href="https://lunatine.github.io/proc">procfs</a>에서도 일부 볼 수 있는데 procfs의 원래 목적이 프로세스 정보를 투영하는 것이었기 때문에 procfs가 보여주는 하드웨어 정보는 procfs의 관리에 혼란을 가중시키게 되었습니다. 따라서, procfs와 별개로 시스템 하드웨어 정보를 체계적으로 보여주는 파일시스템의 필요성이 대두 되었고 그게 sysfs로 나타나게 되었습니다.</p>
+<p>사실 sysfs가 보여주는 하드웨어 정보는 <a href="/proc">procfs</a>에서도 일부 볼 수 있는데 procfs의 원래 목적이 프로세스 정보를 투영하는 것이었기 때문에 procfs가 보여주는 하드웨어 정보는 procfs의 관리에 혼란을 가중시키게 되었습니다. 따라서, procfs와 별개로 시스템 하드웨어 정보를 체계적으로 보여주는 파일시스템의 필요성이 대두 되었고 그게 sysfs로 나타나게 되었습니다.</p>
 
 <h2 id="devtmpfs">devtmpfs</h2>
 
@@ -213,7 +213,7 @@ map auto_home on /home (autofs, automounted, nobrowse)
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/devfs">devfs</a></span><span class="tag"><a href="https://lunatine.github.io/tags/devtmpfs">devtmpfs</a></span><span class="tag"><a href="https://lunatine.github.io/tags/udev">udev</a></span><span class="tag"><a href="https://lunatine.github.io/tags/sysfs">sysfs</a></span><span class="tag"><a href="https://lunatine.github.io/tags/%EB%A6%AC%EB%88%85%EC%8A%A4">리눅스</a></span><span class="tag"><a href="https://lunatine.github.io/tags/linux">linux</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/devfs">devfs</a></span><span class="tag"><a href="tags/devtmpfs">devtmpfs</a></span><span class="tag"><a href="tags/udev">udev</a></span><span class="tag"><a href="tags/sysfs">sysfs</a></span><span class="tag"><a href="tags/%EB%A6%AC%EB%88%85%EC%8A%A4">리눅스</a></span><span class="tag"><a href="tags/linux">linux</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>731 Words</p>
@@ -231,7 +231,7 @@ map auto_home on /home (autofs, automounted, nobrowse)
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.github.io/2015/12/modalias-device-driver/">
+                            <a href="/2015/12/modalias-device-driver/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">modalias와 장치 드라이버</span>
                             </a>
@@ -240,7 +240,7 @@ map auto_home on /home (autofs, automounted, nobrowse)
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.github.io/2015/12/linux-booting/">
+                            <a href="/2015/12/linux-booting/">
                                 <span class="button__text">Linux Boot</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -282,10 +282,10 @@ map auto_home on /home (autofs, automounted, nobrowse)
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
+                <span><a href="">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -309,7 +309,7 @@ map auto_home on /home (autofs, automounted, nobrowse)
 
 
 
-<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

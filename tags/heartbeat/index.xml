@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>heartbeat on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/heartbeat/</link>
+    <link>/tags/heartbeat/</link>
     <description>Recent content in heartbeat on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 16 Jun 2014 06:46:44 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/heartbeat/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/heartbeat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RHEL/CentOS 6에서 heartbeat 오류</title>
-      <link>https://lunatine.github.io/2014/06/epel-6-heartbeat-error/</link>
+      <link>/2014/06/epel-6-heartbeat-error/</link>
       <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/06/epel-6-heartbeat-error/</guid>
+      <guid>/2014/06/epel-6-heartbeat-error/</guid>
       <description>EPEL6 - heartbeat error  본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.
  환경 및 증상  운영체제 : RHEL 6.4 이하 EPEL 패키지
  heartbeat-3.0.4-2.el6.[i386/x86_64].rpm heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm  증상

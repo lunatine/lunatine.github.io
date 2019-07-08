@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>부트로더 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/</link>
+    <link>/tags/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/</link>
     <description>Recent content in 부트로더 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 18 Dec 2015 07:17:02 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux Boot</title>
-      <link>https://lunatine.github.io/2015/12/linux-booting/</link>
+      <link>/2015/12/linux-booting/</link>
       <pubDate>Fri, 18 Dec 2015 07:17:02 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/12/linux-booting/</guid>
+      <guid>/2015/12/linux-booting/</guid>
       <description>Linux Boot 가끔씩 Linux의 부팅과정에 대해서 질문이 들어오면 dmesg를 보여주면서 설명하거나 칠판에 낙서하듯이 설명해 주곤 했는데 이번에 지금까지 받았던 질문과 설명을 토대로해서 개략적으로나마 Linux의 부팅과정을 문서로 정리해 보았다.
  본 문서에서는 OS는 CentOS 6를 기준으로 하며 부트로더는 MBR위의 GRUB v1을 기준으로 설명합니다. 오타는 발견 때 마다 수정 중에 있습니다 마지막수정: 12/18/2015  GRUB Boot Loader GRUB 부트로더는 첫 번째 섹터(Sector 0)인 MBR(Master Boot Record)에 위치하고 있으며 MBR에 대한 문서에서 소개했던 것 처럼 첫 번째의 446바이트 공간안에 존재한다.</description>
     </item>

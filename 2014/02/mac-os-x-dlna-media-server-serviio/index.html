@@ -12,7 +12,7 @@
  TV에서 미디어 서버 인식  당연한 내용이지만 TV에서 검색 안되는 미디어 서버도 있었다  자막지원(SMI, SRT) 및 자막 인코딩 문제 다양한 동영상 코덱을 재생하기 위한 Transcoding 지원 여부  위 사항을 바탕으로 PS3 Media Server(PMS), Universal Media Server(UMS), Plex Media Server, Serviio, XBMC 등을 테스트 해보며 최종적으로 UMS(PMS와 같은 계열이다)와 Serviio가 후보에 올랐다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.github.io/2014/02/mac-os-x-dlna-media-server-serviio/" />
+<link rel="canonical" href="/2014/02/mac-os-x-dlna-media-server-serviio/" />
 
 
 <title>
@@ -28,20 +28,20 @@
 
 
 
-<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="Mac OS X - DLNA 미디어 서버 (Serviio)">
 <meta itemprop="description" content="Mac OS X 그리고 DLNA 미디어 서버 맥에 저장된 동영상 파일을 TV로 감상하기 위해 여러 종류의 미디어 서버를 테스트 해 보았다. 테스트 하면서 겪었던 경험을 토대로 현 시점(2014년 2월 15일)에서 가장 괜찮은 DLNA 미디어 서버를 소개하고 설정하는 방법을 공유하고자 한다. (설정법만 보기 위해서는 다음 단락으로 넘어가도 좋다)
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="mac os x,dlna,serviio,한글자막,srt,tv,맥," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.github.io/"/>
+<meta name="twitter:image" content=""/>
 
 <meta name="twitter:title" content="Mac OS X - DLNA 미디어 서버 (Serviio)"/>
 <meta name="twitter:description" content="Mac OS X 그리고 DLNA 미디어 서버 맥에 저장된 동영상 파일을 TV로 감상하기 위해 여러 종류의 미디어 서버를 테스트 해 보았다. 테스트 하면서 겪었던 경험을 토대로 현 시점(2014년 2월 15일)에서 가장 괜찮은 DLNA 미디어 서버를 소개하고 설정하는 방법을 공유하고자 한다. (설정법만 보기 위해서는 다음 단락으로 넘어가도 좋다)
@@ -82,7 +82,7 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -96,7 +96,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="posts/">Posts</a></li><li><a href="categories/">Categories</a></li><li><a href="tags/">Tags</a></li><li><a href="about/">About</a></li>
     </ul>
 </nav>
 
@@ -132,7 +132,7 @@
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.github.io/2014/02/mac-os-x-dlna-media-server-serviio/">Mac OS X - DLNA 미디어 서버 (Serviio)</a></h1>
+            <h1 class="post-title"><a href="/2014/02/mac-os-x-dlna-media-server-serviio/">Mac OS X - DLNA 미디어 서버 (Serviio)</a></h1>
 
             
 
@@ -171,17 +171,17 @@
 
 <h2 id="serviio-다운로드">Serviio 다운로드</h2>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_download.png" alt="Download" /></p>
+<p><img src="/images/2014/Feb/serviio_download.png" alt="Download" /></p>
 
 <p><a href="http://www.serviio.org/" target="_blank">Serviio</a>는 <a href="http://serviio.org" target="_blank">http://serviio.org</a> 사이트에서 Download 메뉴를 통해서 받을 수 있다. 설치 후 15일 동안 Pro 버전으로 동작하고 구매를 하지 않을 경우에는 자동으로 Free 버전으로 변경 된다.</p>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_freepro.png" alt="Free vs Pro" /></p>
+<p><img src="/images/2014/Feb/serviio_freepro.png" alt="Free vs Pro" /></p>
 
 <p>Free 버전과 Pro 버전은 위와 같은 차이점이 존재하는데 Free 버전으로도 동영상 감상에 전혀 지장이 없기 때문에 신경 쓸 필요는 없다.</p>
 
 <h2 id="serviio-실행">Serviio 실행</h2>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_app.png" alt="app" /></p>
+<p><img src="/images/2014/Feb/serviio_app.png" alt="app" /></p>
 
 <p>Serviio를 설치하면 Serviio와 Serviio-Console이라는 2개의 어플리케이션이 생기며 미디어 서버 역할을 하는 Serviio를 먼저 실행하고 환경 설정을 위한 Serviio-Console을 실행하면 된다.</p>
 
@@ -210,21 +210,21 @@
 
 <h2 id="serviio-설정">Serviio 설정</h2>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_console.png" alt="korean" /></p>
+<p><img src="/images/2014/Feb/serviio_console.png" alt="korean" /></p>
 
 <p>한글 메뉴를 보기 위해서는 Serviio-Console을 실행 후 &ldquo;Console Settings&rdquo; 메뉴에 들어가서 &ldquo;한국어&rdquo;를 선택하고 Serviio-Console을 재시작 해준다.</p>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_lib.png" alt="library" /></p>
+<p><img src="/images/2014/Feb/serviio_lib.png" alt="library" /></p>
 
 <p>위 그림과 같이 &ldquo;라이브러리 &gt; 공유폴더&rdquo;로 들어가서 동영상 파일이 저장된 경로를 추가해 주고 비디오, 자동갱신 체크 박스를 선택해 준다. (여기에 추가 된 폴더는 TV에서 DNLA 서버를 선택 했을 때 &ldquo;비디오 &gt; 폴더&rdquo;에서 확인 할 수 있다)</p>
 
 <p>여기까지만 설정해도 동영상을 TV에서 재생할 수 있다. 이제 자막이 필요한 영상을 위한 설정을 살펴보면</p>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_trans.png" alt="transcoding" /></p>
+<p><img src="/images/2014/Feb/serviio_trans.png" alt="transcoding" /></p>
 
 <p>&ldquo;Delivery&rdquo;메뉴를 선택한 후 트랜스코딩 사용함에 체크 하도록 한다. 그리고, Subtitles 탭에서 3개의 체크 박스를 모두 선택하고 인코딩은 &ldquo;UTF-8&rdquo;로 지정한다. UTF-8로 지정하더라도 cp949 코드로 저장된 srt 한글자막도 잘 나온다. (즉, UTF-8 with BOM, cp949 모두 사용이 가능하다)</p>
 
-<p><img src="https://lunatine.github.io/images/2014/Feb/serviio_sub.png" alt="encoding" /></p>
+<p><img src="/images/2014/Feb/serviio_sub.png" alt="encoding" /></p>
 
 <p>&ldquo;Preferred Language&rdquo;는 선호하는 언어를 지정하는 부분으로 보이지만 어차피 SAMI(smi)에서 한글이 제대로 안되므로 별 의미는 없다.</p>
 
@@ -245,7 +245,7 @@
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/mac-os-x">mac os x</a></span><span class="tag"><a href="https://lunatine.github.io/tags/dlna">dlna</a></span><span class="tag"><a href="https://lunatine.github.io/tags/serviio">serviio</a></span><span class="tag"><a href="https://lunatine.github.io/tags/%ED%95%9C%EA%B8%80%EC%9E%90%EB%A7%89">한글자막</a></span><span class="tag"><a href="https://lunatine.github.io/tags/srt">srt</a></span><span class="tag"><a href="https://lunatine.github.io/tags/tv">tv</a></span><span class="tag"><a href="https://lunatine.github.io/tags/%EB%A7%A5">맥</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/mac-os-x">mac os x</a></span><span class="tag"><a href="tags/dlna">dlna</a></span><span class="tag"><a href="tags/serviio">serviio</a></span><span class="tag"><a href="tags/%ED%95%9C%EA%B8%80%EC%9E%90%EB%A7%89">한글자막</a></span><span class="tag"><a href="tags/srt">srt</a></span><span class="tag"><a href="tags/tv">tv</a></span><span class="tag"><a href="tags/%EB%A7%A5">맥</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>590 Words</p>
@@ -263,7 +263,7 @@
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.github.io/2014/02/akg-k619-headphone/">
+                            <a href="/2014/02/akg-k619-headphone/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">AKG K619 헤드폰</span>
                             </a>
@@ -272,7 +272,7 @@
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.github.io/2014/02/megasas_register_aen0-already-registered/">
+                            <a href="/2014/02/megasas_register_aen0-already-registered/">
                                 <span class="button__text">megasas_register_aen[0]: already registered</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -314,10 +314,10 @@
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
+                <span><a href="">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -341,7 +341,7 @@
 
 
 
-<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

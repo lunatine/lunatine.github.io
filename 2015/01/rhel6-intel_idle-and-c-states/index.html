@@ -11,7 +11,7 @@
 P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수를 조절하는 정도를 정의 한 값으로 명령어 처리(Operation)상태를 기준으로 절전 및 성능 향상을 꾀하기 위한 기법이다. 과거에는 SpeedStep이라는 기술로 소개 되었기(정확히 같은 것은 아니다) 때문에 단순히 클럭주파수를 조절해서 에너지 절약을 위한 방안으로만 치부되었는데 CPU가 연산처리를 할 때의 상태를 반영하고 있다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.github.io/2015/01/rhel6-intel_idle-and-c-states/" />
+<link rel="canonical" href="/2015/01/rhel6-intel_idle-and-c-states/" />
 
 
 <title>
@@ -27,20 +27,20 @@ P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수
 
 
 
-<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="RHEL6 - intel_idle과 C States">
 <meta itemprop="description" content="C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
@@ -55,7 +55,7 @@ P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수
 
 <meta itemprop="keywords" content="RHEL6,CentOS7,intel_idle,C-States,CPU,Performance,Tuned,RHEL7,CentOS6," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.github.io/"/>
+<meta name="twitter:image" content=""/>
 
 <meta name="twitter:title" content="RHEL6 - intel_idle과 C States"/>
 <meta name="twitter:description" content="C/G/S/P states intel_idle과 관련된 내용을 다루기에 앞서 P-States와 C-States에 대해서 간단히 정리하고자 한다. Intel 아키텍처 환경에서 리눅스 커널과 CPU를 알아가다보면 P/S/G/C States에 대한 내용을 접할 수 있다. 이러한 상태 값에 대해서 간단히 설명하도록 하겠다.
@@ -81,7 +81,7 @@ P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -95,7 +95,7 @@ P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="posts/">Posts</a></li><li><a href="categories/">Categories</a></li><li><a href="tags/">Tags</a></li><li><a href="about/">About</a></li>
     </ul>
 </nav>
 
@@ -131,7 +131,7 @@ P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.github.io/2015/01/rhel6-intel_idle-and-c-states/">RHEL6 - intel_idle과 C States</a></h1>
+            <h1 class="post-title"><a href="/2015/01/rhel6-intel_idle-and-c-states/">RHEL6 - intel_idle과 C States</a></h1>
 
             
 
@@ -164,14 +164,14 @@ P-States P-States는 작업 부하에 따라서 CPU의 전압과 클럭주파수
 
 <p>앞에서 언급한 상태들을 알아보기 쉽게 도식화 하면 아래와 같다.</p>
 
-<p><img src="https://lunatine.github.io/images/2015/01/powerstate.jpg" alt="powerstate.jpg" />
+<p><img src="/images/2015/01/powerstate.jpg" alt="powerstate.jpg" />
 이미지 출처: <a href="http://wccftech.com/review/intel-core-i7-4790k-haswell-refresh-devils-canyon-processor-review/" target="_blank">Intel Core i7-4790K Haswell Refresh “Devil’s Canyon” Processor Review</a></p>
 
 <h1 id="intel-idle">intel_idle</h1>
 
 <p>모듈 이름처럼 Idle 상태를 관리하기 위한 것으로 C-States와 관련이 있는 모듈이다. intel_idle이 사용되기 이전에는 C-States를 OS에서 관리하기 위해서 acpi_idle이란 모듈이 사용되었다. 그리고, 그 당시에 intel_idle은 EXPERIMENTAL로 커널에 포함되어 있었는데 2.6.35 버전부터로 알고 있었기 때문에 2.6.32 기반의 RHEL6에서 별로 신경쓰고 있지 않았다. (RHEL7만 신경쓰였을 뿐이지&hellip;) 그런데, <strong>스마트한 직장동료</strong>가 RHEL6에서도 intel_idle 때문에 C-States 영향을 받고 있다고 제보하였고 이를 해결하기 위한 설정방법 등을 공유하였다. 그래서 찾아보니 RHEL6.2 기술문서부터 intel_idle.max_cstate 파라미터에 대한 내용이 언급 되어있었다.</p>
 
-<p><img src="https://lunatine.github.io/images/2015/01/oops.png" alt="oops.png" /></p>
+<p><img src="/images/2015/01/oops.png" alt="oops.png" /></p>
 
 <h2 id="왜-문제가-되는-것인가">왜 문제가 되는 것인가?</h2>
 
@@ -201,17 +201,17 @@ A new kernel parameter, intel_idle.max_cstate, has been added to specify the max
 
 <ul>
 <li><p>latency-performance 적용 전
-<img src="https://lunatine.github.io/images/2015/01/cstate-c7-1.png" alt="cstate-c7.png" /></p></li>
+<img src="/images/2015/01/cstate-c7-1.png" alt="cstate-c7.png" /></p></li>
 
 <li><p>latency-performance 적용 후
-<img src="https://lunatine.github.io/images/2015/01/cstate-c1.png" alt="cstate-c1.png" /></p></li>
+<img src="/images/2015/01/cstate-c1.png" alt="cstate-c1.png" /></p></li>
 </ul>
 
 <h3 id="예외사항-1">예외사항 (1)</h3>
 
 <p>실제 장비들을 샘플링하여 테스트 해 본 결과 tuned-adm을 설정하더라도 E3/E5 계열(샌디브리지)의 CPU는 바로 적용이 되었으나 C6까지있는 네할렘 CPU들은 여전히 말을 듣지 않았다.</p>
 
-<p><img src="https://lunatine.github.io/images/2015/01/cstate-c6.png" alt="cstate-c6.png" /></p>
+<p><img src="/images/2015/01/cstate-c6.png" alt="cstate-c6.png" /></p>
 
 <p>그래서, /dev/cpu_dma_latency 장치(4바이트 값을 갖는 장치이다)에 직접 latency 값을 100으로 설정해 보았다.</p>
 
@@ -219,11 +219,11 @@ A new kernel parameter, intel_idle.max_cstate, has been added to specify the max
 $ echo -ne '\0144\000\000\000' &gt;&amp;3
 </code></pre>
 
-<p><img src="https://lunatine.github.io/images/2015/01/cstate-c3.png" alt="cstate-c3.png" /></p>
+<p><img src="/images/2015/01/cstate-c3.png" alt="cstate-c3.png" /></p>
 
 <p>그랬더니 C3 상태이하로 내려가지 않았다. 조금더 욕심을 내서 8로 설정했더니 C1상태 이하로 내려가지 않는 것을 확인 할 수 있었다.</p>
 
-<p><img src="https://lunatine.github.io/images/2015/01/cstate-c1-nehal.png" alt="cstate-c1-nehal.png" /></p>
+<p><img src="/images/2015/01/cstate-c1-nehal.png" alt="cstate-c1-nehal.png" /></p>
 
 <p>그래서 설정이 가능함에도 불구하고 왜 tuned에서 처리가 안되는지 확인해보니 cpu_dma_latency 값을 조절하는 <code>/usr/libexec/tuned/pmqos-static.py</code> 파일이 설치되지 않는 것을 확인 할 수 있었다.</p>
 
@@ -275,7 +275,7 @@ ELEVATOR_TUNE_DEVS=&quot;/sys/block/{sd,cciss,dm-,vd}*/queue/scheduler&quot;
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/rhel6">RHEL6</a></span><span class="tag"><a href="https://lunatine.github.io/tags/centos7">CentOS7</a></span><span class="tag"><a href="https://lunatine.github.io/tags/intel_idle">intel_idle</a></span><span class="tag"><a href="https://lunatine.github.io/tags/c-states">C-States</a></span><span class="tag"><a href="https://lunatine.github.io/tags/cpu">CPU</a></span><span class="tag"><a href="https://lunatine.github.io/tags/performance">Performance</a></span><span class="tag"><a href="https://lunatine.github.io/tags/tuned">Tuned</a></span><span class="tag"><a href="https://lunatine.github.io/tags/rhel7">RHEL7</a></span><span class="tag"><a href="https://lunatine.github.io/tags/centos6">CentOS6</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/rhel6">RHEL6</a></span><span class="tag"><a href="tags/centos7">CentOS7</a></span><span class="tag"><a href="tags/intel_idle">intel_idle</a></span><span class="tag"><a href="tags/c-states">C-States</a></span><span class="tag"><a href="tags/cpu">CPU</a></span><span class="tag"><a href="tags/performance">Performance</a></span><span class="tag"><a href="tags/tuned">Tuned</a></span><span class="tag"><a href="tags/rhel7">RHEL7</a></span><span class="tag"><a href="tags/centos6">CentOS6</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>855 Words</p>
@@ -293,7 +293,7 @@ ELEVATOR_TUNE_DEVS=&quot;/sys/block/{sd,cciss,dm-,vd}*/queue/scheduler&quot;
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.github.io/2015/01/connect-to-tax-refund-site-on-mac/">
+                            <a href="/2015/01/connect-to-tax-refund-site-on-mac/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">Mac OS X에서 연말정산 간소화  사이트 접속</span>
                             </a>
@@ -302,7 +302,7 @@ ELEVATOR_TUNE_DEVS=&quot;/sys/block/{sd,cciss,dm-,vd}*/queue/scheduler&quot;
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.github.io/2014/10/thp-and-page-allocation-error/">
+                            <a href="/2014/10/thp-and-page-allocation-error/">
                                 <span class="button__text">Transparent Huge Pages 와 page allocation error</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -344,10 +344,10 @@ ELEVATOR_TUNE_DEVS=&quot;/sys/block/{sd,cciss,dm-,vd}*/queue/scheduler&quot;
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
+                <span><a href="">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -371,7 +371,7 @@ ELEVATOR_TUNE_DEVS=&quot;/sys/block/{sd,cciss,dm-,vd}*/queue/scheduler&quot;
 
 
 
-<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

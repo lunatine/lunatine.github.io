@@ -12,7 +12,7 @@
 nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.github.io/2014/05/limits-conf-nofile-big-value-effect/" />
+<link rel="canonical" href="/2014/05/limits-conf-nofile-big-value-effect/" />
 
 
 <title>
@@ -28,20 +28,20 @@ nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파�
 
 
 
-<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="limits.conf와 오픈파일개수(nofile) 영향">
 <meta itemprop="description" content="nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
@@ -57,7 +57,7 @@ nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파�
 
 <meta itemprop="keywords" content="limits.conf,nofile,RLIMIT_NOFILE,getrlimit,slow," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.github.io/"/>
+<meta name="twitter:image" content=""/>
 
 <meta name="twitter:title" content="limits.conf와 오픈파일개수(nofile) 영향"/>
 <meta name="twitter:description" content="nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
@@ -82,7 +82,7 @@ nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파�
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -96,7 +96,7 @@ nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파�
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="posts/">Posts</a></li><li><a href="categories/">Categories</a></li><li><a href="tags/">Tags</a></li><li><a href="about/">About</a></li>
     </ul>
 </nav>
 
@@ -132,7 +132,7 @@ nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파�
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.github.io/2014/05/limits-conf-nofile-big-value-effect/">limits.conf와 오픈파일개수(nofile) 영향</a></h1>
+            <h1 class="post-title"><a href="/2014/05/limits-conf-nofile-big-value-effect/">limits.conf와 오픈파일개수(nofile) 영향</a></h1>
 
             
 
@@ -197,7 +197,7 @@ close(75822)                            = -1 EBADF (Bad file descriptor)
 
 <p>이를 단순히 비교해 보고자 보통 많이 설정하는 nofile 값 8192일 때와 10000000일 때 디스크립터를 close()하는 부분을 C로 작성하여 소요되는 시간을 비교하면 아래와 같다.</p>
 
-<p><img src="https://lunatine.github.io/images/2014/May/20140528_01.png" alt="8192_10000000" /></p>
+<p><img src="/images/2014/May/20140528_01.png" alt="8192_10000000" /></p>
 
 <p>즉, nofile 값이 너무 크기 때문에 daemon 형태로 동작하는 프로세스는 명시적으로 파일 디스크립터를 닫는 작업에 드는 시간이 길어서 느린 것 처럼 느껴지는 것이다.</p>
 
@@ -225,7 +225,7 @@ appuser			hard	nofile	131072
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/limits.conf">limits.conf</a></span><span class="tag"><a href="https://lunatine.github.io/tags/nofile">nofile</a></span><span class="tag"><a href="https://lunatine.github.io/tags/rlimit_nofile">RLIMIT_NOFILE</a></span><span class="tag"><a href="https://lunatine.github.io/tags/getrlimit">getrlimit</a></span><span class="tag"><a href="https://lunatine.github.io/tags/slow">slow</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/limits.conf">limits.conf</a></span><span class="tag"><a href="tags/nofile">nofile</a></span><span class="tag"><a href="tags/rlimit_nofile">RLIMIT_NOFILE</a></span><span class="tag"><a href="tags/getrlimit">getrlimit</a></span><span class="tag"><a href="tags/slow">slow</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>543 Words</p>
@@ -243,7 +243,7 @@ appuser			hard	nofile	131072
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.github.io/2014/06/yum-repository-checksum-error/">
+                            <a href="/2014/06/yum-repository-checksum-error/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">yum 저장소에서 checksum error 발생</span>
                             </a>
@@ -252,7 +252,7 @@ appuser			hard	nofile	131072
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.github.io/2014/04/mevericks-java6-enable/">
+                            <a href="/2014/04/mevericks-java6-enable/">
                                 <span class="button__text">Mavericks에서 JAVA6 사용하기</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -294,10 +294,10 @@ appuser			hard	nofile	131072
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.github.io/">Lunatine</a></span>
+                <span><a href="">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -321,7 +321,7 @@ appuser			hard	nofile	131072
 
 
 
-<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

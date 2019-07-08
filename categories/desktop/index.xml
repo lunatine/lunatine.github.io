@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>desktop on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/categories/desktop/</link>
+    <link>/categories/desktop/</link>
     <description>Recent content in desktop on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 23 Jun 2014 11:12:26 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/categories/desktop/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/desktop/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docky에서 Chrome 아이콘 문제</title>
-      <link>https://lunatine.github.io/2014/06/chrome-icon-error-on-docky/</link>
+      <link>/2014/06/chrome-icon-error-on-docky/</link>
       <pubDate>Mon, 23 Jun 2014 11:12:26 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/06/chrome-icon-error-on-docky/</guid>
+      <guid>/2014/06/chrome-icon-error-on-docky/</guid>
       <description>Google Chrome 아이콘이 Docky에서 분리되는 문제  본 문서는 Google Chrome을 실행하였을 때 Docky에서 저해상도 아이콘으로 표시 될 뿐만 아니라 프로그램 메뉴에서 등록한 것과 분리되는 문제를 해결하기 위한 내용을 담고 있습니다
  증상  프로그램 메뉴에서 Google Chrome을 끌어다가 Docky에 등록하여 실행하였으나 별도 아이콘(저해상도)으로 분리되어 실행되는 경우 Google Chrome을 실행 한 상태에서 해당 아이콘을 우클릭해도 고정시키는 메뉴가 나타나지 않는 경우
   원인  기본적인 원인은 Google Chrome 사이트 (http://chrome.</description>
@@ -24,20 +24,20 @@
     
     <item>
       <title>[FAQ] Synergy 서버 실행 오류 해결 방안</title>
-      <link>https://lunatine.github.io/2014/02/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
+      <link>/2014/02/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:12 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
+      <guid>/2014/02/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</guid>
       <description>Synergy 최근에 MBP를 마련하면서 Windows와 번갈아가면서 하는 작업이 늘게 되어서 Synergy를 사용하게 되었는데 설정을 바꿔가며 테스트 하다가 이상한 증상이 발견되어 이를 해결하는 방법을 공유 하고자 한다.
 환경 및 증상  환경 : Synergy 서버는 Windows7 64bit 버전 증상 : Synergy 서버를 종료 했다가 다시 실행하면 아래와 같은 오류 메시지가 발생하면서 실행되지 않음  ERROR: failed to initialize hook library, is synergy already running? FATAL: failed to start server: unable to open screen   해결방법 먼저, 알아두어야 할 것은 Synergy 서버프로세스가 이미 떠 있다면 종료 시키면 해결된다.</description>
     </item>
     
     <item>
       <title>[FAQ] Thunderbird 성능 개선 팁</title>
-      <link>https://lunatine.github.io/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</link>
+      <link>/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</link>
       <pubDate>Wed, 05 Feb 2014 17:39:43 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</guid>
+      <guid>/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</guid>
       <description>Thunderbird를 사용하다보면 컴퓨터의 리소스는 넉넉함에도 불구하고 창 이동이나 사용자 행동에 대한 반응이 조금은 느린듯한 느낌이 들 때가 있다. 무언가 그래픽적인 처리가 버벅거리는 듯한 모습인데 이 경우 아래 옵션을 적용하면 효과가 있다. 개인적으로 업무용 데스크탑은 16GB 메모리를 사용하고 있음에도 반응이 느려서 아래 옵션을 적용하였고 효과를 크게 보았다.
 먼저, Thunderbird의 옵션-&amp;gt;고급 페이지로 들어가서 고급설정 항목의 &amp;lsquo;설정편집&amp;rsquo;을 눌러 아래 항목을 검색하여 값을 수정한다.
 gfx.direct2d.disabled true layers.acceleration.disabled true  Direct2D 관련된 부분의 값을 수정해 주는 옵션이다.</description>
