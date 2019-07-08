@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="Upstart 기존 Unix &amp;ldquo;System V&amp;rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
+예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2014/02/05/faq-upstart-sayonge-daehaeseo/" />
+
+
+<title>
+    
+    [FAQ] Upstart 사용에 대해서 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="[FAQ] Upstart 사용에 대해서">
+<meta itemprop="description" content="Upstart 기존 Unix &ldquo;System V&rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
+예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again.">
+
+
+<meta itemprop="datePublished" content="2014-02-05T17:41:32&#43;00:00" />
+<meta itemprop="dateModified" content="2014-02-05T17:41:32&#43;00:00" />
+<meta itemprop="wordCount" content="510">
+
+
+
+<meta itemprop="keywords" content="faq,linux,upstart,RHEL6,Ubuntu," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="[FAQ] Upstart 사용에 대해서"/>
+<meta name="twitter:description" content="Upstart 기존 Unix &ldquo;System V&rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
+예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again."/>
+
+
+
+<meta property="article:section" content="linux" />
+<meta property="article:section" content="centos" />
+
+<meta property="article:published_time" content="2014-02-05 17:41:32 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>3 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2014/02/05/faq-upstart-sayonge-daehaeseo/">[FAQ] Upstart 사용에 대해서</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<h1 id="upstart">Upstart</h1>
+
+<p>기존 Unix &ldquo;System V&rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다
+또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.</p>
+
+<h1 id="예제로-알아보는-job-설정">예제로 알아보는 job 설정</h1>
+
+<ul>
+<li>기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다</li>
+<li>상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다</li>
+</ul>
+
+<h2 id="예제-tty1-설정-파일">예제 : tty1 설정 파일</h2>
+
+<pre>
+# tty1 - getty
+#
+# This service maintains a getty on tty1 from the point the system is
+# started until it is shut down again.
+
+start on stopped rc RUNLEVEL=[2345] and (
+            not-container or
+            container CONTAINER=lxc or
+            container CONTAINER=lxc-libvirt)
+
+stop on runlevel [!2345]
+
+respawn
+exec /sbin/getty -8 38400 tty1
+</pre>
+JOB 파일의 문법은 직관적 형태를 띄고 있습니다.
+
+### start on / stop on
+먼저 start on, stop on에 대해서 살펴보면 뒤에 지시되는 이벤트에 대해서 각각 시작, 정지를 하도록 지정하는 내용입니다. upstart는 관리자가 직접 시작/종료 처리를 해 줄 수도 있지만 JOB 파일에 지정한 이벤트에 따라서 자동으로 시작/종료가 가능합니다.
+start on/stop on 뒤에는 보통 아래와 같은 이벤트 지시지가 따라 붙습니다
+<pre>
+start on startup
+start on runlevel [23]
+start on stopped rcS
+start on started tty1
+</pre>
+
+<ul>
+<li>startup : 시스템이 부팅할 때를 의미합니다 (보통 start on과 같이 쓰임)</li>
+<li>runlevel : 뒤에 지정 된 런레벨을 의미합니다. 만약 [!23] 으로 설정되었다면 2,3 런레벨을 제외한 나머지 경우를 의미합니다. 런레벨은 0~6,S가 올 수 있습니다.</li>
+<li>stopped : 뒤에 지정 된 JOB이 종료 되었을 때를 의미합니다.</li>
+<li>started : 뒤에 지정 된 JOB이 시작 되었을 때를 의미합니다.</li>
+<li>shutdown : 시스템 종료할 때를 의미합니다. (보통 stop on과 같이 쓰임)</li>
+</ul>
+
+<h3 id="respawn">respawn</h3>
+
+<p>이 지시자가 있으면 해당 프로세스가 죽었을 경우 (또는 crash 되었을 경우) 자동으로 프로세스를 다시 실행시켜 줍니다.</p>
+
+<h3 id="exec">exec</h3>
+
+<p>실제 서비스가 시작될 때 실행하는 내용을 담고 있습니다. 위 예제에서는 /sbin/getty를 실행하도록 되어있습니다.</p>
+
+<p>이 외에도 많은 설정 방법이 존재하는데 <a href="http://upstart.ubuntu.com/cookbook/" target="_blank">Upstart Cookbook</a>을 참고하시면 됩니다.</p>
+
+<h2 id="upstart-명령">Upstart 명령</h2>
+
+<p>Upstart 명령은 아래와 같습니다. init system을 대체하기 때문에 init과 동일한 이름의 명령도 존재 합니다.</p>
+
+<h4 id="서비스-제어-service-명령으로도-바꿔서-사용할-수-있습니다">서비스 제어 (service 명령으로도 바꿔서 사용할 수 있습니다)</h4>
+
+<ul>
+<li>initctl - service 명령의 대체 명령으로 사용이 가능합니다. 보통 initctl [JOB이름] [명령] 형태로 사용합니다</li>
+<li>start - 서비스 시작</li>
+<li>stop - 서비스 종료</li>
+<li>reload - SIGHUP 시그널을 전송합니다.</li>
+<li>restart - JOB설정파일을 읽지 않고 서비스를 재시작 합니다</li>
+<li>status - 서비스 상태 확인</li>
+<li>예제
+<pre>
+$ initctl console stop
+
+<dl>
+<dd>initctl을 통해서 console JOB을 종료한다
+$ stop console</dd>
+<dd>console JOB을 종료한다
+$ start serial</dd>
+<dd>serial JOB을 실행한다
+</pre></dd>
+</dl></li>
+</ul>
+
+<h4 id="리부팅-시스템-종료">리부팅 / 시스템 종료</h4>
+
+<ul>
+<li>halt - 시스템을 종료 후 전원을 OFF합니다</li>
+<li>poweroff - halt와 동일합니다.</li>
+<li>reboot - 시스템을 재부팅합니다.</li>
+<li>shutdown - 시스템을 종료합니다.</li>
+</ul>
+
+<h4 id="그-외의-명령-직접-실행-할-일은-없음">그 외의 명령 (직접 실행 할 일은 없음)</h4>
+
+<ul>
+<li>init - Upstart 프로세스 관리 데몬</li>
+<li>runlevel - 기존 runlevel 호환성을 위한 명령</li>
+<li>telinit - 기존 runlevel 호환성을 위한 명령</li>
+<li>upstart-udev-bridge - Upstart와 Udev간의 연계를 위한 명령</li>
+</ul>
+
+<h2 id="그-외">그 외</h2>
+
+<ul>
+<li>initctl list 명령으로 현재 upstart로 관리되는 프로세스의 상태를 모두 확인 할 수 있습니다.</li>
+<li>환경변수로 지정 된 값에 대해서 수동으로 시작/종료 할 경우에는 명령 뒤에 옵션으로 지정할 수 있습니다
+<pre>
+예시) initctl serial stop 을 실행했을 경우
+$ initctl serial stop
+stop: Unknown parameter: DEV</li>
+</ul>
+
+<p>수동으로 실행 할 경우에는 DEV 변수 값이 필요하기 때문에 아래와 같이 실행합니다.
+$ initctl serial stop DEV=ttyS0
+</pre></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li>upstart homepage : <a href="http://upstart.ubuntu.com/" target="_blank">http://upstart.ubuntu.com/</a></li>
+</ul>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/faq">faq</a></span><span class="tag"><a href="tags/linux">linux</a></span><span class="tag"><a href="tags/upstart">upstart</a></span><span class="tag"><a href="tags/rhel6">RHEL6</a></span><span class="tag"><a href="tags/ubuntu">Ubuntu</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>510 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-02-06 02:41 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2014/02/05/faq-libudev-so-0-raibeureori-oryu/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">[FAQ] libudev.so.0 라이브러리 오류</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2014/02/05/league-of-legends-korean-on-mac-os-x/">
+                                <span class="button__text">League of Legends 맥(Mac OS X) 버전으로 한국 서버 접속</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

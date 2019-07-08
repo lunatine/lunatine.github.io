@@ -13,10 +13,10 @@
     
     <item>
       <title>RHEL/CentOS 6에서 heartbeat 오류</title>
-      <link>/2014/06/epel-6-heartbeat-error/</link>
+      <link>/2014/06/16/epel-6-heartbeat-error/</link>
       <pubDate>Mon, 16 Jun 2014 06:46:44 +0000</pubDate>
       
-      <guid>/2014/06/epel-6-heartbeat-error/</guid>
+      <guid>/2014/06/16/epel-6-heartbeat-error/</guid>
       <description>EPEL6 - heartbeat error  본 문서는 EPEL의 heartbeat 3.0.4-2 설치 및 사용 시 발생하는 오류에 대해서 설명하고 있습니다.
  환경 및 증상  운영체제 : RHEL 6.4 이하 EPEL 패키지
  heartbeat-3.0.4-2.el6.[i386/x86_64].rpm heartbeat-libs-3.0.4-2.el6.[i386/x86_64].rpm  증상

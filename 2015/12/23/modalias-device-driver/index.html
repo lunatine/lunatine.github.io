@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
+Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 PCI ids에서 자세히 확인 할 수 있습니다.
+modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2015/12/23/modalias-device-driver/" />
+
+
+<title>
+    
+    modalias와 장치 드라이버 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="modalias와 장치 드라이버">
+<meta itemprop="description" content="본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
+Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 PCI ids에서 자세히 확인 할 수 있습니다.
+modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.">
+
+
+<meta itemprop="datePublished" content="2015-12-23T06:13:19&#43;00:00" />
+<meta itemprop="dateModified" content="2015-12-23T06:13:19&#43;00:00" />
+<meta itemprop="wordCount" content="346">
+
+
+
+<meta itemprop="keywords" content="modalias,modinfo,device driver,lspci,pci.ids,kernel module," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="modalias와 장치 드라이버"/>
+<meta name="twitter:description" content="본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
+Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 PCI ids에서 자세히 확인 할 수 있습니다.
+modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다."/>
+
+
+
+<meta property="article:section" content="linux" />
+
+<meta property="article:published_time" content="2015-12-23 06:13:19 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>2 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2015/12/23/modalias-device-driver/">modalias와 장치 드라이버</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<p>본 문서는 <a href="http://lunatine.net/devtmpfs-udev" target="_blank">devtmpfs와 udev</a>에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.</p>
+
+<h2 id="device-driver">Device Driver</h2>
+
+<p>일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 <a href="http://pci-ids.ucw.cz/" target="_blank">PCI ids</a>에서 자세히 확인 할 수 있습니다.</p>
+
+<h2 id="modalias-해석">modalias 해석</h2>
+
+<p>예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.</p>
+
+<p>먼저 lspci에서 보여주는 RAID 카드의 정보는 아래와 같습니다.</p>
+
+<pre><code>$ lspci | grep -i &quot;raid bus&quot;
+03:00.0 RAID bus controller: Hewlett-Packard Company Smart Array Gen9 Controllers (rev 01)
+</code></pre>
+
+<p>해당 PCI 장치는 03:00.0에 존재하기 때문에 sysfs(/sys)에 해당 위치로 이동해 봅니다.</p>
+
+<pre><code>$ cd /sys/bus/pci/devices/0000\:03\:00.0/
+$ cat modalias
+pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00
+</code></pre>
+
+<p>해당 장치의 modalias정보를 열어보면 <code>pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00</code> 값을 확인 할 수 있는데 이 값을 좀 더 보기 편하게 나눠보면 아래와 같습니다.</p>
+
+<pre><code>pci:v0000103Cd00003239sv0000103Csd000021C0bc01sc04i00
+
+v 0000103C (벤더ID)
+d 00003239 (장치ID)
+sv 0000103C (서브시스템 벤더ID)
+sd 000021C0 (서브시스템 장치ID)
+bc 01 (Base Class)
+sc 04 (Sub Class)
+i 00 (프로그래밍 인터페이스)
+</code></pre>
+
+<p><a href="http://pci-ids.ucw.cz/" target="_blank">PCI ids</a>에서 벤더ID 103C를 검색해보면 <a href="https://pci-ids.ucw.cz/read/PC/103C" target="_blank">HP를 확인</a> 할 수 있으며 장치ID를 검색해보면 3239는 <a href="https://pci-ids.ucw.cz/read/PC/103c/3239" target="_blank">Smart Array Gen9 Controllers</a> 임을 알 수 있습니다. 여기에 서브시스템의 벤더와 장치 ID인 103C:21C0을 찾아보면 <a href="https://pci-ids.ucw.cz/read/PC/103c/3239/103c21c0" target="_blank">Smart Array P440ar</a> 까지 확인이 가능합니다.</p>
+
+<p>그리고 Base/Sub Class 값인 01 04에 대해서 확인해 보면 <a href="https://pci-ids.ucw.cz/read/PD/01/04" target="_blank">Mass Storage Controller-RAID bus controller</a>로 확인이 됩니다</p>
+
+<pre><code>103C
+↑ Hewlett-Packard
+103C:3239
+     ↑ Smart Array Gen9 Controllers
+103C:3239:103C 21C0
+          ↑ Smart Array P440ar
+01 Mass storage controller
+04 RAID bus controller
+</code></pre>
+
+<p>이러한 정보를 가지고 있는 하드웨어 장치에 대해서 커널 모듈을 로딩하기 위해서 udev에는 아래와 같은 룰이 있습니다.</p>
+
+<pre><code>DRIVER!=&quot;?*&quot;, ENV{MODALIAS}==&quot;?*&quot;, RUN{builtin}=&quot;kmod load $env{MODALIAS}&quot;
+</code></pre>
+
+<p>modalias에 매칭되는 모듈을 읽어들이도록 하는 매우 심플한 룰셋 입니다. 현재 앞에서 살펴본 RAID 카드를 위한 모듈의 modalias 정보를 보면 아래와 같습니다.</p>
+
+<p><img src="/images/2015/12/modinfo.png" alt="modinfo.png" /></p>
+
+<p>위에 우리가 찾아봤던 modalias값과 유사한 부분이 있는데 여기에서 <code>*</code>은 와일드카드로 모든 값에 매칭 된다는 표시입니다. 따라서, hpsa 모듈이 가진 modalias 값에 RAID 카드의 modalias가 매칭 되기 때문에 hpsa 드라이버가 로딩 되는 것 입니다. 추가로 다른 서브시스템 장치ID가 hpsa에 존재하는 것을 통해서 이 모델 뿐만 아니라 여러 RAID 카드를 지원하는 드라이버라는 것을 확인 할 수 있습니다.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/modalias">modalias</a></span><span class="tag"><a href="tags/modinfo">modinfo</a></span><span class="tag"><a href="tags/device-driver">device driver</a></span><span class="tag"><a href="tags/lspci">lspci</a></span><span class="tag"><a href="tags/pci.ids">pci.ids</a></span><span class="tag"><a href="tags/kernel-module">kernel module</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>346 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2015-12-23 15:13 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2016/02/19/about-load-average/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Load Average에 대하여</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2015/12/23/devtmpfs-udev/">
+                                <span class="button__text">devtmpfs와 udev</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

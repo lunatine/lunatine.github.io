@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
+megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
+커널 패치 내용은 아래와 같습니다.
+--- kernel-2.6.18-194.17.4/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 20:53:39.000000000 &#43;0530 &#43;&#43;&#43; kernel-2.6.18-194.26.1/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 21:23:56.000000000 &#43;0530 @@ -2992,6 &#43;3681,8 @@ megasas_register_aen(struct megasas_inst * Previously issued event registration includes * current request." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2014/02/10/megasas_register_aen0-already-registered/" />
+
+
+<title>
+    
+    megasas_register_aen[0]: already registered :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="megasas_register_aen[0]: already registered">
+<meta itemprop="description" content="MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
+megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
+커널 패치 내용은 아래와 같습니다.
+--- kernel-2.6.18-194.17.4/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 20:53:39.000000000 &#43;0530 &#43;&#43;&#43; kernel-2.6.18-194.26.1/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 21:23:56.000000000 &#43;0530 @@ -2992,6 &#43;3681,8 @@ megasas_register_aen(struct megasas_inst * Previously issued event registration includes * current request.">
+
+
+<meta itemprop="datePublished" content="2014-02-10T02:24:30&#43;00:00" />
+<meta itemprop="dateModified" content="2014-02-10T02:24:30&#43;00:00" />
+<meta itemprop="wordCount" content="95">
+
+
+
+<meta itemprop="keywords" content="faq,linux,rhel5,megasas_register_aen," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="megasas_register_aen[0]: already registered"/>
+<meta name="twitter:description" content="MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
+megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
+커널 패치 내용은 아래와 같습니다.
+--- kernel-2.6.18-194.17.4/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 20:53:39.000000000 &#43;0530 &#43;&#43;&#43; kernel-2.6.18-194.26.1/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c 2010-12-09 21:23:56.000000000 &#43;0530 @@ -2992,6 &#43;3681,8 @@ megasas_register_aen(struct megasas_inst * Previously issued event registration includes * current request."/>
+
+
+
+<meta property="article:section" content="linux" />
+
+<meta property="article:published_time" content="2014-02-10 02:24:30 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2014/02/10/megasas_register_aen0-already-registered/">megasas_register_aen[0]: already registered</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<h1 id="megaraid-기반-시스템의-메시지">MegaRAID 기반 시스템의 메시지</h1>
+
+<h2 id="증상-및-환경">증상 및 환경</h2>
+
+<p><a href="http://www.redhat.com" target="_blank">RHEL5</a> 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.</p>
+
+<pre><code>megasas_register_aen[0]: already registered
+</code></pre>
+
+<h2 id="원인">원인</h2>
+
+<p><a href="https://access.redhat.com/site/solutions/43634" target="_blank">RedHat 문서</a>에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.</p>
+
+<p>커널 패치 내용은 아래와 같습니다.</p>
+
+<pre><code>--- kernel-2.6.18-194.17.4/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c     2010-12-09 20:53:39.000000000 +0530
++++ kernel-2.6.18-194.26.1/linux-2.6.18.x86_64/drivers/scsi/megaraid/megaraid_sas.c     2010-12-09 21:23:56.000000000 +0530
+
+@@ -2992,6 +3681,8 @@ megasas_register_aen(struct megasas_inst
+         * Previously issued event registration includes
+         * current request. Nothing to do.
+         */
++       printk(KERN_INFO &quot;%s[%d]: already registered\n&quot;,
++               __FUNCTION__, instance-&gt;host-&gt;host_no);
+        return 0;
+    } else {
+        curr_aen.members.locale |= prev_aen.members.locale;
+
+</code></pre>
+
+<h2 id="관련-문서">관련 문서</h2>
+
+<ul>
+<li><a href="https://access.redhat.com/site/solutions/43634" target="_blank">Redhat Knowledgebase 43634</a></li>
+</ul>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/faq">faq</a></span><span class="tag"><a href="tags/linux">linux</a></span><span class="tag"><a href="tags/rhel5">rhel5</a></span><span class="tag"><a href="tags/megasas_register_aen">megasas_register_aen</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>95 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-02-10 11:24 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2014/02/14/mac-os-x-dlna-media-server-serviio/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Mac OS X - DLNA 미디어 서버 (Serviio)</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2014/02/10/mount-already-mounted-or-busy-mesiji/">
+                                <span class="button__text">mount : already mounted or busy 메시지</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

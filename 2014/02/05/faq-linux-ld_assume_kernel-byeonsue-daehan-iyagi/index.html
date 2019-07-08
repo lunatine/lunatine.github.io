@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만 LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.
+Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 NTPL(Native POSIX Thread Library) 였다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2014/02/05/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/" />
+
+
+<title>
+    
+    [FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기">
+<meta itemprop="description" content="간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만 LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.
+Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 NTPL(Native POSIX Thread Library) 였다.">
+
+
+<meta itemprop="datePublished" content="2014-02-05T17:40:40&#43;00:00" />
+<meta itemprop="dateModified" content="2014-02-05T17:40:40&#43;00:00" />
+<meta itemprop="wordCount" content="414">
+
+
+
+<meta itemprop="keywords" content="faq,linux,LD_ASSUME_KERNEL,kernel," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기"/>
+<meta name="twitter:description" content="간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만 LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.
+Linux 커널의 Threads 구조 변천사 LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 NTPL(Native POSIX Thread Library) 였다."/>
+
+
+
+<meta property="article:section" content="linux" />
+<meta property="article:section" content="kernel" />
+
+<meta property="article:published_time" content="2014-02-05 17:40:40 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>2 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2014/02/05/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/">[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<p>간혹, 특정 어플리케이션을 설치 후 실행 할 때 라이브러리 경로를 못 찾는 경우가 있다. (특히, 오라클, JAVA 등) 이러한 경우 LD_LIBRARY_PATH가 잘못 설정되어 문제가 되기도 하지만  LD_ASSUME_KERNEL 변수 때문에 발생하기도 한다.</p>
+
+<h1 id="linux-커널의-threads-구조-변천사">Linux 커널의 Threads 구조 변천사</h1>
+
+<p>LD_ASSUME_KERNEL 변수는 Linux 커널의 Threads 라이브러리 구조의 변천사와 관련이 있다. Linux 커널 2.6 버전 이전에는 POSIX Threads에 적합하지 않은 스레드 구조를 가지고 있었으며 Linux Threads를 개선하기 위한 2가지의 프로젝트가 가동 되었다. 그 중 하나는 IBM쪽 개발자들에 의한 NGPT (Next Generation POSIX Threads)이었고 다른 하나는 Redhat 개발자들에 의한 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library" target="_blank">NTPL</a>(Native POSIX Thread Library) 였다.결과적으로 NGPT는 사라지고 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library" target="_blank">NTPL</a>이 Redhat 9이 릴리즈 되면서 소개가 되었다. 하지만, 문제는 여기에서 발생한다.</p>
+
+<p>과거 자체적인 구조의 Threads 라이브러리를 가지고 있던 Linux를 개선하기위해 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library" target="_blank">NTPL</a>이 소개되었지만 기존 소프트웨어와 <a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library" target="_blank">NTPL</a>이 호환되지 않는 문제점이 발생하였다. 따라서, Redhat 9이 릴리즈 될 무렵에 3가지 구조의 Threads 라이브러리를 제공하게 되었는데</p>
+
+<ul>
+<li>/lib/tls/libpthread.so (Kernel 2.4.20 NPTL)</li>
+<li>/lib/i686/libpthread.so (Kernel 2.4.1의 비교적 최신 LinuxThreads - 32bit 기준)</li>
+<li>/lib/libpthread.so (Kernel 2.2.5의 오래된 LinuxThreads)</li>
+</ul>
+
+<p>이렇게 3가지의 라이브러리를 제공한 것은 기존의 어플리케이션과 호환성을 위한 것이다. 대부분의 어플리케이션은 <a href="http://en.wikipedia.org/wiki/Dynamic_Shared_Object" target="_blank">DSO</a>(Dynamic Shared Object) 형태로 링커를 통해서 라이브러리를 호출하는 구조이기 때문에 여러 종류의 라이브러리를 제공하는 구조를 취할 수 밖에 없었다.</p>
+
+<h1 id="ld-assume-kernel-변수의-의미">LD_ASSUME_KERNEL 변수의 의미</h1>
+
+<p>어플리케이션이 실행될 때 Dynamic Linker에 의해서 Shared Library를 링크하고 불러들이게 되는데 앞서 이야기한 대로 3가지 구조의 라이브러리가 존재하기 때문에 각 어플리케이션에 적합한 라이브러리를 링크할 필요성이 발생하였다.</p>
+
+<p>※ 일반적으로 별도의 라이브러리를 링크하기 위해서는 LD_LIBRARY_PATH와 같은 변수를 사용한다. 앞서 이야기한 libpthread의 3가지 타입은 특수한 경우이다.</p>
+
+<p>※ Dynamic Library 파일에는 해당 파일이 구동되기 위한 최소한의 OS ABI 버전 정보를 담고 있는데 (.note.ABI-tag로 불리우는 ELF note 섹션) 특정 라이브러리에 대해서 아래와 같은 명령으로 확인해 볼 수 있다. (아래는 RHEL5에서 실행한 결과)</p>
+
+<pre><code>$ eu-readelf -n /lib/libc-2.5.so
+Note section [ 1] '.note.ABI-tag' of 32 bytes at offset 0x174:
+  Owner          Data size  Type
+  GNU                   16  VERSION
+    OS: Linux, ABI: 2.6.9
+</code></pre>
+
+<p>3가지 구조의 라이브러리를 찾아가기 위해서 LD_ASSUME_KERNEL 이란 변수가 사용되게 되었고 이 변수를 해당 라이브러리의 ABI 버전으로 지정하여 적합한 라이브러리를 찾아가도록 지정하는 것이다.</p>
+
+<h1 id="ld-assume-kernel의-필요성">LD_ASSUME_KERNEL의 필요성?</h1>
+
+<p>결론적으로 이야기하면 현재의 Linux에서는 보통의 경우 해당 변수가 필요하지 않다. (현재는 GNU C 라이브러리에 NTPL이 완전히 통합되어 있다) 이러한 변수가 필요한 어플리케이션(최신버전의 Oracle에 대해서는 잘 모르기 때문에 확답하긴 어렵지만 적어도 9i 시절의 Oracle의 경우는 해당 변수가 필요하였다) 을 사용해야하는 경우가 아닌이상 필요없는 변수이다.</p>
+
+<p>만약, 필요성이 없음에서 설정되어서 문제를 일으킨다면 간단히 주석처리해버리자. 보통 .bash_profile, .cshrc과 같은 환경설정 파일에 등록되어있을 것이다.</p>
+
+<p>요즘 Linux에서 LD_ASSUME_KERNEL을 사용하면 어떻게 되는지 궁금한 분들은 아래와 같은 명령을 실행해보면 된다.</p>
+
+<pre><code>$ LD_ASSUME_KERNEL=2.4.20 ls
+</code></pre>
+
+<h1 id="마무리">마무리..</h1>
+
+<p>어찌보면 추억의 변수명이다. (요즘도 화두가 되는지는 모르겠다) 잊고 있던 변수명인데 오라클을 설치 중에 기본 명령도 안먹는 증상이 발생한다는 문의를 받고 확인하던 중에 발견하고 이 기회에 간단히 정리해 보았다.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/faq">faq</a></span><span class="tag"><a href="tags/linux">linux</a></span><span class="tag"><a href="tags/ld_assume_kernel">LD_ASSUME_KERNEL</a></span><span class="tag"><a href="tags/kernel">kernel</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>414 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-02-06 02:40 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2014/02/05/faq-linux-swappiness-gwanryeon/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">[FAQ] Linux Swappiness 관련</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2014/02/05/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/">
+                                <span class="button__text">[FAQ] VirtualBox에서 RHEL5 부팅 오류/멈춤 현상</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

@@ -13,10 +13,10 @@
     
     <item>
       <title>[FAQ] NIC의 순서가 부팅 때마다 바뀌는 증상</title>
-      <link>/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
+      <link>/2014/02/05/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
       <pubDate>Wed, 05 Feb 2014 17:39:30 +0000</pubDate>
       
-      <guid>/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
+      <guid>/2014/02/05/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
       <description>이미 여러 인터넷 커뮤니티에서 알려진대로 RHEL 기준으로 RHEL5 부터 서버를 리부팅 할 때 마다 네트워크 카드의 순서가 뒤 바뀌는 증상이 발생하곤 한다.
 예를 들어 PCI 장치번호로 00:08.0이 eth0 였고 00:09.0가 eth1이었는데 리부팅을 하고 보니 eth0가 eth1으로 잡히고 eth1이 eth2로 잡히는 증상 또는 서로 바뀌는 증상들이 발생하는 것이다.
 이것에 대한 해결 방법은 여러가지가 존재하는데 하나씩 살펴보면

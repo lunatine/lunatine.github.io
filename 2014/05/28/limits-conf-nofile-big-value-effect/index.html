@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
+해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
+nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2014/05/28/limits-conf-nofile-big-value-effect/" />
+
+
+<title>
+    
+    limits.conf와 오픈파일개수(nofile) 영향 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="limits.conf와 오픈파일개수(nofile) 영향">
+<meta itemprop="description" content="nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
+해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
+nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다.">
+
+
+<meta itemprop="datePublished" content="2014-05-28T06:50:58&#43;00:00" />
+<meta itemprop="dateModified" content="2014-05-28T06:50:58&#43;00:00" />
+<meta itemprop="wordCount" content="543">
+
+
+
+<meta itemprop="keywords" content="limits.conf,nofile,RLIMIT_NOFILE,getrlimit,slow," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="limits.conf와 오픈파일개수(nofile) 영향"/>
+<meta name="twitter:description" content="nofile Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.
+해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.
+nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수 nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수  최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다."/>
+
+
+
+<meta property="article:section" content="linux" />
+
+<meta property="article:published_time" content="2014-05-28 06:50:58 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>3 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2014/05/28/limits-conf-nofile-big-value-effect/">limits.conf와 오픈파일개수(nofile) 영향</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<h1 id="nofile">nofile</h1>
+
+<p>Linux에는 로그인 했을 때 얻는 쉘에 대해서 리소스를 제한하는 설정이 존재한다. 대표적으로 인증과정에서 pam_limits 모듈에 의해 적용되는 limits.conf 설정파일이 있다.</p>
+
+<p>해당 파일은 /etc/security/limits.conf에 있으며 최근 배포판에 사용되는 버전의 경우 /etc/security/limits.d/ 아래에 별도 설정파일을 가지고 있는 형태이다. 여기에 설정 된 값은 로그인 쉘에서 ulimit 명령을 통해 어떠한 값이 반영 되었는지 확인 할 수 있는데 보통 nofile, nproc 등의 설정을 많이 수정하는 편이다.</p>
+
+<pre><code>nofile : 해당 도메인(사용자, 그룹)이 오픈할 수 있는 최대 파일 개수
+nproc : 해당 도메인(사용자, 그룹)의 최대 프로세스 개수
+</code></pre>
+
+<p>최근 빅데이터가 화두가 되면서 Hadoop을 비롯한 많은 어플리케이션에서 대규모 데이터와 파일을 처리하는 과정에서 nofile의 수치를 높게 설정 할 필요성이 생겨났다. 본 문서에서는 이러한 값을 크게 잡았을 경우에 발생 할 수 있는 케이스에 대해서 설명한다.</p>
+
+<h1 id="case-서버가-느려졌다">Case : 서버가 느려졌다</h1>
+
+<p>HBase를 사용하는 서버시스템에서 많은 파일(데이터)을 처리하기 위해서 nofile을 매우 높은 값으로 수정한 서버가 있었다. 해당 서버의 경우는 10000000 정도의 값을 설정하였는데 이 서버에서 특이한 증상이 발견 되었다.</p>
+
+<p>우선 limits.conf 설정파일을 보면 아래와 같다.</p>
+
+<pre><code>*			soft	nofile	10000000
+*			hard	nofile	10000000
+</code></pre>
+
+<p>문제는 위 설정파일을 적용한 서버에서 pexpect를 이용해 작성한 자동화 스크립트를 사용하면 1~2초의 실행 지연이 발생하는 증상이 생겨났다. 원인을 찾기위해 해당 스크립트를 단순히 ls 명령만 실행하는 것으로 변경해도 지연증상은 발생하고 있었다.</p>
+
+<p>원인을 찾기 위해서 해당 스크립트를 실행할 때 생성되는 모든 프로세스에 대해 strace로 추적해보았더니 아래와 같은 인상적인 부분을 발견할 수 있었다.</p>
+
+<pre><code>close(3)                                = -1 EBADF (Bad file descriptor)
+close(4)                                = -1 EBADF (Bad file descriptor)
+close(5)                                = -1 EBADF (Bad file descriptor)
+... 생략 ...
+close(75821)                            = -1 EBADF (Bad file descriptor)
+close(75822)                            = -1 EBADF (Bad file descriptor)
+... 생략 ...
+</code></pre>
+
+<p>해당 메시지를 보자마자 &ldquo;아차&rdquo;하는 생각이 들어서 pexpect가 명령을 실행 할 때 사용하는 spawn 메소드의 동작형태를 확인해 봤다. 역시나, 명령을 실행할 때 생성하는 프로세스를 daemon화해서 실행하고 있었다. 이것이 문제였다.</p>
+
+<h2 id="daemon">Daemon</h2>
+
+<p>C언어로 Daemon 프로그램을 작성할 때 보통 아래 단계를 거쳐서 작성하도록 배우곤한다. (물론 구현하는 사람에 따라서 Double fork를 하기도 하고 조금은 다르지만 아래 부분은 대체로 적용한다)</p>
+
+<ul>
+<li>부모로부터 프로세스 분리 (fork)</li>
+<li>새로운 SID 설정 (setsid)</li>
+<li>파일 마스크값 설정 (umask)</li>
+<li>작업 디렉토리 설정 (chdir)</li>
+<li>파일디스크립터 정리 (close - getrlimit(RLIMIT_NOFILE))</li>
+<li>시그널처리 (signal)</li>
+</ul>
+
+<p>참고로, 전통적인 유닉스의 경우 _NOFILE을 이용해서 파일 디스크립터를 닫는 걸로 보통 설명하곤한다.</p>
+
+<p>실제 내부구현에서 차이가 조금씩은 있겠지만 대체로 Daemon처럼 Background에서 조용히 실행되도록 하는 경우에는 위의 내용을 적용하게 되는데 문제는 파일디스크립터 정리 부분에 있다.</p>
+
+<p>즉, limits.conf에 설정한 nofile이 10000000이기 때문에 getrlimit(RLIMIT_NOFILE)을 통해서 얻는 rlim_cur, rlim_max 값이 10000000이 되는 것이며 이를 루프를 통해서 명시적으로 close()하게 된다.</p>
+
+<p>이를 단순히 비교해 보고자 보통 많이 설정하는 nofile 값 8192일 때와 10000000일 때 디스크립터를 close()하는 부분을 C로 작성하여 소요되는 시간을 비교하면 아래와 같다.</p>
+
+<p><img src="/images/2014/May/20140528_01.png" alt="8192_10000000" /></p>
+
+<p>즉, nofile 값이 너무 크기 때문에 daemon 형태로 동작하는 프로세스는 명시적으로 파일 디스크립터를 닫는 작업에 드는 시간이 길어서 느린 것 처럼 느껴지는 것이다.</p>
+
+<h2 id="추천방안">추천방안</h2>
+
+<p>사실 해당서버에 저렇게까지 큰 값을 설정 할 필요는 없었다. 제한에 걸려서 문제가 생기지 않길 바라기 때문에 해당 값을 크게 잡아둔 것일 뿐이었다. 따라서, 적당한 값으로 변경하는 것이 가장 추천하는 방안이다.</p>
+
+<p>보통 많은 데이터와 소켓 통신을 하는 서버의 경우도 65535 또는 131072 정도면 큰 문제 없이 사용 할 수 있다.</p>
+
+<p>또한, 서버에서 모든 프로세스가 위와 같은 큰 리소스제한을 갖고 사용될 필요가 없기 때문에 더 높은 리소스 제한이 필요한 프로세스가 속한 도메인(사용자, 그룹)을 명시적으로 지정해서 설정하는 것을 권장한다.</p>
+
+<pre><code>예) appuser 계정으로 서비스를 운영할 경우
+appuser			soft	nofile	131072
+appuser			hard	nofile	131072
+</code></pre>
+
+<h2 id="여담">여담</h2>
+
+<p>사실 파일 디스크립터가 닫히는 과정을 알고는 있지만 limits.conf 설정 값 때문에 단순한 스크립트 실행이 체감할 정도로 지연이 발생할거라고는 생각지 못했다. 역시 경험은 중요하다.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/limits.conf">limits.conf</a></span><span class="tag"><a href="tags/nofile">nofile</a></span><span class="tag"><a href="tags/rlimit_nofile">RLIMIT_NOFILE</a></span><span class="tag"><a href="tags/getrlimit">getrlimit</a></span><span class="tag"><a href="tags/slow">slow</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>543 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-05-28 15:50 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2014/06/12/yum-repository-checksum-error/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">yum 저장소에서 checksum error 발생</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2014/04/21/mevericks-java6-enable/">
+                                <span class="button__text">Mavericks에서 JAVA6 사용하기</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

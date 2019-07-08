@@ -13,20 +13,20 @@
     
     <item>
       <title>nf_conntrack과 docker</title>
-      <link>/2018/04/nf_conntrackgwa-docker/</link>
+      <link>/2018/04/12/nf_conntrackgwa-docker/</link>
       <pubDate>Thu, 12 Apr 2018 08:35:03 +0000</pubDate>
       
-      <guid>/2018/04/nf_conntrackgwa-docker/</guid>
+      <guid>/2018/04/12/nf_conntrackgwa-docker/</guid>
       <description>본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
 nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다.</description>
     </item>
     
     <item>
       <title>[FAQ] ldirectord의 성능이 안나오는 증상</title>
-      <link>/2015/07/faq-ldirectord-performance-issue/</link>
+      <link>/2015/07/17/faq-ldirectord-performance-issue/</link>
       <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
       
-      <guid>/2015/07/faq-ldirectord-performance-issue/</guid>
+      <guid>/2015/07/17/faq-ldirectord-performance-issue/</guid>
       <description>요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
 주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
 환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다.</description>
@@ -34,10 +34,10 @@ nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_c
     
     <item>
       <title>ONBOOT=no 옵션 적용이 안되는 증상</title>
-      <link>/2015/02/onboot-no-options-does-not-work/</link>
+      <link>/2015/02/11/onboot-no-options-does-not-work/</link>
       <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
       
-      <guid>/2015/02/onboot-no-options-does-not-work/</guid>
+      <guid>/2015/02/11/onboot-no-options-does-not-work/</guid>
       <description>RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
 시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
 DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
@@ -46,10 +46,10 @@ DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 �
     
     <item>
       <title>[Mac OS X] Wireshark 화면 문제</title>
-      <link>/2014/07/wireshark-on-mac-os-x-display-error/</link>
+      <link>/2014/07/09/wireshark-on-mac-os-x-display-error/</link>
       <pubDate>Wed, 09 Jul 2014 09:00:52 +0000</pubDate>
       
-      <guid>/2014/07/wireshark-on-mac-os-x-display-error/</guid>
+      <guid>/2014/07/09/wireshark-on-mac-os-x-display-error/</guid>
       <description>Wireshark on Mac os X  본 문서는 Wireshark를 Mac에서 사용할 때 거의 겪을일이 없는 증상에 대해서 소개하고 있습니다
  예전부터 Mac OS X에 Wireshark를 설치하려면 X11 서버가 필요했고 폰트 모양이 이쁘지 않아 설정파일을 변경하는 등의 작업을 해야만 했다. 최근에 Wireshark를 쓸 일이 생겨서 최신버전을 다운받아 설치하니 아래 gtk 설정파일에 폰트가 &amp;ldquo;Lucida Grande&amp;rdquo;로 이쁘게 잘 들어가 있었다. (개발사에서도 이런 불만사항을 반영했나보다)
 $ vi /Applications/Wireshark.app/Contents/Resources/themes/Clearlooks-Quicksilver-OSX/gtk-2.0/pre_gtkrc [폰트 설정] gtk-font-name=&amp;quot;Lucida Grande 12&amp;quot;  그런데, 아래 화면처럼 안보이는 증상이 발생했다.</description>
@@ -57,10 +57,10 @@ $ vi /Applications/Wireshark.app/Contents/Resources/themes/Clearlooks-Quicksilve
     
     <item>
       <title>[FAQ] NIC의 순서가 부팅 때마다 바뀌는 증상</title>
-      <link>/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
+      <link>/2014/02/05/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
       <pubDate>Wed, 05 Feb 2014 17:39:30 +0000</pubDate>
       
-      <guid>/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
+      <guid>/2014/02/05/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
       <description>이미 여러 인터넷 커뮤니티에서 알려진대로 RHEL 기준으로 RHEL5 부터 서버를 리부팅 할 때 마다 네트워크 카드의 순서가 뒤 바뀌는 증상이 발생하곤 한다.
 예를 들어 PCI 장치번호로 00:08.0이 eth0 였고 00:09.0가 eth1이었는데 리부팅을 하고 보니 eth0가 eth1으로 잡히고 eth1이 eth2로 잡히는 증상 또는 서로 바뀌는 증상들이 발생하는 것이다.
 이것에 대한 해결 방법은 여러가지가 존재하는데 하나씩 살펴보면

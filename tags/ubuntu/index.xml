@@ -13,10 +13,10 @@
     
     <item>
       <title>Ubuntu에서 Swap 파티션 비활성화</title>
-      <link>/2019/01/disable-swap-partition-on-ubuntu/</link>
+      <link>/2019/01/29/disable-swap-partition-on-ubuntu/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>/2019/01/disable-swap-partition-on-ubuntu/</guid>
+      <guid>/2019/01/29/disable-swap-partition-on-ubuntu/</guid>
       <description>일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.
 사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.
 이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.
@@ -25,10 +25,10 @@ initramfs 수정 및 업데이트 보통 아래 위치에 설정파일이 존재
     
     <item>
       <title>[FAQ] Upstart 사용에 대해서</title>
-      <link>/2014/02/faq-upstart-sayonge-daehaeseo/</link>
+      <link>/2014/02/05/faq-upstart-sayonge-daehaeseo/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:32 +0000</pubDate>
       
-      <guid>/2014/02/faq-upstart-sayonge-daehaeseo/</guid>
+      <guid>/2014/02/05/faq-upstart-sayonge-daehaeseo/</guid>
       <description>Upstart 기존 Unix &amp;ldquo;System V&amp;rdquo;에 있던 init 시스템을 대체하기 위한 프로그램 입니다. init을 대체할 뿐만 아니라 다양한 기능을 제공 합니다 또한, upstart는 이벤트 기반으로 동작하기 때문에 설정 내용에 따라서 init 뿐만 아니라 cron, atd, anacron을 대체 할 수도 있으며 inetd와 유사하게 설정도 가능합니다.
 예제로 알아보는 job 설정  기본적으로 upstart의 job 설정파일은 /etc/init 아래에 존재 합니다 상세한 내용보다는 즉시 써먹을 만한 간단한 설정에 대해서 소개 합니다  예제 : tty1 설정 파일  # tty1 - getty # # This service maintains a getty on tty1 from the point the system is # started until it is shut down again.</description>
     </item>

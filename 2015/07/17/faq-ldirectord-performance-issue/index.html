@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
+주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
+환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2015/07/17/faq-ldirectord-performance-issue/" />
+
+
+<title>
+    
+    [FAQ] ldirectord의 성능이 안나오는 증상 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="[FAQ] ldirectord의 성능이 안나오는 증상">
+<meta itemprop="description" content="요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
+주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
+환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다.">
+
+
+<meta itemprop="datePublished" content="2015-07-17T11:06:29&#43;00:00" />
+<meta itemprop="dateModified" content="2015-07-17T11:06:29&#43;00:00" />
+<meta itemprop="wordCount" content="256">
+
+
+
+<meta itemprop="keywords" content="slow,RHEL,CentOS,lvs,ldirectord,gro," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="[FAQ] ldirectord의 성능이 안나오는 증상"/>
+<meta name="twitter:description" content="요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
+주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
+환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다."/>
+
+
+
+<meta property="article:section" content="linux" />
+<meta property="article:section" content="centos" />
+<meta property="article:section" content="network" />
+
+<meta property="article:published_time" content="2015-07-17 11:06:29 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>2 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2015/07/17/faq-ldirectord-performance-issue/">[FAQ] ldirectord의 성능이 안나오는 증상</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<p>요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.</p>
+
+<p>주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.</p>
+
+<h2 id="환경">환경</h2>
+
+<pre><code>OS: RHEL/CentOS 6.x
+Package:
+  - heartbeat: 3.0.4-2.el6
+  - ldirectord: 3.9.6-1.fc22.x86_64
+
+참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다
+</code></pre>
+
+<h2 id="증상">증상</h2>
+
+<p>ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다. 구형 장비보다 더 높은 사양과 비교적 더 최근 버전을 사용하는데 서비스 할 수 없을 만큼 속도가 나오지 않았다.</p>
+
+<p>심지어 노드간의 균형이 맞지 않는 증상은 Bonus.</p>
+
+<ul>
+<li>응답속도의 지연: 100ms 이상. 심하면 500ms도 넘어간다. (미쳤다)</li>
+<li>노드 불균형: 스케줄러를 rr(round robin)로 설정했는데 응답속도의 지연이 발생하다보니 불균형 발생.</li>
+</ul>
+
+<h2 id="해결">해결</h2>
+
+<p>해당 증상을 일으키는 요인은 Redhat이 권장하지 않는 패키지를 설치한 내가 잘못이다. 좀더 끝까지 파고들지는 못했으나 노드에 오고가는 패킷을 보니 재전송이 빈번하게 발생하는 것을 보았고 이 증상을 바탕으로 문서들을 검색해 본 결과 <a href="http://www.gossamer-threads.com/lists/lvs/users/24305" target="_blank">이 글</a>에서 보여지는 증상과 꽤나 유사해서 GRO(generic-receive-offload)를 꺼봤더니 해결.</p>
+
+<ul>
+<li>GRO는 RHEL/CentOS 6에서 소개된 기능으로 LRO (Large Receive Offload)와 유사한 형태로 들어오는(inbound) 트래픽을 보다 CPU 리소스 소모 없이 처리하는 기법이다.</li>
+</ul>
+
+<p>따라서, 아래와 같이 설정하면 된다</p>
+
+<pre><code># GRO 끄기
+$ sudo ethtool -K eth0 gro off
+
+# 부팅 때 마다 적용
+echo &quot;ethtool -K eth0 gro off&quot; &gt;&gt; /etc/rc.local
+</code></pre>
+
+<h2 id="결론">결론</h2>
+
+<p>지금까지 heartbeat+ldirectord 환경을 운영하면서 다양한 증상을 겪어보았는데 이제는 ldirectord를 떠나보내 줄 때가 된 것 같다. 말도 많고 탈도 많은 ldirectord를 떠나보내고 <a href="http://www.keepalived.org/" target="_blank">Keepalived</a>나 <a href="www.haproxy.org/" target="_blank">HAProxy</a>, <a href="https://www.google.co.kr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCEQFjAAahUKEwjnuMCQguLGAhWMFZQKHQILC8Y&amp;url=http%3A%2F%2Fsiag.nu%2Fpen%2F&amp;ei=7OCoVeeSHIyr0ASClqywDA&amp;usg=AFQjCNG-8d595u8BUHQLAbTdIrwbmBfr3A" target="_blank">Pen</a> 등을 사용하도록 하자. (돈이 많으신 분은 네트워크 밸런서를 구매하시고)</p>
+
+<p>그래도, 습관이 어디 가겠냐만&hellip;</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/slow">slow</a></span><span class="tag"><a href="tags/rhel">RHEL</a></span><span class="tag"><a href="tags/centos">CentOS</a></span><span class="tag"><a href="tags/lvs">lvs</a></span><span class="tag"><a href="tags/ldirectord">ldirectord</a></span><span class="tag"><a href="tags/gro">gro</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>256 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2015-07-17 20:06 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2015/07/22/tip-bash-brace-expansion/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">[TIP] Bash - 반복 출력</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2015/07/05/movie-nightcrawler-2015/">
+                                <span class="button__text">[영화] 나이트 크롤러</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

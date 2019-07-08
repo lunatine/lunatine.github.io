@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
+시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
+DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
+  증상 eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2015/02/11/onboot-no-options-does-not-work/" />
+
+
+<title>
+    
+    ONBOOT=no 옵션 적용이 안되는 증상 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="ONBOOT=no 옵션 적용이 안되는 증상">
+<meta itemprop="description" content="RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
+시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
+DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
+  증상 eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임.">
+
+
+<meta itemprop="datePublished" content="2015-02-11T10:14:36&#43;00:00" />
+<meta itemprop="dateModified" content="2015-02-11T10:14:36&#43;00:00" />
+<meta itemprop="wordCount" content="224">
+
+
+
+<meta itemprop="keywords" content="linux,RHEL,PCIe,bnx2x,hotplug,onboot=no,network," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="ONBOOT=no 옵션 적용이 안되는 증상"/>
+<meta name="twitter:description" content="RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
+시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
+DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음
+  증상 eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임."/>
+
+
+
+<meta property="article:section" content="linux" />
+<meta property="article:section" content="network" />
+
+<meta property="article:published_time" content="2015-02-11 10:14:36 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>2 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2015/02/11/onboot-no-options-does-not-work/">ONBOOT=no 옵션 적용이 안되는 증상</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<p>RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.</p>
+
+<h2 id="시스템-환경">시스템 환경</h2>
+
+<ul>
+<li>OS: RHEL 6 64bit</li>
+<li>NIC: Broadcom Corporation NetXtreme II BCM57810 10G</li>
+<li>Driver: bnx2x 1.78.80</li>
+
+<li><p>설정파일</p>
+
+<pre><code>DEVICE=eth1
+BOOTPROTO=static
+ONBOOT=no
+</code></pre></li>
+
+<li><p>기타: NetworkManager를 사용하지 않음</p></li>
+</ul>
+
+<h2 id="증상">증상</h2>
+
+<p>eth1에 ONBOOT=no로 설정하였음에도 불구하고 재부팅을 하면 eth1 인터페이스가 up 상태로 올라오는 증상이 보임.</p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p>설정파일 옵션 중에 HOTPLUG라는 옵션이 있다. 레드햇 매뉴얼에 따르면</p>
+
+<pre><code>HOTPLUG=answer
+  where answer is one of the following:
+    yes — This device should be activated when it is hot-plugged (this is the default option).
+    no — This device should not be activated when it is hot-plugged.
+
+The HOTPLUG=no option can be used to prevent a channel bonding interface from being activated when a bonding kernel module is loaded.
+</code></pre>
+
+<p>hot-plug로 인식될 때 장비를 활성화 할지 여부를 지정하는 옵션이다. 여러 환경에서 재현 테스트를 해보면 좋겠지만 여의치 않아서 몇 가지 테스트만 해 본 결과 PCIe NIC 카드 때문으로 보인다.</p>
+
+<p>즉, 시스템 환경의 BCM57810 NIC카드는 서버의 메인보드에 달린 NIC이 아니라 별도의 10G NIC을 장착하였기 때문에 부팅 때 bnx2x 드라이버 모듈이 로딩 되면서 해당 NIC을 hot-plug 장치로 처리하는 것으로 보인다.</p>
+
+<h2 id="결론">결론</h2>
+
+<p>아무튼, 설정파일에 해당 네트워크 인터페이스가 부팅 때 활성화 되지 않기를 원한다면 ONBOOT와 HOTPLUG 옵션 모두 설정해 주는 것이 좋다.</p>
+
+<pre><code>DEVICE=eth1
+BOOTPROTO=static
+HOTPLUG=no
+ONBOOT=no
+</code></pre>
+
+<h4 id="끝">끝</h4>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/linux">linux</a></span><span class="tag"><a href="tags/rhel">RHEL</a></span><span class="tag"><a href="tags/pcie">PCIe</a></span><span class="tag"><a href="tags/bnx2x">bnx2x</a></span><span class="tag"><a href="tags/hotplug">hotplug</a></span><span class="tag"><a href="tags/onbootno">onboot=no</a></span><span class="tag"><a href="tags/network">network</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>224 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2015-02-11 19:14 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2015/02/22/movie-walking-among-the-tombstones/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">[영화] 툼스톤</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2015/01/29/glibc-ghost-vulnerability/">
+                                <span class="button__text">glibc 취약점 GHOST (CVE-2015-0235)</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

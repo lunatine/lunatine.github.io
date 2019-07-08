@@ -13,10 +13,10 @@
     
     <item>
       <title>Ubuntu에서 Swap 파티션 비활성화</title>
-      <link>/2019/01/disable-swap-partition-on-ubuntu/</link>
+      <link>/2019/01/29/disable-swap-partition-on-ubuntu/</link>
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
-      <guid>/2019/01/disable-swap-partition-on-ubuntu/</guid>
+      <guid>/2019/01/29/disable-swap-partition-on-ubuntu/</guid>
       <description>일반적으로 Linux에서 swap은 전용 파티션을 구성하거나 swap 파일을 생성해서 사용합니다. 그리고 파티션의 경우에는 /etc/fstab에 설정되어 부팅 할 때 활성화 되도록 되어있습니다.
 사용자가 swap을 영구적으로 비활성화 하고 싶을 경우에는 간단히 /etc/fstab을 주석처리하는 형태로 비활성화 하는데 Ubuntu의 경우에는 /etc/fstab 설정파일에서 삭제하더라도 부팅 했을 때 활성화 되는 경우가 있습니다.
 이는 swap 관련된 설정이 파일시스템 설정에만 존재하는 것이 아니라 부팅할 때 사용하는 initramfs 이미지에도 설정되어있기 때문입니다.
@@ -25,10 +25,10 @@ initramfs 수정 및 업데이트 보통 아래 위치에 설정파일이 존재
     
     <item>
       <title>비 정상적인 Swap 수치</title>
-      <link>/2019/01/abnormal-swap-values/</link>
+      <link>/2019/01/29/abnormal-swap-values/</link>
       <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
       
-      <guid>/2019/01/abnormal-swap-values/</guid>
+      <guid>/2019/01/29/abnormal-swap-values/</guid>
       <description>증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
 $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/+ buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다.</description>
     </item>

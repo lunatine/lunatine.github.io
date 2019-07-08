@@ -27,7 +27,7 @@
   </url>
   
   <url>
-    <loc>/2019/06/rhel-8-release/</loc>
+    <loc>/2019/06/21/rhel-8-release/</loc>
     <lastmod>2019-06-21T14:00:00+09:00</lastmod>
   </url>
   
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>/2019/03/high-iostat-util-on-nvme/</loc>
+    <loc>/2019/03/22/high-iostat-util-on-nvme/</loc>
     <lastmod>2019-03-22T06:16:42+00:00</lastmod>
   </url>
   
@@ -109,7 +109,7 @@
   </url>
   
   <url>
-    <loc>/2019/01/disable-swap-partition-on-ubuntu/</loc>
+    <loc>/2019/01/29/disable-swap-partition-on-ubuntu/</loc>
     <lastmod>2019-01-29T08:31:25+00:00</lastmod>
   </url>
   
@@ -156,7 +156,7 @@
   </url>
   
   <url>
-    <loc>/2019/01/abnormal-swap-values/</loc>
+    <loc>/2019/01/29/abnormal-swap-values/</loc>
     <lastmod>2019-01-29T08:29:40+00:00</lastmod>
   </url>
   
@@ -167,7 +167,7 @@
   </url>
   
   <url>
-    <loc>/2019/01/improve-ext4-format-speed/</loc>
+    <loc>/2019/01/29/improve-ext4-format-speed/</loc>
     <lastmod>2019-01-29T08:26:19+00:00</lastmod>
   </url>
   
@@ -196,7 +196,7 @@
   </url>
   
   <url>
-    <loc>/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</loc>
+    <loc>/2018/07/17/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/</loc>
     <lastmod>2018-07-17T04:19:05+00:00</lastmod>
   </url>
   
@@ -261,7 +261,7 @@
   </url>
   
   <url>
-    <loc>/2018/04/nf_conntrackgwa-docker/</loc>
+    <loc>/2018/04/12/nf_conntrackgwa-docker/</loc>
     <lastmod>2018-04-12T08:35:03+00:00</lastmod>
   </url>
   
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>/2016/08/virtualbox-crash-on-mac-os-x/</loc>
+    <loc>/2016/08/29/virtualbox-crash-on-mac-os-x/</loc>
     <lastmod>2016-08-29T04:56:04+00:00</lastmod>
   </url>
   
@@ -331,7 +331,7 @@
   </url>
   
   <url>
-    <loc>/2016/07/numa-with-linux/</loc>
+    <loc>/2016/07/14/numa-with-linux/</loc>
     <lastmod>2016-07-14T06:18:34+00:00</lastmod>
   </url>
   
@@ -372,7 +372,7 @@
   </url>
   
   <url>
-    <loc>/2016/03/bash-faq-part-1/</loc>
+    <loc>/2016/03/21/bash-faq-part-1/</loc>
     <lastmod>2016-03-21T07:39:59+00:00</lastmod>
   </url>
   
@@ -413,7 +413,7 @@
   </url>
   
   <url>
-    <loc>/2016/02/about-load-average/</loc>
+    <loc>/2016/02/19/about-load-average/</loc>
     <lastmod>2016-02-19T07:13:33+00:00</lastmod>
   </url>
   
@@ -501,7 +501,7 @@
   </url>
   
   <url>
-    <loc>/2015/12/modalias-device-driver/</loc>
+    <loc>/2015/12/23/modalias-device-driver/</loc>
     <lastmod>2015-12-23T06:13:19+00:00</lastmod>
   </url>
   
@@ -530,7 +530,7 @@
   </url>
   
   <url>
-    <loc>/2015/12/devtmpfs-udev/</loc>
+    <loc>/2015/12/23/devtmpfs-udev/</loc>
     <lastmod>2015-12-23T06:11:39+00:00</lastmod>
   </url>
   
@@ -553,7 +553,7 @@
   </url>
   
   <url>
-    <loc>/2015/12/linux-booting/</loc>
+    <loc>/2015/12/18/linux-booting/</loc>
     <lastmod>2015-12-18T07:17:02+00:00</lastmod>
   </url>
   
@@ -594,7 +594,7 @@
   </url>
   
   <url>
-    <loc>/2015/08/tip-ssh-github-url-with-http-proxy/</loc>
+    <loc>/2015/08/12/tip-ssh-github-url-with-http-proxy/</loc>
     <lastmod>2015-08-12T05:29:18+00:00</lastmod>
   </url>
   
@@ -659,7 +659,7 @@
   </url>
   
   <url>
-    <loc>/2015/07/junos-pulse-on-el-capitan/</loc>
+    <loc>/2015/07/31/junos-pulse-on-el-capitan/</loc>
     <lastmod>2015-07-31T08:16:11+00:00</lastmod>
   </url>
   
@@ -682,7 +682,7 @@
   </url>
   
   <url>
-    <loc>/2015/07/tip-bash-brace-expansion/</loc>
+    <loc>/2015/07/22/tip-bash-brace-expansion/</loc>
     <lastmod>2015-07-22T06:16:00+00:00</lastmod>
   </url>
   
@@ -705,7 +705,7 @@
   </url>
   
   <url>
-    <loc>/2015/07/faq-ldirectord-performance-issue/</loc>
+    <loc>/2015/07/17/faq-ldirectord-performance-issue/</loc>
     <lastmod>2015-07-17T11:06:29+00:00</lastmod>
   </url>
   
@@ -734,7 +734,7 @@
   </url>
   
   <url>
-    <loc>/2015/07/movie-nightcrawler-2015/</loc>
+    <loc>/2015/07/05/movie-nightcrawler-2015/</loc>
     <lastmod>2015-07-05T08:26:42+00:00</lastmod>
   </url>
   
@@ -811,7 +811,7 @@
   </url>
   
   <url>
-    <loc>/2015/03/kakaotalk-theme-iphone/</loc>
+    <loc>/2015/03/07/kakaotalk-theme-iphone/</loc>
     <lastmod>2015-03-07T19:58:32+00:00</lastmod>
   </url>
   
@@ -822,7 +822,7 @@
   </url>
   
   <url>
-    <loc>/2015/02/movie-slow-video-2014/</loc>
+    <loc>/2015/02/22/movie-slow-video-2014/</loc>
     <lastmod>2015-02-22T09:41:56+00:00</lastmod>
   </url>
   
@@ -869,7 +869,7 @@
   </url>
   
   <url>
-    <loc>/2015/02/movie-the-lego-movie-2014/</loc>
+    <loc>/2015/02/22/movie-the-lego-movie-2014/</loc>
     <lastmod>2015-02-22T09:20:07+00:00</lastmod>
   </url>
   
@@ -880,7 +880,7 @@
   </url>
   
   <url>
-    <loc>/2015/02/movie-gone-girl-2014/</loc>
+    <loc>/2015/02/22/movie-gone-girl-2014/</loc>
     <lastmod>2015-02-22T09:07:47+00:00</lastmod>
   </url>
   
@@ -897,7 +897,7 @@
   </url>
   
   <url>
-    <loc>/2015/02/movie-punisher-2013/</loc>
+    <loc>/2015/02/22/movie-punisher-2013/</loc>
     <lastmod>2015-02-22T08:54:09+00:00</lastmod>
   </url>
   
@@ -926,7 +926,7 @@
   </url>
   
   <url>
-    <loc>/2015/02/movie-walking-among-the-tombstones/</loc>
+    <loc>/2015/02/22/movie-walking-among-the-tombstones/</loc>
     <lastmod>2015-02-22T08:42:20+00:00</lastmod>
   </url>
   
@@ -937,7 +937,7 @@
   </url>
   
   <url>
-    <loc>/2015/02/onboot-no-options-does-not-work/</loc>
+    <loc>/2015/02/11/onboot-no-options-does-not-work/</loc>
     <lastmod>2015-02-11T10:14:36+00:00</lastmod>
   </url>
   
@@ -990,7 +990,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/glibc-ghost-vulnerability/</loc>
+    <loc>/2015/01/29/glibc-ghost-vulnerability/</loc>
     <lastmod>2015-01-29T19:54:32+00:00</lastmod>
   </url>
   
@@ -1025,7 +1025,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/movie-robo-g/</loc>
+    <loc>/2015/01/21/movie-robo-g/</loc>
     <lastmod>2015-01-21T14:12:33+00:00</lastmod>
   </url>
   
@@ -1054,7 +1054,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/movie-american-gangster/</loc>
+    <loc>/2015/01/21/movie-american-gangster/</loc>
     <lastmod>2015-01-21T13:39:42+00:00</lastmod>
   </url>
   
@@ -1083,7 +1083,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/python27-34-on-rhel-centos/</loc>
+    <loc>/2015/01/21/python27-34-on-rhel-centos/</loc>
     <lastmod>2015-01-21T06:27:21+00:00</lastmod>
   </url>
   
@@ -1118,7 +1118,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/movie-intruders/</loc>
+    <loc>/2015/01/20/movie-intruders/</loc>
     <lastmod>2015-01-20T15:03:30+00:00</lastmod>
   </url>
   
@@ -1135,7 +1135,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/movie-hwa-ee/</loc>
+    <loc>/2015/01/20/movie-hwa-ee/</loc>
     <lastmod>2015-01-20T14:53:36+00:00</lastmod>
   </url>
   
@@ -1158,7 +1158,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/connect-to-tax-refund-site-on-mac/</loc>
+    <loc>/2015/01/15/connect-to-tax-refund-site-on-mac/</loc>
     <lastmod>2015-01-15T07:34:29+00:00</lastmod>
   </url>
   
@@ -1223,7 +1223,7 @@
   </url>
   
   <url>
-    <loc>/2015/01/rhel6-intel_idle-and-c-states/</loc>
+    <loc>/2015/01/06/rhel6-intel_idle-and-c-states/</loc>
     <lastmod>2015-01-06T17:02:03+00:00</lastmod>
   </url>
   
@@ -1252,7 +1252,7 @@
   </url>
   
   <url>
-    <loc>/2014/10/thp-and-page-allocation-error/</loc>
+    <loc>/2014/10/29/thp-and-page-allocation-error/</loc>
     <lastmod>2014-10-29T09:36:11+00:00</lastmod>
   </url>
   
@@ -1287,12 +1287,12 @@
   </url>
   
   <url>
-    <loc>/2014/10/about-systemd/</loc>
+    <loc>/2014/10/21/about-systemd/</loc>
     <lastmod>2014-10-21T14:15:46+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/08/linux-too-many-levels-of-symbolic-links/</loc>
+    <loc>/2014/08/19/linux-too-many-levels-of-symbolic-links/</loc>
     <lastmod>2014-08-19T05:55:07+00:00</lastmod>
   </url>
   
@@ -1315,7 +1315,7 @@
   </url>
   
   <url>
-    <loc>/2014/08/tip-vi-write-with-root-privilege/</loc>
+    <loc>/2014/08/12/tip-vi-write-with-root-privilege/</loc>
     <lastmod>2014-08-12T05:04:35+00:00</lastmod>
   </url>
   
@@ -1362,7 +1362,7 @@
   </url>
   
   <url>
-    <loc>/2014/07/brew-error-on-mac-os-x-10-10-yosemite/</loc>
+    <loc>/2014/07/28/brew-error-on-mac-os-x-10-10-yosemite/</loc>
     <lastmod>2014-07-28T08:20:31+00:00</lastmod>
   </url>
   
@@ -1391,7 +1391,7 @@
   </url>
   
   <url>
-    <loc>/2014/07/wireshark-on-mac-os-x-display-error/</loc>
+    <loc>/2014/07/09/wireshark-on-mac-os-x-display-error/</loc>
     <lastmod>2014-07-09T09:00:52+00:00</lastmod>
   </url>
   
@@ -1414,7 +1414,7 @@
   </url>
   
   <url>
-    <loc>/2014/06/chrome-icon-error-on-docky/</loc>
+    <loc>/2014/06/23/chrome-icon-error-on-docky/</loc>
     <lastmod>2014-06-23T11:12:26+00:00</lastmod>
   </url>
   
@@ -1479,7 +1479,7 @@
   </url>
   
   <url>
-    <loc>/2014/06/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</loc>
+    <loc>/2014/06/17/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</loc>
     <lastmod>2014-06-17T10:20:13+00:00</lastmod>
   </url>
   
@@ -1502,7 +1502,7 @@
   </url>
   
   <url>
-    <loc>/2014/06/epel-6-heartbeat-error/</loc>
+    <loc>/2014/06/16/epel-6-heartbeat-error/</loc>
     <lastmod>2014-06-16T06:46:44+00:00</lastmod>
   </url>
   
@@ -1555,7 +1555,7 @@
   </url>
   
   <url>
-    <loc>/2014/06/yum-repository-checksum-error/</loc>
+    <loc>/2014/06/12/yum-repository-checksum-error/</loc>
     <lastmod>2014-06-12T06:06:12+00:00</lastmod>
   </url>
   
@@ -1578,7 +1578,7 @@
   </url>
   
   <url>
-    <loc>/2014/05/limits-conf-nofile-big-value-effect/</loc>
+    <loc>/2014/05/28/limits-conf-nofile-big-value-effect/</loc>
     <lastmod>2014-05-28T06:50:58+00:00</lastmod>
   </url>
   
@@ -1589,7 +1589,7 @@
   </url>
   
   <url>
-    <loc>/2014/04/mevericks-java6-enable/</loc>
+    <loc>/2014/04/21/mevericks-java6-enable/</loc>
     <lastmod>2014-04-21T08:57:57+00:00</lastmod>
   </url>
   
@@ -1618,7 +1618,7 @@
   </url>
   
   <url>
-    <loc>/2014/03/faq-telnet-hangeulibryeog-munje/</loc>
+    <loc>/2014/03/25/faq-telnet-hangeulibryeog-munje/</loc>
     <lastmod>2014-03-25T15:55:30+00:00</lastmod>
   </url>
   
@@ -1641,7 +1641,7 @@
   </url>
   
   <url>
-    <loc>/2014/03/faq-telnet-connection-failed/</loc>
+    <loc>/2014/03/25/faq-telnet-connection-failed/</loc>
     <lastmod>2014-03-25T15:40:43+00:00</lastmod>
   </url>
   
@@ -1664,7 +1664,7 @@
   </url>
   
   <url>
-    <loc>/2014/03/virtualbox-rhel5-64bit-boot-error-lapic/</loc>
+    <loc>/2014/03/03/virtualbox-rhel5-64bit-boot-error-lapic/</loc>
     <lastmod>2014-03-03T07:07:03+00:00</lastmod>
   </url>
   
@@ -1687,7 +1687,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/akg-k619-headphone/</loc>
+    <loc>/2014/02/18/akg-k619-headphone/</loc>
     <lastmod>2014-02-18T13:58:00+00:00</lastmod>
   </url>
   
@@ -1734,7 +1734,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/mac-os-x-dlna-media-server-serviio/</loc>
+    <loc>/2014/02/14/mac-os-x-dlna-media-server-serviio/</loc>
     <lastmod>2014-02-14T17:48:24+00:00</lastmod>
   </url>
   
@@ -1775,7 +1775,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/megasas_register_aen0-already-registered/</loc>
+    <loc>/2014/02/10/megasas_register_aen0-already-registered/</loc>
     <lastmod>2014-02-10T02:24:30+00:00</lastmod>
   </url>
   
@@ -1804,12 +1804,12 @@
   </url>
   
   <url>
-    <loc>/2014/02/mount-already-mounted-or-busy-mesiji/</loc>
+    <loc>/2014/02/10/mount-already-mounted-or-busy-mesiji/</loc>
     <lastmod>2014-02-10T02:10:41+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/02/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</loc>
+    <loc>/2014/02/06/faq-linux-memori-hyoyuleul-wihan-vfs_cache_pressure/</loc>
     <lastmod>2014-02-06T17:41:01+00:00</lastmod>
   </url>
   
@@ -1820,7 +1820,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</loc>
+    <loc>/2014/02/05/faq-linuxeseo-mbr-patisyeon-teibeul-salpyeobogi/</loc>
     <lastmod>2014-02-05T17:41:55+00:00</lastmod>
   </url>
   
@@ -1843,7 +1843,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-libudev-so-0-raibeureori-oryu/</loc>
+    <loc>/2014/02/05/faq-libudev-so-0-raibeureori-oryu/</loc>
     <lastmod>2014-02-05T17:41:43+00:00</lastmod>
   </url>
   
@@ -1854,7 +1854,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-upstart-sayonge-daehaeseo/</loc>
+    <loc>/2014/02/05/faq-upstart-sayonge-daehaeseo/</loc>
     <lastmod>2014-02-05T17:41:32+00:00</lastmod>
   </url>
   
@@ -1871,7 +1871,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/league-of-legends-korean-on-mac-os-x/</loc>
+    <loc>/2014/02/05/league-of-legends-korean-on-mac-os-x/</loc>
     <lastmod>2014-02-05T17:41:22+00:00</lastmod>
   </url>
   
@@ -1888,7 +1888,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</loc>
+    <loc>/2014/02/05/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/</loc>
     <lastmod>2014-02-05T17:41:12+00:00</lastmod>
   </url>
   
@@ -1911,7 +1911,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-linux-swappiness-gwanryeon/</loc>
+    <loc>/2014/02/05/faq-linux-swappiness-gwanryeon/</loc>
     <lastmod>2014-02-05T17:40:50+00:00</lastmod>
   </url>
   
@@ -1928,17 +1928,17 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</loc>
+    <loc>/2014/02/05/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/</loc>
     <lastmod>2014-02-05T17:40:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/02/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</loc>
+    <loc>/2014/02/05/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</loc>
     <lastmod>2014-02-05T17:40:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/02/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</loc>
+    <loc>/2014/02/05/faq-synergy-seobeo-silhaeng-oryu-haegyeol-bangan/</loc>
     <lastmod>2014-02-05T17:40:12+00:00</lastmod>
   </url>
   
@@ -1955,7 +1955,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-ht-hyperthreade-daehan-ohae/</loc>
+    <loc>/2014/02/05/faq-ht-hyperthreade-daehan-ohae/</loc>
     <lastmod>2014-02-05T17:39:57+00:00</lastmod>
   </url>
   
@@ -1966,7 +1966,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</loc>
+    <loc>/2014/02/05/faq-thunderbird-seongneung-gaeseon-tib/</loc>
     <lastmod>2014-02-05T17:39:43+00:00</lastmod>
   </url>
   
@@ -1983,7 +1983,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</loc>
+    <loc>/2014/02/05/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</loc>
     <lastmod>2014-02-05T17:39:30+00:00</lastmod>
   </url>
   
@@ -2006,12 +2006,12 @@
   </url>
   
   <url>
-    <loc>/2014/02/geomsaegeoe-daehan-gugeul-senseu/</loc>
+    <loc>/2014/02/05/geomsaegeoe-daehan-gugeul-senseu/</loc>
     <lastmod>2014-02-05T17:39:18+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</loc>
+    <loc>/2014/02/05/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/</loc>
     <lastmod>2014-02-05T17:37:49+00:00</lastmod>
   </url>
   
@@ -2028,7 +2028,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-nvidia-graphic-disable-ecc/</loc>
+    <loc>/2014/02/05/faq-nvidia-graphic-disable-ecc/</loc>
     <lastmod>2014-02-05T07:21:31+00:00</lastmod>
   </url>
   
@@ -2051,7 +2051,7 @@
   </url>
   
   <url>
-    <loc>/2014/02/faq-sftp-jeobsog-oryu/</loc>
+    <loc>/2014/02/05/faq-sftp-jeobsog-oryu/</loc>
     <lastmod>2014-02-05T05:50:12+00:00</lastmod>
   </url>
   

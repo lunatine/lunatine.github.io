@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="Java 6 for Mac os X Mavericks 업무를 하다보면 웹 기반 어플리케이션을 사용 할 때가 간혹 있는데 해당 어플리케이션이 더이상 기술지원이 안되거나 여러 이유로 인해 JAVA 7과 호환되지 않는 경우가 꽤 많다. 이런 경우에 현재 사용중인 Mavericks에서 JAVA 6를 활성화 하는 방법을 간단히 정리 해보면 아래와 같다.
+Java 6 설치 먼저, 애플에서 Lion을 위해서 제공했던 Java 6를 설치한다.
+ 다운로드  몇 가지 테스트결과 이 버전 이전 버전을 사용하면 호환성 문제로 설치가 되지 않았다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/2014/04/21/mevericks-java6-enable/" />
+
+
+<title>
+    
+    Mavericks에서 JAVA6 사용하기 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="Mavericks에서 JAVA6 사용하기">
+<meta itemprop="description" content="Java 6 for Mac os X Mavericks 업무를 하다보면 웹 기반 어플리케이션을 사용 할 때가 간혹 있는데 해당 어플리케이션이 더이상 기술지원이 안되거나 여러 이유로 인해 JAVA 7과 호환되지 않는 경우가 꽤 많다. 이런 경우에 현재 사용중인 Mavericks에서 JAVA 6를 활성화 하는 방법을 간단히 정리 해보면 아래와 같다.
+Java 6 설치 먼저, 애플에서 Lion을 위해서 제공했던 Java 6를 설치한다.
+ 다운로드  몇 가지 테스트결과 이 버전 이전 버전을 사용하면 호환성 문제로 설치가 되지 않았다.">
+
+
+<meta itemprop="datePublished" content="2014-04-21T08:57:57&#43;00:00" />
+<meta itemprop="dateModified" content="2014-04-21T08:57:57&#43;00:00" />
+<meta itemprop="wordCount" content="200">
+
+
+
+<meta itemprop="keywords" content="mac os x,java6,mavericks,jre6," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="Mavericks에서 JAVA6 사용하기"/>
+<meta name="twitter:description" content="Java 6 for Mac os X Mavericks 업무를 하다보면 웹 기반 어플리케이션을 사용 할 때가 간혹 있는데 해당 어플리케이션이 더이상 기술지원이 안되거나 여러 이유로 인해 JAVA 7과 호환되지 않는 경우가 꽤 많다. 이런 경우에 현재 사용중인 Mavericks에서 JAVA 6를 활성화 하는 방법을 간단히 정리 해보면 아래와 같다.
+Java 6 설치 먼저, 애플에서 Lion을 위해서 제공했던 Java 6를 설치한다.
+ 다운로드  몇 가지 테스트결과 이 버전 이전 버전을 사용하면 호환성 문제로 설치가 되지 않았다."/>
+
+
+
+<meta property="article:section" content="macos" />
+
+<meta property="article:published_time" content="2014-04-21 08:57:57 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="/2014/04/21/mevericks-java6-enable/">Mavericks에서 JAVA6 사용하기</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<h1 id="java-6-for-mac-os-x-mavericks">Java 6 for Mac os X Mavericks</h1>
+
+<p>업무를 하다보면 웹 기반 어플리케이션을 사용 할 때가 간혹 있는데 해당 어플리케이션이 더이상 기술지원이 안되거나 여러 이유로 인해 JAVA 7과 호환되지 않는 경우가 꽤 많다. 이런 경우에 현재 사용중인 Mavericks에서 JAVA 6를 활성화 하는 방법을 간단히 정리 해보면 아래와 같다.</p>
+
+<h2 id="java-6-설치">Java 6 설치</h2>
+
+<p>먼저, 애플에서 Lion을 위해서 제공했던 Java 6를 설치한다.</p>
+
+<ul>
+<li><a href="http://support.apple.com/kb/dl1572" target="_blank">다운로드</a>
+
+<ul>
+<li>몇 가지 테스트결과 이 버전 이전 버전을 사용하면 호환성 문제로 설치가 되지 않았다.
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="java-6-활성화">Java 6 활성화</h2>
+
+<p>Java 6를 설치해도 Java 7이 활성화 되어있기 때문에 Java 7을 비활성화 하고 Java 6를 활성화 해야 한다.</p>
+
+<h3 id="플러그인-백업">플러그인 백업</h3>
+
+<pre><code>$ sudo mkdir -p /Library/Internet\ Plug-Ins/disabled 
+$ sudo mv /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin /Library/Internet\ Plug-Ins/disabled
+</code></pre>
+
+<h3 id="자바-애플릿-웹-스타트-활성화">자바 애플릿/웹 스타트 활성화</h3>
+
+<pre><code>$ sudo ln -sf /System/Library/Java/Support/Deploy.bundle/Contents/Resources/JavaPlugin2_NPAPI.plugin /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin 
+$ sudo ln -sf /System/Library/Frameworks/JavaVM.framework/Commands/javaws /usr/bin/javaws
+</code></pre>
+
+<p>위 작업을 마치고 Safari를 재시작하면 자바 애플릿과 웹 스타트가 Java 6 기반으로 동작하게 된다.</p>
+
+<h2 id="되돌리기">되돌리기</h2>
+
+<p>만약, Java 6 환경에서 Java 7 또는 Java 8으로 되돌아 가고자 한다면 아래 명령으로 웹 스타트 연결을 바꿔주고</p>
+
+<pre><code>$ sudo ln -sf /System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/javaws /usr/bin/javaws
+</code></pre>
+
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">이 곳</a>에서 원하는 버전을 다운로드하여 설치하면 된다.</p>
+
+<ul>
+<li>참고문헌
+
+<ul>
+<li><a href="http://support.apple.com/kb/dl1572" target="_blank">Java 6 for Mac os X</a></li>
+<li><a href="http://support.apple.com/kb/ht5559" target="_blank">Learn how to re-enable the Apple-provided Java SE 6 Java SE 6 web plug-in and Web Start functionality in Lion and Mountain Lion.</a></li>
+</ul></li>
+</ul>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="tags/mac-os-x">mac os x</a></span><span class="tag"><a href="tags/java6">java6</a></span><span class="tag"><a href="tags/mavericks">mavericks</a></span><span class="tag"><a href="tags/jre6">jre6</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>200 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-04-21 17:57 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="/2014/05/28/limits-conf-nofile-big-value-effect/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">limits.conf와 오픈파일개수(nofile) 영향</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="/2014/03/25/faq-telnet-hangeulibryeog-munje/">
+                                <span class="button__text">FAQ : Telnet 한글입력 문제</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>
