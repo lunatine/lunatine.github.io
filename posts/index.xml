@@ -119,6 +119,17 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
     </item>
     
     <item>
+      <title>[Mac] OneDrive 비지니스 계정 추가하기</title>
+      <link>https://lunatine.github.io/2016/01/05/onedrive-for-mac-business-account/</link>
+      <pubDate>Tue, 05 Jan 2016 08:36:42 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2016/01/05/onedrive-for-mac-business-account/</guid>
+      <description>얼마전까지만 해도 One Drive 비지니스 버전의 Mac OS X Preview 버전이 제공되고 있었는데 잦은 크래시 및 여러 문제가 있었다. (개인적인 경험일 수 있음) 그러다가 최근 정식 릴리즈를 위해서 Preview 링크가 사라졌는데 현재 정식으로 서비스 중에 있는 일반 One Drive 클라이언트를 통해서 비지니스 계정을 추가하는 방법을 공유한다.
+OneDrive 다운로드 먼저, App Store에서 onedrive를 검색해서 어플리케이션을 설치한다.
+그리고, 기존에 MS OneDrive 계정 (일반계정)이 있는 경우와 없는 경우에 따라서 방법이 조금 다른데 일반 계정이 있는 경우(현재 사용 중인 경우)는 2)번 항목을 참고하고 없는 경우나 비지니스 계정만을 사용하고 싶을 때는 1)번 항목을 참고하자.</description>
+    </item>
+    
+    <item>
       <title>modalias와 장치 드라이버</title>
       <link>https://lunatine.github.io/2015/12/23/modalias-device-driver/</link>
       <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>

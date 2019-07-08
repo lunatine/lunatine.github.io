@@ -124,9 +124,20 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
       <pubDate>Thu, 14 Jan 2016 06:06:10 +0000</pubDate>
       
       <guid>https://lunatine.github.io/notice/</guid>
-      <description>2016/01/19 - 댓글시스템 변경 신규 LiveRe에 데이터가 정상적으로 연동 될 때 까지 그대로 두려고 했으나 기존 LiveRe 버전이 이번에 수정한 테마와 제대로 동작하지 않는 고질적인 문제로 인해서 안타깝지만 신규 버전으로 적용하기로 하였습니다.
-사실, 방문자가 많은 일반적인 사이트도 아니기에 댓글 남겨주신 분들의 내용이 소중하기는 하지만 문제가 있는 채로 방치하는 것도 좋은 것은 아니라고 판단하여 부득이하게 변경하였으며 추후에 데이터 연동에 문제가 없어지면 복구해보려고 합니다.
-2016/01/01 - 2016년 맞이 개편 2016년을 맞이하여 사이트의 테마를 바꾸고 (하지만, 여전히 컬러 톤은 오렌지) 모양을 다듬게 되었다.</description>
+      <description>2019/07/05 - 사이트 이전 Ghost Blog 플랫폼의 WYSIWIG이 점점 개선되면서 순수하게 Markdown으로 작성하고 복사/붙여넣는 형태가 오히려 불편해져서 이전하였습니다.
+2016/01/19 - 댓글시스템 변경 신규 LiveRe에 데이터가 정상적으로 연동 될 때 까지 그대로 두려고 했으나 기존 LiveRe 버전이 이번에 수정한 테마와 제대로 동작하지 않는 고질적인 문제로 인해서 안타깝지만 신규 버전으로 적용하기로 하였습니다.
+사실, 방문자가 많은 일반적인 사이트도 아니기에 댓글 남겨주신 분들의 내용이 소중하기는 하지만 문제가 있는 채로 방치하는 것도 좋은 것은 아니라고 판단하여 부득이하게 변경하였으며 추후에 데이터 연동에 문제가 없어지면 복구해보려고 합니다.</description>
+    </item>
+    
+    <item>
+      <title>[Mac] OneDrive 비지니스 계정 추가하기</title>
+      <link>https://lunatine.github.io/2016/01/05/onedrive-for-mac-business-account/</link>
+      <pubDate>Tue, 05 Jan 2016 08:36:42 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2016/01/05/onedrive-for-mac-business-account/</guid>
+      <description>얼마전까지만 해도 One Drive 비지니스 버전의 Mac OS X Preview 버전이 제공되고 있었는데 잦은 크래시 및 여러 문제가 있었다. (개인적인 경험일 수 있음) 그러다가 최근 정식 릴리즈를 위해서 Preview 링크가 사라졌는데 현재 정식으로 서비스 중에 있는 일반 One Drive 클라이언트를 통해서 비지니스 계정을 추가하는 방법을 공유한다.
+OneDrive 다운로드 먼저, App Store에서 onedrive를 검색해서 어플리케이션을 설치한다.
+그리고, 기존에 MS OneDrive 계정 (일반계정)이 있는 경우와 없는 경우에 따라서 방법이 조금 다른데 일반 계정이 있는 경우(현재 사용 중인 경우)는 2)번 항목을 참고하고 없는 경우나 비지니스 계정만을 사용하고 싶을 때는 1)번 항목을 참고하자.</description>
     </item>
     
     <item>

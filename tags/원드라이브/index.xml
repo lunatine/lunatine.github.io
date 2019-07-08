@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>원드라이브 on Lunatine&#39;s Box</title>
+    <link>https://lunatine.github.io/tags/%EC%9B%90%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C/</link>
+    <description>Recent content in 원드라이브 on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Lunatine</copyright>
+    <lastBuildDate>Tue, 05 Jan 2016 08:36:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://lunatine.github.io/tags/%EC%9B%90%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Mac] OneDrive 비지니스 계정 추가하기</title>
+      <link>https://lunatine.github.io/2016/01/05/onedrive-for-mac-business-account/</link>
+      <pubDate>Tue, 05 Jan 2016 08:36:42 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2016/01/05/onedrive-for-mac-business-account/</guid>
+      <description>얼마전까지만 해도 One Drive 비지니스 버전의 Mac OS X Preview 버전이 제공되고 있었는데 잦은 크래시 및 여러 문제가 있었다. (개인적인 경험일 수 있음) 그러다가 최근 정식 릴리즈를 위해서 Preview 링크가 사라졌는데 현재 정식으로 서비스 중에 있는 일반 One Drive 클라이언트를 통해서 비지니스 계정을 추가하는 방법을 공유한다.
+OneDrive 다운로드 먼저, App Store에서 onedrive를 검색해서 어플리케이션을 설치한다.
+그리고, 기존에 MS OneDrive 계정 (일반계정)이 있는 경우와 없는 경우에 따라서 방법이 조금 다른데 일반 계정이 있는 경우(현재 사용 중인 경우)는 2)번 항목을 참고하고 없는 경우나 비지니스 계정만을 사용하고 싶을 때는 1)번 항목을 참고하자.</description>
+    </item>
+    
+  </channel>
+</rss>
