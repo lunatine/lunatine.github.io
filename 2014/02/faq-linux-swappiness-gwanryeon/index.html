@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
+ 메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
+ 예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://lunatine.github.io/2014/02/faq-linux-swappiness-gwanryeon/" />
+
+
+<title>
+    
+    [FAQ] Linux Swappiness 관련 :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="[FAQ] Linux Swappiness 관련">
+<meta itemprop="description" content="Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
+ 메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
+ 예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다.">
+
+
+<meta itemprop="datePublished" content="2014-02-05T17:40:50&#43;00:00" />
+<meta itemprop="dateModified" content="2014-02-05T17:40:50&#43;00:00" />
+<meta itemprop="wordCount" content="649">
+
+
+
+<meta itemprop="keywords" content="faq,linux,swappiness," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lunatine.github.io"/>
+
+<meta name="twitter:title" content="[FAQ] Linux Swappiness 관련"/>
+<meta name="twitter:description" content="Swap Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.
+ 메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도) Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)  일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.
+ 예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우 메모리의 효율을 높이기 위해서  스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다."/>
+
+
+
+<meta property="article:section" content="linux" />
+<meta property="article:section" content="kernel" />
+
+<meta property="article:published_time" content="2014-02-05 17:40:50 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>4 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="https://lunatine.github.io/2014/02/faq-linux-swappiness-gwanryeon/">[FAQ] Linux Swappiness 관련</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<h1 id="swap">Swap</h1>
+
+<p>Linux 시스템에서는 다양한 용도로 스왑을 사용한다. 일반적으로 부족한 메모리를 보충하기 위한 용도로만 알려져 있지만 아래와 같은 용도로 활용이 되고 있다.</p>
+
+<ul>
+<li>메모리를 많이 사용하는 프로그램을 위해 (가장 일반적인 용도)</li>
+<li>Hibernation (메모리의 내용을 디스크에 저장해 두기 위한 용도)</li>
+</ul>
+
+<p>일반 노트북이나 랩탑에서 Hibernation을 하기 위해서는 시스템의 메모리 크기보다 큰 스왑 공간이 반드시 필요하다. 메모리의 정보를 모두 디스크에 담아야 하기 때문이다.</p>
+
+<ul>
+<li>예측에서 벗어난 메모리 공간을 사용하는 프로그램에 대비하기 위한 경우</li>
+<li>메모리의 효율을 높이기 위해서</li>
+</ul>
+
+<p>스왑 영역은 일반적으로 디스크에 존재하기 때문에 메모리에 비교할 수 없을 정도로 성능이 떨어지지만 이러한 스왑 영역이 메모리 사용 효율을 높일 수 있다. 프로세스가 데이터를 읽어들일 때 메모리에 저장하여 읽게 되고 이러한 작업이 빈번하게 발생할 경우 메모리에 캐시하여 응답속도를 높이는 형태로 동작한다.</p>
+
+<p>즉, 메모리에 캐시할 수 있는 공간이 많으면 많을 수록 효율을 높일 수 있는데 스왑 영역은 프로세스가 예약한 메모리 공간 중에서 사용되지 않는 혹은 당장 필요하지 않는 부분을 저장하여 <strong>메모리가 캐시 역할을 할 수 있는 공간을 더 확보</strong> 할 수 있도록 한다.</p>
+
+<h1 id="메모리가-많은데도-swap을-사용합니다">메모리가 많은데도 Swap을 사용합니다</h1>
+
+<p>자주 문의 받는 내용 중 하나이다. 분명 시스템의 RAM은 여유가 있음에도 스왑으로 할당해 둔 공간에 데이터를 쓰는 경우가 종종 있다. 사실 크게 문제되지는 않지만 스왑 영역과 데이터를 자주 주고 받게 된다면 디스크 I/O의 성능에 전체 시스템의 성능이 영향을 받는 경우가 있다.</p>
+
+<p>Linux가 메모리가 많음에도 불구하고 스왑공간을 사용하는 이유는 스왑 사용여부를 결정하는 값의 계산식에서 비롯되는데 Linux Kernel의 mm/vmscan.c에는 아래와 같은 코드가 있다.</p>
+
+<pre><code>swap_tendency = mapped_ratio / 2 + distress + sc-&gt;swappiness;
+</code></pre>
+
+<p>스왑을 사용하려는 경향(tendency)을 계산하는데 있어서 mapped_ratio와 distress 그리고 swappiness라는 변수가 영햐을 미친다.</p>
+
+<p>먼저, mapped_ratio는 아래와 같이 계산되는데</p>
+
+<pre><code> mapped_ratio = ((global_page_state(NR_FILE_MAPPED) +
+                  global_page_state(NR_ANON_PAGES)) * 100) / vm_total_pages;
+</code></pre>
+
+<p>쉽게 말해서 전체 메모리 중에서 프로세스가 사용하고 있는(Mapped) 메모리의 크기에 대한 비율(% 값)이다.</p>
+
+<p>두 번째로 distress 변수는 아래와 같이 표현되며</p>
+
+<pre><code>distress = 100 &gt;&gt; min(zone-&gt;prev_priority, priority);
+</code></pre>
+
+<p>페이지(메모리 저장구조 단위)를 얼마나 많이 스캔하게 될 건지를 뜻한다. 일반적으로 값은 0이며 100에 가까울 수록 스캔해야하는 양이 많아져서 시스템에 문제가 있다는 뜻이다. (커널 코드 주석에서는 Great Trouble이라고 표현되어 있다)</p>
+
+<p>그리고 swappiness 값은 사용자가 직접 수정할 수 있는 변수로 /proc/sys/vm/swappiness에서 확인 할 수 있으며 기본 값은 60이다.</p>
+
+<p>첫 번째 확인했던 수식을 다시금 정리하면 일반적인 경우에 distress는 0이고 swappiness는 60이기 때문에 아래와 같이 표현 된다.</p>
+
+<pre><code>swap_tendency = mapped_ratio / 2 + 0 + 60;
+</code></pre>
+
+<p>만약, 4GB 메모리를 가진 시스템에서 3GB를 사용 중이라고 가정하면</p>
+
+<pre><code>swap_tendency = (3GB / 4GB * 100) / 2 + 0 + 60 = 97.5
+</code></pre>
+
+<p>97.5이기 때문에 바로 스왑이 일어나지는 않는다. (100이상이면 발생한다)</p>
+
+<h1 id="swappiness-값에-따른-영향">swappiness 값에 따른 영향</h1>
+
+<p>실질적으로 사용자가 변경할 수 있는 값은 swappiness 변수 이기 때문에 이 값에 따른 스왑이 발생하는 시점을 유추해 볼 필요가 있을 것이다.</p>
+
+<p>먼저 기본 값인 60일 경우에는 언제 스왑이 발생할지 계산해 보기위해서는 swap_tendency가 100이 되는 시점을 찾으면 되는데</p>
+
+<pre><code>100 = mapped_ratio / 2 + distress + swappiness
+ mapped_ratio = (100 - distress - swappiness) * 2
+ mapped_ratio = (100 - 0 - 60) * 2 = 80
+</code></pre>
+
+<p>즉, 80% 이상의 메모리를 사용하게 되면 스왑이 발생하게 될 것을 예측 할 수 있다. <strong>다만 distress가 0인 상황에서라는 전제조건이 필요하다.</strong></p>
+
+<p>만약, swappiness 값을 10으로 설정하고 distress가 0이면 mapped_ratio는 200%이기 때문에 스왑이 발생하는 경우의 조건이 성립하지 않지만 distress가 50이면 80%로 계산된다.</p>
+
+<h1 id="그래서">그래서</h1>
+
+<p>앞의 예제와 같이 distress 값은 <strong>유동적</strong>이기 때문에 결과적으로 <strong>swappiness 값의 설정이 절대적인 결과를 얻는 값으로 사용될 수 없지만</strong> 0에 가까울 수록 가급적 스왑을 하지 않으려 할 것이고 100에 가까울 수록 스왑을 하도록 설정할 수 있다는 부분은 어렵지 않게 알 수 있다.</p>
+
+<h1 id="추가적으로">추가적으로</h1>
+
+<p>자주 질문 받던 내용을 정리하기 위해 다시금 리눅스 소스코드를 열어보았다가 발견한 사실로 위에서 언급한 계산 식이 vmscan.c 코드에서 사라졌다.</p>
+
+<p>몇 개의 버전을 더 받아서 확인해 본 결과 CentOS 5.7/RHEL 5.7의 2.6.18-274 커널에는 존재하지만 kernel.org에서 내려받은 2.6.35.13과 3.4 커널 코드에는 존재하지 않았다.</p>
+
+<p>즉, 메모리 관리 기법에 대한 변화로 인해서 해당 코드는 삭제 된 것으로 추측된다. (2.6.20 커널의 패치 파일에서는 수식 변경이 발견되었고 그 뒤 버전에서는 아예 사라졌다) 변경된 내용에 대한 내용까지 조사해서 정리하면 좋겠지만 이 문서를 작성하면서 고려하지 않았던 내용이기 때문에 이 부분은 나중으로 미루려고 한다.</p>
+
+<p>다만, 최신 커널 문서에서도 여전히 <strong>swappiness 값은 0과 100사이에서 동일한 의미로 설명</strong>되고 있기 때문에 설정 값에 대한 내부 처리 부분의 변경은 다시 확인해야겠지만 당장 설정하는데 별다른 문제는 없다.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/faq">faq</a></span><span class="tag"><a href="https://lunatine.github.io/tags/linux">linux</a></span><span class="tag"><a href="https://lunatine.github.io/tags/swappiness">swappiness</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>649 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-02-06 02:40 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://lunatine.github.io/2014/02/faq-cylinder-gabsi-cogwa-doeeossneunde-chs-vs-lba/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">[FAQ] Cylinder 값이 초과 되었는데? (CHS vs LBA)</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://lunatine.github.io/2014/02/faq-linux-ld_assume_kernel-byeonsue-daehan-iyagi/">
+                                <span class="button__text">[FAQ] Linux LD_ASSUME_KERNEL 변수에 대한 이야기</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://lunatine.github.io">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
+nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://lunatine.github.io/2018/04/nf_conntrackgwa-docker/" />
+
+
+<title>
+    
+    nf_conntrack과 docker :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="nf_conntrack과 docker">
+<meta itemprop="description" content="본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
+nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다.">
+
+
+<meta itemprop="datePublished" content="2018-04-12T08:35:03&#43;00:00" />
+<meta itemprop="dateModified" content="2018-04-12T08:35:03&#43;00:00" />
+<meta itemprop="wordCount" content="1172">
+
+
+
+<meta itemprop="keywords" content="docker,nf_conntrack,dropping packet," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lunatine.github.io"/>
+
+<meta name="twitter:title" content="nf_conntrack과 docker"/>
+<meta name="twitter:description" content="본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.
+nf_conntrack: table full, dropping packet.  1. nf_conntrack nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. 특히, 아래와 같은 경우에 사용자 모르게 활성화 되어서 사용되는 경우가 있습니다."/>
+
+
+
+<meta property="article:section" content="linux" />
+<meta property="article:section" content="network" />
+<meta property="article:section" content="docker" />
+
+<meta property="article:published_time" content="2018-04-12 08:35:03 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>6 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="https://lunatine.github.io/2018/04/nf_conntrackgwa-docker/">nf_conntrack과 docker</a></h1>
+
+            
+
+            <div class="post-content">
+                
+
+<p>본 문서는 docker를 사용 중인 시스템에서 아래와 같은 커널 메시지를 발생시키며 패킷이 드랍되는 증상에 대한 설명과 해결 방법에 대해서 소개하고 있습니다.</p>
+
+<pre><code>nf_conntrack: table full, dropping packet.
+</code></pre>
+
+<h2 id="1-nf-conntrack">1. nf_conntrack</h2>
+
+<p>nf_conntrack은 ip_conntrack의 후속 커널 모듈로 netfilter가 네트워크에서 발생하는 커넥션에 대해 해당 내용을 기록하고 추적하기 위한 모듈 입니다. 일반적으로 활성화 되지는 않지만 iptables를 이용한 NAT 환경 같은 경우에 사용되기도 합니다. <strong>특히, 아래와 같은 경우에 사용자 모르게 활성화</strong> 되어서 사용되는 경우가 있습니다.</p>
+
+<ul>
+<li>iptables -t nat -L 같은 NAT 테이블 확인 명령을 한번이라도 수행한 경우</li>
+<li>docker와 같이 iptables의 NAT 기능이 필요한 어플리케이션을 사용 할 경우</li>
+</ul>
+
+<p>단순히, 해당 모듈이 활성화 된다고해서 문제가 되지는 않지만 접속량이 많은 네트워크 서비스를 제공하는 경우에는 nf_conntrack을 기본 값으로 사용할 경우 연결을 기록하는 테이블의 크기를 기본 값인 65536를 사용하기 때문에 문제가 발생 할 수 있습니다.</p>
+
+<p>따라서, 해당 값을 서버의 환경에 맞추어 충분히 늘려주는게 좋으며 적절한 값에 대해서 아래에 소개하도록 하겠습니다.</p>
+
+<h2 id="2-설정-값-살펴보기">2. 설정 값 살펴보기</h2>
+
+<p>커널 버전 2.6 이전에는 ip_conntrack을 사용하였기 때문에 커널 파라미터 값이 다릅니다. 본 문서에서는 nf_conntrack에 대해서만 다룹니다.</p>
+
+<pre><code>예시)
+
+[커널 2.6 이전]
+net.ipv4.netfilter.ip_conntrack_count
+net.ipv4.netfilter.ip_conntrack_max
+
+[커널 2.6 이후]
+net.netfilter.nf_conntrack_count
+net.netfilter.nf_conntrack_max
+</code></pre>
+
+<h3 id="2-1-nf-conntrack-max">2-1. nf_conntrack_max</h3>
+
+<p>nf_conntrack_max는 nf_conntrack 모듈이 기록 할 최대 연결 개수를 지정하는 파라미터 입니다. 기본 값은 65536이며 적당히 크게 잡아줘도 무방하지만 단순히 값을 크게 잡는 것이 능사가 아니기 때문에 이에 대해서 살펴보도록 하겠습니다.</p>
+
+<p>먼저 Conntrack Hash Table이 어떻게 구현되어있는지 살펴보면 아래 그림과 같습니다.</p>
+
+<p><img src="https://lunatine.github.io/images/2018/04/conntrack_hash_table.png" alt="conntrack_hash_table" /></p>
+
+<p>해시 테이블의 각 구성요소는 bucket이라는 녀석으로 구성되어 있으며 bucket은 내부적으로 연결 리스트로 구현 되어 있습니다. 아시다시피 해시 테이블은 O(1)의 효율을 보여주지만 연결 리스트의 경우 O(n)의 효율을 보여주기 때문에 연결 리스트를 최소화 하고 해시테이블의 크기를 키우는게 가장 좋아 보입니다.</p>
+
+<p>하지만, 해시테이블을 크게 갖는 다는 것은 그만큼 정적으로 많은 메모리를 할당해서 사용해야하는 부담이 존재합니다. 예를 들어 2097152개의 연결을 처리하기 위해 nf_conntrack_max 값을 2097152으로 지정하고 해시 테이블도 동일한 크기로 잡게 된다면 단순히 해시 테이블을 구성하는데 아래와 같은 메모리 자원을 사용하게 됩니다.</p>
+
+<ul>
+<li>연결을 기록하는 각 엔트리의 크기는 308byte 라고 합니다.</li>
+<li>2097152(해시크기) * 308(byte) / 1048576(1MiB) = 616 MB</li>
+<li>즉, 600MB가 넘는 크기를 해시테이블 구성에만 낭비하게 됩니다.</li>
+</ul>
+
+<p>따라서, 단순히 해시테이블 크기 자체를 크게하기 보다는 연결 리스트를 적절히 활용하여 성능과 공간의 균형을 맞추는게 좋습니다. 커널 문서에서는 아래와 같이 nf_conntrack_max 값을 정의하고 있습니다. (ip_conntrack 시절에는 8배 였습니다)</p>
+
+<pre><code>nf_conntrack_max - INTEGER
+    Size of connection tracking table.  Default value is
+    nf_conntrack_buckets value * 4.
+</code></pre>
+
+<p>여기에서 nf_conntrack_buckets는 bucket들의 개수이며 다시 말해 해시테이블의 크기를 의미합니다. 커널 문서에서는 해시테이블 크기의 4배로 max 값을 지정하는 걸 기본으로 하고 있기 때문에 각 해시테이블의 bucket은 4개의 노드를 갖는 연결 리스트로 구성됩니다. 따라서, 앞서 살펴본 2097152개의 연결을 처리하는 경우로 살펴 본다면 616MB의 크기는 154MB로 줄어들게 됩니다.</p>
+
+<h3 id="2-2-과거에는">2-2. 과거에는&hellip;.</h3>
+
+<p>참고로, 과거 ip_conntrack 시절에는 CONNTRACK_MAX 값에 대한 기본 값을 결정하는 요소에는 시스템 아키텍처도 변수로 작용했었습니다. CONNTRACK_MAX를 수식으로 표현하면 아래와 같은데 이에 대한 자세한 내용은 <a href="https://wiki.khnet.info/index.php/Conntrack_tuning" target="_blank">이곳</a>을 참고하시면 됩니다.</p>
+
+<pre><code>nf_conntrack_max
+    = 메모리크기(바이트) / 16384 / (아키텍처 비트 / 32)
+</code></pre>
+
+<p>또한, 과거에는 CONNTRACK_MAX를 해시테이블 크기의 8배로 사용했기 때문에 보통 CONNTRACK_MAX 값을 결정하고 이를 8로 나누어서 해시테이블 크기를 지정했으나 최근에는 4배로 사용하기 때문에 4로 나누어서 계산하면 됩니다.</p>
+
+<h3 id="2-3-nf-conntrack-buckets">2-3. nf_conntrack_buckets</h3>
+
+<p>아시다시피 네트워크 관련 커널 파라미터 설정에는 정답이란 것은 없습니다. 다만, 앞서 살펴본대로 무작정 nf_conntrack_max를 키우기만 하면 연결 리스트에 대한 부하가 높아지기 때문에 nf_conntrack_buckets 값도 같이 조절을 해 주어야 합니다.</p>
+
+<p>커널 문서에서는 아래와 같이 소개하고 있습니다.</p>
+
+<pre><code>nf_conntrack_buckets - INTEGER
+    Size of hash table. If not specified as parameter during module
+    loading, the default size is calculated by dividing total memory
+    by 16384 to determine the number of buckets but the hash table will
+    never have fewer than 32 and limited to 16384 buckets. For systems
+    with more than 4GB of memory it will be 65536 buckets.
+    This sysctl is only writeable in the initial net namespace.
+</code></pre>
+
+<p>4GB 메모리에는 65536이 적합하지만 별도로 해시 크기를 지정해서 모듈을 올리지 않는다면 16384 값으로 정해지게 됩니다. 따라서, 이 상황에서 nf_conntrack_max를 계속 키우게 되면 연결 리스트 길이만 계속 길어지기 때문에 바람직하지 않습니다.</p>
+
+<p>최근 시스템들은 많은 메모리를 가지고 있기 때문에 65536개 이상의 연결을 충분히 처리할 수 있으며 해시 크기에 대한 모듈 파라미터를 지정해서 수동으로 로딩하지 않고 docker나 iptables에 의해서 자동으로 로딩 되므로 이 값을 변경해 주어야 하는데 한 번 모듈이 올라가게 되면 sysctl을 이용해서 커널 파라미터 값을 변경 할 수 없으며 sysfs를 통해서만 변경이 가능합니다.</p>
+
+<pre><code>[예시]
+$ echo 65536 &gt; /sys/module/nf_conntrack/parameters/hashsize
+</code></pre>
+
+<h3 id="2-4-적절한-값을-찾아서">2-4. 적절한 값을 찾아서&hellip;</h3>
+
+<p>요즘 시스템은 메모리가 넉넉하기 때문에 65536의 배수로 적당히 지정하고 거기에 맞추어 해시 크기를 지정하는 것도 방법입니다.</p>
+
+<p>또는, 과거 ip_conntrack 시절에 계산하던 방법을 차용하면 아래와 같이 계산해 볼 수도 있습니다.</p>
+
+<pre><code>[예시]
+- 64bit 기반 8GB 메모리를 가진 서버
+
+nf_conntrack_max
+    = 메모리크기 / 16384 / (아키텍처비트 / 32)
+    = (8 * 1073741824) / 16384 / (64/32)
+    = 262144
+nf_conntrack_buckets
+    = nf_conntrack_max / 4
+    = 65536
+</code></pre>
+
+<h3 id="2-5-추가-설정">2-5. 추가 설정</h3>
+
+<p>nf_conntrack_max, nf_conntrack_buckets 외에도 네트워크 서비스를 위해서 몇 가지 중요한 설정 값이 있습니다.</p>
+
+<p>먼저 nf_conntrack_generic_timeout이 있는데 Layer 4 기반 타임아웃 설정 값으로 기본 값은 600초로 되어있습니다. 이 값이 너무 길기 때문에 이를 적절히 (예를 들면 120) 낮춰주는게 좋습니다.</p>
+
+<p>그리고, 활성화 된 연결에 대한 타임아웃 파라미터로 nf_conntrack_tcp_timeout_established이 있으며 기본 값은 무려 432000초(5일) 입니다. 이 값 또한 적당히 낮춰 주는게 좋습니다.</p>
+
+<h2 id="3-추천하는-설정">3. 추천하는 설정</h2>
+
+<p>예를들어 32GB의 메모리를 갖고 있는 64bit 시스템에 대해서는 아래와 같이 설정 값을 추천 할 수 있습니다. 다만, 앞서 설명 드렸던 것 처럼 nf_conntrack_max는 <strong>필요에 따라 임의로 적정 값을 직접 지정</strong>해도 무방합니다. 특히, 연결 양이 많지 않은 네트워크 서비스 시스템에서는 기본 값으로도 충분 할 경우가 많습니다.</p>
+
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>계산</th>
+<th>값</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>nf_conntrack_max</td>
+<td>32 * 1073741824 / 16384 / 2</td>
+<td>1048576</td>
+</tr>
+
+<tr>
+<td>nf_conntrack_buckets</td>
+<td>nf_conntrack_max / 4</td>
+<td>262144</td>
+</tr>
+
+<tr>
+<td>nf_conntrack_generic_timeout</td>
+<td></td>
+<td>120</td>
+</tr>
+
+<tr>
+<td>nf_conntrack_tcp_timeout_established</td>
+<td></td>
+<td>54000</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="3-1-설정-스크립트">3-1. 설정 스크립트</h3>
+
+<p>위에서 언급한 4가지 항목 설정을 위한 쉘 스크립트를 공유 드립니다. (nf_conntrack/nf_conntrack_ipv4 모듈이 활성화 되어있지 않다면 동작하지 않습니다)</p>
+
+<pre><code>#!/bin/bash
+#
+# nf-setup.sh: nf_conntrack configurator
+#
+# by lunatine
+#
+_arch=1
+_max=0
+_bucket=0
+_gto=120
+_tcp=54000
+
+help() {
+    cat &lt;&lt; EOF
+  $ nf-setup.sh [OPTIONS ...]
+
+  Options:
+    -m|--max   : nf_conntrack_max (default: memsize / 16384 / arch bit)
+    -b|--bucket: nf_conntrack_buckets (default: nf_conntrack_max / 4)
+    -g|--gto   : nf_conntrack_generic_timeout (default: 120)
+    -t|--tcp   : nf_conntrack_tcp_timeout_established (default: 54000)
+    -h|--help  : help message
+EOF
+}
+
+# get arguments
+while [[ -n $1 ]]
+do
+    case &quot;$1&quot; in
+        # nf_conntrack_max
+        -m|--max) _max=$1; shift 2;;
+        -b|--bucket) _bucket=$1; shift 2;;
+        -g|--gto) _gto=$1; shift 2;;
+        -t|--tcp) _tcp=$1; shift 2;;
+        -h|--help) help; exit 0;;
+    esac
+done
+
+if [ &quot;$(id -u)&quot; -ne 0 ]; then
+    echo &quot;[Error] root privilege required ...&quot;
+    exit 1
+else
+    for modname in nf_conntrack nf_conntrack_ipv4
+    do
+        if [ &quot;$(lsmod | grep -c $modname)&quot; -eq 0 ]; then
+            echo &quot;[Error] No $modname module found&quot;
+            exit 1
+        fi
+    done
+fi
+
+# when nf_conntrack_max omitted
+if [ &quot;$_max&quot; -eq 0 ]; then
+    memtotal=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+    [ &quot;$(uname -m)&quot; == &quot;x86_64&quot; ] &amp;&amp; _arch=2
+    _max=$(( memtotal * 1024 / 16384 / _arch ))
+fi
+
+# when nf_conntrack_buckets omitted
+if [ &quot;$_bucket&quot; -eq 0 ]; then
+    _bucket=$(( _max / 4 ))
+fi
+
+# asking for apply
+CONF_VALUES=&quot;
+[Applying]
+---------------------------------------------------
+  nf_connectrack_max                  : $_max
+  nf_conntrack_generic_timeout        : $_gto
+  nf_conntrack_tcp_timeout_established: $_tcp
+  nf_conntrack hash size              : $_bucket
+---------------------------------------------------
+  are you sure? (Cancel: Ctrl+C) &quot;
+read -p &quot;$CONF_VALUES&quot; ans
+
+# apply configurations
+sed -i &quot;/^net.netfilter.nf_conntrack_max/d&quot; /etc/sysctl.conf
+sed -i &quot;/^net.netfilter.nf_conntrack_buckets/d&quot; /etc/sysctl.conf
+sed -i &quot;/^net.netfilter.nf_conntrack_generic_timeout/d&quot; /etc/sysctl.conf
+sed -i &quot;/^net.netfilter.nf_conntrack_tcp_timeout_established/d&quot; /etc/sysctl.conf
+{
+    echo &quot;net.netfilter.nf_conntrack_max = $_max&quot;
+    echo &quot;net.netfilter.nf_conntrack_generic_timeout = $_gto&quot;
+    echo &quot;net.netfilter.nf_conntrack_tcp_timeout_established = $_tcp&quot;
+} &gt;&gt; /etc/sysctl.conf
+echo $_bucket &gt; /sys/module/nf_conntrack/parameters/hashsize
+
+# Result
+cat &lt;&lt; EOF
+[Result]
+---------------------------------------------------
+  max                    : $(sysctl net.netfilter.nf_conntrack_max)
+  hash size (buckets)    : $(sysctl net.netfilter.nf_conntrack_buckets)
+  generic_timeout        : $(sysctl net.netfilter.nf_conntrack_generic_timeout)
+  tcp_timeout_established: $(sysctl net.netfilter.nf_conntrack_tcp_timeout_established)
+---------------------------------------------------
+EOF
+
+exit 0
+</code></pre>
+
+<h2 id="참고문서">참고문서</h2>
+
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/networking/nf_conntrack-sysctl.txt" target="_blank">nf_conntrack_sysctl 커널 문서</a></li>
+</ul>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/docker">docker</a></span><span class="tag"><a href="https://lunatine.github.io/tags/nf_conntrack">nf_conntrack</a></span><span class="tag"><a href="https://lunatine.github.io/tags/dropping-packet">dropping packet</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1172 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2018-04-12 17:35 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://lunatine.github.io/2018/07/macos-itermeseo-ssh-jeobsog-si-lc_ctype-oryu/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">[macOS] iTerm에서 ssh 접속 시 LC_CTYPE 오류</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://lunatine.github.io/2016/08/virtualbox-crash-on-mac-os-x/">
+                                <span class="button__text">Virtualbox 환경설정 실행 시 종료 될 때</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://lunatine.github.io">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

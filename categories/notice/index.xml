@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notice on Lunatine&#39;s Box</title>
+    <link>https://lunatine.github.io/categories/notice/</link>
+    <description>Recent content in notice on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 14 Jan 2016 06:06:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://lunatine.github.io/categories/notice/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>공지사항</title>
+      <link>https://lunatine.github.io/notice/</link>
+      <pubDate>Thu, 14 Jan 2016 06:06:10 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/notice/</guid>
+      <description>2019/07/05 - 사이트 이전 Ghost Blog 플랫폼의 WYSIWIG이 점점 개선되면서 순수하게 Markdown으로 작성하고 복사/붙여넣는 형태가 오히려 불편해져서 이전하였습니다.
+2016/01/19 - 댓글시스템 변경 신규 LiveRe에 데이터가 정상적으로 연동 될 때 까지 그대로 두려고 했으나 기존 LiveRe 버전이 이번에 수정한 테마와 제대로 동작하지 않는 고질적인 문제로 인해서 안타깝지만 신규 버전으로 적용하기로 하였습니다.
+사실, 방문자가 많은 일반적인 사이트도 아니기에 댓글 남겨주신 분들의 내용이 소중하기는 하지만 문제가 있는 채로 방치하는 것도 좋은 것은 아니라고 판단하여 부득이하게 변경하였으며 추후에 데이터 연동에 문제가 없어지면 복구해보려고 합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

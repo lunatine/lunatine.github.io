@@ -5,8 +5,7 @@
     <link>https://lunatine.github.io/tags/sed/</link>
     <description>Recent content in sed on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Lunatine</copyright>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 21 Mar 2016 07:39:59 +0000</lastBuildDate>
     
 	<atom:link href="https://lunatine.github.io/tags/sed/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +13,10 @@
     
     <item>
       <title>Bash FAQ (Part 1)</title>
-      <link>https://lunatine.github.io/2016/03/21/bash-faq-part-1/</link>
+      <link>https://lunatine.github.io/2016/03/bash-faq-part-1/</link>
       <pubDate>Mon, 21 Mar 2016 07:39:59 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2016/03/21/bash-faq-part-1/</guid>
+      <guid>https://lunatine.github.io/2016/03/bash-faq-part-1/</guid>
       <description>본 문서는 Bash 쉘 스크립트에 대한 FAQ 내용을 정리한 문서입니다. 따라서, 기본적인 Bash 쉘 스크립트의 문법과 사용 방법에 대해서는 알고 있다는 가정하에 작성되었습니다. Part 1이라고 제목을 붙인 이유는 자주묻는 질문이 추가로 생기거나 생각나는대로 FAQ를 정리해서 올리려고 합니다. 어찌보면 위키로 정리하는게 적합한 문서이기도 합니다.
 [[ ]] vs [ ] if 구문과 단짝처럼 사용되는 []에 대해서 [[]]과 []의 차이점을 묻는 경우가 많다. 먼저, 각각의 의미를 살펴보도록 하자.
 if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 판단하고 구문의 내용을 실행하도록 되어있다.</description>

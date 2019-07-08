@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rhel on Lunatine&#39;s Box</title>
+    <link>https://lunatine.github.io/categories/rhel/</link>
+    <description>Recent content in rhel on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 12 Jun 2014 06:06:12 +0000</lastBuildDate>
+    
+	<atom:link href="https://lunatine.github.io/categories/rhel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>yum 저장소에서 checksum error 발생</title>
+      <link>https://lunatine.github.io/2014/06/yum-repository-checksum-error/</link>
+      <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2014/06/yum-repository-checksum-error/</guid>
+      <description>yum checksum error 증상  yum 저장소를 새로 생성하였으나 해당 목록을 받아올 때 아래 메시지 발생
+Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.com/rhel/5Server/x86_64/5.10/repodata/primary.xml.gz: [Errno -3] Error performing checksum Trying other mirror.  발생 조건
+ RHEL5 저장소를 RHEL6에서 생성하였을 경우   원인 및 해결방안 createrepo로 저장소를 생성 할 때 저장소 정보를 RHEL5의 Checksum은 SHA-1 기반으로 되어있는 반면에 RHEL6의 경우는 SHA-256으로 생성하기 때문에 RHEL5에서 해당 저장소를 사용하려고 하면 오류가 발생하는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>[FAQ] NIC의 순서가 부팅 때마다 바뀌는 증상</title>
+      <link>https://lunatine.github.io/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</link>
+      <pubDate>Wed, 05 Feb 2014 17:39:30 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2014/02/faq-nicyi-sunseoga-buting-ddaemada-baggwineun-jeungsang/</guid>
+      <description>이미 여러 인터넷 커뮤니티에서 알려진대로 RHEL 기준으로 RHEL5 부터 서버를 리부팅 할 때 마다 네트워크 카드의 순서가 뒤 바뀌는 증상이 발생하곤 한다.
+예를 들어 PCI 장치번호로 00:08.0이 eth0 였고 00:09.0가 eth1이었는데 리부팅을 하고 보니 eth0가 eth1으로 잡히고 eth1이 eth2로 잡히는 증상 또는 서로 바뀌는 증상들이 발생하는 것이다.
+이것에 대한 해결 방법은 여러가지가 존재하는데 하나씩 살펴보면
+NIC의 MAC 주소를 이용하는 방법 가장 정확하고 간편한 방법 중의 하나로 네트워크 장치 설정에 대해서 MAC 주소를 지정하는 방법이다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,8 +5,7 @@
     <link>https://lunatine.github.io/tags/p420/</link>
     <description>Recent content in P420 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Lunatine</copyright>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 17 Jun 2014 10:20:13 +0000</lastBuildDate>
     
 	<atom:link href="https://lunatine.github.io/tags/p420/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +13,10 @@
     
     <item>
       <title>Smart Array P420 캐시 비활성화 증상</title>
-      <link>https://lunatine.github.io/2014/06/17/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</link>
+      <link>https://lunatine.github.io/2014/06/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</link>
       <pubDate>Tue, 17 Jun 2014 10:20:13 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/06/17/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</guid>
+      <guid>https://lunatine.github.io/2014/06/smart-array-p420-kaesi-bihwalseonghwa-jeungsang/</guid>
       <description>Smart Array Cache 비활성화 증상  본 문서는 Smart Array 컨트롤러(P420, P420i, P421 등)에서 발생하는 캐시 비활성화 증상과 해결방법에 대해서 소개하고 있습니다.
  증상  시스템의 I/O 성능이 낮음
  Smart Array 컨트롤러의 캐시가 비 활성화 되어있음 컨트롤러 상태 정보 확인 결과 Capacitor 충전상태에 문제가 있으며 임시로 비활성화 되어있음을 확인할 수 있습니다.   컨트롤러 상태 메시지

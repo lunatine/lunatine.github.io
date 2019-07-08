@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Lunatine">
+<meta name="description"
+    content="자주 받는 질문 중의 하나.. &amp;lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&amp;rsquo;
+이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
+df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
+그런데 왜 다른건데?
+현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://lunatine.github.io/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/" />
+
+
+<title>
+    
+    [FAQ] Linux 디스크 사용량의 차이 (df 명령과 du) :: Lunatine&#39;s Box  — Lunatine&#39;s Box
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)">
+<meta itemprop="description" content="자주 받는 질문 중의 하나.. &lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&rsquo;
+이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
+df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
+그런데 왜 다른건데?
+현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다.">
+
+
+<meta itemprop="datePublished" content="2014-02-05T17:37:49&#43;00:00" />
+<meta itemprop="dateModified" content="2014-02-05T17:37:49&#43;00:00" />
+<meta itemprop="wordCount" content="187">
+
+
+
+<meta itemprop="keywords" content="faq,linux,df,du," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lunatine.github.io"/>
+
+<meta name="twitter:title" content="[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)"/>
+<meta name="twitter:description" content="자주 받는 질문 중의 하나.. &lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&rsquo;
+이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.
+df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.
+그런데 왜 다른건데?
+현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다."/>
+
+
+
+<meta property="article:section" content="linux" />
+
+<meta property="article:published_time" content="2014-02-05 17:37:49 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd ~/lunatine</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="https://lunatine.github.io/2014/02/faq-linux-diseukeu-sayongryangyi-cai-df-myeongryeonggwa-du/">[FAQ] Linux 디스크 사용량의 차이 (df 명령과 du)</a></h1>
+
+            
+
+            <div class="post-content">
+                <p>자주 받는 질문 중의 하나.. &lsquo;df 명령으로 보니 디스크 사용량이 100%인데 실제 du 명령으로 파일 크기를 합산하면 100%가 되지 않는 이유가 뭔가요?&rsquo;</p>
+
+<p>이러한 질문을 받고 서버를 확인해보면 상당 수가 MySQL DB관련 서버인 경우가 많은데 이는 df 명령과 du 명령의 차이점에 의해서 발생하는 것이다.</p>
+
+<p>df 명령은 현재 마운트 된 파일시스템의 상태를 기초로하여 사용률을 보여주는 것이고 du는 실제 디렉토리와 파일을 확인하고 그 크기를 조사하기 때문이다.</p>
+
+<p><strong>그런데 왜 다른건데?</strong></p>
+
+<p>현재 실행 중인 프로세스가 오픈한 파일에 대해서 삭제처리를 한 후에 해당 프로세스(태스크)를 종료하지 않으면 그 파일은 deleted 상태로 남게 된다. 즉, 파일시스템에 deleted 상태정보로 유지되고 있는 것이다. 그렇기 때문에 df 명령으로 확인하게 되면 deleted 파일이 차지하는 용량까지 더해져서 du 명령과는 차이를 나타낼 수가 있다. 특히, MySQL에서 큰 데이터베이스를 날렸을 경우에는 그 차이가 크게 느껴질 수 있다.</p>
+
+<p><strong>확인하는 방법은?</strong></p>
+
+<p>lsof라는 명령이 있다. 이 명령을 통해서 &lsquo;deleted&rsquo; 상태에 있는 파일을 확인할 수 있으니 각각의 파일 정보에서 해당 PID를 찾아서 그 프로세스를 리셋하거나 종료하면 df에서 잠식당한 공간을 확보할 수 있다.</p>
+
+<p><code>lsof | grep deleted</code></p>
+
+<p>실제로는 사용하지 않아서 그냥 내버려 둬도 되지 않느냐라고 볼 수 있지만.. 파일시스템 상태정보와 관련이 있기 때문에 실제 사용량이 많지 않아도 df에서 100%로 보이면 여유공간이 없다고 파일 생성이 되 질 않는다.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/faq">faq</a></span><span class="tag"><a href="https://lunatine.github.io/tags/linux">linux</a></span><span class="tag"><a href="https://lunatine.github.io/tags/df">df</a></span><span class="tag"><a href="https://lunatine.github.io/tags/du">du</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>187 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-02-06 02:37 &#43;0900</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://lunatine.github.io/2014/02/geomsaegeoe-daehan-gugeul-senseu/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">검색어에 대한 구글 센스</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://lunatine.github.io/2014/02/faq-nvidia-graphic-disable-ecc/">
+                                <span class="button__text">[FAQ] nVidia 그래픽카드의 메모리 ECC 기능 비활성화</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+          <div id="comments" class="thin">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lunatine" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://lunatine.github.io">Lunatine</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>

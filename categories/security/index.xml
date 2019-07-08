@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Lunatine&#39;s Box</title>
+    <link>https://lunatine.github.io/categories/security/</link>
+    <description>Recent content in security on Lunatine&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 29 Jan 2015 19:54:32 +0000</lastBuildDate>
+    
+	<atom:link href="https://lunatine.github.io/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>glibc 취약점 GHOST (CVE-2015-0235)</title>
+      <link>https://lunatine.github.io/2015/01/glibc-ghost-vulnerability/</link>
+      <pubDate>Thu, 29 Jan 2015 19:54:32 +0000</pubDate>
+      
+      <guid>https://lunatine.github.io/2015/01/glibc-ghost-vulnerability/</guid>
+      <description>경고(?)  이 글은 GHOST에 대한 분석의 글이 아닙니다. 보안에 기웃거렸을 뿐 보안이 뭔지 모르는 저의 개인적인 소감입니다.   GHOST? heartbleed, shellshock, POODLE &amp;hellip; 작년에 이름을 떨쳤던 보안 취약점이다. 그리고 이번엔 GHOST란다. 며칠 전에 접했던 취약점인며 국내 뉴스기사도 있다. GHOST는 glibc의 취약점인데 glibc가 갖는 범용성 때문에 꽤나 심각하게 보이는 취약점이다.
+glibc를 잘 모르는 분들을 위해 추가 설명을 하자면 glibc는 GNU C라이브러리 (GNU libc)를 의미하며 C라이브러리라는 것은 C언어의 기본 중의 기본이 되는 라이브러리를 의미한다.</description>
+    </item>
+    
+  </channel>
+</rss>
