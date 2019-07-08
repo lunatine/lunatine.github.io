@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2019 14:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rhel</title>
+      <link>/categories/rhel/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/categories/rhel/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hardware</title>
@@ -17,15 +35,6 @@
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
       <guid>/categories/hardware/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>/categories/linux/</link>
-      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
-      
-      <guid>/categories/linux/</guid>
       <description></description>
     </item>
     
@@ -89,15 +98,6 @@
       <pubDate>Mon, 29 Aug 2016 04:56:04 +0000</pubDate>
       
       <guid>/categories/virtualbox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>numa</title>
-      <link>/categories/numa/</link>
-      <pubDate>Thu, 14 Jul 2016 06:18:34 +0000</pubDate>
-      
-      <guid>/categories/numa/</guid>
       <description></description>
     </item>
     

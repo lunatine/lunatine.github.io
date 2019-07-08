@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2019 14:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RHEL</title>
+      <link>/tags/rhel/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/tags/rhel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RHEL8</title>
+      <link>/tags/rhel8/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/tags/rhel8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Release</title>
+      <link>/tags/release/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/tags/release/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CentOS</title>
@@ -17,15 +53,6 @@
       <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
       
       <guid>/tags/centos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RHEL</title>
-      <link>/tags/rhel/</link>
-      <pubDate>Fri, 22 Mar 2019 06:16:42 +0000</pubDate>
-      
-      <guid>/tags/rhel/</guid>
       <description></description>
     </item>
     
@@ -71,33 +98,6 @@
       <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
       
       <guid>/tags/initramfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>swap</title>
-      <link>/tags/swap/</link>
-      <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
-      
-      <guid>/tags/swap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sysetmd</title>
-      <link>/tags/sysetmd/</link>
-      <pubDate>Tue, 29 Jan 2019 08:31:25 +0000</pubDate>
-      
-      <guid>/tags/sysetmd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CentOS6</title>
-      <link>/tags/centos6/</link>
-      <pubDate>Tue, 29 Jan 2019 08:29:40 +0000</pubDate>
-      
-      <guid>/tags/centos6/</guid>
       <description></description>
     </item>
     

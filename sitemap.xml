@@ -4,7 +4,66 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-03-22T06:16:42+00:00</lastmod>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rhel/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/2019/06/rhel-8-release/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rhel8/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/release/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/rhel/</loc>
+    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -15,32 +74,8 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-03-22T06:16:42+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/2019/03/high-iostat-util-on-nvme/</loc>
     <lastmod>2019-03-22T06:16:42+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2019-03-22T06:16:42+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/rhel/</loc>
-    <lastmod>2019-03-22T06:16:42+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-03-22T06:16:42+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -51,12 +86,6 @@
   
   <url>
     <loc>/tags/iostat/</loc>
-    <lastmod>2019-03-22T06:16:42+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/linux/</loc>
     <lastmod>2019-03-22T06:16:42+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -156,12 +185,6 @@
   
   <url>
     <loc>/tags/format/</loc>
-    <lastmod>2019-01-29T08:26:19+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/linux/</loc>
     <lastmod>2019-01-29T08:26:19+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1509,12 +1532,6 @@
   
   <url>
     <loc>/tags/checksum-error/</loc>
-    <lastmod>2014-06-12T06:06:12+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/rhel/</loc>
     <lastmod>2014-06-12T06:06:12+00:00</lastmod>
     <priority>0</priority>
   </url>

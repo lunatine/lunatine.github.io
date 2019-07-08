@@ -6,10 +6,21 @@
     <description>Recent content in linux on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 29 Jan 2019 08:26:19 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2019 14:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RHEL 8 소개</title>
+      <link>/2019/06/rhel-8-release/</link>
+      <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+      
+      <guid>/2019/06/rhel-8-release/</guid>
+      <description>본 문서는 RHEL8에서 새롭게 변경 된 정보를 위주로 간략히 정리한 문서입니다. 변경 된 모든 내용을 다루지는 않으며 기존에 사용하던 환경과 관련성이 높은 부분만을 요약하였습니다. 전체 내용 및 자세한 사항은 릴리스노트 문서를 참고하세요.
+참고로, 릴리스노트 한국어판도 있지만 영문 버전보다 볼륨이 적습니다.
+1. 저장소 구조 RHEL 8에서는 BaseOS, AppStream 두 가지 형태의 저장소를 제공합니다. BaseOS는 기존 RPM 포맷의 패키지를 제공하며 AppSteam은 RPM과 RPM module을 제공합니다. AppStream은 사용자가 다양한 버전의 어플리케이션을 선택적으로 설치하고 사용 할 수 있도록 하기 위해서 구성된 저장소 입니다.</description>
+    </item>
     
     <item>
       <title>ext4 포맷 속도 개선</title>
@@ -104,16 +115,6 @@ DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 �
       <guid>/2015/01/glibc-ghost-vulnerability/</guid>
       <description>경고(?)  이 글은 GHOST에 대한 분석의 글이 아닙니다. 보안에 기웃거렸을 뿐 보안이 뭔지 모르는 저의 개인적인 소감입니다.   GHOST? heartbleed, shellshock, POODLE &amp;hellip; 작년에 이름을 떨쳤던 보안 취약점이다. 그리고 이번엔 GHOST란다. 며칠 전에 접했던 취약점인며 국내 뉴스기사도 있다. GHOST는 glibc의 취약점인데 glibc가 갖는 범용성 때문에 꽤나 심각하게 보이는 취약점이다.
 glibc를 잘 모르는 분들을 위해 추가 설명을 하자면 glibc는 GNU C라이브러리 (GNU libc)를 의미하며 C라이브러리라는 것은 C언어의 기본 중의 기본이 되는 라이브러리를 의미한다.</description>
-    </item>
-    
-    <item>
-      <title>RHEL6에서 Python 2.7/3.4 사용하기</title>
-      <link>/2015/01/python27-34-on-rhel-centos/</link>
-      <pubDate>Wed, 21 Jan 2015 06:27:21 +0000</pubDate>
-      
-      <guid>/2015/01/python27-34-on-rhel-centos/</guid>
-      <description>본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
-Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다.</description>
     </item>
     
   </channel>

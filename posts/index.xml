@@ -5,8 +5,826 @@
         <description>Recent content in Posts on Lunatine&#39;s Box</description>
         <generator>Hugo -- gohugo.io</generator>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 22 Mar 2019 06:16:42 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 21 Jun 2019 14:00:00 +0900</lastBuildDate>
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>RHEL 8 소개</title>
+            <link>/2019/06/rhel-8-release/</link>
+            <pubDate>Fri, 21 Jun 2019 14:00:00 +0900</pubDate>
+            
+            <guid>/2019/06/rhel-8-release/</guid>
+            <description>본 문서는 RHEL8에서 새롭게 변경 된 정보를 위주로 간략히 정리한 문서입니다. 변경 된 모든 내용을 다루지는 않으며 기존에 사용하던 환경과 관련성이 높은 부분만을 요약하였습니다. 전체 내용 및 자세한 사항은 릴리스노트 문서를 참고하세요.
+참고로, 릴리스노트 한국어판도 있지만 영문 버전보다 볼륨이 적습니다.
+1. 저장소 구조 RHEL 8에서는 BaseOS, AppStream 두 가지 형태의 저장소를 제공합니다. BaseOS는 기존 RPM 포맷의 패키지를 제공하며 AppSteam은 RPM과 RPM module을 제공합니다. AppStream은 사용자가 다양한 버전의 어플리케이션을 선택적으로 설치하고 사용 할 수 있도록 하기 위해서 구성된 저장소 입니다.</description>
+            <content type="html"><![CDATA[
+
+<p>본 문서는 RHEL8에서 새롭게 변경 된 정보를 위주로 간략히 정리한 문서입니다. 변경 된 모든 내용을 다루지는 않으며 기존에 사용하던 환경과 관련성이 높은 부분만을 요약하였습니다. 전체 내용 및 자세한 사항은 <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/8.0_release_notes/Red_Hat_Enterprise_Linux-8-8.0_release_notes-en-US.pdf" target="_blank">릴리스노트</a> 문서를 참고하세요.</p>
+
+<p>참고로, <a href="https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/8.0_release_notes/index" target="_blank">릴리스노트 한국어판</a>도 있지만 영문 버전보다 볼륨이 적습니다.</p>
+
+<h2 id="1-저장소-구조">1. 저장소 구조</h2>
+
+<p>RHEL 8에서는 <code>BaseOS</code>, <code>AppStream</code> 두 가지 형태의 저장소를 제공합니다. BaseOS는 기존 RPM 포맷의 패키지를 제공하며 AppSteam은 RPM과 RPM module을 제공합니다. AppStream은 사용자가 다양한 버전의 어플리케이션을 선택적으로 설치하고 사용 할 수 있도록 하기 위해서 구성된 저장소 입니다.</p>
+
+<p>예를들면, PostgreSQL의 경우 v10과 v9.6을 제공하고 사용자는 원하는 버전을 기준으로 설치하고 사용 할 수 있습니다. 즉, 과거에 단일 패키지로 구성되어 최신버전을 제공하던 형태에서 메이저 버전을 선택적으로 지정해서 사용 할 수 있습니다.</p>
+
+<p>이와 별개로 직접적인 패키지 지원이 없는 소프트웨어에 대해서 <code>CodeReady Linux Builder</code> 저장소를 제공합니다.</p>
+
+<h2 id="2-인스톨러">2. 인스톨러</h2>
+
+<h3 id="2-1-인스톨러-부트-옵션">2-1. 인스톨러 부트 옵션</h3>
+
+<ul>
+<li>net.ifnames.prefix
+
+<ul>
+<li>네트워크 인터페이스에 대한 prefix 스키마를 지정해서 사용 할 수 있습니다.</li>
+</ul></li>
+<li>inst.stage2
+
+<ul>
+<li>stage2 이미지를 여러 위치(네트워크 위치)에 배치하여 사용 할 수 있습니다.</li>
+</ul></li>
+<li>inst.addrepo
+
+<ul>
+<li>base 저장소 외에 추가 저장소를 지정해서 설치 할 수 있습니다.</li>
+</ul></li>
+</ul>
+
+<h3 id="2-2-kickstart-변경-점">2-2. Kickstart 변경 점</h3>
+
+<ul>
+<li>auth, authconfig 대신에 <strong>authselect</strong>를 사용합니다.</li>
+<li>install 커맨드 대신에 직접적인 서브 명령어를 사용합니다.</li>
+<li>그 외 더 이상 사용되지 않는 명령/옵션
+
+<ul>
+<li>부트 옵션에서 <code>inst.ksstrict</code>를 설정하면 아래 명령/옵션은 경고 대신에 에러로 처리됩니다.</li>
+<li>device</li>
+<li>deviceprobe</li>
+<li>dmraid</li>
+<li>lilo</li>
+<li>lilocheck</li>
+<li>mouse</li>
+<li>multipath</li>
+<li>bootloader &ndash;upgrade</li>
+<li>ignoredisk &ndash;insteractive</li>
+<li>partition &ndash;active</li>
+<li>reboot &ndash;kexec</li>
+</ul></li>
+<li>삭제 된 명령/옵션
+
+<ul>
+<li>upgrade</li>
+<li>btrfs
+
+<ul>
+<li>part/partition btrfs</li>
+<li>part &ndash;fstype btrfs / partition &ndash;fstype btrfs</li>
+<li>logvol &ndash;fstype btrfs</li>
+<li>raid &ndash;fstype btrfs</li>
+</ul></li>
+<li>unsupported_hardware</li>
+</ul></li>
+<li>새로운 명령/옵션
+
+<ul>
+<li>authselect
+
+<ul>
+<li>인증관련 정보를 설정하며 auth, authconfig를 대체합니다.</li>
+</ul></li>
+<li>module
+
+<ul>
+<li>AppStream에서 설치/활성화 할 모듈 패키지를 지정합니다.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="3-소프트웨어-관리">3. 소프트웨어 관리</h2>
+
+<h3 id="3-1-yum4-제공">3-1. YUM4 제공</h3>
+
+<p>새로운 YUM은 DNF에 기반하여 동작하며 기존 YUM3와 호환성은 제공되고 있습니다. DNF 기반이기 때문에 module 설치를 제공하며 이는 기존보다 빠른 설치작업을 수행 할 수 있게 합니다.</p>
+
+<h3 id="3-2-yum-conf-에서-삭제된-옵션">3-2. yum.conf 에서 삭제된 옵션</h3>
+
+<p>변경 된 커맨드가 많지만 자주 사용되는 옵션 중에서 삭제 된 옵션은 아래와 같습니다.
+- yum.conf
+    - group_command
+    - logfile
+- repos.d/*.repo
+    - async
+    - repositoryid</p>
+
+<h3 id="3-3-그외">3-3. 그외</h3>
+
+<p>기존에 동일한 이름과 버전의 패키지가 여러 저장소에서 제공 되면 한 개의 저장소 패키지만 표시했지만 신규 YUM에서는 각 저장소별로 패키지명을 출력합니다. (yum list)</p>
+
+<h2 id="4-시스템-서비스">4. 시스템 서비스</h2>
+
+<h3 id="4-1-시간-동기화">4-1.  시간 동기화</h3>
+
+<p>기존에는 ntp 데몬을 활용하여 시간 동기화 작업을 수행했지만 RHEL 8에서는 RHEL/CentOS 7 처럼 권고사항을 넘어 기본으로 <strong>chrony</strong>가 적용되었습니다. 따라서, 기존 <code>/etc/ntpd.conf</code> 설정 파일은 <code>/etc/chrony.conf</code> 설정 파일로 대체 되어야 하며 chrony에 맞게 설정을 변경해야 합니다.</p>
+
+<p>chrony는 기본적으로 <code>leapsectz</code> (윤초)를 지원합니다.</p>
+
+<h3 id="4-2-bind">4-2. BIND</h3>
+
+<p>RHEL8는 bind 9.11을 제공합니다.</p>
+
+<ul>
+<li>Domain Name System Cookie를 named와 dig에서 전송합니다.</li>
+<li>DNSSEC 유효성을 체크하기 위한 <strong>delv</strong> (doamin entity lookup and validation)툴이 제공됩니다.</li>
+<li>여러 DNS Query를 전송 할 수 있는 <strong>mdig</strong>이 제공됩니다.</li>
+<li>Recursive resolver 성능 개선을 위한 <code>prefetch</code> 옵션이 제공됩니다.</li>
+<li>동일한 Zone 설정 파일에 대하여 권한에 따라 다양한 뷰를 제공할 수 있는 <code>in-view</code> 옵션이 추가되었습니다.</li>
+<li>Zone에 대한 최대 TTL를 지정할 수 있는 <code>max-zone-ttl</code> 옵션이 추가되었습니다.</li>
+<li>쿼리에 제약을 둘 수 있는 quota 기능이 추가되었습니다.</li>
+<li><strong>nslookup</strong> 명령이 IPv4(A)와 IPv6(AAAA)를 기본적으로 모두 조회합니다</li>
+<li><strong>named</strong> 데몬이 기본적으로 IPv4, IPv6 인터페이스를 모두 Listen 합니다.</li>
+<li><strong>named</strong> 데몬의 GeoIP 지원이 제거되었습니다.</li>
+</ul>
+
+<h3 id="4-3-tuned">4-3. Tuned</h3>
+
+<p>Tuned 프로파일 적용 방식이 변경되었습니다. <code>tuned-adm recommend</code> 명령은 아래 규칙에 따라서 프로파일이 적용됩니다.</p>
+
+<ul>
+<li>syspurpose role에 <code>atomic</code>이 포함되어있을 경우에 아래 프로파일이 적용됩니다.
+
+<ul>
+<li>물리서버(bare metal)는 <code>atomic-host</code></li>
+<li>가상서버는 <code>atomic-guest</code></li>
+</ul></li>
+<li>가상 서버는 기본 적으로 <code>virtual-guest</code> 프로파일이 적용됩니다.</li>
+<li>syspurpose role에 <code>desktop</code>, <code>workstation</code>이 있고 섀시 타입이 노트북, 랩탑, 포터블인 경우에는 <code>balanced</code> 프로파일이 적용됩니다.
+
+<ul>
+<li>섀시 타입은 dmideocde에서 제공되는 정보에 기반합니다</li>
+</ul></li>
+<li>위 사항 중에서 해당 되는 사항이 없다면 <code>througput-performance</code> 프로파일이 적용됩니다.</li>
+</ul>
+
+<h3 id="4-4-rsyslog">4-4. RSYSLOG</h3>
+
+<ul>
+<li>rsyslog 버전이 업그레이드 됨에 따라 설정파일은 <strong>기존 버전의 설정 파일과 호환되지 않습니다</strong>.</li>
+<li>journald와 중복된 레코드를 최소화 하기 위한 <code>imjournal</code> 옵션이 추가 되었습니다. (참고: <a href="https://access.redhat.com/articles/4058681" target="_blank">KB</a>)
+
+<ul>
+<li>위에 링크된 문서는 journald가 디스크를 사용하지 않도록 설정하는 내용을 담고 있습니다. 따라서, journald의 모든 내용은 휘발성인 메모리에만 저장됩니다.</li>
+</ul></li>
+</ul>
+
+<h3 id="4-5-그-외">4-5. 그 외</h3>
+
+<p>시스템 명령, 데몬 중에서 현재 환경과 관련성이 있는 항목에 대해서 소개합니다.</p>
+
+<ul>
+<li>acpid
+
+<ul>
+<li>-d (debug) 옵션이 -f 옵션에 적용되지 않습니다.</li>
+</ul></li>
+<li>GeoIP
+
+<ul>
+<li>삭제 되었습니다.</li>
+</ul></li>
+<li>grep
+
+<ul>
+<li>현재 로케일로 인코딩 되지 않은 파일은 바이너리로 취급합니다</li>
+<li>유효하지 않은 UTF-8 데이터에 대해서 <strong>-P</strong> 옵션이 에러를 출력하지 않습니다.</li>
+<li><code>grep -z</code> 는 <code>\200</code> 바이트를 더이상 바이너리 데이터로 취급하지 않습니다.</li>
+</ul></li>
+<li>powertop
+
+<ul>
+<li>-d 옵션 삭제</li>
+<li>-h 대신에  &ndash;html을 사용 (-h는 &ndash;help의 alias로 변경)</li>
+<li>-u 옵션 삭제</li>
+</ul></li>
+<li>wireshark
+
+<ul>
+<li>-H 옵션이 SHA256, RIPEMD160, SHA1 해시로 바뀌었습니다. (즉, MD5 삭제되고 SHA256 추가 됨)</li>
+</ul></li>
+</ul>
+
+<h2 id="5-보안">5. 보안</h2>
+
+<h3 id="5-1-시스템-암호화-정책">5-1. 시스템 암호화 정책</h3>
+
+<ul>
+<li><p>삭제 된 암호화 스위트</p>
+
+<ul>
+<li>DES</li>
+<li>MD5</li>
+<li>SSLv2</li>
+<li>SSLv3</li>
+<li>224bits 미만 모든 ECC curves</li>
+<li>모든 binary field ECC curves</li>
+</ul></li>
+
+<li><p>비활성화 된 암호화 스위트</p>
+
+<ul>
+<li>DH with parameters &lt; 1024 bits</li>
+<li>RSA - 1024bits 미만 키 사이즈</li>
+<li>Camellia</li>
+<li>ARIA</li>
+<li>SEED</li>
+<li>IDEA</li>
+<li>SHA-384 HMAC를 사용하는 TLS CBC</li>
+<li>AES-CCM8</li>
+<li>TLS 1.3과 호환되지 않는 모든 ECC curves</li>
+<li>IKEv1</li>
+</ul></li>
+
+<li><p><strong>TLS v1.3</strong>을 지원합니다.</p></li>
+
+<li><p>TLS v1.0과 v1.1은 기본적으로 비활성화 됩니다.</p>
+
+<ul>
+<li><code>update-crypto-policies --set LEGACY</code>로 시스템 보안 레벨을 조절하여 사용 가능합니다.</li>
+</ul></li>
+
+<li><p>DSA 암호화는 비활성화 됩니다.</p></li>
+</ul>
+
+<h3 id="5-3-ssh">5-3. SSH</h3>
+
+<p>OpenSSH가 7.8p1 버전으로 제공됩니다. 아래와 같은 변경 사항이 있습니다.</p>
+
+<ul>
+<li>SSH v1 프로토콜을 지원하지 않습니다</li>
+<li>hmac-ripemd160 메시지 인증코드를 지원하지 않습니다.</li>
+<li>삭제 된 암호화
+
+<ul>
+<li>Blowfish</li>
+<li>CAST</li>
+<li>RC4(arcfour)
+
+<ul>
+<li>기존에 rsync를 ssh에 연동하여 사용하셨던 분들 중에서 빠른 파일 전송을 위해서 arcfour를 사용하셨던 분은 다른 가벼운 암호화 방법을 선택해야합니다.</li>
+</ul></li>
+</ul></li>
+<li>UseDNS 옵션의 기본값이 <code>no</code> 입니다.</li>
+<li>DSA public key 알고리즘이 기본적으로 비활성화 됩니다.</li>
+<li>UsePrivilegeSeparation=sandbox 옵션을 끌 수 없습니다.</li>
+<li>1024bits 이상 크기를 가진 RSA 키만 유효합니다.</li>
+<li>시스템 암호화 라이브러리와 별개인 libssh가 적용 됩니다.</li>
+<li>libssh2 라이브러리는 없습니다.</li>
+</ul>
+
+<h3 id="5-4-audit-3-0">5-4. Audit 3.0</h3>
+
+<p><strong>audispd</strong> 패키지는 <strong>auditd</strong>로 통합되었으며 설정파일도 <code>auditd.conf</code> 설정파일로 합쳐졌습니다.</p>
+
+<h3 id="5-5-그-외">5-5. 그 외</h3>
+
+<ul>
+<li>useradd, groupadd는 숫자로 된 사용자명과 그룹명을 허용하지 않습니다.
+
+<ul>
+<li>shadow-utils 패키지에서 지원하지 않습니다.</li>
+</ul></li>
+<li><code>/etc/securetty</code>가 기본적으로 비활성화 처리 됩니다.
+
+<ul>
+<li>사용하고자 하는 경우에는 <strong>pam_securetty.so</strong>를 활성화하고 개별 설정 해야합니다.</li>
+</ul></li>
+<li><strong>cryto-utils</strong> 패키지가 삭제 되고 openssl, gnutls-utils, nss-tools로 대체 되었습니다.</li>
+</ul>
+
+<h2 id="6-네트워크">6. 네트워크</h2>
+
+<h3 id="6-1-networkmanager">6-1. NetworkManager</h3>
+
+<p>기존 네트워크 설정파일을 관리하던 <code>network-scripts</code>가 기본적으로 삭제되고 NetworkManager로 대체 되었습니다. 또한 ifup, ifdown 명령도 NetworkManager의 nmcli를 호출하는 커맨드로 변경되었습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ alternatives --display ifup
+ifup - status is auto.
+ link currently points to /usr/libexec/nm-ifup
+/usr/libexec/nm-ifup - priority <span style="color:#ae81ff">50</span>
+ slave ifdown: /usr/libexec/nm-ifdown
+Current <span style="color:#e6db74">`</span>best<span style="color:#960050;background-color:#1e0010">&#39;</span> version is /usr/libexec/nm-ifup.</code></pre></div>
+<p>NetworkManager에서 직접 ifup, ifdown 커맨드를 대체하기 때문에 NetworkManager를 사용하는 시스템임에도 network-scripts 안의 설정 파일을 보면 <code>NM_CONTROLLED</code> 옵션이 없는 걸 알 수 있습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat ifcfg-enp0s3
+TYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ethernet&#34;</span>
+PROXY_METHOD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;none&#34;</span>
+BROWSER_ONLY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no&#34;</span>
+BOOTPROTO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dhcp&#34;</span>
+DEFROUTE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yes&#34;</span>
+IPV4_FAILURE_FATAL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no&#34;</span>
+IPV6INIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yes&#34;</span>
+IPV6_AUTOCONF<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yes&#34;</span>
+IPV6_DEFROUTE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yes&#34;</span>
+IPV6_FAILURE_FATAL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no&#34;</span>
+IPV6_ADDR_GEN_MODE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stable-privacy&#34;</span>
+NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;enp0s3&#34;</span>
+UUID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;68a55877-13f1-46ed-8e39-4ab51f141f35&#34;</span>
+DEVICE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;enp0s3&#34;</span>
+ONBOOT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yes&#34;</span></code></pre></div>
+<p>만약, 기존 방식의 스크립트 관리를 적용하기 위해서는 별도로 패키지를 설치하여 NetworkManager의 ifup, ifdown을 대체해야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo yum -y install network-scripts</code></pre></div>
+<p>NetworkManager가 SR-IOV를 지원하기 시작했으며 와일드카드 매칭 방식의 인터페이스 지정이 가능해 졌습니다. ethtool에서 제공하던 offload 관련 설정 또한 제공 됩니다.</p>
+
+<p>DHCP 환경에 대해서는 기존에 dhclient를 사용하던 것 대신 internal 플러그인으로 DHCP 지원을 합니다. dhclient를 사용하기 위해서는 별도로 설정을 해주어야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e">;/etc/NetworkManager/NetworkManager.conf</span>
+<span style="color:#66d9ef">[main]</span>
+<span style="color:#a6e22e">dhcp</span><span style="color:#f92672">=</span><span style="color:#e6db74">dhclient</span></code></pre></div>
+<h3 id="6-2-패킷-필터링">6-2. 패킷 필터링</h3>
+
+<p>지금까지 사용되던 iptables 대신에 <strong>nftables</strong> 프레임워크가 적용되었습니다. nftables의 설정 형태는 iptables와 다르기 때문에 이를 변환해 주는 유틸리티도 제공합니다.</p>
+
+<p>또한, iptables, ip6tables, ebtables, arptables 툴은 이름이 동일한 nftables 기반의 명령으로 대체 되었습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ iptables --version
+iptables v1.8.0 <span style="color:#f92672">(</span>nf_tables<span style="color:#f92672">)</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nft list tables
+nft list tables
+table ip filter
+table ip6 filter
+table bridge filter
+table ip security
+table ip raw
+table ip mangle
+table ip nat
+table ip6 security
+table ip6 raw
+table ip6 mangle
+table ip6 nat
+table bridge nat
+table inet firewalld
+table ip firewalld
+table ip6 firewalld</code></pre></div>
+<h3 id="6-3-tcp-개선">6-3. TCP 개선</h3>
+
+<p>RHEL8의 기본 커널은 4.18에 기초하고 있기 때문에 새로운 TCP 혼잡제어 알고리즘인 <strong>TCP BBR</strong>과 <strong>TCP NV</strong>(New Vegas)를 제공합니다.</p>
+
+<pre><code>net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+net.ipv4.tcp_notsent_lowat = 16384
+</code></pre>
+
+<ul>
+<li>참고
+
+<ul>
+<li>BBR - <a href="https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7" target="_blank">How to Deploy Google BBR on CentOS 7 - Vultr.com</a></li>
+<li>BBR - <a href="https://kakao.agit.in/g/300003298/wall/317324520#comment_panel_320341897" target="_blank">agit :: 통검 TCP BBR 적용 테스트</a></li>
+<li>NV -  <a href="https://access.redhat.com/solutions/3717541" target="_blank">https://access.redhat.com/solutions/3717541</a></li>
+</ul></li>
+</ul>
+
+<h2 id="7-커널">7. 커널</h2>
+
+<p>RHEL8은 Fedora 28의 4.18 커널을 기반으로 하고 있습니다.</p>
+
+<h3 id="7-1-tech-preview">7-1. Tech Preview</h3>
+
+<p>Redhat에서 Tech Preview 형태로 지원하는 기능에 대해서 나열합니다. 기존에 Tech Preview였던 기능들이 추후 마이너 릴리즈로 업데이트 되면서 정식으로 적용된 적이 있기 때문에 마이너 버전 업데이트에 대해서도 지속적인 확인이 필요합니다.</p>
+
+<ul>
+<li>Control group v2</li>
+<li>eBPF</li>
+<li>BCC</li>
+</ul>
+
+<h3 id="7-2-memory">7-2. Memory</h3>
+
+<p>5 레벨 페이지 테이블을 제공합니다. 4 레벨에서 5 레벨로 페이지 테이블의 관리 단계가 늘어났기 때문에 기존에 64TiB까지 지원하던 물리메모리는 4PiB까지 늘어났습니다. 가상 메모리 주소 기준으로는 128PiB까지 메모리 주소를 제공합니다. (57bit 가상주소, 52bit 물리 주소)</p>
+
+<h3 id="7-3-ebpf">7-3. eBPF</h3>
+
+<p><strong>bpftool</strong>을 제공하며 eBPF 관련된 기술이 Tech Preview로 제공됩니다. (BCC - BPF Compiler Connection - 포함)</p>
+
+<h3 id="7-4-부팅-설정">7-4. 부팅 설정</h3>
+
+<p>RHEL8은 BLS(Boot Loader Specification)이 적용되었습니다. 따라서, 기존처럼 /boot/grub2/grub.cfg에 커널 관련 설정이 들어있지 않으며 BLS 파일 포맷에 따라서 <code>/boot/loader/entries</code>에  부팅을 위한 커널설정이 들어있습니다.</p>
+
+<ul>
+<li>참고:  <a href="https://systemd.io/BOOT_LOADER_SPECIFICATION" target="_blank">systemd :: The Boot Loader Specification</a></li>
+</ul>
+
+<p><strong>grubby</strong>가 BLS를 지원합니다.</p>
+
+<p>참고로, BLS를 위해서  <a href="https://github.com/bmr-cymru/boom" target="_blank">Boom</a> 부트 매니저가 지원됩니다. Boom 부트매니저는 부트로더 설정 자체를 수정하는 것이 아닌 프로파일, 엔트리 정보에 대해서는 수정/추가를 제공합니다. cli 형태로 제공되며 Python API도 제공합니다.</p>
+
+<h3 id="7-5-기타">7-5. 기타</h3>
+
+<ul>
+<li>NUMA 노드를 8개 까지 지원합니다. (기존 4개)</li>
+<li>Spectre V2 관련
+
+<ul>
+<li>IBRS(Indirect Branch Restricted Speculation) 적용에서 retpoline 적용으로 기본 적용 값의 변경</li>
+<li>커널부트에서 spectre_v2=ibrs로 IBRS 적용 가능</li>
+<li>/sys/devices/system/cpu/vulnerabilities/spectre_v2 키가 추가 됨</li>
+<li>개선된 IBRS 제공</li>
+<li>IOMMU Passthrough가 기본으로 활성화 (AMD)</li>
+</ul></li>
+</ul>
+
+<h2 id="8-하드웨어">8. 하드웨어</h2>
+
+<p>하드웨어  지원이 종료 된 장치 중에서 현재 환경과 관련있는 항목만 나열합니다.</p>
+
+<h3 id="8-1-드라이버-제거">8-1. 드라이버 제거</h3>
+
+<ul>
+<li>arcmsr</li>
+<li>sata_nv</li>
+<li>e1000
+
+<ul>
+<li>e1000e를 사용해야 합니다</li>
+</ul></li>
+<li>isci</li>
+<li>mpt
+
+<ul>
+<li>mptbase</li>
+<li>mptctl</li>
+<li>mptsas</li>
+<li>mptscsih</li>
+<li>mptspi</li>
+</ul></li>
+<li>qla3xxx</li>
+</ul>
+
+<h3 id="8-2-드라이버-지원-대상-변경">8-2. 드라이버 지원 대상 변경</h3>
+
+<p>아래 드라이버들이 일부 모델에 대해서 지원을 중단 하였습니다. 구형 장비에 설치 할 때 릴리즈 노트를 참고하여 사용가능 여부를 판단해야 합니다.</p>
+
+<ul>
+<li>aacraid</li>
+<li>mpt2sas
+
+<ul>
+<li>SAS2004, SAS2008, SAS2108_1~3, SAS2116_1~2, SSS6200 제거 됨</li>
+</ul></li>
+<li>megaraid_sas
+
+<ul>
+<li>PERC5 제거</li>
+<li>SAS1078R/DE, SAS1064R, SAS1078GEN2, SAS1079GEN2 제거</li>
+</ul></li>
+<li>qla2xxx
+
+<ul>
+<li>QLE220, QLE81xx, QLE10000, QLE84xx, QLE8000, QLE82xx 제거</li>
+</ul></li>
+<li>qla4xxx
+
+<ul>
+<li>QLOGIC_ISP8022/8324/8042 제거</li>
+</ul></li>
+<li>lpfc</li>
+</ul>
+
+<h3 id="8-3-fcoe">8-3. FCoE</h3>
+
+<p><strong>fcoe.ko</strong> 모듈이 삭제 되었기 때문에 Fibre Channel over Ethernet은 사용할 수 없습니다.</p>
+
+<h2 id="9-파일시스템">9. 파일시스템</h2>
+
+<h3 id="9-1-btrfs">9-1. btrfs</h3>
+
+<ul>
+<li>RHEL8에서 btrfs 지원을 중단하였습니다. 따라서, btrfs 관련된 커널 모듈 및 패키지가 제공되지 않습니다.</li>
+</ul>
+
+<h3 id="9-2-xfs">9-2. XFS</h3>
+
+<p>XFS에서 Shared C.O.W 기능을 지원합니다. 이는 2개 이상의 파일에 대해서 데이터 블록을 공유하여 참조하고 변경 점이 있을 때에만 C.O.W 처럼 처리를 합니다.</p>
+
+<p>이러한 기능이 갖는 장점은 아래와 같습니다.</p>
+
+<pre><code>- 공유 복사본 생성 시 디스크  I/O가 발생하지 않습니다.
+- 공간이 절약됩니다. (공유 블럭이 추가 공간을 소비하지 않음)
+- 내부적으로 공통 블럭을 공유하지만 일반 파일처럼 동작합니다.
+</code></pre>
+
+<p>사용자 영역에서 <code>cp --reflink</code> 명령이나 파일 스냅샷 처리 등으로 활용 할 수 있습니다. 이러한 기능은 OverlayFS, NFS에서 효율을 높여 줄 수 있습니다.</p>
+
+<p>단, DAX(Direct Access) 장치는 현재 지원하지 않기 때문에 해당 기능을 비활성화 하고 포맷해야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkfs.xfs -m reflink<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> &lt;block-device&gt;</code></pre></div>
+<p>XFS의 최대 크기는 1024TiB로 확장되었습니다. (기존 500TiB)</p>
+
+<h3 id="9-3-ext4">9-3. ext4</h3>
+
+<p>ext4가 메타데이터에 대해서 체크섬(checksum)을 지원합니다.</p>
+
+<h3 id="9-4-nfs">9-4. NFS</h3>
+
+<p>기존에 NFS 환경 설정을 위해서 사용하던 <code>/etc/sysconfig/nfs</code>가 제거 되고 해당 내용은 <code>/etc/nfs.conf</code> 설정 파일로 변경 되었습니다. nfs.conf 설정파일은 고유의 설정 포맷이 있기 때문에 기존 설정을 옮길 때 유의해야 합니다.</p>
+
+<p>NFS 관련 패키지의 서비스 구성이 변경 되었습니다.</p>
+
+<ul>
+<li>nfs.service -&gt; nfs-server.service</li>
+<li>nfs-secure.service -&gt; rpc-gssd.service</li>
+<li>rpcgssd.service -&gt; rpc-gssd.service</li>
+<li>nfs-idmap.service -&gt; nfs-idmapd.service</li>
+<li>rpcidmapd.service -&gt; nfs-idmapd.service</li>
+<li>nfs-lock.service -&gt; rpc-statd.service</li>
+<li>nfslock.service -&gt; rpc-statd.service</li>
+</ul>
+
+<h2 id="10-스토리지">10. 스토리지</h2>
+
+<h3 id="10-1-신규-기능">10-1. 신규 기능</h3>
+
+<ul>
+<li><p><a href="https://stratis-storage.github.io/" target="_blank">Stratis Storage</a>를 제공합니다.</p>
+
+<ul>
+<li>Thin provisioning과 스냅샷을 관리할 수 있습니다.</li>
+<li>자동 증가되는 파일시스템을 구성할 수 있습니다.</li>
+<li>Tech Preview 형태로 제공 됩니다.</li>
+</ul></li>
+
+<li><p>파일시스템 암호화</p>
+
+<ul>
+<li>LUKS2를 볼륨 암호화의 기본 포맷으로 사용합니다.</li>
+</ul></li>
+</ul>
+
+<h3 id="10-2-multiqueue-스케줄러">10-2. Multiqueue 스케줄러</h3>
+
+<p>최근 메모리 기반 스토리지가 많이 사용 됨에 따라 RHEL/CentOS 7에서 부터 조금씩 지원되던 멀티큐 I/O 스케줄러에 대해서 기본 설정이 추가되었습니다.</p>
+
+<p>SCSI Multiqueue (scsi-mq) 드라이버가 기본적으로 활성화 되어서 적용 됩니다. (즉, RHEL/CentOS7 에서 scsi_mod.use_blk_mq=y 옵션을 적용하던 부분이 기본 값이 되었습니다)</p>
+
+<h3 id="10-3-기타">10-3. 기타</h3>
+
+<ul>
+<li>dmraid 패키지가 삭제되었습니다.
+
+<ul>
+<li>mdadm 패키지를 사용하세요</li>
+</ul></li>
+<li>LVM
+
+<ul>
+<li>공유 볼륨을 위한 clvmd가 삭제 되었고 lvmlockd를 대신 사용합니다.</li>
+<li>메타 데이터 캐싱을 위한 lvmetad 데몬이 제거 되었습니다.
+
+<ul>
+<li>메타 데이터 캐싱은 LVM에서 무조건 활성화 된 상태로 적용 됩니다.</li>
+</ul></li>
+<li>GFS Pool 볼륨 또는 LVM1 메타데이터에 대해서 지원이 중단 됩니다.</li>
+<li>LVM의 Python 바인딩인 lvm2-python-libs가 삭제 되었습니다. 아래 방법이 권장됩니다.
+
+<ul>
+<li>lvm2-dbusd 서비스 API를 사용</li>
+<li>LVM cli가 JSON 포매팅을 지원하기 때문에 cli를 사용</li>
+<li>C/C++로 마이그레이션 해서 libblockdev 라이브러리를 사용</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="11-그-외-os-구성-요소-및-서비스">11. 그 외 OS 구성 요소 및 서비스</h2>
+
+<h3 id="11-1-glibc">11-1. glibc</h3>
+
+<p>기존 glibc-common 패키지의 로케일/번역 관련된 부분이 <code>glibc-langpack-&lt;CODE&gt;</code> 형태로 분리되어서 제공 됩니다.</p>
+
+<h3 id="11-2-nobody">11-2. nobody</h3>
+
+<p>기존에 ID 99번을 사용하던 nobody 유저/그룹이 nfsnobody가 사용하던 65534로 변경되면서 두 ID가 합쳐졌습니다. 따라서, RHEL8에는 nfsnobody는 존재하지 않고 nobody 유저/그룹은 65534 ID를 갖게 됩니다.</p>
+
+<h3 id="11-3-버전-컨트롤">11-3. 버전 컨트롤</h3>
+
+<p><code>cvs</code>, <code>rcs</code>는 제거되며 <code>git</code>, <code>mecurial</code>, <code>subversion</code> 만 제공 됩니다.</p>
+
+<h3 id="11-4-python-3">11-4. Python 3</h3>
+
+<p>RHEL8을 구성하는 Python 구현이 모두 Python 3 기준으로 변경 되었습니다. 따라서, Python2와 Python3를 구분짓기 위해 일반적으로 Python 생태계에서 권고되는 것 처럼 버전을 붙인 명령을 사용해야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># for Python 2.7</span>
+$ python2
+
+<span style="color:#75715e"># for Python 3.6</span>
+$ python3</code></pre></div>
+<p>이로인해 RHEL8은 기본적으로 <strong>python</strong> 명령이 없습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python
+-bash: python: command not found</code></pre></div>
+<p>버전이 명시되지 않은 python 명령을 사용하고자 한다면 <strong>alternatives</strong>로 별도 설정해 주어야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ alternatives --set python /usr/bin/python3</code></pre></div>
+<p>또한, python을 사용하는 어플리케이션에 대한 RPM 패키징 작업을 할 때에는 python 버전을 명시적으로 지정해서 패키지 해야 합니다.</p>
+
+<p>아래와 같은 형태의 Hashbang은 에러를 일으킵니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/python
+</span><span style="color:#75715e"></span><span style="color:#75715e">#!/usr/bin/env python</span></code></pre></div>
+<h3 id="11-5-php-ruby-perl-node-js">11-5. PHP, Ruby, Perl, Node.js</h3>
+
+<p>생략합니다. <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/pdf/8.0_release_notes/Red_Hat_Enterprise_Linux-8-8.0_release_notes-en-US.pdf" target="_blank">릴리스노트</a> 문서를 참고하세요.</p>
+
+<ul>
+<li>Node.js 10이 RHEL8에서 새롭게 제공됩니다.</li>
+<li>Ruby 2.5가 제공됩니다.</li>
+<li>PHP 7.2가 제공됩니다.</li>
+<li>Perl 5.26이 제공됩니다.</li>
+</ul>
+
+<h3 id="11-6-apache-http-server">11-6. Apache HTTP Server</h3>
+
+<p>Apache HTTP Server 2.4.37 이 제공됩니다.</p>
+
+<ul>
+<li>HTTP/2 사용을 위해서는 mod_http2 패키지 모듈을 설치해서 사용해야 합니다</li>
+<li><code>mod_md</code> 모듈이 추가 되었습니다. (ACME 프로토콜 SSL/TLS 인증서 서비스용)</li>
+<li>ListenFree 옵션이 제공 됩니다. (네트워크 인터페이스 상태와 무관한 바인딩을 위해)</li>
+<li>아래 모듈이 삭제되었습니다.
+
+<ul>
+<li><code>mod_file_cache</code></li>
+<li><code>mod_nss</code></li>
+<li><code>mod_perl</code></li>
+</ul></li>
+<li><code>mod_wsgi</code> 가 Python3만 지원합니다.</li>
+<li>기존 prefork, worker 대신에 <strong>event</strong> MPM이 기본으로 적용됩니다.</li>
+<li><code>/etc/sysconfig/httpd</code> 설정 파일이 더 이상 유효하지 않습니다.</li>
+<li>httpd 서비스 종료는  <code>graceful stop</code>을 기본으로 사용합니다.</li>
+<li><code>mod_auth_kerb</code>는 <code>mod_auth_gssapi</code>로 대체되었습니다.</li>
+</ul>
+
+<h3 id="11-7-apache-tomcat">11-7. Apache Tomcat</h3>
+
+<p>제거 되었습니다. JBoss Web Server를 권장 합니다.</p>
+
+<h3 id="11-8-caching-server">11-8. Caching Server</h3>
+
+<ul>
+<li><a href="https://varnish-cache.org/" target="_blank">Varnish Cache</a> 6.0 이 제공됩니다.</li>
+<li>Squid 4.4 가 제공 됩니다.</li>
+</ul>
+
+<h3 id="11-9-db">11-9. DB</h3>
+
+<p>아래와 같은 DB를 제공합니다.</p>
+
+<ul>
+<li>MySQL 8.0
+
+<ul>
+<li>권한모음과 같은 role을 지원합니다.</li>
+<li>기본 캐릭터셋이 latin1에서 utf8mb4로 변경 되었습니다.</li>
+<li>InnoDB가 NOWAIT과 SKIP LOCKED 옵션을 지원합니다.</li>
+<li>JSON 함수기능의 개선</li>
+<li>mariadb-connector-c 패키지가 공통 클라이언트 라이브러리를 제공하여 이 라이브러리를 사용하면 MySQL, MariaDB에 모두 사용가능한 어플리케이션을 만들 수 있습니다.</li>
+<li>RHEL8의 MySQL은 <code>caching_sha2_paswd</code> 대신에 <code>mysql_native_passwd</code>를 기본 인증 플러그인으로 사용합니다.</li>
+</ul></li>
+<li>MariaDB 10.3
+
+<ul>
+<li>FOR 루프</li>
+<li>투명화 컬럼</li>
+<li>InnoDB를 위한 인스턴트 ADD COLUMN</li>
+<li>병렬 리플리케이션</li>
+<li>멀티소스 리플리케이션</li>
+</ul></li>
+<li>PostgreSQL 9.6
+
+<ul>
+<li>scan, join, aggregate에 대한 병렬 실행</li>
+<li>동기화 복제의 개선</li>
+<li>join, sort, UPDATE, DELETE에 대한 postres_fdw 드라이버 지원</li>
+</ul></li>
+<li>PostgreSQL 10
+
+<ul>
+<li>SCRAM-SHA-256 메커니즘 기반의 암호 인증 제공</li>
+<li>선언적인 테이블 분할</li>
+<li>쿼리 병렬처리 향상</li>
+<li>상세: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_different_types_of_servers/index#using-postgresql" target="_blank">RHEL8 Deploy Guides</a></li>
+</ul></li>
+<li>Redis 5</li>
+<li>MongoDB는 지원하지 않습니다. (라이센스 이슈)</li>
+</ul>
+
+<h3 id="11-10-컴파일러">11-10. 컴파일러</h3>
+
+<ul>
+<li>gcc 8.2 를 제공합니다.</li>
+<li>AppStream에서 아래 개발 툴셋을 제공합니다.
+
+<ul>
+<li>Clang / LLVM Toolset 7.0.1</li>
+<li>Rust Toolset 1.31</li>
+<li>Go Toolset 1.11.5</li>
+<li>java-11-openjdk</li>
+<li>java-1.8.0-openjdk</li>
+<li>icedtea-web</li>
+<li>ant 1.10</li>
+<li>maven</li>
+<li>scala</li>
+</ul></li>
+</ul>
+
+<h3 id="11-11-웹-콘솔">11-11. 웹 콘솔</h3>
+
+<p><a href="https://cockpit-project.org/" target="_blank">Cockpit</a>이 RHEL8 기본 웹콘솔로 제공 됩니다.</p>
+
+<h3 id="11-12-컨테이너">11-12. 컨테이너</h3>
+
+<ul>
+<li>RHEL 8에는 docker가 포함되어있지 않습니다.
+
+<ul>
+<li>podman, buildah, skopeo, runc 를 사용하세요</li>
+</ul></li>
+</ul>
+
+<h3 id="11-13-패키지-변경">11-13. 패키지 변경</h3>
+
+<p>현재 운영 환경과 관련있는 패키지에 대한 변경 목록입니다. 전체 목록은 공식 문서를 참고하세요.</p>
+
+<ul>
+<li>abrt-python -&gt; python3-abrt</li>
+<li><strong>dhclient -&gt; dhcp-client</strong></li>
+<li>dracut -&gt; dracut, dracut-live</li>
+<li><strong>git -&gt; git, git-core, git-core-doc, git-subtree</strong></li>
+<li>glibc -&gt; glibc, glibc-all-langpacks, glibc-locale-source, glibc-minimal-langpack, libnsl, libxcrypt, nss_db</li>
+<li>glibc-common -&gt; glibc-common, rpcgen</li>
+<li>grub2-common -&gt; efi-filesystem, grub2-common</li>
+<li>grub2-tools -&gt; grub2-tools, grub2-tools-efi</li>
+<li>initscripts -&gt; initscripts, netconsole-service, network-scripts, readonly-root</li>
+<li>iproute -&gt; iproute, iproute-tc</li>
+<li>iptables -&gt; iptables, iptables-libs</li>
+<li><strong>kernel -&gt; kernel, kernel-core, kernel-modules, kernel-modules-extra</strong>
+
+<ul>
+<li>Ubuntu 처럼 분리되었으며 kernel 패키지는 메타패키지로 파일이 없는 패키지 입니다.</li>
+</ul></li>
+<li>kernel-tools, qemu-kvm-tools -&gt; kernel-tools</li>
+<li>mod_nss -&gt; mod_ssl</li>
+<li>mod_wsgi -&gt; python3-mod_wsgi</li>
+<li>ncurses-libs -&gt; ncurses-c++-libs, ncurses-compat-libs, ncurses-libs</li>
+<li><strong>ntp -&gt; chrony</strong></li>
+<li><strong>ntpdate -&gt; chrony</strong></li>
+<li>numpy -&gt; python2-numpy, python3-numpy</li>
+<li><strong>OpenIPMI -&gt; OpenIPMI, OpenIPMI-lanserv</strong></li>
+<li>OpenIPMI-python -&gt; python3-openipmi</li>
+<li>oprofile -&gt; perf</li>
+<li>pkgconfig -&gt; pkgconf-pkg-config</li>
+<li>postfix -&gt; postfix, postfix-mysql, postfix-pgsql</li>
+<li>strace, strace32 -&gt; strace</li>
+<li>syslinux -&gt; syslinux, syslinux-nonlinux</li>
+<li><strong>systemd -&gt; systemd, systemd-container, systemd-udev</strong></li>
+<li><strong>systemd-journal-gateway -&gt; systemd-journal-remote</strong></li>
+<li><strong>systemd-libs -&gt; systmd-libs, systemd-pam</strong></li>
+<li><strong>systemd-networkd, systemd-resolved -&gt; systemd</strong>
+
+<ul>
+<li>Ubuntu 18.04 와 다르게 systemd-resolved 대신에 NetworkManager에서 resolv.conf를 관리합니다.</li>
+</ul></li>
+<li><strong>wireshark -&gt; wireshark-cli</strong></li>
+<li><strong>wireshark-gnome -&gt; wireshark</strong></li>
+<li>yum-cron -&gt; dnf-automatic</li>
+<li><strong>yum-plugin-aliases, yum-plugin-fastestmirror, yum-plugin-priorities, yum-plugin-remove-with-leaves, yum-plugin-tmprepo, yum-plugin-tsflags -&gt; dnf</strong></li>
+<li><strong>yum-plugin-auto-update-debug-info, yum-plugin-changelog, yum-plugin-copr -&gt; dnf-plugins-core</strong> (기존 이름 사용 가능)</li>
+<li><strong>yum-plugin-versionlock -&gt; python3-dnf-plugin-versionlock</strong> (기존 이름 사용가능)</li>
+<li><strong>yum-utils -&gt; dnf-utils</strong> (기존 이름 사용 가능)</li>
+</ul>
+
+<p>아래 패키지들은 삭제 되었습니다. 전체 목록은 공식 문서를 참고하세요.</p>
+
+<ul>
+<li>acpid-sysvinit</li>
+<li>btrfs-progs</li>
+<li>btrfs-progs-devel</li>
+<li>cvs</li>
+<li>dmraid -&gt; mdadm으로 대체 되었습니다.</li>
+<li>finger -&gt; who, pinky, last 명령으로 대체 가능</li>
+<li>gcc-go</li>
+<li>gcc-objc</li>
+<li>GeoIP
+
+<ul>
+<li>RHEL8는 libmaxminddb, geoipupdate를 제공합니다.</li>
+</ul></li>
+<li>grub2</li>
+<li>ImageMagick</li>
+<li>rcs</li>
+<li>rsh</li>
+<li>system-config-date</li>
+<li>system-config-language</li>
+<li>systemd-sysv</li>
+<li>tcp_wrappers</li>
+<li>tomcat</li>
+<li>whois</li>
+<li>yum-langpacks</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>NVMe에서 iostat의 높은 %util 값 (RHEL/CentOS 7.6)</title>
