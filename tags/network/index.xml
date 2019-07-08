@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>network on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/network/</link>
+    <link>https://lunatine.net/tags/network/</link>
     <description>Recent content in network on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 11 Feb 2015 10:14:36 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/network/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ONBOOT=no 옵션 적용이 안되는 증상</title>
-      <link>https://lunatine.github.io/2015/02/onboot-no-options-does-not-work/</link>
+      <link>https://lunatine.net/2015/02/onboot-no-options-does-not-work/</link>
       <pubDate>Wed, 11 Feb 2015 10:14:36 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/02/onboot-no-options-does-not-work/</guid>
+      <guid>https://lunatine.net/2015/02/onboot-no-options-does-not-work/</guid>
       <description>RHEL 기반의 배포판은 /etc/sysconfig/network-scripts/ 아래에 설정파일을 두고 네트워크를 관리한다. (NetworkManager 사용을 하지 않을 경우) 이 때 설정파일 옵션 중에 ONBOOT 옵션이 있는데 해당 옵션이 제대로 적용이 되지 않는 증상을 보이는 경우가 있어서 이에 대해서 간단히 소개한다.
 시스템 환경  OS: RHEL 6 64bit NIC: Broadcom Corporation NetXtreme II BCM57810 10G Driver: bnx2x 1.78.80 설정파일
 DEVICE=eth1 BOOTPROTO=static ONBOOT=no  기타: NetworkManager를 사용하지 않음

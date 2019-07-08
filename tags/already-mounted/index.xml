@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>already mounted on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/already-mounted/</link>
+    <link>https://lunatine.net/tags/already-mounted/</link>
     <description>Recent content in already mounted on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 10 Feb 2014 02:10:41 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/already-mounted/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/already-mounted/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>mount : already mounted or busy 메시지</title>
-      <link>https://lunatine.github.io/2014/02/mount-already-mounted-or-busy-mesiji/</link>
+      <link>https://lunatine.net/2014/02/mount-already-mounted-or-busy-mesiji/</link>
       <pubDate>Mon, 10 Feb 2014 02:10:41 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/mount-already-mounted-or-busy-mesiji/</guid>
+      <guid>https://lunatine.net/2014/02/mount-already-mounted-or-busy-mesiji/</guid>
       <description>환경 및 증상 디스크 교체 및 비RAID 환경에서 아래와 같은 메시지와 함께 마운트가 되지 않는 증상 발생
 $ mount -t ext4 /dev/sdb1 /disk/2 mount : /dev/sdb1 already mounted or /disk/2 busy 원인 교체 된 디스크에 다른 곳에서 설정 된 RAID flag 정보가 남아있거나 dmraid가 RAID 멤버로 잘못 인지한 경우에 발생.
 해결 Case 1. dmraid 아래 명령을 통해서 dmraid가 해당 디스크를 RAID 구성원으로 판단하고 있는지 확인이 가능.

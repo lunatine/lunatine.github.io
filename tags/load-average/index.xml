@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>load average on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/load-average/</link>
+    <link>https://lunatine.net/tags/load-average/</link>
     <description>Recent content in load average on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 19 Feb 2016 07:13:33 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/load-average/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/load-average/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Load Average에 대하여</title>
-      <link>https://lunatine.github.io/2016/02/about-load-average/</link>
+      <link>https://lunatine.net/2016/02/about-load-average/</link>
       <pubDate>Fri, 19 Feb 2016 07:13:33 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2016/02/about-load-average/</guid>
+      <guid>https://lunatine.net/2016/02/about-load-average/</guid>
       <description>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
 Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &amp;lsquo;부하&amp;rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.</description>

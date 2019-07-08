@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>brew on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/brew/</link>
+    <link>https://lunatine.net/tags/brew/</link>
     <description>Recent content in brew on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 28 Jul 2014 08:20:31 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/brew/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/brew/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>brew error on Mac OS X 10.10 (yosemite)</title>
-      <link>https://lunatine.github.io/2014/07/brew-error-on-mac-os-x-10-10-yosemite/</link>
+      <link>https://lunatine.net/2014/07/brew-error-on-mac-os-x-10-10-yosemite/</link>
       <pubDate>Mon, 28 Jul 2014 08:20:31 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/07/brew-error-on-mac-os-x-10-10-yosemite/</guid>
+      <guid>https://lunatine.net/2014/07/brew-error-on-mac-os-x-10-10-yosemite/</guid>
       <description>brew error LunaMac:~ lunatine$ brew /usr/local/bin/brew: /usr/local/Library/brew.rb: /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby: bad interpreter: No such file or directory /usr/local/bin/brew: line 23: /usr/local/Library/brew.rb: Undefined error: 0  Mac OS X 10.10 Yoseimite가 Public Beta로 공개되어서 업데이트를 진행하였는데 brew가 제대로 동작하지 않았다. 오류메시지가 No such file or directory 인 것으로 보아 인터프리터 경로가 바뀐걸로 보인다.
 그래서 Mac OS X의 Ruby 프레임워크 경로를 찾아보니 역시나 바뀌었다.
 원인  기존 10.9 (Mavericks)에서는 Ruby 1.8 기준으로 인터프리터 경로가 설정되었으나 10.</description>

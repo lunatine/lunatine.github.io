@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ldirectord on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/ldirectord/</link>
+    <link>https://lunatine.net/tags/ldirectord/</link>
     <description>Recent content in ldirectord on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 17 Jul 2015 11:06:29 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/ldirectord/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/ldirectord/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] ldirectord의 성능이 안나오는 증상</title>
-      <link>https://lunatine.github.io/2015/07/faq-ldirectord-performance-issue/</link>
+      <link>https://lunatine.net/2015/07/faq-ldirectord-performance-issue/</link>
       <pubDate>Fri, 17 Jul 2015 11:06:29 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2015/07/faq-ldirectord-performance-issue/</guid>
+      <guid>https://lunatine.net/2015/07/faq-ldirectord-performance-issue/</guid>
       <description>요즘에는 많이 사용하는 어플리케이션은 아니지만 종종 L3DSR을 간편하게 구현하기 위해서 LVS ldirectord를 이용한 LB(Load Balancing)구성을 하는 경우가 있다.
 주로 오래된 시스템을 LVS 밸런싱 서버로 사용하곤 했는데 최근에 RHEL/CentOS 6 기준으로 설정하다보니 특이한 증상이 발견되어서 이에 대해서 간단히 해결책을 정리해 본다.
 환경 OS: RHEL/CentOS 6.x Package: - heartbeat: 3.0.4-2.el6 - ldirectord: 3.9.6-1.fc22.x86_64 참고로, ldirectord의 경우 RHEL/CentOS 6부터 기본 패키지에서 빠졌기 때문에 fedora core 22 버전의 패키지를 사용하면 된다  증상 ldirectord를 이용해서 L3DSR 밸런싱을 구성하여 웹 서비스를 동작시켰는데 해당 서버들의 응답속도가 300ms 이상 느려지는 현상이 발생 하였다.</description>

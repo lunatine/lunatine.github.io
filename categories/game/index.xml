@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>game on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/categories/game/</link>
+    <link>https://lunatine.net/categories/game/</link>
     <description>Recent content in game on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 17:41:22 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/categories/game/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/categories/game/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>League of Legends 맥(Mac OS X) 버전으로 한국 서버 접속</title>
-      <link>https://lunatine.github.io/2014/02/league-of-legends-korean-on-mac-os-x/</link>
+      <link>https://lunatine.net/2014/02/league-of-legends-korean-on-mac-os-x/</link>
       <pubDate>Wed, 05 Feb 2014 17:41:22 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/league-of-legends-korean-on-mac-os-x/</guid>
+      <guid>https://lunatine.net/2014/02/league-of-legends-korean-on-mac-os-x/</guid>
       <description>안내 변경사항  4.21 패치 이후 맥 클라이언트 에디터를 이용하여 한국서버 접속은 가능하지만 한국어 표기가 안되는 경우는 아래 파일을 편집기로 열어서 맨 윗 줄의 en_US를 ko_KR로 수정하시면 됩니다.
 파일위치 /Applications/League of Legends.app/Contents/LoL/RADS/projects/lol_patcher/managedfiles/0.0.0.0/regions.txt 첫 번째 줄의 en_US를 ko_KR로 수정하고 저장 na, na, ko_KR,    맥 클라이언트 에디터 프로그램을 사용하시기를 권장드립니다.   0.0.0.39 버전부터 lol.properties 설정 값이 아래와 같이 변경 되었음 출처 : ThisIsGame   host=prod.kr.lol.riotgames.com xmpp_server_url=chat.kr.lol.riotgames.com lq_uri=https://lq.</description>
     </item>

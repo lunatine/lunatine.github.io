@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tuning on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/tuning/</link>
+    <link>https://lunatine.net/tags/tuning/</link>
     <description>Recent content in tuning on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 05 Feb 2014 17:39:43 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/tuning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/tuning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[FAQ] Thunderbird 성능 개선 팁</title>
-      <link>https://lunatine.github.io/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</link>
+      <link>https://lunatine.net/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</link>
       <pubDate>Wed, 05 Feb 2014 17:39:43 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</guid>
+      <guid>https://lunatine.net/2014/02/faq-thunderbird-seongneung-gaeseon-tib/</guid>
       <description>Thunderbird를 사용하다보면 컴퓨터의 리소스는 넉넉함에도 불구하고 창 이동이나 사용자 행동에 대한 반응이 조금은 느린듯한 느낌이 들 때가 있다. 무언가 그래픽적인 처리가 버벅거리는 듯한 모습인데 이 경우 아래 옵션을 적용하면 효과가 있다. 개인적으로 업무용 데스크탑은 16GB 메모리를 사용하고 있음에도 반응이 느려서 아래 옵션을 적용하였고 효과를 크게 보았다.
 먼저, Thunderbird의 옵션-&amp;gt;고급 페이지로 들어가서 고급설정 항목의 &amp;lsquo;설정편집&amp;rsquo;을 눌러 아래 항목을 검색하여 값을 수정한다.
 gfx.direct2d.disabled true layers.acceleration.disabled true  Direct2D 관련된 부분의 값을 수정해 주는 옵션이다.</description>

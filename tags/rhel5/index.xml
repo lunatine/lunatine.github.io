@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rhel5 on Lunatine&#39;s Box</title>
-    <link>https://lunatine.github.io/tags/rhel5/</link>
+    <link>https://lunatine.net/tags/rhel5/</link>
     <description>Recent content in rhel5 on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 12 Jun 2014 06:06:12 +0000</lastBuildDate>
     
-	<atom:link href="https://lunatine.github.io/tags/rhel5/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lunatine.net/tags/rhel5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>yum 저장소에서 checksum error 발생</title>
-      <link>https://lunatine.github.io/2014/06/yum-repository-checksum-error/</link>
+      <link>https://lunatine.net/2014/06/yum-repository-checksum-error/</link>
       <pubDate>Thu, 12 Jun 2014 06:06:12 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/06/yum-repository-checksum-error/</guid>
+      <guid>https://lunatine.net/2014/06/yum-repository-checksum-error/</guid>
       <description>yum checksum error 증상  yum 저장소를 새로 생성하였으나 해당 목록을 받아올 때 아래 메시지 발생
 Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.com/rhel/5Server/x86_64/5.10/repodata/primary.xml.gz: [Errno -3] Error performing checksum Trying other mirror.  발생 조건
  RHEL5 저장소를 RHEL6에서 생성하였을 경우   원인 및 해결방안 createrepo로 저장소를 생성 할 때 저장소 정보를 RHEL5의 Checksum은 SHA-1 기반으로 되어있는 반면에 RHEL6의 경우는 SHA-256으로 생성하기 때문에 RHEL5에서 해당 저장소를 사용하려고 하면 오류가 발생하는 것이다.</description>
@@ -24,10 +24,10 @@ Loaded plugins: security RHEL5.10/primary | 1.2 MB 00:00 http://exampledomain.co
     
     <item>
       <title>VirtualBox RHEL5 부팅 시 행업증상 #2</title>
-      <link>https://lunatine.github.io/2014/03/virtualbox-rhel5-64bit-boot-error-lapic/</link>
+      <link>https://lunatine.net/2014/03/virtualbox-rhel5-64bit-boot-error-lapic/</link>
       <pubDate>Mon, 03 Mar 2014 07:07:03 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/03/virtualbox-rhel5-64bit-boot-error-lapic/</guid>
+      <guid>https://lunatine.net/2014/03/virtualbox-rhel5-64bit-boot-error-lapic/</guid>
       <description>본 문서는 RHEL5 64bit를 부팅 할 때 행업을 발생 시키는 요인 중 하나에 대해서 안내하고 있습니다.
 nmi_watchdog에 의한 부팅 불가 증상은 이 문서를 참고하시기 바랍니다.
 환경  VirtualBox 4.2.16 RHEL5 64bit  증상  부팅 과정에서 아래 메시지를 끝으로 시스템이 멈추는 현상
@@ -36,10 +36,10 @@ NET: registered protocol family 2   해결방법 방법1  가상머신의 설정
     
     <item>
       <title>megasas_register_aen[0]: already registered</title>
-      <link>https://lunatine.github.io/2014/02/megasas_register_aen0-already-registered/</link>
+      <link>https://lunatine.net/2014/02/megasas_register_aen0-already-registered/</link>
       <pubDate>Mon, 10 Feb 2014 02:24:30 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/megasas_register_aen0-already-registered/</guid>
+      <guid>https://lunatine.net/2014/02/megasas_register_aen0-already-registered/</guid>
       <description>MegaRAID 기반 시스템의 메시지 증상 및 환경 RHEL5 2.6.18-194.26.1el5 커널 부터 dmesg에 아래와 같은 메시지가 나타납니다.
 megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝히고 있는 것 처럼 해당 메시지는 오류 메시지가 아니라 이벤트 등록과 관련 된 단순한 정보전달 메시지이므로 무시해도 됩니다.
 커널 패치 내용은 아래와 같습니다.
@@ -48,10 +48,10 @@ megasas_register_aen[0]: already registered  원인 RedHat 문서에서도 밝�
     
     <item>
       <title>[FAQ] VirtualBox에서 RHEL5 부팅 오류/멈춤 현상</title>
-      <link>https://lunatine.github.io/2014/02/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</link>
+      <link>https://lunatine.net/2014/02/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</link>
       <pubDate>Wed, 05 Feb 2014 17:40:28 +0000</pubDate>
       
-      <guid>https://lunatine.github.io/2014/02/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</guid>
+      <guid>https://lunatine.net/2014/02/faq-virtualboxeseo-rhel5-buting-oryumeomcum-hyeonsang/</guid>
       <description>VirtualBox에 RHEL5 설치하기 별것 아니지만 VirtualBox에 RHEL5를 설치하다가 겪을 수 있는 증상에 대해서 간단히 공유하려한다. VirtualBox 버전에 따라 그리고 GuestOS인 RHEL의 버전에 따라 발생하는 경우가 다를 수 있지만 개인적으로 RHEL5 64bit 배포판에서 대부분 발생한 증상이다.
 증상 보통 GuestOS를 설치하기 위해서 ISO 이미지파일을 마운트하여 부팅시키는데 부팅 초반에 멈추는 증상이다. 이는 ISO 이미지로 부팅할 때 뿐만 아니라 설치 후에 부팅할 때도 발생하곤 한다.
 원인 발생하는 경우데 따라서 조금씩 다른 것으로 보이지만 결과적으로 NMI Watchdog이 CPU0에서 LOCKUP 되는 증상이 발생하면서 일어난다.</description>

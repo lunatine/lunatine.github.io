@@ -12,7 +12,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.github.io/2016/02/about-load-average/" />
+<link rel="canonical" href="https://lunatine.net/2016/02/about-load-average/" />
 
 
 <title>
@@ -28,20 +28,20 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 
 
 
-<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="https://lunatine.net/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://lunatine.net/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.net/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.net/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.net/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="Load Average에 대하여">
 <meta itemprop="description" content="Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
@@ -57,7 +57,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 
 <meta itemprop="keywords" content="linux,load average,load,kernel," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.github.io"/>
+<meta name="twitter:image" content="https://lunatine.net/"/>
 
 <meta name="twitter:title" content="Load Average에 대하여"/>
 <meta name="twitter:description" content="Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
@@ -83,7 +83,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+        <a href="https://lunatine.net/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -97,7 +97,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="https://lunatine.net/posts/">Posts</a></li><li><a href="https://lunatine.net/categories/">Categories</a></li><li><a href="https://lunatine.net/tags/">Tags</a></li><li><a href="https://lunatine.net/about/">About</a></li>
     </ul>
 </nav>
 
@@ -133,7 +133,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.github.io/2016/02/about-load-average/">Load Average에 대하여</a></h1>
+            <h1 class="post-title"><a href="https://lunatine.net/2016/02/about-load-average/">Load Average에 대하여</a></h1>
 
             
 
@@ -164,16 +164,16 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 
 <p>프로세스는 흔히 작업(Task)으로도 불리운다. 어떠한 명령을 수행하기 위한 코드와 거기에 필요한 데이터 값의 덩어리를 객체로 표현한 것이 프로세스이다. 프로세스가 시스템에서 처리되기 위해서는 CPU(Processor) 연산을 필요로 한다. 하지만, CPU는 물리적으로 한정적인 자원이기 때문에 이를 특정 프로세스가 독점하지 못하도록 OS(Linux)는 프로세스 스케줄러(Scheduler)를 통해서 조절하게 된다. 멀티(Multi)프로세서는 CPU 자원이 1개 이상일 뿐이지 근본적으로 한정적 자원이라는 점에서는 변함이 없다.</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/process-scheduling.png" alt="프로세스 스케줄러" />
+<p><img src="https://lunatine.net/images/2016/02/process-scheduling.png" alt="프로세스 스케줄러" />
 - 출처: <a href="https://www.cs.rutgers.edu/~pxk/416/notes/07-scheduling.html" target="_blank">cs.rutgers.edu</a></p>
 
 <p>프로세스 스케줄러는 프로세스에 대한 디스크립터(기술자 - Descriptor)를 두고 관리를 하는데 프로세스 스케줄러에 의해서 관리되는 프로세스는 디스크립터에 아래와 같은 상태 값을 갖게 된다.</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/process-status-table.png" alt="" /></p>
+<p><img src="https://lunatine.net/images/2016/02/process-status-table.png" alt="" /></p>
 
 <p>보다 더 많은 상태 값이 존재하지만 여기서는 생략하도록 한다. 커널 소스의 <code>include/linux/sched.h</code> 파일을 참조하자. 프로세스의 상태 값은 보통 아래와 같은 과정에 의해서 상태가 변경된다.</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/process-status.png" alt="프로세스 상태변화" /></p>
+<p><img src="https://lunatine.net/images/2016/02/process-status.png" alt="프로세스 상태변화" /></p>
 
 <h2 id="process-scheduler">Process Scheduler</h2>
 
@@ -187,7 +187,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 
 <p>이제 각 프로세스가 순서대로 실행 되었을 때의 상태를 살펴보자.</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/process-schedule-1.png" alt="" /></p>
+<p><img src="https://lunatine.net/images/2016/02/process-schedule-1.png" alt="" /></p>
 
 <p>스케줄러에 의해서 A,B,C 프로세스는 순서대로 큐(queue)에 준비 된다. 각 프로세스는 막 실행되었기 때문에 TASK_RUNNING 상태를 갖고 있다. (1)</p>
 
@@ -197,7 +197,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 
 <p>하지만, B는 사용자가 터미널에 아무런 입력을 하고 있지 않기에 이내 곧 TASK_INTERRUPTIBLE 상태로 바뀌고 대기하게 되며 바로 C에게 CPU 사용 차례를 넘기게 된다. (3)</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/process-schedule-2.png" alt="" /></p>
+<p><img src="https://lunatine.net/images/2016/02/process-schedule-2.png" alt="" /></p>
 
 <p>프로세스 C는 받은 데이터를 로그파일에 기록하기 위해서 파일 디스크립터에 데이터를 쓰게 된다. 이 과정에서 디스크로 부터 응답을 기다리게 되며 (실제로는 캐시 등에 의해서 바로 Write 작업에 대해 응답을 받기 때문에 대기하지는 않지만 본 예시는 이해를 돕기 위함이므로) TASK_UNINTERRUPTIBLE 상태로 바뀌게 된다. (4)</p>
 
@@ -413,7 +413,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 
 <p>특정한 값에 대해서 평균을 내기 위해서는 일반적으로 전체를 더한 뒤에 개수로 나눈 값으로 표현한다. 하지만, 이러한 방법은 모든 값을 전부 저장하고 있어야 하기 때문에 한정적인 자원에서는 사용하기가 어렵다. 그렇기 때문에 특정 시점의 평균 값을 이전 시점의 평균 값을 참고하여 계산하는 방법을 사용하게 되는데 Linux에서는 지수이동평균(EMA: Exponetial Moving Average) 방식을 바탕으로 Load Average를 구하고 있다. 지수감소이동평균을 통해서 계산하는 수식은 아래와 같다.</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/calc-load-macro.png" alt="calc-load-macro.png" /></p>
+<p><img src="https://lunatine.net/images/2016/02/calc-load-macro.png" alt="calc-load-macro.png" /></p>
 
 <ul>
 <li>m: 리포팅을 위한 시간 (1분, 5분, 15분 등)</li>
@@ -482,7 +482,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
 <p>Load Average는 Active Task의 평균 값을 의미한다고 확인했다. 그렇다면 이 Load Average는 어떤 값일 때 정상이라고 봐야 할까? <a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages" target="_blank">이 문서</a>에서는 Load Average를 교통량에 비유하여 쉽게 설명하고 있다.</p>
 
-<p><img src="https://lunatine.github.io/images/2016/02/load-average-lane.png" alt="" />
+<p><img src="https://lunatine.net/images/2016/02/load-average-lane.png" alt="" />
 - 출처: <a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages" target="_blank">scoutapp</a></p>
 
 <p>1개의 차선(1 CPU 또는 Core)에 차가 문제 없이 지속적으로 지나갈 때를 1로 보고 있기 때문에 전체 시스템의 CPU(또는 Core) 개수 만큼의 Load 값에 대해서는 문제가 없다고 판단한다. 다시 말해 CPU 마다 처리를 기다리는 프로세스가 1개씩 있을 경우에는 큰 문제가 없다고 판단하는 것이다.</p>
@@ -523,7 +523,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/linux">linux</a></span><span class="tag"><a href="https://lunatine.github.io/tags/load-average">load average</a></span><span class="tag"><a href="https://lunatine.github.io/tags/load">load</a></span><span class="tag"><a href="https://lunatine.github.io/tags/kernel">kernel</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.net/tags/linux">linux</a></span><span class="tag"><a href="https://lunatine.net/tags/load-average">load average</a></span><span class="tag"><a href="https://lunatine.net/tags/load">load</a></span><span class="tag"><a href="https://lunatine.net/tags/kernel">kernel</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2275 Words</p>
@@ -541,7 +541,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.github.io/2016/03/bash-faq-part-1/">
+                            <a href="https://lunatine.net/2016/03/bash-faq-part-1/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">Bash FAQ (Part 1)</span>
                             </a>
@@ -550,7 +550,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.github.io/2015/12/modalias-device-driver/">
+                            <a href="https://lunatine.net/2015/12/modalias-device-driver/">
                                 <span class="button__text">modalias와 장치 드라이버</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -592,10 +592,10 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.github.io">Lunatine</a></span>
+                <span><a href="https://lunatine.net/">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://lunatine.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -619,7 +619,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
 
 
-<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="https://lunatine.net/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 

@@ -11,7 +11,7 @@
 Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다. 그리고 OS를 구성하는 많은 패키지들이 이 버전에 기초하여 의존성을 갖고 있다. 보통 이런 환경에서 python 2.7을 사용하기 위해서 별도로 python 2.7을 다운로드 받아 설치한다. 다만, 그냥 설치하다보니 OS 기본 python의 실행경로나 라이브러리 참조 경로를 변경해버려서 OS가 기본적으로 (python 2.6에 의존하여) 제공하는 많은 서비스 패키지가 제대로 동작하지 않는 문제가 발생한다." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/" />
+<link rel="canonical" href="https://lunatine.net/2015/01/python27-34-on-rhel-centos/" />
 
 
 <title>
@@ -27,20 +27,20 @@ Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다.
 
 
 
-<link rel="stylesheet" href="https://lunatine.github.io/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+<link rel="stylesheet" href="https://lunatine.net/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="https://lunatine.github.io/css/style.css">
+<link rel="stylesheet" type="text/css" href="https://lunatine.net/css/style.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.github.io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.github.io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.github.io/favicon-16x16.png">
-<link rel="manifest" href="https://lunatine.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://lunatine.github.io/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://lunatine.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://lunatine.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lunatine.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lunatine.net/favicon-16x16.png">
+<link rel="manifest" href="https://lunatine.net/site.webmanifest">
+<link rel="mask-icon" href="https://lunatine.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://lunatine.net/favicon.ico">
 <meta name="theme-color" content="#252627">
 <meta itemprop="name" content="RHEL6에서 Python 2.7/3.4 사용하기">
 <meta itemprop="description" content="본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
@@ -55,7 +55,7 @@ Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다.
 
 <meta itemprop="keywords" content="linux,RHEL6,CentOS6,RHEL,CentOS,Python2.7,Python3.4,virtualenv,pip,altinstall,python," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://lunatine.github.io"/>
+<meta name="twitter:image" content="https://lunatine.net/"/>
 
 <meta name="twitter:title" content="RHEL6에서 Python 2.7/3.4 사용하기"/>
 <meta name="twitter:description" content="본 문서는 RHEL6에서 Python 2.7과 3.4를 사용하기 위해 추천하는 방법을 안내하고 있다. 비단, RHEL6 뿐만 아니라 CentOS6와 RHEL5, CentOS5에도 적용이 가능하다.
@@ -81,7 +81,7 @@ Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다.
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://lunatine.github.io/" style="text-decoration: none;">
+        <a href="https://lunatine.net/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -95,7 +95,7 @@ Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다.
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://lunatine.github.io/posts/">Posts</a></li><li><a href="https://lunatine.github.io/categories/">Categories</a></li><li><a href="https://lunatine.github.io/tags/">Tags</a></li><li><a href="https://lunatine.github.io/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="https://lunatine.net/posts/">Posts</a></li><li><a href="https://lunatine.net/categories/">Categories</a></li><li><a href="https://lunatine.net/tags/">Tags</a></li><li><a href="https://lunatine.net/about/">About</a></li>
     </ul>
 </nav>
 
@@ -131,7 +131,7 @@ Python 2.6 RHEL6에는 기본적으로 python 2.6 버전이 탑재되어 있다.
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://lunatine.github.io/2015/01/python27-34-on-rhel-centos/">RHEL6에서 Python 2.<sup>7</sup>&frasl;<sub>3</sub>.4 사용하기</a></h1>
+            <h1 class="post-title"><a href="https://lunatine.net/2015/01/python27-34-on-rhel-centos/">RHEL6에서 Python 2.<sup>7</sup>&frasl;<sub>3</sub>.4 사용하기</a></h1>
 
             
 
@@ -399,7 +399,7 @@ Python 3.4.2
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.github.io/tags/linux">linux</a></span><span class="tag"><a href="https://lunatine.github.io/tags/rhel6">RHEL6</a></span><span class="tag"><a href="https://lunatine.github.io/tags/centos6">CentOS6</a></span><span class="tag"><a href="https://lunatine.github.io/tags/rhel">RHEL</a></span><span class="tag"><a href="https://lunatine.github.io/tags/centos">CentOS</a></span><span class="tag"><a href="https://lunatine.github.io/tags/python2.7">Python2.7</a></span><span class="tag"><a href="https://lunatine.github.io/tags/python3.4">Python3.4</a></span><span class="tag"><a href="https://lunatine.github.io/tags/virtualenv">virtualenv</a></span><span class="tag"><a href="https://lunatine.github.io/tags/pip">pip</a></span><span class="tag"><a href="https://lunatine.github.io/tags/altinstall">altinstall</a></span><span class="tag"><a href="https://lunatine.github.io/tags/python">python</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://lunatine.net/tags/linux">linux</a></span><span class="tag"><a href="https://lunatine.net/tags/rhel6">RHEL6</a></span><span class="tag"><a href="https://lunatine.net/tags/centos6">CentOS6</a></span><span class="tag"><a href="https://lunatine.net/tags/rhel">RHEL</a></span><span class="tag"><a href="https://lunatine.net/tags/centos">CentOS</a></span><span class="tag"><a href="https://lunatine.net/tags/python2.7">Python2.7</a></span><span class="tag"><a href="https://lunatine.net/tags/python3.4">Python3.4</a></span><span class="tag"><a href="https://lunatine.net/tags/virtualenv">virtualenv</a></span><span class="tag"><a href="https://lunatine.net/tags/pip">pip</a></span><span class="tag"><a href="https://lunatine.net/tags/altinstall">altinstall</a></span><span class="tag"><a href="https://lunatine.net/tags/python">python</a></span>
                 </p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>995 Words</p>
@@ -417,7 +417,7 @@ Python 3.4.2
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://lunatine.github.io/2015/01/movie-american-gangster/">
+                            <a href="https://lunatine.net/2015/01/movie-american-gangster/">
                                 <span class="button__icon">←</span>
                                 <span class="button__text">[영화] 아메리칸 갱스터</span>
                             </a>
@@ -426,7 +426,7 @@ Python 3.4.2
 
                     
                         <span class="button next">
-                            <a href="https://lunatine.github.io/2015/01/movie-intruders/">
+                            <a href="https://lunatine.net/2015/01/movie-intruders/">
                                 <span class="button__text">[영화] 조난자들</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -468,10 +468,10 @@ Python 3.4.2
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://lunatine.github.io">Lunatine</a></span>
+                <span><a href="https://lunatine.net/">Lunatine</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://lunatine.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://lunatine.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -495,7 +495,7 @@ Python 3.4.2
 
 
 
-<script type="text/javascript" src="https://lunatine.github.io/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="https://lunatine.net/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
 
 
 
