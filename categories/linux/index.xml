@@ -6,10 +6,21 @@
     <description>Recent content in linux on Lunatine&#39;s Box</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 21 Jun 2019 14:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2019 11:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ubuntu 16.04 설치 실패 (base-files)</title>
+      <link>/2019/07/12/ubuntu-xenial-install-error-base-files/</link>
+      <pubDate>Fri, 12 Jul 2019 11:00:00 +0900</pubDate>
+      
+      <guid>/2019/07/12/ubuntu-xenial-install-error-base-files/</guid>
+      <description>본 문서는 2019/07/12 11:00 (+9:00) 기준으로 유효한 내용을 담고 있습니다.
+증상 Ubuntu 16.04 설치과정에서 패키지를 설치하는 도중에 오류 메시지와 함께 설치가 중단됩니다. 쉘 프롬프트로 진입해서 /var/log/syslog 파일을 확인하면 아래와 같은 메시지가 나타납니다.
+Setting up base-files (9.4ubuntu4.9) ... /var/lib/dpkg/info/base-files.postinst: 131: /var/lib/dpkg/info/base-files.postinst: Automatically: not found dpkg: error processing package base-files (--configure): subprocess installed post-installation script returned error exit status 127 Errors were encountered while processing: base-files E: Sub-process /usr/bin/dpkg returned an error code (1)  원인  base-files 9.</description>
+    </item>
     
     <item>
       <title>RHEL 8 소개</title>
@@ -105,17 +116,6 @@ if/then 구문의 경우 해당 구문의 결과(exit 값)에 대한 조건을 �
       <description>Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
 Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &amp;lsquo;부하&amp;rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.</description>
-    </item>
-    
-    <item>
-      <title>modalias와 장치 드라이버</title>
-      <link>/2015/12/23/modalias-device-driver/</link>
-      <pubDate>Wed, 23 Dec 2015 06:13:19 +0000</pubDate>
-      
-      <guid>/2015/12/23/modalias-device-driver/</guid>
-      <description>본 문서는 devtmpfs와 udev에 등장했던 sysfs의 정보를 바탕으로 실제 장치 드라이버가(커널 모듈) 인식되고 로딩 되는 방법에 대해서 간단히 설명하고 있습니다.
-Device Driver 일반 적으로 장치 드라이버(Device driver)는 해당 모듈이 빌드(build/compile)될 때 modalias 정보를 담고 생성 됩니다. 이 modalias 정보는 벤더와 장치에 대한 ID와 벤더와 장치의 서브시스템 버전 그리고 클래스(base/sub class) 정보를 담고 있습니다. 장치 드라이버에 들어있는 modalias 정보는 PCI ids에서 자세히 확인 할 수 있습니다.
-modalias 해석 예시를 통해서 살펴보는게 이해하기 좋기 때문에 실제 서버에 설치 된 RAID 카드의 모듈을 어떻게 인식 되었는지에 대해서 살펴보겠습니다.</description>
     </item>
     
   </channel>

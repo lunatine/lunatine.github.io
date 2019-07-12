@@ -4,19 +4,60 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ubuntu/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/2019/07/12/ubuntu-xenial-install-error-base-files/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/base-files/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/ubuntu/</loc>
+    <lastmod>2019-07-12T11:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -39,24 +80,6 @@
   
   <url>
     <loc>/tags/release/</loc>
-    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/linux/</loc>
-    <lastmod>2019-06-21T14:00:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/linux/</loc>
     <lastmod>2019-06-21T14:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -103,12 +126,6 @@
   </url>
   
   <url>
-    <loc>/tags/ubuntu/</loc>
-    <lastmod>2019-01-29T08:31:25+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/2019/01/29/disable-swap-partition-on-ubuntu/</loc>
     <lastmod>2019-01-29T08:31:25+00:00</lastmod>
   </url>
@@ -127,12 +144,6 @@
   
   <url>
     <loc>/tags/sysetmd/</loc>
-    <lastmod>2019-01-29T08:31:25+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/ubuntu/</loc>
     <lastmod>2019-01-29T08:31:25+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -172,13 +183,13 @@
   </url>
   
   <url>
-    <loc>/categories/filesystem/</loc>
+    <loc>/tags/filesystem/</loc>
     <lastmod>2019-01-29T08:26:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/filesystem/</loc>
+    <loc>/categories/filesystem/</loc>
     <lastmod>2019-01-29T08:26:19+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -231,13 +242,13 @@
   </url>
   
   <url>
-    <loc>/categories/docker/</loc>
+    <loc>/tags/docker/</loc>
     <lastmod>2018-04-12T08:35:03+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/docker/</loc>
+    <loc>/categories/docker/</loc>
     <lastmod>2018-04-12T08:35:03+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -295,13 +306,13 @@
   </url>
   
   <url>
-    <loc>/categories/virtualbox/</loc>
+    <loc>/tags/virtualbox/</loc>
     <lastmod>2016-08-29T04:56:04+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/virtualbox/</loc>
+    <loc>/categories/virtualbox/</loc>
     <lastmod>2016-08-29T04:56:04+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -348,13 +359,13 @@
   </url>
   
   <url>
-    <loc>/categories/numa/</loc>
+    <loc>/tags/numa/</loc>
     <lastmod>2016-07-14T06:18:34+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/numa/</loc>
+    <loc>/categories/numa/</loc>
     <lastmod>2016-07-14T06:18:34+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -383,13 +394,13 @@
   </url>
   
   <url>
-    <loc>/categories/bash/</loc>
+    <loc>/tags/bash/</loc>
     <lastmod>2016-03-21T07:39:59+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/bash/</loc>
+    <loc>/categories/bash/</loc>
     <lastmod>2016-03-21T07:39:59+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -436,19 +447,13 @@
   </url>
   
   <url>
-    <loc>/categories/notice/</loc>
-    <lastmod>2016-01-14T06:06:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/notice/</loc>
     <lastmod>2016-01-14T06:06:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/%EA%B3%B5%EC%A7%80/</loc>
+    <loc>/categories/notice/</loc>
     <lastmod>2016-01-14T06:06:10+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -460,13 +465,19 @@
   </url>
   
   <url>
-    <loc>/categories/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</loc>
+    <loc>/categories/%EA%B3%B5%EC%A7%80/</loc>
     <lastmod>2016-01-14T06:06:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</loc>
+    <lastmod>2016-01-14T06:06:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/</loc>
     <lastmod>2016-01-14T06:06:10+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -739,13 +750,13 @@
   </url>
   
   <url>
-    <loc>/categories/movie/</loc>
+    <loc>/tags/movie/</loc>
     <lastmod>2015-07-05T08:26:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/movie/</loc>
+    <loc>/categories/movie/</loc>
     <lastmod>2015-07-05T08:26:42+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -757,13 +768,13 @@
   </url>
   
   <url>
-    <loc>/categories/%EC%98%81%ED%99%94/</loc>
+    <loc>/tags/%EC%98%81%ED%99%94/</loc>
     <lastmod>2015-07-05T08:26:42+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/%EC%98%81%ED%99%94/</loc>
+    <loc>/categories/%EC%98%81%ED%99%94/</loc>
     <lastmod>2015-07-05T08:26:42+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -799,13 +810,13 @@
   </url>
   
   <url>
-    <loc>/categories/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</loc>
+    <loc>/tags/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</loc>
     <lastmod>2015-03-07T19:58:32+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</loc>
+    <loc>/categories/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</loc>
     <lastmod>2015-03-07T19:58:32+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1100,13 +1111,13 @@
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2015-01-21T06:27:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>/categories/python/</loc>
     <lastmod>2015-01-21T06:27:21+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1275,13 +1286,13 @@
   </url>
   
   <url>
-    <loc>/categories/systemd/</loc>
+    <loc>/tags/systemd/</loc>
     <lastmod>2014-10-21T14:15:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/systemd/</loc>
+    <loc>/categories/systemd/</loc>
     <lastmod>2014-10-21T14:15:46+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1513,13 +1524,13 @@
   </url>
   
   <url>
-    <loc>/categories/epel/</loc>
+    <loc>/tags/epel/</loc>
     <lastmod>2014-06-16T06:46:44+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/epel/</loc>
+    <loc>/categories/epel/</loc>
     <lastmod>2014-06-16T06:46:44+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1675,13 +1686,13 @@
   </url>
   
   <url>
-    <loc>/categories/akg/</loc>
+    <loc>/tags/akg/</loc>
     <lastmod>2014-02-18T13:58:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/akg/</loc>
+    <loc>/categories/akg/</loc>
     <lastmod>2014-02-18T13:58:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1722,13 +1733,13 @@
   </url>
   
   <url>
-    <loc>/categories/%ED%97%A4%EB%93%9C%ED%8F%B0/</loc>
+    <loc>/tags/%ED%97%A4%EB%93%9C%ED%8F%B0/</loc>
     <lastmod>2014-02-18T13:58:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/%ED%97%A4%EB%93%9C%ED%8F%B0/</loc>
+    <loc>/categories/%ED%97%A4%EB%93%9C%ED%8F%B0/</loc>
     <lastmod>2014-02-18T13:58:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1876,13 +1887,13 @@
   </url>
   
   <url>
-    <loc>/categories/game/</loc>
+    <loc>/tags/game/</loc>
     <lastmod>2014-02-05T17:41:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/game/</loc>
+    <loc>/categories/game/</loc>
     <lastmod>2014-02-05T17:41:22+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1994,13 +2005,13 @@
   </url>
   
   <url>
-    <loc>/categories/tips/</loc>
+    <loc>/tags/tips/</loc>
     <lastmod>2014-02-05T17:39:18+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/tips/</loc>
+    <loc>/categories/tips/</loc>
     <lastmod>2014-02-05T17:39:18+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -2039,13 +2050,13 @@
   </url>
   
   <url>
-    <loc>/categories/nvidia/</loc>
+    <loc>/tags/nvidia/</loc>
     <lastmod>2014-02-05T07:21:31+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/nvidia/</loc>
+    <loc>/categories/nvidia/</loc>
     <lastmod>2014-02-05T07:21:31+00:00</lastmod>
     <priority>0</priority>
   </url>

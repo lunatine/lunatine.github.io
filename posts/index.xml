@@ -5,8 +5,67 @@
         <description>Recent content in Posts on Lunatine&#39;s Box</description>
         <generator>Hugo -- gohugo.io</generator>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 21 Jun 2019 14:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Fri, 12 Jul 2019 11:00:00 +0900</lastBuildDate>
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Ubuntu 16.04 설치 실패 (base-files)</title>
+            <link>/2019/07/12/ubuntu-xenial-install-error-base-files/</link>
+            <pubDate>Fri, 12 Jul 2019 11:00:00 +0900</pubDate>
+            
+            <guid>/2019/07/12/ubuntu-xenial-install-error-base-files/</guid>
+            <description>본 문서는 2019/07/12 11:00 (+9:00) 기준으로 유효한 내용을 담고 있습니다.
+증상 Ubuntu 16.04 설치과정에서 패키지를 설치하는 도중에 오류 메시지와 함께 설치가 중단됩니다. 쉘 프롬프트로 진입해서 /var/log/syslog 파일을 확인하면 아래와 같은 메시지가 나타납니다.
+Setting up base-files (9.4ubuntu4.9) ... /var/lib/dpkg/info/base-files.postinst: 131: /var/lib/dpkg/info/base-files.postinst: Automatically: not found dpkg: error processing package base-files (--configure): subprocess installed post-installation script returned error exit status 127 Errors were encountered while processing: base-files E: Sub-process /usr/bin/dpkg returned an error code (1)  원인  base-files 9.</description>
+            <content type="html"><![CDATA[
+
+<p>본 문서는 2019/07/12 11:00 (+9:00) 기준으로 유효한 내용을 담고 있습니다.</p>
+
+<h2 id="증상">증상</h2>
+
+<p>Ubuntu 16.04 설치과정에서 패키지를 설치하는 도중에 오류 메시지와 함께 설치가 중단됩니다. 쉘 프롬프트로 진입해서 <code>/var/log/syslog</code> 파일을 확인하면 아래와 같은 메시지가 나타납니다.</p>
+
+<pre><code>Setting up base-files (9.4ubuntu4.9) ...
+/var/lib/dpkg/info/base-files.postinst: 131: /var/lib/dpkg/info/base-files.postinst: Automatically: not found
+dpkg: error processing package base-files (--configure):
+subprocess installed post-installation script returned error exit status 127
+Errors were encountered while processing:
+base-files
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+</code></pre>
+
+<h2 id="원인">원인</h2>
+
+<ul>
+<li>base-files 9.4ubuntu4.9 버전의 패키지에서 post install 처리하는 스크립트에 문제가 있어서 설치가 비정상 적으로 종료 됩니다.</li>
+<li>오류 메시지에 나온 <code>Automatically: not found</code>에서 확인 할 수 있는 것 처럼 스크립트에서 Automatically 커맨드를 찾지 못하는 증상입니다.</li>
+
+<li><p>Automatically는 실제로 존재하는 커맨드가 아니라 post install 스크립트의 주석처리 실수로 인한 오류로 <code>/var/lib/dpkg/info/base-files.postinst</code> 파일의 131번 라인에서 아래와 같이 주석처리되어야 할 부분이 누락 된 문제입니다.</p>
+
+<pre><code># Manually inject expected maintainer script contents based on dh_systemd_*
+# Automatically added by dh_systemd_start
+</code></pre></li>
+</ul>
+
+<h2 id="해결-방법">해결 방법</h2>
+
+<p>임시 방편으로 설치 실패 상태에서 <code>Alt+F2</code> 키로 shell로 진입한 후에 base-files.postinst 파일의 131번 라인을 주석처리 해 주고 dpkg로 재설정하여 정상 상태로 변경합니다.</p>
+
+<pre><code>$ chroot /target
+$ sed -i 's/^Automatically/# Automatically/g' /var/lib/dpkg/info/base-files.postinst
+$ dpkg --configure base-files
+$ exit
+</code></pre>
+
+<p>위와 같이 설정 한 후에 <code>Alt+F1</code> 키를 눌러 인스톨러로 돌아 온 후에 중단 된 위치부터 시작하면 설치가 진행 됩니다.</p>
+
+<ul>
+<li>현재 관련 된 <a href="https://bugs.launchpad.net/ubuntu/+source/base-files/+bug/1836236" target="_blank">launchpad bug report</a>가 있으며 수정 된 버전이 배포 되면 해소 될 것으로 예상합니다.</li>
+</ul>
+
+<p>#Linux/Ubuntu</p>
+]]></content>
+        </item>
         
         <item>
             <title>RHEL 8 소개</title>
