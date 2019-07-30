@@ -42,8 +42,7 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
 <link rel="shortcut icon" href="/favicon.ico">
-<meta name="theme-color" content="#252627">
-<meta itemprop="name" content="Load Average에 대하여">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Load Average에 대하여">
 <meta itemprop="description" content="Load Average 본 문서는 Linux Load Average 값에 대해 소개하고 있습니다.
 Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의미한다. 이를 이해하기 위해서는 먼저 Load가 무엇인지에 대해서 알아보는 것이 필요하다. 흔히, Load는 우리말로 &lsquo;부하&rsquo;로 표현된다. 부하라는 것의 사전적 정의를 보면 아래와 같다.
 부하(負荷) 1.짐을 짐 2.[물리] 전기를 띠게 하거나 기계의 힘을 내게 하는 장치의 출력 에너지를 소비하는 일 3.일이나 책임을 맡김 - 출처: Daum 어학사전  Load에 대해서 거의 직역에 가깝게 표현했기 때문에 조금은 추상적이면서 모호한 표현이라고 볼 수 있다.">
@@ -218,121 +217,118 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 <p>3.10 커널에서는 <code>kernel/sched/core.c</code>에 그리고 비교적 최근인 4.4 커널에서는 <code>kernel/sched/loadavg.c</code> 파일에 존재한다. 각 버전별로 해당 부분의 소스는 아래와 같다.</p>
 
 <ul>
-<li>kernel 2.0.40 (kernel/sched.c)</li>
-</ul>
+<li><p>kernel 2.0.40 (kernel/sched.c)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">calc_load</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> ticks)
 {
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> active_tasks; <span style="color:#75715e">/* fixed-point */</span>
-        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> LOAD_FREQ;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> active_tasks; <span style="color:#75715e">/* fixed-point */</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> LOAD_FREQ;
 
-        count <span style="color:#f92672">-=</span> ticks;
-        <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
-                count <span style="color:#f92672">+=</span> LOAD_FREQ;
-                active_tasks <span style="color:#f92672">=</span> count_active_tasks();
-                CALC_LOAD(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active_tasks);
-                CALC_LOAD(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active_tasks);
-                CALC_LOAD(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active_tasks);
-        }
-}</code></pre></div>
-<ul>
-<li>kernel 2.6.18 (kernel/timer.c - RHEL5)</li>
-</ul>
+    count <span style="color:#f92672">-=</span> ticks;
+    <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+            count <span style="color:#f92672">+=</span> LOAD_FREQ;
+            active_tasks <span style="color:#f92672">=</span> count_active_tasks();
+            CALC_LOAD(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active_tasks);
+            CALC_LOAD(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active_tasks);
+            CALC_LOAD(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active_tasks);
+    }
+}</code></pre></div></li>
+
+<li><p>kernel 2.6.18 (kernel/timer.c - RHEL5)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">calc_load</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> ticks)
 {
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> active_tasks; <span style="color:#75715e">/* fixed-point */</span>
-        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> LOAD_FREQ;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> active_tasks; <span style="color:#75715e">/* fixed-point */</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> LOAD_FREQ;
 
-        count <span style="color:#f92672">-=</span> ticks;
-        <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
-                count <span style="color:#f92672">+=</span> LOAD_FREQ;
-                active_tasks <span style="color:#f92672">=</span> count_active_tasks();
-                CALC_LOAD(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active_tasks);
-                CALC_LOAD(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active_tasks);
-                CALC_LOAD(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active_tasks);
-        }
-}</code></pre></div>
-<ul>
-<li>kernel 2.6.32 (kernel/sched.c - RHEL6)</li>
-</ul>
+    count <span style="color:#f92672">-=</span> ticks;
+    <span style="color:#66d9ef">if</span> (count <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+            count <span style="color:#f92672">+=</span> LOAD_FREQ;
+            active_tasks <span style="color:#f92672">=</span> count_active_tasks();
+            CALC_LOAD(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active_tasks);
+            CALC_LOAD(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active_tasks);
+            CALC_LOAD(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active_tasks);
+    }
+}</code></pre></div></li>
+
+<li><p>kernel 2.6.32 (kernel/sched.c - RHEL6)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">calc_global_load</span>(<span style="color:#66d9ef">void</span>)
 {
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> upd <span style="color:#f92672">=</span> calc_load_update <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
-        <span style="color:#66d9ef">long</span> active;
+    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> upd <span style="color:#f92672">=</span> calc_load_update <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+    <span style="color:#66d9ef">long</span> active;
 
-        <span style="color:#66d9ef">if</span> (time_before(jiffies, upd))
-                <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">if</span> (time_before(jiffies, upd))
+            <span style="color:#66d9ef">return</span>;
 
-        active <span style="color:#f92672">=</span> atomic_long_read(<span style="color:#f92672">&amp;</span>calc_load_tasks);
-        active <span style="color:#f92672">=</span> active <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> active <span style="color:#f92672">*</span> FIXED_1 : <span style="color:#ae81ff">0</span>;
+    active <span style="color:#f92672">=</span> atomic_long_read(<span style="color:#f92672">&amp;</span>calc_load_tasks);
+    active <span style="color:#f92672">=</span> active <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> active <span style="color:#f92672">*</span> FIXED_1 : <span style="color:#ae81ff">0</span>;
 
-        avenrun[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active);
-        avenrun[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active);
-        avenrun[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active);
+    avenrun[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active);
+    avenrun[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active);
+    avenrun[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active);
 
-        calc_load_update <span style="color:#f92672">+=</span> LOAD_FREQ;
-}</code></pre></div>
-<ul>
-<li>kernel 3.10 (kernel/sched/core.c - RHEL7)</li>
-</ul>
+    calc_load_update <span style="color:#f92672">+=</span> LOAD_FREQ;
+}</code></pre></div></li>
+
+<li><p>kernel 3.10 (kernel/sched/core.c - RHEL7)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">calc_global_load</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> ticks)
 {
-        <span style="color:#66d9ef">long</span> active, delta;
+    <span style="color:#66d9ef">long</span> active, delta;
 
-        <span style="color:#66d9ef">if</span> (time_before(jiffies, calc_load_update <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>))
-                <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">if</span> (time_before(jiffies, calc_load_update <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>))
+            <span style="color:#66d9ef">return</span>;
 
-        <span style="color:#75715e">/*
-</span><span style="color:#75715e">         * Fold the &#39;old&#39; idle-delta to include all NO_HZ cpus.
-</span><span style="color:#75715e">         */</span>
-        delta <span style="color:#f92672">=</span> calc_load_fold_idle();
-        <span style="color:#66d9ef">if</span> (delta)
-                atomic_long_add(delta, <span style="color:#f92672">&amp;</span>calc_load_tasks);
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * Fold the &#39;old&#39; idle-delta to include all NO_HZ cpus.
+</span><span style="color:#75715e">     */</span>
+    delta <span style="color:#f92672">=</span> calc_load_fold_idle();
+    <span style="color:#66d9ef">if</span> (delta)
+            atomic_long_add(delta, <span style="color:#f92672">&amp;</span>calc_load_tasks);
 
-        active <span style="color:#f92672">=</span> atomic_long_read(<span style="color:#f92672">&amp;</span>calc_load_tasks);
-        active <span style="color:#f92672">=</span> active <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> active <span style="color:#f92672">*</span> FIXED_1 : <span style="color:#ae81ff">0</span>;
+    active <span style="color:#f92672">=</span> atomic_long_read(<span style="color:#f92672">&amp;</span>calc_load_tasks);
+    active <span style="color:#f92672">=</span> active <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> active <span style="color:#f92672">*</span> FIXED_1 : <span style="color:#ae81ff">0</span>;
 
-        avenrun[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active);
-        avenrun[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active);
-        avenrun[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active);
+    avenrun[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active);
+    avenrun[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active);
+    avenrun[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active);
 
-        calc_load_update <span style="color:#f92672">+=</span> LOAD_FREQ;
+    calc_load_update <span style="color:#f92672">+=</span> LOAD_FREQ;
 
-        <span style="color:#75715e">/*
-</span><span style="color:#75715e">         * In case we idled for multiple LOAD_FREQ intervals, catch up in bulk.
-</span><span style="color:#75715e">         */</span>
-        calc_global_nohz();
-}</code></pre></div>
-<ul>
-<li>kernel 4.4 (kernel/sched/loadavg.c)</li>
-</ul>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * In case we idled for multiple LOAD_FREQ intervals, catch up in bulk.
+</span><span style="color:#75715e">     */</span>
+    calc_global_nohz();
+}</code></pre></div></li>
+
+<li><p>kernel 4.4 (kernel/sched/loadavg.c)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">calc_global_load</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> ticks)
 {
-        <span style="color:#66d9ef">long</span> active, delta;
+    <span style="color:#66d9ef">long</span> active, delta;
 
-        <span style="color:#66d9ef">if</span> (time_before(jiffies, calc_load_update <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>))
-                <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">if</span> (time_before(jiffies, calc_load_update <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>))
+            <span style="color:#66d9ef">return</span>;
 
-        <span style="color:#75715e">/*
-</span><span style="color:#75715e">         * Fold the &#39;old&#39; idle-delta to include all NO_HZ cpus.
-</span><span style="color:#75715e">         */</span>
-        delta <span style="color:#f92672">=</span> calc_load_fold_idle();
-        <span style="color:#66d9ef">if</span> (delta)
-                atomic_long_add(delta, <span style="color:#f92672">&amp;</span>calc_load_tasks);
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * Fold the &#39;old&#39; idle-delta to include all NO_HZ cpus.
+</span><span style="color:#75715e">     */</span>
+    delta <span style="color:#f92672">=</span> calc_load_fold_idle();
+    <span style="color:#66d9ef">if</span> (delta)
+            atomic_long_add(delta, <span style="color:#f92672">&amp;</span>calc_load_tasks);
 
-        active <span style="color:#f92672">=</span> atomic_long_read(<span style="color:#f92672">&amp;</span>calc_load_tasks);
-        active <span style="color:#f92672">=</span> active <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> active <span style="color:#f92672">*</span> FIXED_1 : <span style="color:#ae81ff">0</span>;
+    active <span style="color:#f92672">=</span> atomic_long_read(<span style="color:#f92672">&amp;</span>calc_load_tasks);
+    active <span style="color:#f92672">=</span> active <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> active <span style="color:#f92672">*</span> FIXED_1 : <span style="color:#ae81ff">0</span>;
 
-        avenrun[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active);
-        avenrun[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active);
-        avenrun[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active);
+    avenrun[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">0</span>], EXP_1, active);
+    avenrun[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">1</span>], EXP_5, active);
+    avenrun[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> calc_load(avenrun[<span style="color:#ae81ff">2</span>], EXP_15, active);
 
-        calc_load_update <span style="color:#f92672">+=</span> LOAD_FREQ;
+    calc_load_update <span style="color:#f92672">+=</span> LOAD_FREQ;
 
-        <span style="color:#75715e">/*
-</span><span style="color:#75715e">         * In case we idled for multiple LOAD_FREQ intervals, catch up in bulk.
-</span><span style="color:#75715e">         */</span>
-        calc_global_nohz();
-}</code></pre></div>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * In case we idled for multiple LOAD_FREQ intervals, catch up in bulk.
+</span><span style="color:#75715e">     */</span>
+    calc_global_nohz();
+}</code></pre></div></li>
+</ul>
+
 <p>커널이 업그레이드 되면서 구현 방법이 조금씩은 바뀌었지만 근본적인 형태는 변하지 않았기 때문에 <code>calc_global_load()</code>가 있기 전 후에 해당하는 2.6.18 커널과 2.6.32 커널을 살펴보도록 하겠다. 이 두 커널은 위에도 표기한 것 처럼 RHEL5(CentOS5)과 RHEL6(CentOS6)의 근간이 되는 커널 버전이다.</p>
 
 <p>먼저 2.6.18 커널의 <code>count_active_tasks()</code> 함수와 2.6.32 커널의 <code>atomic_long_read</code> 매크로가 불러들이는 <code>calc_load_tasks</code>값을 주목하자. 구현 방식은 다르지만 궁극적으로 해당 부분이 하는 역할은 현재의 Activ Task 개수를 계산하는데는 변함이 없다.</p>
@@ -443,9 +439,9 @@ Load Load Average는 말 그대로 Load 값의 평균을 나타낸 수치를 의
 </span><span style="color:#75715e">#define EXP_15          2037            </span><span style="color:#75715e">/* 1/exp(5sec/15min) */</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">#define CALC_LOAD(load,exp,n) \
-</span><span style="color:#75715e"></span>        load <span style="color:#f92672">*=</span> exp; \
-        load <span style="color:#f92672">+=</span> n<span style="color:#f92672">*</span>(FIXED_1<span style="color:#f92672">-</span>exp); \
-        load <span style="color:#f92672">&gt;&gt;=</span> FSHIFT;</code></pre></div>
+</span><span style="color:#75715e">        load *= exp; \
+</span><span style="color:#75715e">        load += n*(FIXED_1-exp); \
+</span><span style="color:#75715e">        load &gt;&gt;= FSHIFT;</span></code></pre></div>
 <p>주석에서는  Load Average를 구하기 위해서 고정소수점 방식을 사용하고 11비트의 소수자리를 사용하는 것을 알 수 있다. <code>FSHIFT</code>는 쉬프트 연산을 위해 11의 값을 갖게 되고 1.0을 의미하는 값 <code>FIXED_1</code>은 1을 11비트 쉬프트(shift) 하여 표현하게 된다. (즉, 일반정수라면 2048 = 2^11을 의미하겠지만 고정소수점이기에 1.0이 된다)</p>
 
 <p><code>EXP_1</code>의 값이 나오게 된 원인을 찾아보자. 먼저 Load Average를 계산하는데 있어서 지수이동평균의 감소인수(damping factor) 값은 <code>e^-(5/60m)</code>이다. 이를 다시 표현하면 주석에 나와 있는대로 <code>1/e^(5/60m)</code>이다. 여기에서 <code>EXP_1</code>은 1분에 대한 값이기 때문에 m은 1이 되고 아래와 같이 표현할 수 있다.</p>
@@ -619,7 +615,7 @@ e는 감소인수(= e^(-5/60))를 간략히 쓴 것이다
 
 
 
-<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
 
 
 

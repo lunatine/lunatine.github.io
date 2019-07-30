@@ -41,8 +41,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
 <link rel="shortcut icon" href="/favicon.ico">
-<meta name="theme-color" content="#252627">
-<meta itemprop="name" content="[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="[FAQ] Linux 메모리 효율을 위한 vfs_cache_pressure">
 <meta itemprop="description" content="유휴 메모리가 전부 어디로 간거지? (Page Cache) Linux는 I/O 성능을 높이기 위해서 Page Cache를 사용한다. 이 글에서는 Page Cache에 대해서는 다루지 않지만 간단히 설명하면 다음과 같다. Linux는 물리적인 저장/통신 장치와 데이터를 주고 받을 때 메모리에 먼저 적재한 후에 데이터를 주고 받는데 이는 동일한 데이터에 대한 접근을 할 경우 메모리에서 바로 가져오도록 하여 I/O 성능을 높이기 위함이다. 이를 Page라는 단위로 관리를 하며 흔히 Page Cache라고 이야기 한다.
 따라서, 한번이라도 데이터를 읽거나 쓴 적이 있다면 메모리는 Page Cache에 적재되고 아래의 파일에서 Cached 영역으로 표기 된다.">
 
@@ -365,7 +364,7 @@ echo 3 &gt; /proc/sys/vm/drop_caches
 
 
 
-<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
 
 
 

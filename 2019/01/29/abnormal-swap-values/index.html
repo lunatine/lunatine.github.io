@@ -41,8 +41,7 @@ $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
 <link rel="shortcut icon" href="/favicon.ico">
-<meta name="theme-color" content="#252627">
-<meta itemprop="name" content="비 정상적인 Swap 수치">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="비 정상적인 Swap 수치">
 <meta itemprop="description" content="증상서버 시스템에서 Swap 크기를 확인 할 때 아래와 같이 보유한 스왑 크기보다 훨씬 큰 비 정상적인 수치가 표시 됩니다.
 $ free total used free shared buffers cached Mem: 65944564 42388800 23555764 48 3281272 30509248 -/&#43; buffers/cache: 8598280 57346284  cat /proc/meminfo | grep ^Swap SwapCached: 1380 kB SwapTotal: 2096124 kB SwapFree: 77770336 kB  원인 커널의 get_swap_page()와 관련된 수정 사항에서 스핀락(swap_lock)이 제거 되었는데 이로 인해서 nr_swap_pages 오류와 /proc/meminfo의 오류를 야기하게 되었습니다.">
 
@@ -273,7 +272,7 @@ SwapFree:       77770336 kB
 
 
 
-<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
 
 
 
