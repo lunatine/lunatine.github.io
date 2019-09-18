@@ -436,7 +436,6 @@ net.ipv4.tcp_notsent_lowat = 16384
 
 <ul>
 <li>BBR - <a href="https://www.vultr.com/docs/how-to-deploy-google-bbr-on-centos-7" target="_blank">How to Deploy Google BBR on CentOS 7 - Vultr.com</a></li>
-<li>BBR - <a href="https://kakao.agit.in/g/300003298/wall/317324520#comment_panel_320341897" target="_blank">agit :: 통검 TCP BBR 적용 테스트</a></li>
 <li>NV -  <a href="https://access.redhat.com/solutions/3717541" target="_blank">https://access.redhat.com/solutions/3717541</a></li>
 </ul></li>
 </ul>
